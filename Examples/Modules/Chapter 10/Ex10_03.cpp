@@ -1,5 +1,5 @@
 // Using return type deduction with templates
-import <iostream>;
+#include "print"
 import <string>;
 
 // Template for functions to return the larger of two values
@@ -13,11 +13,11 @@ auto larger(const T1& a, const T2& b)
 int main()
 {
   int small_int {10};
-  std::cout << "Larger of " << small_int << " and 9.6 is "
-            << larger(small_int, 9.6) << std::endl;       // deduced return type: double
+  std::println("Larger of {} and 9.6 is {}", 
+               small_int, larger(small_int, 9.6));  // deduced return type: double
   
   std::string a_string {"A"};
-  std::cout << "Larger of \"" << a_string << "\" and \"Z\" is \""
-            << larger(a_string, "Z") << '"' << std::endl; // deduced return type: std::string
+  std::println(R"(Larger of "{}" and "Z" is "{}")",
+               a_string , larger(a_string, "Z"));   // deduced return type: std::string
 }
 
