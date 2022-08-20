@@ -1,5 +1,5 @@
 // Using return type deduction with templates (decltype(auto) instead of auto)
-import <iostream>;
+#include <print>
 import <string>;
 import <vector>;
 
@@ -13,16 +13,16 @@ decltype(auto) larger(const T1& a, const T2& b)
 
 int main()
 {
-  const int small_int {10};
-  std::cout << "Larger of " << small_int << " and 9.6 is "
-            << larger(small_int, 9.6) << std::endl;       // deduced return type: double
+  int small_int {10};
+  std::println("Larger of {} and 9.6 is {}", 
+               small_int, larger(small_int, 9.6));  // deduced return type: double
   
-  const std::string a_string {"A"};
-  std::cout << "Larger of \"" << a_string << "\" and \"Z\" is \""
-            << larger(a_string, "Z") << '"' << std::endl; // deduced return type: std::string
+  std::string a_string {"A"};
+  std::println(R"(Larger of "{}" and "Z" is "{}")",
+               a_string , larger(a_string, "Z"));   // deduced return type: std::string
 
   const std::vector v1{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
   const std::vector v2{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 11 };
-  std::cout << "The larger of our two vectors ends with " << larger(v1, v2).back();
+  std::println("The larger of our two vectors ends with {}", larger(v1, v2).back());
 }
 
