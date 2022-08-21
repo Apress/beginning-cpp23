@@ -1,12 +1,11 @@
 // Multiple case actions
-import <iostream>;
-
+#include <print>
 #include <cctype>
 
 int main()
 {
   char letter {};
-  std::cout << "Enter a letter: ";
+  std::print("Enter a letter: ");
   std::cin >> letter;
 
   if (std::isalpha(letter))
@@ -14,15 +13,15 @@ int main()
     switch (std::tolower(letter))
     {
     case 'a': case 'e': case 'i': case 'o': case 'u':
-      std::cout << "You entered a vowel." << std::endl;
+      std::println("You entered a vowel.");
       break;
     default:
-      std::cout << "You entered a consonant." << std::endl;
+      std::println("You entered a consonant.");
       break;
     }
   }
   else
   {
-    std::cout << "You did not enter a letter." << std::endl;
+    std::println("You did not enter a letter.");
   }
 }
