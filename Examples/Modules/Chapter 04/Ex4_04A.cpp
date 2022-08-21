@@ -1,6 +1,5 @@
 // Using the std::isupper() / islower() character classification functions
-import <iostream>;
-
+#include <print>
 #include <cctype>
 
 int main()
@@ -11,15 +10,15 @@ int main()
 
   if (std::isupper(letter))
   {
-    std::cout << "You entered an uppercase letter." << std::endl;
+    std::println("You entered an uppercase letter.");
     return 0;
   }
 
   if (std::islower(letter))
   {
-    std::cout << "You entered a lowercase letter." << std::endl;
+    std::println("You entered an lowercase letter.");
     return 0;
   }
 
-  std::cout << "You did not enter a letter." << std::endl;
+  std::println("You did not enter a letter.");
 }

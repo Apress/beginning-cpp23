@@ -1,7 +1,6 @@
 // Using the named comparison functions
 import <compare>;  // Required when using operator <=> (even for fundamental types)
-import <format>;
-import <iostream>;
+#include <print>
 
 int main()
 {
@@ -12,7 +11,7 @@ int main()
 
   std::strong_ordering ordering{ value <=> 0 };
 
-  std::cout << std::format("value < 0: {}\n", std::is_lt(ordering));  // is less than
-  std::cout << std::format("value > 0: {}\n", std::is_gt(ordering));  // is greater than
-  std::cout << std::format("value == 0: {}\n", std::is_eq(ordering)); // is equivalent
+  std::println("value < 0: {}", std::is_lt(ordering));  // is less than
+  std::println("value > 0: {}", std::is_gt(ordering));  // is greater than
+  std::println("value == 0: {}", std::is_eq(ordering)); // is equivalent
 }
