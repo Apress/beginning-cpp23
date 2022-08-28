@@ -1,5 +1,5 @@
 // Using the switch statement
-#include <print>
+import <print>;
 
 int main()
 {
