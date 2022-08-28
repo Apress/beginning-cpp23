@@ -1,5 +1,5 @@
 // Using return type deduction with templates
-#include "print"
+import <print>;
 import <string>;
 
 // Template for functions to return the larger of two values
