@@ -1,5 +1,5 @@
 // Exercising the use of function pointers as callback functions
-import <iostream>;
+import <print>;
 import <string>;
 import <vector>;
 import optimum;
@@ -12,13 +12,12 @@ bool longer(const std::string&, const std::string&);
 int main()
 {
   std::vector numbers{ 91, 18, 92, 22, 13, 43 };
-  std::cout << "Minimum element: " << *findOptimum(numbers, less) << std::endl;
-  std::cout << "Maximum element: " << *findOptimum(numbers, greater<int>) << std::endl;
+  std::println("Minimum element: {}", *findOptimum(numbers, less));
+  std::println("Maximum element: {}", *findOptimum(numbers, greater<int>));
 
   std::vector<std::string> names{ "Moe", "Larry", "Shemp", "Curly", "Joe", "Curly Joe" };
-  std::cout << "Alphabetically last name: "
-            << *findOptimum(names, greater<std::string>) << std::endl;
-  std::cout << "Longest name: " << *findOptimum(names, longer) << std::endl;
+  std::println("Alphabetically last name: {}", *findOptimum(names, greater<std::string>));
+  std::println("Longest name: {}", *findOptimum(names, longer));
 }
 
 bool less(const int& one, const int& other) { return one < other; }
