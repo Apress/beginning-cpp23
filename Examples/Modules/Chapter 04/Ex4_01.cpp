@@ -1,5 +1,5 @@
 // Comparing data values
-#include <print>
+import <print>;
 
 int main()
 {

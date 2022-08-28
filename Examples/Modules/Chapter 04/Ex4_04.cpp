@@ -1,5 +1,5 @@
 // Using a nested if
-#include <print>;
+import <print>;;
 
 int main()
 {

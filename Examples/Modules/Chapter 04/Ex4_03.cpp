@@ -1,5 +1,5 @@
 // Using an if statement
-#include <print>
+import <print>;
 
 int main()
 {

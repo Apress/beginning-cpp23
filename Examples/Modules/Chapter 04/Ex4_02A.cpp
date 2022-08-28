@@ -1,6 +1,6 @@
 // Using the named comparison functions
 import <compare>;  // Required when using operator <=> (even for fundamental types)
-#include <print>
+import <print>;
 
 int main()
 {
