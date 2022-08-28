@@ -3,13 +3,14 @@ export module box.formatter;
 import box;
 import <format>;
 import <string>;
+import <algorithm>;
 
 // Adding specific specializations to the std namespace is allowed
 export template <>
 class std::formatter<Box>
 {
 public:
-  auto parse(auto& context)
+  constexpr auto parse(auto& context)
   {
     // [context.begin(), context.end()) is a character range that contains a part of
     // the format string starting from the format specifications to be parsed,
@@ -20,42 +21,38 @@ public:
     // the range will contain ".2}, is fabulous!". The formatter should
     // parse specifiers until '}' or the end of the range.
     //
-    // Our goal for this same example is to store "Box({:.2}, {:.2}, {:.2})" in m_format.
+    // Our goal for this same example is to store "Box({:.2}, {:.2}, {:.2})" in m_box_format.
     // We first find the range where for instance ".2" is present,
-    // and then inject that three times into a format string of the correct form.
+    // and then copy that three times into a format string of the correct form.
 
-    auto iter{ context.begin() };
-    if (iter == context.end())  // May happen for empty {} format specifiers
+    if (std::ranges::empty(context))  // May happen for empty {} format specifiers
     {
-      m_format = "Box({}, {}, {})";
-      return iter;
+      m_box_format = "Box({}, {}, {})";
+      return context.begin();
     }
 
-    // Search for the closing '}'
-    while (iter != context.end() && *iter != '}') ++iter;
+    auto closing_brace = std::ranges::find(context, '}');
 
-    if (*iter != '}') // If not found, fail
+    if (closing_brace == context.end()) // If no '}' found, fail
     {
       throw std::format_error{ "missing closing braces, }" };
     }
     
-    // Main trick in this format expression is that to get { or } 
-    // in the output you have to write {{ or }}. 
-    // Otherwise std::format() will see these characters as the begin or end of a replacement field.
-    m_format = std::format("Box({{:{0}}}, {{:{0}}}, {{:{0}}})", std::string(context.begin(), iter));
+    auto format = std::string(context.begin(), closing_brace);
+    m_box_format = "Box({" + format + "}, {" + format + "}, {" + format + "})";
 
-    return iter;
+    return closing_brace;
   }
 
   auto format(const Box& box, auto& context)
   {
-    return std::format_to(
+    return std::vformat_to(
       context.out(), 
-      m_format, 
-      box.getLength(), box.getWidth(), box.getHeight()
+      m_box_format,
+      std::make_format_args(box.getLength(), box.getWidth(), box.getHeight())
     );
   }
 
 private:
-  std::string m_format;
+  std::string m_box_format;
 };
