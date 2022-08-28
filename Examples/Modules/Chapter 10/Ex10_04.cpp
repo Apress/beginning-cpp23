@@ -1,5 +1,5 @@
 // constexpr if
-#include "print"
+import <print>;
 import <string>;
 import <vector>;
 

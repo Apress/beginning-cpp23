@@ -1,5 +1,5 @@
 // Using return type deduction with templates (decltype(auto) instead of auto)
-#include <print>
+import <print>;
 import <string>;
 import <vector>;
 

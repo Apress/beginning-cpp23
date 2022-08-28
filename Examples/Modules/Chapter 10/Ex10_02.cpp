@@ -1,5 +1,5 @@
 // Overloading function templates
-#include "print"
+import <print>;
 import <string>;
 import <vector>;
 
