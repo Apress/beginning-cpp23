@@ -1,6 +1,6 @@
 # Apress Source Code
 
-This repository accompanies [*Beginning C++23*](https://www.apress.com/9781484258835) by Ivor Horton and Peter Van Weert (Apress, 2023).
+This repository accompanies [*Beginning C++20*](https://www.apress.com/9781484258835) by Ivor Horton and Peter Van Weert (Apress, 2020).
 
 [comment]: #cover
 ![Cover image](9781484258835.jpg)
