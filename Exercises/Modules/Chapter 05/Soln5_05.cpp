@@ -1,4 +1,5 @@
 // Exercise 5-5 Print out characters entered by the user *after* reversing them
+import <print>;
 import <iostream>;
 
 int main()
@@ -6,7 +7,7 @@ int main()
   const size_t max_num_characters {1'000};
   char string[max_num_characters];
 
-  std::cout << "Please enter a string: ";
+  std::print("Please enter a string: ");
   std::cin.getline(string, max_num_characters);
   
   // Count the number of characters
@@ -25,7 +26,7 @@ int main()
   // Print out all characters, one by one
   for (size_t i{ 0 }; i < count; ++i)
   {
-    std::cout << string[i];
+    std::print("{}", string[i]);
   }
-  std::cout << std::endl;
+  std::println("");
 }
