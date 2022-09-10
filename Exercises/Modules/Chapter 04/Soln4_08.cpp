@@ -1,6 +1,7 @@
 // Exercise 4-8
 // Dividing a cash amount into quarters, nickels, dimes and cents.
 
+import <print>;
 import <iostream>;
 
 int main()
@@ -11,7 +12,7 @@ int main()
   const unsigned nickel {5};
 
   double amountInDollars {0.0};
-  std::cout << std::endl << "Please enter a cash amount between 0 and 10 dollars: $";
+  std::print("Please enter a cash amount between 0 and 10 dollars: $");
   std::cin >> amountInDollars;
   
   if (amountInDollars >= 0.0 && amountInDollars <= 10.0)
@@ -35,15 +36,14 @@ int main()
     // Find the number of pennies
     const auto pennies {amountInCents};     // The remainder is already in pennies
 
-    std::cout << std::endl 
-         << "The dollar value $" << amountInDollars << " can be broken down into:"  << std::endl
-         << quarters << " quarter" << (quarters == 1? "" : "s") << ',' << std::endl
-         << dimes    << " dime"    << (dimes    == 1? "" : "s") << ',' << std::endl
-         << nickels  << " nickel"  << (nickels  == 1? "" : "s") << ',' << std::endl
-         << pennies  << " penn"    << (pennies  == 1? "y" : "ies") << '.' << std::endl;
+    std::println("\nThe dollar value ${} can be broken down into:", amountInDollars);
+    std::println("\t{} quarter{},", quarters, (quarters == 1 ? "" : "s"));
+    std::println("\t{} dime{},", dimes, (dimes == 1 ? "" : "s"));
+    std::println("\t{} nickel{},", nickels, (nickels == 1 ? "" : "s"));
+    std::println("\t{} penn{}.", pennies, (pennies == 1 ? "y" : "ies"));
   }
   else
   {
-    std::cout << std::endl << "You did not enter a dollar amount between 0 and 10." << std::endl;
+    std::println("\nYou did not enter a dollar amount between 0 and 10.");
   }
 }
