@@ -1,7 +1,7 @@
 // Exercise 4-05
 // Using the conditional operator to select output.
 import <iostream>;
-import <format>;
+import <print>;
 
 int main()
 {
@@ -9,34 +9,28 @@ int main()
   int brown {};     // Count of brown mice
   int white {};     // Count of white mice
 
-  std::cout << "How many brown mice do you have? ";
+  std::print("How many brown mice do you have? ");
   std::cin >> brown;
-  std::cout << "How many white mice do you have? ";
+  std::print("How many white mice do you have? ");
   std::cin >> white;
   
   if (brown < 0 || white < 0)
   {
-    std::cout << "One cannot have a negative amount of mice..." << std::endl;
+    std::println("One cannot have a negative amount of mice...");
     return 1;
   }
 
   mice = brown + white;
 
-  std::cout <<
-    std::format("You have {} {} in total.\n", mice, mice == 1 ? "mouse" : "mice");
+  std::println("You have {} {} in total.", mice, mice == 1 ? "mouse" : "mice");
 
   if (mice == 1)
   {
-    // Mind the parentheses around the conditional expression!
-    std::cout << "It is a " << (brown? "brown" : "white") << " mouse." << std::endl;
+    std::println("It is a {} mouse.", brown ? "brown" : "white");
   }
   else
   {
-    // No need for parenthese around the conditional expressions here
-    std::cout << std::format("Of these mice, {} {} brown {}.", 
-        brown, 
-        brown == 1 ? "is a" : "are", 
-        brown == 1 ? "mouse" : "mice"
-    ) << std::endl;
+    std::println("Of these mice, {} {} brown {}.", 
+        brown, brown == 1 ? "is a" : "are", brown == 1 ? "mouse" : "mice");
   }
 }

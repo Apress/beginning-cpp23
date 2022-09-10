@@ -3,6 +3,7 @@
 //              and we can use another to arrange the input as we need. 
 //              Then we use an if-else to generate the appropriate output.
 
+import <print>;
 import <iostream>;
 
 int main()
@@ -10,13 +11,13 @@ int main()
   int value1 {};
   int value2 {};
 
-  std::cout << "Please input two positive integers, separated by a space: ";
+  std::print("Please input two positive integers, separated by a space: ");
   std::cin >> value1 >> value2;
-  std::cout << std::endl;
+  std::println("");
 
   if (value1 <= 0 || value2 <= 0)  // Valid input?
   {
-    std::cout << "Sorry - positive integers only." << std::endl;
+    std::println("Sorry - positive integers only.");
     return 1;
   }
 
@@ -28,8 +29,9 @@ int main()
     value2 = temp;
   }
 
+  // Notice the use of argument indices to reorder value1 and value2 (see Chapter 2)
   if (value1 % value2 == 0)
-    std::cout << value2 << " divides into " << value1 << " exactly. " << std::endl;
+    std::println("{1} divides into {0} exactly. ", value1, value2);
   else 
-    std::cout << value1 << " is not exactly divisible by " << value2 << std::endl;
+    std::println("{0} is not exactly divisible by {1}.", value1, value2);
 }
