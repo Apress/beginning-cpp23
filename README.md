@@ -10,7 +10,7 @@ Download the files as a zip using the green button, or clone the repository to y
 To make sure you also clone the 3rd party submodules in the [Workarounds](Workarounds) directory, 
 we recommend using the following Git command:
 
-    git clone --recursive https://github.com/Apress/beginning-cpp20.git
+    git clone --recursive https://github.com/Apress/beginning-cpp23.git
 
 ## Contributions
 
