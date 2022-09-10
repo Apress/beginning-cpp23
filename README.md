@@ -1,7 +1,7 @@
 # Apress Source Code
 
 > **Warning**
-> This C++23 version of all code is a work in progress. 
+> The C++23 version of all code is a work in progress. 
 > Significant parts of the code will therefore still be from the C++20 version of the book.
 
 This repository will accompany *Beginning C++23* by Ivor Horton and Peter Van Weert (Apress, 2023), 
