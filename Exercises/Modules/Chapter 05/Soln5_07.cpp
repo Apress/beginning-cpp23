@@ -9,16 +9,16 @@ import <vector>;
 
 int main()
 {
-  std::vector<size_t> product_id;
-  std::vector<size_t> quantity;
+  std::vector<unsigned> product_id;
+  std::vector<unsigned> quantity;
   std::vector<double> unit_cost;
 
   // Read the records
   while (true)
   {
     std::print("Enter a record - product number, quantity, unit cost separated by spaces: ");
-    size_t id {};
-    size_t n {};
+    unsigned id {};
+    unsigned n {};
     double cost {};
     std::cin >> id >> n >> cost;
 
@@ -36,7 +36,7 @@ int main()
   std::println("{:10} {:10} {:10} {:10}", "Product", "Quantity", "Unit Price", "Cost");
   
   double total_cost {};
-  for (size_t i {}; i < product_id.size(); ++i)
+  for (std::size_t i {}; i < product_id.size(); ++i)
   {
     const auto cost{ quantity[i] * unit_cost[i] };
     
