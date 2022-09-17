@@ -12,10 +12,10 @@ static_assert(sizeof(unsigned long long) >= 8,
 
 int main()
 {
-  const size_t n {93};
+  const std::size_t n {93};
   std::array<unsigned long long, n> fib;
   fib[0] = fib[1] = 1UL;
-  for (size_t i {2}; i < n; ++i)
+  for (std::size_t i {2}; i < n; ++i)
     fib[i] = fib[i - 1] + fib[i - 2];
 
   std::println("The first {} Fibonacci numbers are:", n);
