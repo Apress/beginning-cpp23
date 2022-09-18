@@ -1,5 +1,5 @@
 // Modifying the value of a caller variable – references vs pointers
-import <iostream>;
+import <print>;
 
 void change_it_by_pointer(double* reference_to_it);    // Pass pointer (by value)
 void change_it_by_reference(double& reference_to_it);  // Pass by reference
@@ -9,10 +9,10 @@ int main()
   double it {5.0};
 
   change_it_by_pointer(&it);         // Now we pass the address
-  std::cout << "After first function execution, it = " << it << std::endl;
+  std::println("After first function execution, it = {}", it);
 
   change_it_by_reference(it);        // Now we pass a reference, not the value!
-  std::cout << "After second function execution, it = " << it << std::endl;
+  std::println("After second function execution, it = {}", it);
 }
 
 void change_it_by_pointer(double* pit)

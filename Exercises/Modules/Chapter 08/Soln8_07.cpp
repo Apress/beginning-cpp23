@@ -4,17 +4,18 @@
 // and not to forget about zero either (using n == 1 and n == 2 as base cases 
 // would mean trouble if n == 0 is passed)
 import <iostream>;
+import <print>;
 
 unsigned long long fib(size_t n);
 
 int main()
 {
   size_t num{};
-  std::cout << "Good day, master. How many Fibonacci numbers shall I compute today?" << std::endl;
+  std::print("Good day, master. How many Fibonacci numbers shall I compute today? ");
   std::cin >> num;
   
   for (size_t i{1}; i <= num; ++i)
-     std::cout << "fib(" << i << ") = " << fib(i) << '\n';
+     std::println("fib({}) = {}", i, fib(i));
 }
 
 unsigned long long fib(size_t n)

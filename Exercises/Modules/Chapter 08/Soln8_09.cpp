@@ -1,19 +1,19 @@
 // Exercise 8_9 Count the number of multiplications performed by 
 // the divide and conquer power() function of Soln8_08.cpp
 import <iostream>;
-import <iomanip>;
+import <print>;
 
 long double power(double x, int n);
 
 int main()
 {
-  std::cout << power(1.5, 1000) << std::endl;
+  std::println("{}", power(1.5, 1000));
 }
 
 inline auto mult(long double l, long double r)
 {
-  static size_t count{};
-  std::cout << ++count << " multiplications" << std::endl;
+  static unsigned count{};
+  std::println("{} multiplications", ++count);
   return l * r;
 }
 

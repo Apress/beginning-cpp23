@@ -24,6 +24,7 @@
       which allows you to handle such "not available" or "undefined" cases more elegantly, though.
 */
 import <iostream>;
+import <print>;
 import <vector>;
 import <string>;
 import <limits>;    // for std::numeric_limits's max() and quiet_nan()
@@ -49,7 +50,7 @@ int main()
 {
   std::vector<unsigned> grades;
 
-  std::cout << "Please enter a number of grades (0-100), terminated by a negative one:" << std::endl;
+  std::println("Please enter a number of grades (0-100), terminated by a negative one:");
   while (true)
   {
     int number{};
@@ -57,7 +58,7 @@ int main()
     if (number < 0)
       break;
     else if (number > 100)
-      std::cout << "Only numbers < 100, please..." << std::endl;
+      std::println("Only numbers < 100, please...");
     else
       grades.push_back(number);
   }
@@ -84,7 +85,7 @@ int main()
 }
 
 // Swap numbers at position first with address at position second
-void swap(std::vector<unsigned>& numbers, size_t first, size_t second)
+void swap(std::vector<unsigned>& numbers, std::size_t first, std::size_t second)
 {
   auto temp{ numbers[first] };
   numbers[first] = numbers[second];
@@ -93,7 +94,7 @@ void swap(std::vector<unsigned>& numbers, size_t first, size_t second)
 
 // Recursive helper function to sort numbers in ascending sequence
 // Numbers to be sorted are from words[start] to words[end]
-void sort(std::vector<unsigned>& numbers, size_t start, size_t end)
+void sort(std::vector<unsigned>& numbers, std::size_t start, std::size_t end)
 {
   // start index must be less than end index for 2 or more elements
   if (!(start < end))
@@ -103,8 +104,8 @@ void sort(std::vector<unsigned>& numbers, size_t start, size_t end)
   swap(numbers, start, (start + end) / 2); // Swap middle number with start
 
   // Check values against chosen word
-  size_t current{ start };
-  for (size_t i{ start + 1 }; i <= end; i++)
+  std::size_t current{ start };
+  for (std::size_t i{ start + 1 }; i <= end; i++)
   {
     if (numbers[i] < numbers[start])   // Is word less than chosen value?
       swap(numbers, ++current, i);     // Yes, so swap to the left
@@ -139,7 +140,7 @@ void getHighest(const std::vector<unsigned>& sortedNumbers, unsigned(&highest)[5
 
 void getLowest(const std::vector<unsigned>& sortedNumbers, unsigned(&lowest)[5])
 {
-  for (size_t i{}; i < std::size(lowest); ++i)
+  for (std::size_t i{}; i < std::size(lowest); ++i)
   {
     if (i < sortedNumbers.size())
       lowest[i] = sortedNumbers[i];
@@ -199,25 +200,25 @@ double computeVariance(const std::vector<unsigned>& numbers)
 
 void printNumber(const std::string& label, double number)
 {
-  std::cout << label << ": ";
+  std::print("{}: ", label);
 
   if (std::isnan(number))
-    std::cout << "n/a";
+    std::print("n/a");
   else
-    std::cout << number;
+    std::print("{:.4}", number);
 
-  std::cout << std::endl;
+  std::println("");
 }
 
 void printNumbers(const std::string& label, const unsigned(&numbers)[5])
 {
-  std::cout << label << ": ";
+  std::print("{}: ", label);
 
   for (const auto number : numbers)
   {
     if (number != NOT_AVAILABLE)
-      std::cout << number << ' ';
+      std::print("{} ", number);
   }
 
-  std::cout << std::endl;
+  std::println("");
 }
