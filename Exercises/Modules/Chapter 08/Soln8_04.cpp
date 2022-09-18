@@ -1,5 +1,5 @@
 // Exercise 8_4 An overloaded plus() function. 
-import <iostream>;
+import <print>;
 import <string>;
 
 int plus(int a, int b);
@@ -9,19 +9,18 @@ std::string plus(const std::string& s1, const std::string& s2);
 int main()
 {
   const int n {plus(3, 4)};
-  std::cout << "plus(3, 4) returns " << n << std::endl;
+  std::println("plus(3, 4) returns {}", n);
   
   const double d {plus(3.2, 4.2)};
-  std::cout << "plus(3.2, 4.2) returns " << d << std::endl;
+  std::println("plus(3.2, 4.2) returns {}", d);
   
   const std::string s {plus("he", "llo")};
-  std::cout << "plus(\"he\", \"llo\") returns " << s << std::endl;
+  std::println("plus(\"he\", \"llo\") returns {}", s);
   
   const std::string s1 {"aaa"};
   const std::string s2 {"bbb"};
   const std::string s3 {plus(s1, s2)};
-  std::cout << "With s1 as " << s1 << " and s2 as " << s2 << std::endl;
-  std::cout << "plus(s1, s2) returns " << s3 << std::endl;
+  std::println("With s1 as {} and s2 as {} plus(s1, s2) returns {}", s1, s2, s3);
 
   /*
   const auto d {plus(3, 4.2)};

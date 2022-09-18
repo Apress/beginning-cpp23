@@ -1,6 +1,6 @@
 // Exercise 8_5 Listing prime numbers
 import <iostream>;
-import <format>;
+import <print>;
 import <vector>;
 
 #include <cmath>    // for std::sqrt()
@@ -24,7 +24,7 @@ void filterPrimeNumbers(std::vector<unsigned>& output, const std::vector<unsigne
 int main()
 {
   unsigned user_number{};
-  std::cout << "Would you be so kind as to enter a number? " << std::endl;
+  std::print("Would you be so kind as to enter a number? ");
   std::cin >> user_number;
   
   const auto numbers{ generateNumbers(user_number) };
@@ -33,12 +33,12 @@ int main()
   unsigned count{};
   for (auto& prime : primes)
   {
-    std::cout << std::format("{:6}", prime);
+    std::print("{:8}", prime);
     if (++count % 15 == 0)
-      std::cout << '\n';
+      std::println("");
   }
   
-  std::cout << std::endl;
+  std::println("");
 }
 
 /* 
@@ -73,7 +73,6 @@ bool isPrime(unsigned number)
 std::vector<unsigned> generateNumbers(unsigned to, unsigned from)
 {
   std::vector<unsigned> result;
-  result.reserve(to - from + 1);
   for (unsigned i{ from }; i <= to; ++i)
     result.push_back(i);
   return result;
