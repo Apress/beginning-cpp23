@@ -1,4 +1,5 @@
 // Using an array of pointers
+import <print>;
 import <iostream>;
 import <array>;      // for std::size()
 
@@ -10,17 +11,17 @@ int main()
                          "Oliver Hardy", "Greta Garbo"
                        };
 
-  std::cout << "Pick a lucky star! Enter a number between 1 and "
-            << std::size(pstars) << ": ";
-  size_t choice {};
+  std::print("Pick a lucky star! Enter a number between 1 and {}: ", std::size(pstars));
+  unsigned choice {};
   std::cin >> choice;
 
   if (choice >= 1 && choice <= std::size(pstars))
   {
-    std::cout << "Your lucky star is " << pstars[choice - 1] << std::endl;
+    std::println("Your lucky star is {}.", pstars[choice - 1]);
   }
   else
   {
-    std::cout << "Sorry, you haven't got a lucky star." << std::endl;
+    std::println("Sorry, you haven't got a lucky star.");
   }
 }
+
