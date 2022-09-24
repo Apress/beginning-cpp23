@@ -16,26 +16,26 @@
  */
 
 import <iostream>;
-import <format>;
+import <print>;
 import <vector>;
 
 #include <cmath>
 
 int main()
 {
-  size_t n {};
-  std::cout << "Enter the number of vector elements: ";
+  unsigned long long n {};
+  std::print("Enter the number of vector elements: ");
   std::cin >> n;
   auto* values{ new std::vector<double>(n) };
 
-  for (size_t i {}; i < n; ++i)
+  for (unsigned long long i {}; i < n; ++i)
     (*values)[i] = 1.0 / ((i + 1)*(i + 1));
   
   double sum {};
   for (auto value : *values)
     sum += value;
 
-  std::cout << std::format("Result is {}", std::sqrt(6.0*sum)) << std::endl;
+  std::println("Result is {}", std::sqrt(6.0*sum));
   
-  delete values;                                              // It's not an array this time!
+  delete values;    // Don't forget!
 }
