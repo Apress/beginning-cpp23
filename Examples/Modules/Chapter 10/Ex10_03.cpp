@@ -1,6 +1,5 @@
 // Using return type deduction with templates
-import <print>;
-import <string>;
+import std;
 
 // Template for functions to return the larger of two values
 // Supports implicit converion of differently-typed arguments

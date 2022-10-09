@@ -1,7 +1,5 @@
 // constexpr if
-import <print>;
-import <string>;
-import <vector>;
+import std;
 
 template<typename T> 
 decltype(auto) larger(const T& a, const T& b)

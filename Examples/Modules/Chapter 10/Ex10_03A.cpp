@@ -1,7 +1,5 @@
 // Using return type deduction with templates (decltype(auto) instead of auto)
-import <print>;
-import <string>;
-import <vector>;
+import std;
 
 // Template for functions to return the larger of two values
 // Supports implicit converion of differently-typed arguments

@@ -1,7 +1,5 @@
 // Overloading function templates
-import <print>;
-import <string>;
-import <vector>;
+import std;
 
 template<typename T> T larger(T a, T b);    // Function template prototype
 template <typename T> T* larger(T*, T*);
