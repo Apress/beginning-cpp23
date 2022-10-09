@@ -1,9 +1,6 @@
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <concepts>;
+import std;
 
 export template <typename T> requires std::default_initializable<T> && std::destructible<T>
 class Array

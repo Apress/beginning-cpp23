@@ -1,10 +1,5 @@
 // Asserting that a type models a concept
-import <concepts>;    // For the std::same_as<> and std::convertible_to<> concepts
-import <ranges>;      // For std::ranges::range<> concept
-import <type_traits>; // For the std::remove_cv<> type trait
-import <list>;
-import <vector>;
-import <string>;
+import std;
 
 template <typename Iter>
 concept BidirectionalIterator = true; // Feel free to further work out all requirements...

@@ -1,8 +1,5 @@
 // Class template instantiation errors
-import <set>;
-import <list>;
-import <vector>;
-import <algorithm>;
+import std;
 
 class MyClass { /* just a dummy class */ };
 
