@@ -1,5 +1,5 @@
 // Using a member initializer list
-import <iostream>;
+import std;
 
 // Class to represent a box
 class Box

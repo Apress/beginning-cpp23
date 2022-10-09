@@ -2,7 +2,7 @@ export module truckload;
 
 export import :shared_box;
 import :package;
-import <vector>;
+import std;
 
 export class Truckload
 {

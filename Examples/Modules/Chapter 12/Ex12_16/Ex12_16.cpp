@@ -1,5 +1,5 @@
 // Implementing a destructor
-import <iostream>;
+import std;
 import box;
 
 int main()

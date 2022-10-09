@@ -1,7 +1,7 @@
 // Using a linked list
 import box.random;
 import truckload;
-import <iostream>;
+import std;
 
 int main()  
 {

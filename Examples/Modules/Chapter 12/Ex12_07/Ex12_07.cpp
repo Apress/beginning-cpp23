@@ -1,5 +1,5 @@
 // Accessing private members through getters and setters
-import <iostream>;
+import std;
 import box;
 
 int main()

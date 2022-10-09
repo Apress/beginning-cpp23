@@ -1,6 +1,6 @@
 // Defining classes with in-class member definitions.
 
-import <iostream>; // For use of std::cout, std::endl, etc.
+import std;
 import box;        // For use of the Box class
 
 int main()

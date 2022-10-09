@@ -1,7 +1,6 @@
 export module cylindrical;
 
-import <string>;
-import <string_view>;
+import std;
 
 export class CylindricalBox
 {

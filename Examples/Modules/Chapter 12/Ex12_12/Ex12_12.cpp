@@ -1,6 +1,5 @@
 // Using a friend function of a class
-import <iostream>;
-import <memory>;
+import std;
 import box;
 
 int main()

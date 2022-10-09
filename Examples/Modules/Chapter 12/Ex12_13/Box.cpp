@@ -1,6 +1,6 @@
 module box;
 
-import <iostream>;
+import std;
 
 Box::Box(double length, double width, double height)  // Constructor definition
   : m_length{length}, m_width{width}, m_height{height}

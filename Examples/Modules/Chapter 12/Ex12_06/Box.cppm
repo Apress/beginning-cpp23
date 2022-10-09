@@ -1,6 +1,6 @@
 // Module interface file for a module exporting the Box class
 export module box;
-import <iostream>;
+import std;
 
 // Class to represent a box
 export class Box

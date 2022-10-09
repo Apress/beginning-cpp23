@@ -1,5 +1,5 @@
 export module box;
-import <iostream>;
+import std;
 
 // Class to represent a box
 export class Box
