@@ -1,9 +1,5 @@
 // Using std::span<const T> to ensure largest() works for const inputs
-import <iostream>;
-import <string>;
-import <vector>;
-import <array>;
-import <span>;
+import std;
 
 // Old function prototypes
 //double largest(const double data[], size_t count);
