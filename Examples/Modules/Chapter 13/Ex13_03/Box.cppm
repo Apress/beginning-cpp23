@@ -1,6 +1,6 @@
 export module box;
 
-import <compare>;  // For std::partial_ordering (see Chapter 4)
+import std;
 
 export class Box
 {

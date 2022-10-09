@@ -1,5 +1,3 @@
-module;
-#include <cstring>  // For std::strlen() and std::strcpy()
 module message;
 
 Message::Message(const Message& message)

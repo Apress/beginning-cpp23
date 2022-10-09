@@ -1,7 +1,7 @@
 // Always define both copy members together
 // (see also 'Rule of Five' in Chapter 18!)
 import message;
-import <iostream>;
+import std;
 
 int main()
 {

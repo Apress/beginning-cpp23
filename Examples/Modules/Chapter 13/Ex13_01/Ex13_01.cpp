@@ -1,6 +1,5 @@
 // Implementing a less-than operator
-import <iostream>;
-import <vector>;
+import std;
 import box;
 
 int main()

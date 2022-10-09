@@ -1,10 +1,7 @@
 export module truckload;
 
 import box;
-
-import <memory>;
-import <vector>;
-import <ostream>;
+import std;
 
 export using SharedBox = std::shared_ptr<Box>;
 

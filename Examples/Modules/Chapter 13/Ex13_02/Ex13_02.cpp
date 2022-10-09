@@ -1,7 +1,5 @@
 // Using the overloaded 'less-than' operators for Box ojects
-import <iostream>;
-import <vector>;
-import <format>;
+import std;
 import box;
 
 // Display box dimensions

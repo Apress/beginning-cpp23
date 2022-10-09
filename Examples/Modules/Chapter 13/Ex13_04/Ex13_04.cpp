@@ -1,8 +1,5 @@
 // Overloading the << operator
-import <iostream>;
-import <format>;
-import <string_view>;
-import <vector>;
+import std;
 import box;
 
 int main()

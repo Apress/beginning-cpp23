@@ -1,5 +1,5 @@
 // Overloading a unary "rotate" operator
-import <iostream>;
+import std;
 import box;
 
 int main()

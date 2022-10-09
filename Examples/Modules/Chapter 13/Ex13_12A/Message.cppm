@@ -1,6 +1,5 @@
-module;
-#include <cstring>  // For std::strlen() and std::strcpy()
 export module message;
+import std;
 
 export class Message
 {

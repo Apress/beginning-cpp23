@@ -1,8 +1,5 @@
 // Overloading <=> and == to fully support all comparison operators
-import <iostream>;
-import <format>;
-import <string_view>;
-import <vector>;
+import std;
 import box;
 
 void show(const Box& box)
