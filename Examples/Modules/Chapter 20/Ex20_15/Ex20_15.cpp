@@ -1,8 +1,5 @@
 // Sorting strings
-import <iostream>;
-import <string>;
-import <vector>;
-import <algorithm>;
+import std;
 
 int main()
 {

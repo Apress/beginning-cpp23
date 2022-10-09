@@ -1,6 +1,5 @@
 // Creating and working with Standard iterators
-import <vector>;
-import <iostream>;
+import std;
 
 int main()
 {

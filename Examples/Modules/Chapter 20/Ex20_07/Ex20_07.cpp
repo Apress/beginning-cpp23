@@ -1,6 +1,5 @@
 // Iterating over the elements of a list<>
-import <iostream>;
-import <list>;
+import std;
 
 int main()
 {

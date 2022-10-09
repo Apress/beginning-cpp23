@@ -1,6 +1,5 @@
 // Altering elements through a mutable iterator
-import <iostream>;
-import <vector>;
+import std;
 import box;      // From Ex11_04
 
 int main()

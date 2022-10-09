@@ -1,7 +1,5 @@
 // Writing through a view
-import <iostream>;
-import <vector>;
-import <ranges>;   // For views, range factories, and range adaptors
+import std;
 
 bool isEven(int i) { return i % 2 == 0; }
 

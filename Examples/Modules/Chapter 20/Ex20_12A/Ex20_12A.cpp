@@ -1,7 +1,5 @@
 // Finding boxes, this time using range-based algorithms.
-import <iostream>;
-import <vector>;
-import <algorithm>;
+import std;
 import box;      // From Ex13_03A
 
 int main()

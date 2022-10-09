@@ -1,7 +1,5 @@
 // Basic use of std::map<>
-import <map>;
-import <iostream>;
-import <string>;
+import std;
 
 int main()
 {
