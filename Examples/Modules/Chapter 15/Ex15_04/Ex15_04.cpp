@@ -1,5 +1,5 @@
 // Access specifiers and virtual functions
-import <print>;
+import std;
 import boxes;
 
 int main()

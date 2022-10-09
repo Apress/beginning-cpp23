@@ -1,8 +1,6 @@
 // Deleting derived classes through a base-class pointer 
 // (non-virtual base class destructor version: undefined behavior)
-import <print>;
-import <memory>;                                // For smart pointers
-import <vector>;                                // For vector
+import std;
 import boxes;
 
 int main()

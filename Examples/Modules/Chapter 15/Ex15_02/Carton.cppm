@@ -1,8 +1,6 @@
 export module boxes:carton;
 import :box;
-import <algorithm>;    // For std::max()
-import <string>;
-import <string_view>;
+import std;
 
 export class Carton : public Box
 {

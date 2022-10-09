@@ -1,6 +1,5 @@
 // Using an interface class and indirect base classes
-import <print>;
-import <vector>;                     // For the vector container
+import std;
 import boxes;
 import vessel;
 import can;

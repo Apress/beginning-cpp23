@@ -1,7 +1,5 @@
 // Polymorphic vectors of smart pointers
-import <print>;
-import <memory>;                                // For smart pointers
-import <vector>;                                // For vector
+import std;
 import boxes;
 
 int main()
