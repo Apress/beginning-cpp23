@@ -1,5 +1,5 @@
 // Using the switch statement
-import <print>;
+import std;
 
 int main()
 {

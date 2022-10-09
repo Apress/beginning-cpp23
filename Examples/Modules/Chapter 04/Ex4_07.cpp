@@ -1,5 +1,5 @@
 // Using the conditional operator to select output.
-import <print>;
+import std;
 
 int main()
 {

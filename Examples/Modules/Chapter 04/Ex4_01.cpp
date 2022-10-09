@@ -1,5 +1,5 @@
 // Comparing data values
-import <print>;
+import std;
 
 int main()
 {
