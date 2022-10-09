@@ -1,6 +1,5 @@
 // Module implementation partitions
-import <iostream>;
-import <string>;
+import std;
 import roman;
 
 int main()

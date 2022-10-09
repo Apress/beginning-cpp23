@@ -1,6 +1,5 @@
 // Separating implementation from interface within the module interface file
-import <iostream>;
-import <format>;
+import std;
 import math;
 
 int main()

@@ -1,9 +1,6 @@
-module;
-#include <cmath>    // For std::pow(), std::sqrt(), ...
 module math;
 
-import <limits>;   // For std::numeric_limits<double>::quiet_NaN()
-import <vector>;   // For std::numeric_limits<double>::quiet_NaN()
+import std;
 
 void quicksort(std::vector<double>& data); // See Chapter 8
 

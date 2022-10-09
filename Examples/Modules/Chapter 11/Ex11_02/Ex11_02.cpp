@@ -1,6 +1,5 @@
 // Defining functions in module implementation files
-import <iostream>;
-import <string>;
+import std;
 import roman;
 
 int main()

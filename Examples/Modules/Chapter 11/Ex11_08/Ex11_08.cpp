@@ -1,6 +1,6 @@
 // Using using declarations and using directives
 // (Note: example was not named in the text)
-import <iostream>;
+import std;
 import squaring;
 
 /* Make names from the math namespace available locally */

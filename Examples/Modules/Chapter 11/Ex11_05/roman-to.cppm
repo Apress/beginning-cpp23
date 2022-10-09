@@ -1,6 +1,6 @@
 // Module interface file for the to partition of the roman module
 export module roman:to;
-import <string>;
+import std;
 
 export std::string to_roman(unsigned int i)
 {
