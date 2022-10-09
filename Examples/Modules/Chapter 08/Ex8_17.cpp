@@ -1,9 +1,5 @@
 // Sorting words recursively
-import <iostream>;
-import <print>;
-import <memory>;
-import <string>;
-import <vector>;
+import std;
 
 using Words = std::vector<std::shared_ptr<std::string>>;
 

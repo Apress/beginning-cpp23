@@ -1,6 +1,6 @@
 // Passing an array to a function - pass by reference
 // Note: with main() as defined in this file, this program will not compile...
-import <print>;
+import std;
 
 double average10(const double (&)[10]);        // Function prototype
 

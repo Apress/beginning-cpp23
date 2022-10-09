@@ -1,6 +1,5 @@
 // Passing a two-dimensional array to a function (range-based for loop)
-import <print>;
-import <array>;	          // For std::size()
+import std;
 
 double yield(const double values[][4], std::size_t n);
 

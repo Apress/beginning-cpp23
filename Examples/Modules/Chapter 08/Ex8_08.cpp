@@ -1,8 +1,5 @@
 // Using a reference parameter
-import <iostream>;
-import <print>;
-import <string>;
-import <vector>;
+import std;
 
 using std::string;
 using std::vector;

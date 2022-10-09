@@ -1,5 +1,5 @@
 // Failing to modify the original value of a function argument
-import <print>;
+import std;
 
 double changeIt(double value_to_be_changed);    // Function prototype
 

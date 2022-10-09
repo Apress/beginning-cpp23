@@ -1,6 +1,5 @@
 // Calculating powers - rearranged
-import <iostream>;
-import <print>;
+import std;
 
 //double power(double x, int n);               // Function prototype - uncomment for successful compilation
 

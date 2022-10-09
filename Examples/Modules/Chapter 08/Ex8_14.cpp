@@ -1,7 +1,5 @@
 // Overloading a function
-import <print>;
-import <string>;
-import <vector>;
+import std;
 
 // Function prototypes
 double largest(const double data[], size_t count);

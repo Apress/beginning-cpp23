@@ -1,6 +1,5 @@
 // Passing an array to a function
-import <print>;
-import <array>;          // For std::size()
+import std;
 
 double average(double array[], std::size_t count); // Function prototype
 
