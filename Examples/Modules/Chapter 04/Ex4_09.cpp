@@ -1,6 +1,5 @@
 // Multiple case actions
-import <print>;
-#include <cctype>
+import std;
 
 int main()
 {

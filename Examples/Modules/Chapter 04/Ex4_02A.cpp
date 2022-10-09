@@ -1,6 +1,5 @@
 // Using the named comparison functions
-import <compare>;  // Required when using operator <=> (even for fundamental types)
-import <print>;
+import std;
 
 int main()
 {

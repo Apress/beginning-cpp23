@@ -1,5 +1,5 @@
 // Using the if-else statement
-import <print>;
+import std;
 
 int main()
 {
