@@ -3,10 +3,7 @@ export module array;
 // Compared to Ex18_04, this variant adds two overloads of push_back().
 // The Array<>() default constructor is new as well.
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <iostream>;
+import std;
 
 export template <typename T>
 class Array

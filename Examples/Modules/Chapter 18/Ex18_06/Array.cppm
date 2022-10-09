@@ -4,11 +4,7 @@ export module array;
 // and implements a strongly exception safe push_back().
 // It uses some mild template meta programming in move_assign_if_noexcept() to accomplish the latter.
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <iostream>;
-import <type_traits>;
+import std;
 
 template<class T>
 std::conditional_t<std::is_nothrow_move_assignable_v<T>, T&&, const T&>
