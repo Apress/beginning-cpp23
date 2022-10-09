@@ -1,7 +1,5 @@
 // Finding maximum and minimum values for data types
-import <iostream>;
-import <limits>;
-import <format>;
+import std;
 
 int main()
 {

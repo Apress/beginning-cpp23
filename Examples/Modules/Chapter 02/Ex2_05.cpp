@@ -1,6 +1,5 @@
 // The width, alignment, fill, and 0 formatting options of std::format() 
-import <iostream>;
-import <format>;
+import std;
 
 int main()
 {

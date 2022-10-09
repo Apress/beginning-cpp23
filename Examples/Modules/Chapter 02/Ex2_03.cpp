@@ -1,8 +1,5 @@
 // Sizing a pond for happy fish
-import <iostream>;
-import <numbers>;   // For the pi constant
-
-#include <cmath>    // For the square root function
+import std;
 
 int main()
 {

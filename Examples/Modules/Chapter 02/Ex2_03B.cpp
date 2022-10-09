@@ -1,9 +1,5 @@
 // Formatting text using std::format()
-import <iostream>;
-import <format>;
-import <numbers>;   // For the pi constant
-
-#include <cmath>    // For the square root function
+import std;
 
 int main()
 {
