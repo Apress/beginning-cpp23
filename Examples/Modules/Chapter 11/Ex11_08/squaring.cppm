@@ -1,7 +1,5 @@
-module;               // Start of the global module fragment (for #include directives)
-#include <cmath>      // For std::sqrt()
 export module squaring;
-import <numbers>;     // For std::numbers::sqrt2 
+import std;
 
 /* Re-export two existing entities from the math namespace using using declarations */
 export namespace math         // Exports all nested declarations at once

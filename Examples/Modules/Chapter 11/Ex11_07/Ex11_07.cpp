@@ -1,6 +1,6 @@
 // Separating declarations and definitions of functions
 // declared in a namespace.
-import <iostream>;
+import std;
 import math;
 
 int main()

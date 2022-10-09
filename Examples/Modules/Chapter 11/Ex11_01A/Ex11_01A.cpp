@@ -1,6 +1,5 @@
 // Exporting multiple entities at once
-import <iostream>;
-import <format>;
+import std;
 import math;
 
 int main()

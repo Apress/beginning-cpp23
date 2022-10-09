@@ -1,6 +1,5 @@
 // Consuming your own module
-import <iostream>;
-import <format>;
+import std;
 import math;
 
 int main()
