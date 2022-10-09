@@ -3,9 +3,7 @@
 // was improved (see Array<> source code).
 import box;
 import array;
-import <iostream>;
-import <format>;
-import <typeinfo>;         // For use of typeid()
+import std;
 
 int main()
 {

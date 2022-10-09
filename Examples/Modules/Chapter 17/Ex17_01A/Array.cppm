@@ -4,9 +4,7 @@
 //  2) the copy-and-swap idiom for a thread-safe copy assignment operator 
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
+import std;
 
 export template <typename T>
 class Array

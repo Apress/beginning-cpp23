@@ -1,8 +1,7 @@
 // Using a class template
 import box;
 import array;
-import <iostream>;
-import <format>;
+import std;
 
 int main()
 {

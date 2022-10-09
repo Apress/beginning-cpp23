@@ -1,8 +1,6 @@
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For to_string()
-import <utility>;                          // For std::as_const()
+import std;
 
 export template <typename T, int startIndex>
 class Array
