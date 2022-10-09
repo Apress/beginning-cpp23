@@ -1,8 +1,6 @@
 export module boxes:carton;
-import <algorithm>;    // For std::max()
-import <string>;
-import <string_view>;
 import :box;
+import std;
 
 export class Carton : public Box
 {
@@ -15,11 +13,12 @@ public:
   // Function to calculate the volume of a Carton object
   double volume(int i = 50) const override
   {
-    std::cout << "(Carton argument = " << i << ") ";
-    return std::max((m_length - 0.5) * (m_width - 0.5) * (m_height - 0.5), 0.0);
+    std::print("(Carton argument = {})     ", i);
+    return std::max(getLength() - 0.5, 0.0) 
+         * std::max(getWidth() - 0.5, 0.0)
+         * std::max(getHeight() - 0.5, 0.0);
   }
 
 private:
   std::string m_material;
 };
-

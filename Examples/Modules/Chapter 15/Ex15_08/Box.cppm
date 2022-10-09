@@ -1,30 +1,26 @@
 export module boxes:box;
 
-import <iostream>;
+import std;
 
 export class Box
 {
 public:
-  Box(double length, double width, double height)
-    : m_length {length}, m_width {width}, m_height {height}
-  {
-    std::cout << "Box constructor called for a Box of volume " << volume() << std::endl;
-  }
-  virtual ~Box()
-  {
-    std::cout << "Box destructor called for a Box of volume " << volume() << std::endl;
-  }
+  Box() : Box{ 1.0, 1.0, 1.0 } {}
+  Box(double l, double w, double h) : m_length {l}, m_width {w}, m_height {h} {}
 
-  // Function to calculate volume of a Box
+  virtual ~Box() = default;
+
+  // Function to print the usable volume of a Box object
+  void printVolume() const
+  { std::println("Box usable volume is {}", volume()); }
+
+  // Function to calculate the volume of a Box object
   virtual double volume() const { return m_length * m_width * m_height; }
 
-  void showVolume() const
-  {
-    std::cout << "The volume from inside Box::showVolume() is "
-              << volume() << std::endl;
-  }
+  double getLength() const { return m_length; }
+  double getWidth() const { return m_width; }
+  double getHeight() const { return m_height; }
 
 private:
   double m_length, m_width, m_height;
 };
-
