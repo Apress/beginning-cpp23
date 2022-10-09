@@ -1,5 +1,5 @@
 // Implicit conversions reduce the number of operator functions
-import <iostream>;
+import std;
 import integer;
 
 int main() 

@@ -1,8 +1,5 @@
 // Modifying the result of an overloaded subscript operator
-import <iostream>;
-import <memory>;
-import <random>;       // For random number generation
-import <functional>;   // For std::bind()
+import std;
 import truckload;
 
 /*

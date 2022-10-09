@@ -1,8 +1,6 @@
 export module box;
 
-import <ostream>;
-import <format>;
-import <algorithm>;    // For the std::min()/max() function templates
+import std;
 
 export class Box
 {

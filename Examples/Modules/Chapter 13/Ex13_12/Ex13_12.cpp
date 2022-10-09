@@ -1,6 +1,6 @@
 // Defining a copy assignment operator
 import message;
-import <iostream>;
+import std;
 
 int main()
 {

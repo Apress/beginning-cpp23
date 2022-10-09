@@ -1,7 +1,6 @@
 module box;
 
-import <format>;
-import <algorithm>;    // For the min() and max() function templates
+import std;
 
 double Box::volume() const
 {

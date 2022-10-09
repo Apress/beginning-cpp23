@@ -1,9 +1,6 @@
 // Defaulting the == operator
 
-import <iostream>;
-import <format>;
-import <string_view>;
-import <vector>;
+import std;
 import box;
 
 void show(const Box& box)
