@@ -1,5 +1,5 @@
 // Operations with enumerations
-import <print>;
+import std;
 
 int main()
 {

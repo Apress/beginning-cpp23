@@ -1,5 +1,5 @@
 // Using the bitwise operators
-import <print>;
+import std;
 
 int main()
 {
