@@ -1,5 +1,5 @@
 // Ex14_07A - Disambiguating ambiguous member inheritance through casting
-import <print>;
+import std;
 import cereal;             // For the CerealPack class
 
 int main()

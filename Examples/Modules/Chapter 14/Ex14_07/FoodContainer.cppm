@@ -1,8 +1,6 @@
 export module food;
 
-import <print>;
-import <string>;
-import <string_view>;
+import std;
 
 export class FoodContainer
 {

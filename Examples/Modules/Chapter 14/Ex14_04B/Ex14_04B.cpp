@@ -1,7 +1,7 @@
 // Defaulting the default constructor in a derived class
 // with a deleted default constructor in the base class
 // is equivalent to deleting the default constructor.
-import <print>;
+import std;
 import box;                 // For the Box class
 import carton;              // For the Carton class
 

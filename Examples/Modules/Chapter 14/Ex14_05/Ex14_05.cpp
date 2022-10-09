@@ -1,5 +1,5 @@
 // Inheriting constructors
-import <iostream>;
+import std;
 import carton;       // For the Carton class
 
 int main()

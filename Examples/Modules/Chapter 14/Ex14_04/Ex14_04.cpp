@@ -1,5 +1,5 @@
 // Defaulting the default constructor in a derived class (working version)
-import <print>;
+import std;
 import box;                 // For the Box class
 import carton;              // For the Carton class
 

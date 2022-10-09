@@ -1,5 +1,5 @@
 // Destructors in a class hierarchy
-import <print>;
+import std;
 import carton;   // For the Carton class
 
 int main()
