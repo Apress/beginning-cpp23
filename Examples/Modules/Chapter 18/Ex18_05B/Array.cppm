@@ -3,10 +3,7 @@ export module array;
 // This variant merges the two overloads of push_back() of Ex18_05 into one single member.
 // The push_back() function accepts a new element by value.
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <iostream>;
+import std;
 
 export template <typename T>
 class Array

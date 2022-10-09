@@ -2,10 +2,7 @@ export module array;
 
 // Exact same as template as Ex18_05B (that is: without noexcept specifiers!)
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <iostream>;
+import std;
 
 export template <typename T>
 class Array
