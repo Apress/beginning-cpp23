@@ -1,6 +1,6 @@
 module cylindrical;
 
-import <iostream>;
+import std;
 
 CylindricalBox::CylindricalBox(float radius, float height, std::string_view material)
   : m_radius{ radius }

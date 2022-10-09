@@ -1,5 +1,5 @@
 // Defining and using static constants
-import <iostream>;
+import std;
 import cylindrical;
 
 int main()

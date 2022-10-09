@@ -1,5 +1,5 @@
 // Creating an array of objects
-import <iostream>;
+import std;
 import box;
 
 int main()

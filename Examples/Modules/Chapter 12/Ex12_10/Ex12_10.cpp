@@ -1,5 +1,5 @@
 // Overloading on const
-import <iostream>;
+import std;
 import box;
 
 int main()

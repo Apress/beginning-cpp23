@@ -1,5 +1,5 @@
 // Const objects and const member functions
-import <iostream>;
+import std;
 import box;
 
 int main()

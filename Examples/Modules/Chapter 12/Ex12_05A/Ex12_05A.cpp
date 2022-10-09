@@ -1,6 +1,6 @@
 // Implementing the copy constructor
 // Note: this example is explained but not named in the text
-import <iostream>;
+import std;
 
 class Box
 {

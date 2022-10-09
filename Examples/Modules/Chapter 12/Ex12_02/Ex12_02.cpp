@@ -3,7 +3,7 @@
 // in this example we put the function definitions after the main() function.
 // This illustrates that to invoke a member function,
 // the compiler again only needs access to the signature of the member function.
-import <iostream>;
+import std;
 
 // Class to represent a box
 class Box

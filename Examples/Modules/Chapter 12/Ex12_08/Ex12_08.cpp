@@ -1,5 +1,5 @@
 // Accessing private members through getters and setters (method chaining variant)
-import <iostream>;
+import std;
 import box;
 
 int main()
