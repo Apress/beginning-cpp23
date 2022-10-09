@@ -1,5 +1,5 @@
 // Defining and using a derived class
-import <print>;
+import std;
 import box;
 import carton;
 

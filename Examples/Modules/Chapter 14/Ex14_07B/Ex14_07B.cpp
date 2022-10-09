@@ -1,6 +1,6 @@
 // Ex14_07B - Disambiguating ambiguous member through 
 // using declarations in the derived class (CerealPack)
-import <print>;
+import std;
 import cereal;          // For the CerealPack class
 
 int main()

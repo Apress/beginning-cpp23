@@ -1,9 +1,7 @@
 // Carton.cppm - defines the Carton class (with additional copy constuctor)
 export module carton;
 
-import <string>;
-import <string_view>;
-import <print>;
+import std;
 import box;
 
 export class Carton : public Box

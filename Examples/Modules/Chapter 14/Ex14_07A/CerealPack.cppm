@@ -1,6 +1,6 @@
 // Cerealpack.cppm - Class defining a carton of cereal
 export module cereal;
-import <print>;
+import std;
 import carton;
 import food;
 
