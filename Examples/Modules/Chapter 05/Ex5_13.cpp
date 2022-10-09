@@ -1,6 +1,5 @@
 // Comparing array<> objects and plain arrays
-import <print>;
-import <array>;
+import std;
 
 int main()
 {

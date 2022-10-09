@@ -1,5 +1,5 @@
 // Using a for loop with an array
-import <print>;
+import std;
 
 int main()
 {

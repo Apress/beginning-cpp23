@@ -1,8 +1,7 @@
 // Allocating an array at runtime
 // This example does not work with some compilers (such as Visual C++)
 // because dynamic arrays is not standard C++ (it is valid C though).
-import <iostream>;
-import <print>;
+import std;
 
 #ifdef _MSC_VER   // See Appendix A for an explanation of preprocessing macros
   #error Visual Studio does not support variable length arrays (not standard C++)

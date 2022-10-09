@@ -1,7 +1,5 @@
 // Sorting an array in ascending sequence - using a vector<T> container
-import <iostream>;
-import <print>;
-import <vector>;
+import std;
 
 int main()
 {

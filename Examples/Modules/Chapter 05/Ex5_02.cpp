@@ -1,6 +1,5 @@
 // Obtaining the number of array elements
-import <print>;
-import <array>;       // for std::size()
+import std;
 
 int main()
 {
