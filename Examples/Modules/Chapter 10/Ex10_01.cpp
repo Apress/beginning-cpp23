@@ -1,6 +1,5 @@
 // Using a function template
-import <print>;
-import <string>;
+import std;
 
 template<typename T> T larger(T a, T b);    // Function template prototype
 
