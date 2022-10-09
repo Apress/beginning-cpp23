@@ -1,5 +1,5 @@
 // Recursive version of function for x to the power n, n positive or negative
-import <print>;
+import std;
 
 double power(double x, int n);
 

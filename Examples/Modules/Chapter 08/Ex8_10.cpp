@@ -1,5 +1,5 @@
 // Implicit conversions of reference parameters
-import <print>;
+import std;
 
 void double_it(double& it)      { it *= 2; }
 void print_it(const double& it) { std::println("{}", it); }

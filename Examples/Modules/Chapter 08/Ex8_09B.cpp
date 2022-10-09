@@ -1,6 +1,5 @@
 // Passing an array to a function - pass by reference improved
-import <print>;
-import <array>;          // for std::size()
+import std;
 
 double average10(const double (&)[10]);        // Function prototype
 

@@ -1,5 +1,5 @@
 // Program that lists its command line arguments
-import <print>;
+import std;
 
 int  main(int argc, char* argv[])
 {

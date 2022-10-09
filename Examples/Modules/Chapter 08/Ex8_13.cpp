@@ -1,7 +1,5 @@
 // Returning a pointer
-import <print>;
-import <string>;
-import <array>;                  // for std::size()
+import std;
 
 void print_data(const double data[], std::size_t count = 1, 
                const std::string& title = "Data Values",

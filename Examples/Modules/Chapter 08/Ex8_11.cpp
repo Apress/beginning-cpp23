@@ -1,6 +1,5 @@
 // Using multiple default argument values
-import <print>;
-import <string>;
+import std;
 
 // The function prototype including default arguments
 void print_data(const int data[], std::size_t count = 1,  
