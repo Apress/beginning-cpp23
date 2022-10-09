@@ -1,7 +1,5 @@
 // Using the std::function<> template
-import <iostream>;
-import <functional>;
-#include <cmath>            // for std::abs()
+import std;
 
 // A global less() function
 bool less(int x, int y) { return x < y; }

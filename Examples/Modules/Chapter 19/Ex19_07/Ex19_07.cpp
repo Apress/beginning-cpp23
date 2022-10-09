@@ -1,6 +1,5 @@
 // Using a lambda expression from inside a member function (see Finder.cpp)
-import <iostream>;
-import <vector>;
+import std;
 import optimum;
 import finder;
 

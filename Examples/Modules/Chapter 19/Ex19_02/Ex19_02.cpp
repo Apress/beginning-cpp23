@@ -1,7 +1,5 @@
 // Exercising the use of function pointers as callback functions
-import <print>;
-import <string>;
-import <vector>;
+import std;
 import optimum;
 
 // Comparison function prototypes:

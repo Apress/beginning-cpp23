@@ -1,7 +1,7 @@
 // Optimum.cppm - a function template to determine the optimum element in a given vector
 export module optimum;
 
-import <vector>;
+import std;
 
 export template <typename T>
 const T* findOptimum(const std::vector<T>& values, bool (*compare)(const T&, const T&))

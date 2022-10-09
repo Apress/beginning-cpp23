@@ -1,10 +1,6 @@
 // If possible, using the standard functors instead of lambda expressions 
 // often leads to more compact and elegant code.
-import <iostream>;
-import <string>;
-import <string_view>;
-import <functional>;
-import <vector>;
+import std;
 import optimum;
 
 int main()
