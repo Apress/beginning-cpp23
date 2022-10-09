@@ -1,5 +1,5 @@
 // Writing values of variables to cout
-import <iostream>;    // For user input and output through std::cin / cout
+import std;
 
 int main()
 {
