@@ -1,6 +1,5 @@
 // Sorting an array in ascending sequence - using an indefinite while loop
-import <iostream>;
-import <print>;
+import std;
 
 int main()
 {

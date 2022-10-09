@@ -1,7 +1,5 @@
 // Working with strings in an array
-import <iostream>;
-import <array>; // for std::size()
-import <print>;
+import std;
 
 int main()
 {

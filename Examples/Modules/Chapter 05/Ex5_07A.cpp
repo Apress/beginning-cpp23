@@ -1,9 +1,6 @@
 // Generating multiplication tables using nested loops
 // In this version an indefinite for loop is used, in combination with break statements.
-import <iostream>;
-import <print>;
-
-#include <cctype>		// for std::tolower()
+import std;
 
 int main()
 {

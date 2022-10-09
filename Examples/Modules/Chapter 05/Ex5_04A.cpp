@@ -1,7 +1,6 @@
 // Multiple calculations in a loop expression's third control expression
 // by using the comma operator
-import <iostream>;
-import <print>;
+import std;
 
 int main() 
 {

@@ -1,8 +1,5 @@
 // Using a do-while loop to manage input
-import <iostream>;
-import <print>;
-
-#include <cctype>                                  // For tolower() function
+import std;
 
 int main()
 {

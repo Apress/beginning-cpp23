@@ -1,8 +1,6 @@
 // Floating-point control in a for loop:
 // dangers of floating-point representation errors.
-import <print>;
-import <iostream>;
-import <numbers>;
+import std;
 
 int main()
 {
