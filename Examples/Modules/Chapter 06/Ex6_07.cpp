@@ -1,10 +1,5 @@
 // Using smart pointers
-import <iostream>;
-import <print>;
-import <memory>;   // For smart pointers
-import <vector>;   // For std::vector<> container
-
-#include <cctype>  // For std::toupper()
+import std;
 
 int main()
 {

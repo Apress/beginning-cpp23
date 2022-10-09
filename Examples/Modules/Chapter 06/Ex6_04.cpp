@@ -1,7 +1,5 @@
 // Using an array of pointers
-import <print>;
-import <iostream>;
-import <array>;      // for std::size()
+import std;
 
 int main()
 {
