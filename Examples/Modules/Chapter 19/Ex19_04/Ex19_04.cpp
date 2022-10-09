@@ -1,7 +1,5 @@
 // Exercising a function object with a member variable
-import <iostream>;
-import <format>;
-import <vector>;
+import std;
 import optimum;
 import nearer;
 

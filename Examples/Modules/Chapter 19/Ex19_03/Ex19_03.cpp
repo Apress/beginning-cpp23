@@ -1,6 +1,5 @@
 // Exercising the use of a functor as callback functions
-import <iostream>;
-import <vector>;
+import std;
 import optimum;
 import less;
 
