@@ -1,8 +1,7 @@
 // Stack.cppm Templates to define stacks 
 // (using std::unique_ptr<> instead of raw pointer)
 export module stack;
-import <stdexcept>;
-import <memory>;       // For std::unique_ptr<>
+import std;
 
 /*
     The required changes are minimal, 

@@ -1,6 +1,6 @@
 // Stack.cppm Templates to define stacks
 export module stack;
-import <stdexcept>;
+import std;
 
 export template <typename T>
 class Stack

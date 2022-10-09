@@ -1,9 +1,7 @@
 // Using a class template with a non-type parameter
 import box;
 import array;
-import <iostream>;
-import <format>;
-import <typeinfo>;         // For use of typeid()
+import std;
 
 int main()
 {

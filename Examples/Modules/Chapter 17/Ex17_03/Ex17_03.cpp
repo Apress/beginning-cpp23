@@ -2,7 +2,7 @@
 // by adding an initializer list constructor to our Array<> template.
 import box;
 import array;
-import <iostream>;
+import std;
 
 int main()
 {

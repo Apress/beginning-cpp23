@@ -1,8 +1,7 @@
 // Using a stack defined by nested class templates
 // (with improvement suggested in the "A Better Stack" section: see Stack<> source)
 import stack;
-import <iostream>;
-import <string>;
+import std;
 
 int main()
 {
