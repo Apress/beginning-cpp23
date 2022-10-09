@@ -1,6 +1,6 @@
 export module boxes:tough_pack;
 import :box;
-import <iostream>;
+import std;
 
 export class ToughPack : public Box
 {

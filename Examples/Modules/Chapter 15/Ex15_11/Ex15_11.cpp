@@ -1,5 +1,5 @@
 // Using an abstract class
-import <print>;
+import std;
 import boxes;
 
 int main()

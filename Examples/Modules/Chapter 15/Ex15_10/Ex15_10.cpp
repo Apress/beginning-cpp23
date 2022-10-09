@@ -1,6 +1,5 @@
 // Using the typeid() operator
-import <print>;
-import <typeinfo>;         // For the std::type_info class
+import std;
 import boxes;
 
 // Define trivial non-polymorphic base and derived classes:

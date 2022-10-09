@@ -1,5 +1,5 @@
 // Using a reference parameter to call virtual function
-import <print>;
+import std;
 import boxes;
 
 // Global function to display the volume of a box
