@@ -1,7 +1,6 @@
 // Exception class definition
 export module troubles;
-import <string>;
-import <string_view>;
+import std;
 
 export class Trouble
 {

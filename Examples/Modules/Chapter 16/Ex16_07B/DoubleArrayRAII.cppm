@@ -1,6 +1,6 @@
 // A custom RAII class to manage a dynamic double[] array resource
 export module raii;
-import <iostream>;
+import std;
 
 export class DoubleArrayRAII final
 {

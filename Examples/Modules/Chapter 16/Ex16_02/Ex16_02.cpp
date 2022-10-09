@@ -1,6 +1,5 @@
 // Throw an exception object
-import <iostream>;
-import <string_view>;    // for operator<<
+import std;
 import troubles;
 
 void trySomething(int i);

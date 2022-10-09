@@ -2,11 +2,8 @@
 // Note: this example is given but not named in the text.
 // Instead of a custom RAII class DoubleArrayRAII, it uses std::unique_ptr<>.
 // Unlike the former, the latter can be returned from computeValues() as well.
-import <iostream>;
-import <memory>;
+import std;
 import troubles;
-
-#include <cmath>            // For std::sqrt()
 
 double computeValue(size_t x);      // A function to compute a single value
 std::unique_ptr<double[]> computeValues(size_t howMany); // A function to compute an array of values

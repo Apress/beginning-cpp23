@@ -1,5 +1,5 @@
 // Using an exception class
-import <iostream>;
+import std;
 import box;               // For the Box class
 import dimension_error;   // For the dimension_error class
 
