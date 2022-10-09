@@ -1,5 +1,5 @@
 export module box;
-import <algorithm>;                        // For std::min() function template
+import std;
 import dimension_error;
 
 export class Box

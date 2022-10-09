@@ -1,8 +1,6 @@
 // Use of a try-catch block to fix the memory leak!
-import <iostream>;
+import std;
 import troubles;
-
-#include <cmath>      // For std::sqrt()
 
 double computeValue(size_t x);         // A function to compute a single value
 double* computeValues(size_t howMany); // A function to compute an array of values

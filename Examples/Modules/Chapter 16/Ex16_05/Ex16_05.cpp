@@ -1,7 +1,5 @@
 // Rethrowing exceptions
-import <iostream>;
-import <typeinfo>;
-import <string_view>;   // for operator<<
+import std;
 import troubles;
 
 int main()

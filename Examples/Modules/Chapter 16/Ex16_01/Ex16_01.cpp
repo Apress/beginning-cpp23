@@ -1,5 +1,5 @@
 // Throwing and catching exceptions
-import <iostream>;
+import std;
 
 int main()
 {
