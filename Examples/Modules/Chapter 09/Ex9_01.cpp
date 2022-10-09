@@ -1,7 +1,5 @@
 // Working with std::optional<>
-import <optional>;     // std::optional<> is defined in the <optional> module
-import <iostream>;
-import <string>;
+import std;
 
 std::optional<size_t> find_last(
    const std::string& string, char to_find,

@@ -1,11 +1,7 @@
 // Using std::span<> to reduce the number of overloads of largest()
 // Clearly the three resulting functions are still similar. 
 // See Chapter 10 on how you can eliminate this duplication using function templates.
-import <iostream>;
-import <string>;
-import <vector>;
-import <array>;
-import <span>;
+import std;
 
 // Old function prototypes
 //double largest(const double data[], size_t count);
