@@ -1,7 +1,6 @@
 // Dereferencing pointers
 // Calculates the purchase price for a given quantity of items
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

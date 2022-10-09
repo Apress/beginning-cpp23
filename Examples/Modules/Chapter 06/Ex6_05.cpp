@@ -1,5 +1,5 @@
 // Calculating primes using pointer notation
-import <print>;
+import std;
 
 int main()
 {

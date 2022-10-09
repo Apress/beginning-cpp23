@@ -1,5 +1,5 @@
 // The size of pointers
-import <print>;
+import std;
 
 int main()
 {

@@ -1,6 +1,5 @@
 // Initializing pointers with strings
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {
