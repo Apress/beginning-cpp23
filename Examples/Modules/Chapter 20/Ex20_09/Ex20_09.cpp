@@ -1,6 +1,5 @@
 // Inserting in and erasing from sequence containers
-import <iostream>;
-import <vector>;
+import std;
 
 void printVector(const std::vector<int>& v);
 

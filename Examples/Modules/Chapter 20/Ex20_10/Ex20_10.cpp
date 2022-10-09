@@ -1,8 +1,6 @@
 // Removing all elements that satisfy a certain condition 
 // while iterating over a container
-import <vector>;
-import <string_view>;
-import <iostream>;
+import std;
 
 std::vector<int> fillVector_1toN(size_t N);  // Fill a vector with 1, 2, ..., N
 void printVector(std::string_view message, const std::vector<int>& numbers);

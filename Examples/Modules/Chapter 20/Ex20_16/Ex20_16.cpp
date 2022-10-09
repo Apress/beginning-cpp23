@@ -1,9 +1,5 @@
 // Using range adaptors
-import <iostream>;
-import <vector>;
-import <algorithm>;
-import <iterator>;   // For std::back_inserter()
-import <ranges>;
+import std;
 import box;
 
 using namespace std::ranges::views;
