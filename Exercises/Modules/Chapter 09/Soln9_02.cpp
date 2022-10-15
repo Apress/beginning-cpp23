@@ -1,8 +1,5 @@
 // Exercise 9-2 Working with std::string_view<> and std::span<>
-import <iostream>;
-import <format>;
-import <string_view>;
-import <span>;
+import std;
 
 // The function prototype including defaults for parameters
 void show_data(
