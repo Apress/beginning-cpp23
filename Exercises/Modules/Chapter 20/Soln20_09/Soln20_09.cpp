@@ -1,10 +1,5 @@
 // Exercise 20-9 Parallel version of 20-8
-import <iostream>;
-import <random>;     // For random number generation
-import <functional>; // For std::bind() and std::ref()
-import <algorithm>;
-import <vector>;
-import <execution>;
+import std;
 
 // Creates a preudo-random number generator (PRNG) that generates unsigned integers 
 // in a closed interval [min, max].

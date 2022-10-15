@@ -1,12 +1,5 @@
 // Exercise 20-13: more fun with algorithms and ranges
-import <iostream>;
-import <format>;
-import <map>;
-import <string>;
-import <string_view>;
-import <vector>;
-import <algorithm>;
-import <ranges>;
+import std;
 
 using namespace std::ranges::views;
 

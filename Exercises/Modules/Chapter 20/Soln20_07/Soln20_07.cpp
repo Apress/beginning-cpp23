@@ -1,9 +1,6 @@
 // Removing all elements that satisfy a certain condition 
 // while iterating over a container
-import <vector>;
-import <string_view>;
-import <iostream>;
-import <ranges>;
+import std;
 
 using namespace std::ranges::views;
 

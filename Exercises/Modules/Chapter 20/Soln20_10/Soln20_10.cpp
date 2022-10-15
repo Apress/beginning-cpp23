@@ -1,8 +1,5 @@
 // Exercise 20-10: exercising projection with range-based algorithms
-import <iostream>;
-import <string>;
-import <vector>;
-import <algorithm>;
+import std;
 
 int main()
 {
