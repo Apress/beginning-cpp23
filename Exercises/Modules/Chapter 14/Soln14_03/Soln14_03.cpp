@@ -1,7 +1,7 @@
 // Exercise 14-3 By adding a few lines to the test program, we can see the difference 
 // between the calls to the base class and derived class who() functions. 
 
-import <print>;
+import std;
 import animals;
 
 int main()

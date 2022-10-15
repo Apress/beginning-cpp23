@@ -1,7 +1,6 @@
 // Exercise 14-4 Working with Employee and Executive objects
 
-import <print>;
-import <vector>;
+import std;
 import person;
 
 int main()

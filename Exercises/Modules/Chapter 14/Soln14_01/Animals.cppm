@@ -6,9 +6,7 @@ export module animals;
 //  - file and module names do not have to match the name of a class; and
 //  - multiple classes may be declared and defined in the same module
 
-import <string>;
-import <string_view>;
-import <print>;
+import std;
 
 export class Animal
 {

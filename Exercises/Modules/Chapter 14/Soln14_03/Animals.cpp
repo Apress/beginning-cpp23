@@ -1,7 +1,7 @@
 // Exercise 14-3 - Animals.cpp
 // Implementations of the Animal class and classes derived from Animal
 module animals;
-import <print>;
+import std;
 
 // Identify the animal
 void Animal::who() const

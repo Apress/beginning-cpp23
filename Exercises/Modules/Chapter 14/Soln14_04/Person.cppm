@@ -1,7 +1,6 @@
 // Person class and classes derived from Person
 export module person;
-import <string>;
-import <string_view>;
+import std;
 
 /*
   We covered the advantages of the principle of data hiding extensively in Chapter 12.
