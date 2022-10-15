@@ -1,9 +1,6 @@
 module truckload;
 
-import <iostream>;
-import <stdexcept>;    // For standard exception type std::out_of_range 
-import <string>;       // For std::string and std::to_string()
-import <utility>;      // For std::swap()
+import std;
 
 // Definition of the nested class member
 // Since this member is private, 

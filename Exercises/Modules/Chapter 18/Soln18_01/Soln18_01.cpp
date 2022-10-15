@@ -1,6 +1,5 @@
 // Exercise 18-1 Define move operators for the Truckload class
-import <iostream>;
-import <memory>;
+import std;
 import truckload;
 import box.random;
 

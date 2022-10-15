@@ -4,8 +4,7 @@
   with some additional commented lines to show that the RAII objects cannot be copied.
 */
 
-import <iostream>;
-import <vector>;
+import std;
 
 #include "DB.h"
 import db.exception;

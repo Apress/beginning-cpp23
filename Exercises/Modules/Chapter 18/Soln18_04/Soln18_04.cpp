@@ -4,8 +4,7 @@
   with some additional lines to show that the RAII objects can be moved.
 */
 
-import <iostream>;
-import <vector>;
+import std;
 
 #include "DB.h"
 import db.exception;
