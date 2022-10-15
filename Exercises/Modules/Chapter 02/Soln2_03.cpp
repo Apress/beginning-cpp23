@@ -1,6 +1,5 @@
 // Exercise 2-3. Calculating the height of a tree
-import <iostream>; 
-import <numbers>;
+import std;
 
 #include <cmath>
 

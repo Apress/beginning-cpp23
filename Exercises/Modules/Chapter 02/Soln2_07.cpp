@@ -1,9 +1,7 @@
 // Exercise 2-7. Fun with formatting.
 // You could always experiment further with various formatting options here!
 
-import <iostream>;
-import <numbers>;
-import <format>;
+import std;
 
 #include <cmath>
 

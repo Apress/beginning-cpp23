@@ -3,9 +3,7 @@
 // to control the precision used when outputting the result
 // (we opted for 2 decimals after the decimal points).
 
-import <iostream>;
-import <numbers>;
-import <format>;
+import std;
 
 int main()
 {

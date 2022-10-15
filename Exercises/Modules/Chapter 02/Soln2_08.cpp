@@ -1,5 +1,5 @@
 // Exercise 2-8. Finding the largest of two integers without comparing them.
-import <iostream>;
+import std;
 
 int main()
 {

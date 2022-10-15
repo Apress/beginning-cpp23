@@ -2,8 +2,7 @@
 // This solution uses only std::cout. 
 // See alternate solution for a version that uses std::format().
 
-import <iostream>;
-import <numbers>;
+import std;
 
 int main()
 {
