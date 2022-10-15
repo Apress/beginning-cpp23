@@ -1,10 +1,5 @@
 // Exercise 9-4. Using std::optional<>
-import <iostream>;
-import <string>;
-import <vector>;
-import <array>;
-import <span>;
-import <optional>;
+import std;
 
 // Function prototypes
 std::optional<double> largest(std::span<const double> data);

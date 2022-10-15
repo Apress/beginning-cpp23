@@ -1,7 +1,5 @@
 // Exercise 9-6. Passing a vector to a fixed-size std::span<>
-import <iostream>;
-import <vector>;
-import <span>;
+import std;
 
 double average10(std::span<const double, 10> data);        // Function prototype
 
