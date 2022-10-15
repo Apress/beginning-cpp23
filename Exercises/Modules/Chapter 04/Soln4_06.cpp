@@ -2,8 +2,7 @@
 // This is just a question of bolting sufficient conditional operators together
 // in an expression. 
 
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

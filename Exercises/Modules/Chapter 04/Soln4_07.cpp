@@ -9,8 +9,7 @@
  * If it's '0', the whole expression will be zero, or Boolean false.
  * Ones and zeros are therefore output as appropriate.
  */
-import <print>;
-import <iostream>;
+import std;
 
 #include <cctype>
 

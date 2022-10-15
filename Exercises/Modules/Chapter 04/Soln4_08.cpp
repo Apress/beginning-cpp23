@@ -1,8 +1,7 @@
 // Exercise 4-8
 // Dividing a cash amount into quarters, nickels, dimes and cents.
 
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {
