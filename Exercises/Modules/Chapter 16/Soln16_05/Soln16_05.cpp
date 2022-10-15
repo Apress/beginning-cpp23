@@ -4,11 +4,7 @@
  * and rethrowing (catch-by-reference + "throw;" !)
  */
 
-import <iostream>;
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
-import <format>;
-import <string>;
+import std;
 import curveball;
 import domain_exceptions;
 

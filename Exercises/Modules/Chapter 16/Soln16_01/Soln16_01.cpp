@@ -1,9 +1,7 @@
 // Throwing and catching Curveballs
 import curveball;
-import <iostream>;
+import std;
 
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
 
 void throwCurveballSometimes();           // Suggested solution
 void throwCurveballSometimesBernouilli(); // Alternate solution

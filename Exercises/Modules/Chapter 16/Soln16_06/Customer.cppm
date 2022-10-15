@@ -2,8 +2,7 @@
 
 export module customer;
 
-import <string>;
-import <string_view>;
+import std;
 
 export class Customer
 {

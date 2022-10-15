@@ -1,6 +1,5 @@
 // Using exceptions to signal index-out-of-bounds errors.
-import <iostream>;
-import <memory>;
+import std;
 import truckload;
 import box.random;
 

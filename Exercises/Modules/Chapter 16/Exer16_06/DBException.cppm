@@ -1,7 +1,7 @@
 // A simple C++ exception type
 
 export module db_exception;
-import <stdexcept>;
+import std;
 
 export class DatabaseException : public std::runtime_error
 {
