@@ -1,7 +1,6 @@
 module truckload;
 
-import <iostream>;
-import <algorithm>;
+import std;
 
 // Constructor - one Box
 Truckload::Truckload(SharedBox box)

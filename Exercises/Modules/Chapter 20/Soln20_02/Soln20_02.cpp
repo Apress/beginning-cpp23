@@ -1,8 +1,6 @@
 // Exercise 20-2
 // Replace a custom stack container by the standard stack container adapter
-import <stack>;
-import <iostream>;
-import <string>;
+import std;
 
 /*
   Two challenges:

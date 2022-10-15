@@ -1,6 +1,5 @@
 // Exercise 20-1 Rework the Truckload class using std::vector<>
-import <iostream>;
-import <memory>;
+import std;
 import truckload;
 import box.random;
 

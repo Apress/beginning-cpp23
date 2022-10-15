@@ -11,11 +11,7 @@
   At the bottom, there's two alternative loops: one close to the original one,
   and one that takes advantage of the fact that the keys in the multimap are sorted.
 */
-import <vector>;
-import <map>;
-import <string>;
-import <iostream>;
-import <utility>;
+import std;
 
 #include <cctype>
 

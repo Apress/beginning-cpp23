@@ -1,9 +1,5 @@
 // Exercise 20-8 Apply remove-erase idiom to remove duplicate elements
-import <iostream>;
-import <random>;     // For random number generation
-import <functional>; // For std::bind() and std::ref()
-import <algorithm>;
-import <vector>;
+import std;
 
 // Creates a preudo-random number generator (PRNG) that generates unsigned integers 
 // in a closed interval [min, max].

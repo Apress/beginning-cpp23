@@ -14,11 +14,7 @@
 
 	Soln20_03A contains alternative solutions based on std::multimap<>
 */
-import <vector>;
-import <map>;
-import <string>;
-import <iostream>;
-import <utility>;
+import std;
 
 #include <cctype>
 

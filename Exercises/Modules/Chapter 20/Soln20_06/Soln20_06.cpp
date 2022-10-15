@@ -1,10 +1,6 @@
 // Removing all elements that satisfy a certain condition 
 // while iterating over a container
-import <vector>;
-import <string_view>;
-import <iostream>;
-import <algorithm>;   // for std::remove_if()
-import <numeric>;     // for std::iota()
+import std;
 
 /*
   Note: std::ranges::iota() does not exist. No doubt because 
