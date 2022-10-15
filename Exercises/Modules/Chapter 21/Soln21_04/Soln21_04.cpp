@@ -1,14 +1,5 @@
 // Exercise 21-4  Generalising medianOfSorted()
-import <iostream>;
-import <concepts>;
-import <array>;
-import <string>;
-import <vector>;
-import <list>;
-import <forward_list>;
-import <span>;
-import <ranges>;
-import <iterator>;
+import std;
 
 /*
   Apologies. When we wrote the exercise, we misread what a std::sized_range() was.

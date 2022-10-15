@@ -3,12 +3,7 @@
 // and iterator pairs where the end iterator (or, sentinel) 
 // is of a different type than the begin iterator,
 // all with proper type constraints.
-import <iostream>;
-import <concepts>;    // Standard concepts
-import <ranges>;      // Range factories and adaptors
-import <functional>;  // For the std::identity and std::ranges::less functor classes, and std::invoke()
-import <iterator>;    // Iterator-based concepts, std::sentinel_for, and std::projected
-import <vector>;
+import std;
 
 using namespace std::ranges::views;
 
