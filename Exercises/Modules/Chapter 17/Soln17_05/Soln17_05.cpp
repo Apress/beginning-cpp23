@@ -6,8 +6,8 @@ import std;
 int main()
 {
   std::string text;                              // Stores input prose or poem
-  std::cout << "\nEnter a poem or prose over one or more lines.\n"
-            << "Terminate the input with #:\n";
+  std::println("Enter a poem or prose over one or more lines.\n"
+               "Terminate the input with #:");
   getline(std::cin, text, '#');
 
   LinkedList<std::string> words;                 // List to store words
@@ -24,29 +24,29 @@ int main()
   }
 
   // List the words 5 to a line
-  std::cout << "\nThe words are:\n\n";
+  std::println("\nThe words are:\n");
   auto iterator{ words.front_iterator() };
   size_t count {};                               // Word counter
   const size_t perline {5};                      // Worde per line
   while (iterator.hasValue())
   {
-    std::cout << iterator.value() << ' ';
+    std::print("{} ", iterator.value());
     if (!(++count % perline))
-      std::cout << std::endl;
+      std::println("");
     iterator.next();
   }
-  std::cout << std::endl;
+  std::println("");
 
   // List the words in reverse order 5 to a line
-  std::cout << "\nIn reverse order, the words are:\n\n";
+  std::println("\nIn reverse order, the words are:\n");
   iterator = words.back_iterator();
   count = 0;
   while (iterator.hasValue())
   {
-    std::cout << iterator.value() << ' ';
+    std::print("{} ", iterator.value());
     if(!(++count % perline))
-      std::cout << std::endl;
+      std::println("");
     iterator.previous();
   }
-  std::cout << std::endl;
+  std::println("");
 }

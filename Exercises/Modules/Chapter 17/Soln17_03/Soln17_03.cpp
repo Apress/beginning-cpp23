@@ -17,6 +17,6 @@ int main()
   auto pair2{ Pair{123, "abc"s} };
   auto pair3{ Pair{123, "def"s} };
 
-  std::cout << (pair1 < pair2 && pair2 < pair3? "operator< seems to be working" : "oops") << std::endl;
-  std::cout << (pair1 == pair2? "oops" : "operator== works as well") << std::endl;
+  std::println("{}", pair1 < pair2&& pair2 < pair3 ? "operator< seems to be working" : "oops");
+  std::println("{}", pair1 == pair2 ? "oops" : "operator== works as well");
 }

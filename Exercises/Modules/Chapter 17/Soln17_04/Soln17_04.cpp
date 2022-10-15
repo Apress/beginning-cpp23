@@ -50,6 +50,6 @@ int main()
   for (size_t i {}; i <= max_index; ++i)       // Create count entries in numbers array
   {
     if (numbers.element_exists_at(i))
-      std::cout << "Element at index " << i << " equals " << numbers.at(i) << std::endl;
+      std::println("Element at index {} equals {}", i, numbers.at(i));
   }
 }
