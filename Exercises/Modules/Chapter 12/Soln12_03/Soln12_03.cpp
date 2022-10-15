@@ -1,5 +1,5 @@
 // Implementing add(), subtract() and multiply() 
-import <iostream>;
+import std;
 import integer;
 
 /***********************************************************

@@ -1,7 +1,7 @@
 // Remove Boxes from a Truckload without searching a second time
 import box.random;
 import truckload;
-import <iostream>;
+import std;
 
 /********************************************************************************\
   The key to the solution is that the Iterator object already contains

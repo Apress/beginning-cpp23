@@ -1,5 +1,5 @@
 // Using a friend function
-import <iostream>;
+import std;
 import integer;
 
 int main()

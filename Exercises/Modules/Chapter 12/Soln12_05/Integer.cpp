@@ -4,7 +4,7 @@
  this count, and you need to add a destructor that decrements it. 
 \*****************************************************************/
 module integer;
-import <iostream>;
+import std;
 
 // Constructor
 Integer::Integer(int value) : m_value{value}

@@ -1,5 +1,5 @@
 module integer;
-import <iostream>;
+import std;
 
 // Constructor
 Integer::Integer(int value) 

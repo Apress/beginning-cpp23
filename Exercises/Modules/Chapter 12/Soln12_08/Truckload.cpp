@@ -1,6 +1,6 @@
 module truckload;
 
-import <iostream>;
+import std;
 
 // Definition of the nested class member
 // Since this member is private, 

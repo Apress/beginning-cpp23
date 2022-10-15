@@ -1,5 +1,5 @@
 module integer;
-import <iostream>;
+import std;
 
 /****************************************************************\
  Implementing compare() as a friend is quite simple.

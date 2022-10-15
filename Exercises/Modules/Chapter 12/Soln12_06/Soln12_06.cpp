@@ -1,7 +1,7 @@
 // Creating a nested iterator class
 import box.random;
 import truckload;
-import <iostream>;
+import std;
 
 /* 
  Turns out moving the getFirstBox() and getLastBox() functions 

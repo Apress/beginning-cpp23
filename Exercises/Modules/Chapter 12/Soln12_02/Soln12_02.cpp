@@ -1,5 +1,5 @@
 // Using a function with a reference parameter in the Integer class
-import <iostream>;
+import std;
 import integer;
 
 /*****************************************************************\

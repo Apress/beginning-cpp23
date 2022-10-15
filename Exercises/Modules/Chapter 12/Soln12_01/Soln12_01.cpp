@@ -1,6 +1,6 @@
 // Implementing an Integer class
 import integer;
-import <iostream>;
+import std;
 
 int main() 
 {

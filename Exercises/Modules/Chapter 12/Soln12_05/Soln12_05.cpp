@@ -1,5 +1,5 @@
 // Using static members and a destructor to keep track of an object count
-import <iostream>;
+import std;
 import integer;
 
 void showIntegerVal(Integer it)
