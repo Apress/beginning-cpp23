@@ -1,8 +1,7 @@
 // Exercise 18-5
 // Only difference is the use of std::exchange() in the RAII classes
 
-import <iostream>;
-import <vector>;
+import std;
 
 #include "DB.h"
 import db.exception;

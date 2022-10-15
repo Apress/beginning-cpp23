@@ -15,7 +15,7 @@ module;
 #include "DB.h"
 export module db.raii;
 
-import <utility>;    // For std::exchange<>()
+import std;
 
 /**
  * RAII object that ensures that a given database connection is closed

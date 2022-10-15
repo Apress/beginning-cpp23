@@ -2,7 +2,7 @@
 
 export module db.exception;
 
-import <stdexcept>;
+import std;
 
 export class DatabaseException : public std::runtime_error
 {

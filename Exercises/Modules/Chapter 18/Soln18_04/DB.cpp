@@ -2,8 +2,7 @@
 
 #include "DB.h"
 #include <cstring>    // For std::strcmp()
-import <memory>;
-import <vector>;
+import std;
 
 namespace
 {

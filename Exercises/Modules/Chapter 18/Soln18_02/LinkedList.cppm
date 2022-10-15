@@ -27,7 +27,7 @@ bit given that move semantics has been around for almost a decade should be incr
 We invite you to give it a try, and simplify the code along these lines.
 */
 
-import <utility>;        // for std::swap()
+import std;
 
 export template<typename T>
 class LinkedList
