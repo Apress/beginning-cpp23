@@ -1,7 +1,6 @@
 export module sort.quick;
 
-import <utility>;    // for std::swap()
-import <vector>;
+import std;
 
 // The sorting algorithm exported by this module
 export template<typename T, typename Compare>

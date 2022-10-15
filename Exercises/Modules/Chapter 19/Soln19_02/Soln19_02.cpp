@@ -1,10 +1,7 @@
 // Exercise 19-2. 
 // Sorting in various ways using higher-order functions, functors, and lambda expressions.
 
-import <iostream>;
-import <format>;
-import <functional>;
-import <vector>;
+import std;
 
 import sort;
 

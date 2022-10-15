@@ -3,7 +3,7 @@
 // where a callback function is called whenever a certain event occurs 
 // (in this case: when a Box is delivered).
 
-import <iostream>;
+import std;
 import truckload;
 import delivery_truck;
 import box.random;

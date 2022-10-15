@@ -10,11 +10,7 @@
 	Just use a pointer to the std::isupper() function as the callback!
 */
 
-import <iostream>;
-import <format>;
-import <functional>;
-import <string>;
-import <vector>;
+import std;
 
 import collect;
 

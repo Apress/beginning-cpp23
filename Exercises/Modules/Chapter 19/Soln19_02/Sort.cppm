@@ -1,7 +1,6 @@
 export module sort;
 
-import <utility>;    // for std::swap()
-import <vector>;
+import std;
 
 // The primary, exported sort() template with two function parameters calls 
 // this internal sort() template with four parameters
