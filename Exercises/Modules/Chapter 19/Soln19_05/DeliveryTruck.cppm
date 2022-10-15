@@ -1,8 +1,7 @@
 export module delivery_truck;
 import truckload;
 
-import <functional>;      // For std::function<>
-import <vector>;          // For std::vector<>
+import std;
 
 export class DeliveryTruck
 {

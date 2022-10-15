@@ -1,6 +1,6 @@
 export module collect;
 
-import <vector>;
+import std;
 
 export template <typename T, typename Predicate>
 std::vector<T> collect(const std::vector<T>& values, Predicate predicate)
