@@ -10,8 +10,7 @@
 // In a later chapter you will learn about the conditional 
 // statements and expressions that allow you to refine this.
 
-import <iostream>;
-import <format>;
+import std;
 
 int main()
 {

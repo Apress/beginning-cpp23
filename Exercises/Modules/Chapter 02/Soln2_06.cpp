@@ -1,8 +1,6 @@
 // Exercise 2-6. Format a table.
 
-import <iostream>;
-import <numbers>;
-import <format>;
+import std;
 
 int main()
 {
