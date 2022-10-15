@@ -1,8 +1,7 @@
 // Exercise 15-6 Exercising Shape classes
 import shapes;
 import point;
-import <print>;
-import <vector>;
+import std;
 
 double calculateSumAreas(const std::vector<Shape*>& shapes);
 double calculateSumPerimeters(const std::vector<Shape*>& shapes);

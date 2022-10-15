@@ -1,8 +1,7 @@
 // Animal classes
 export module animals;
 
-import <string>;
-import <string_view>;
+import std;
 
 export class Animal
 {
