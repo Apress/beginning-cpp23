@@ -4,10 +4,7 @@
 export module sparse_array;
 
 import pair;
-import <vector>;
-import <string>;       // For std::to_string()
-import <utility>;      // For std::as_const()
-import <stdexcept>;
+import std;
 
 export template<typename T>
 class SparseArray

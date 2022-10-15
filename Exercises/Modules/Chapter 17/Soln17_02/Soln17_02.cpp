@@ -1,8 +1,7 @@
 // Exercise 16-2
 // Create a basic Pair template
 import pair;
-import <iostream>;
-import <string>;
+import std;
 
 int main()
 {

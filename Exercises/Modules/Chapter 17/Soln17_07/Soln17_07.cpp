@@ -1,7 +1,7 @@
 // Implementing a custom std::formatter<> specialization to format Box objects
 import box;
 import box.formatter;
-import <iostream>;
+import std;
 
 int main()
 {

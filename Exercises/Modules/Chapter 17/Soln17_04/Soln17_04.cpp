@@ -4,11 +4,8 @@
 // and output the resulting index/value pairs.
 
 import sparse_array;
-import <iostream>;
+import std;
 
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
-import <memory>;     // For std::make_shared<>() and std::shared_ptr<>
 
 // See Chapter 12 for an explanation of this principle.
 // The main difference here is that we need a std::uniform_int_distribution 

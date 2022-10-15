@@ -1,7 +1,6 @@
 // Create a << operator template for Pairs
 import pair;
-import <iostream>;
-import <string>;
+import std;
 
 int main()
 {
