@@ -1,7 +1,5 @@
 // Exercise 8_5 Listing prime numbers
-import <iostream>;
-import <print>;
-import <vector>;
+import std;
 
 #include <cmath>    // for std::sqrt()
 

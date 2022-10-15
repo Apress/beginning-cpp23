@@ -23,11 +23,7 @@
       In Chapter 9 you will learn about std::optional<>
       which allows you to handle such "not available" or "undefined" cases more elegantly, though.
 */
-import <iostream>;
-import <print>;
-import <vector>;
-import <string>;
-import <limits>;    // for std::numeric_limits's max() and quiet_nan()
+import std;
 
 #include <cmath>    // for std::sqrt() and std::isnan()
 
