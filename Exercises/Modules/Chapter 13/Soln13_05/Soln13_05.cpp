@@ -2,7 +2,7 @@
 // Implementing the obvious operators for the Box class 
 // to allow it to be used, for instance, in if statements.
 // A Box is "true" if and only if its volume is non-zero.
-import <iostream>;
+import std;
 import box;
 
 void testBox(const Box& box)
