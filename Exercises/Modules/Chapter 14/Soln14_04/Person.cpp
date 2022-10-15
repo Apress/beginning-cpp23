@@ -1,7 +1,7 @@
 // Person class implementation
 
 module person;
-import <print>;
+import std;
 
 Person::Person(size_t age, std::string_view name, Gender gender) 
   : m_age {age}, m_name {name}, m_gender {gender}
