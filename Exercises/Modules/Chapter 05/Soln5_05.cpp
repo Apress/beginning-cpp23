@@ -1,6 +1,5 @@
 // Exercise 5-5 Print out characters entered by the user *after* reversing them
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

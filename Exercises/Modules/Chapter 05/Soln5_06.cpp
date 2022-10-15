@@ -1,7 +1,5 @@
 // Exercise 5-6. Working with a vector container
-import <iostream>;
-import <print>;
-import <vector>;
+import std;
 
 int main()
 {
