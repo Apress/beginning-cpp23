@@ -40,8 +40,7 @@
       *(values+i) = 1.0 / ((static_cast<double>(i) + 1)*(static_cast<double>(i) + 1));
 */
 
-import <iostream>;
-import <print>;
+import std;
 
 #include <cmath>
 

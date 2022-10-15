@@ -15,9 +15,7 @@
  * in particular polymorphic ones. You'll learn all about this in later chapters!
  */
 
-import <iostream>;
-import <print>;
-import <vector>;
+import std;
 
 #include <cmath>
 

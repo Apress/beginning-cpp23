@@ -4,7 +4,7 @@
  * to help you understand the intimate relation between pointers and array names.        *
  * In real code, you'd normally just use array notation, because it is that much easier. */
 
-import <print>;
+import std;
 
 int main()
 {
