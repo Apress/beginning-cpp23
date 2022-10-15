@@ -5,8 +5,7 @@
 // from size_t to TooManyExceptions are not desired).
 
 export module too_many;
-import <exception>;
-import <string>;     // For std::string / std::to_string()
+import std;
 
 export class TooManyExceptions : public std::exception
 {

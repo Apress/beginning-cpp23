@@ -3,8 +3,7 @@
   Remember: RAII is not just for dynamic memory: every resource should be managed by an object!
  */
 
-import <iostream>;
-import <vector>;
+import std;
 
 #include "DB.h"
 import db_exception;

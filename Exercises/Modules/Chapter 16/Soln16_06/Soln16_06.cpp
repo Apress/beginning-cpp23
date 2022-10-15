@@ -28,8 +28,7 @@
    Hence: always use some form of RAII to manage a resource!
 */
 
-import <iostream>;
-import <vector>;
+import std;
 
 #include "DB.h"
 import db.exception;

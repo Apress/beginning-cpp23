@@ -1,7 +1,7 @@
 // Definition of Curveball exception class
 
 export module curveball;
-import <exception>;
+import std;
 
 export class Curveball : public std::exception
 {

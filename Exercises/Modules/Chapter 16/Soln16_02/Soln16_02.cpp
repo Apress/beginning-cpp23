@@ -2,9 +2,7 @@
 import curveball;
 import too_many;
 
-import <iostream>;
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
+import std;
 
 void throwCurveballSometimes();
 

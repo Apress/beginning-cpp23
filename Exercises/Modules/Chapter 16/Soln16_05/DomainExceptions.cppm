@@ -1,7 +1,6 @@
 // Definitions of various domain exception classes
 export module domain_exceptions;
-import <stdexcept>;
-import <string>;
+import std;
 
 /*
 	std::domain_error is one of the exception types defined by

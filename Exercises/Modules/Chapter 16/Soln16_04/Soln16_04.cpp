@@ -1,10 +1,5 @@
 // Throwing and catching standard exceptions
-import <iostream>;
-import <stdexcept>;
-import <vector>;
-import <format>;
-import <typeinfo>;
-import <optional>;
+import std;
 
 /*
   This solution triggers all exceptions mentioned in the text 
