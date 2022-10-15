@@ -9,7 +9,7 @@ The latter has the implication that if you mis-use the container,
 your program will likely crash...
 */
 
-import <utility>;        // for std::swap()
+import std;
 
 export template<typename T>
 class LinkedList

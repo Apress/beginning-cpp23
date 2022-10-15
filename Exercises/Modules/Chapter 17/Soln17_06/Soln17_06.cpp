@@ -1,10 +1,7 @@
 // Exercising the SparseArray class template in combination with the LinkedList class template
 import sparse_array;
 import linked_list;
-import <string>;
-import <string_view>;
-import <iostream>;
-import <utility>;
+import std;
 
 #include <cctype>
 

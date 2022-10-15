@@ -1,9 +1,7 @@
 // Same as Ex17_01B, but with a push_back() member and a default constructor
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
+import std;
 
 export template <typename T>
 class Array

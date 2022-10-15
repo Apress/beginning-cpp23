@@ -2,7 +2,7 @@
 // (Alternate solution)
 import box;
 import box.formatter;
-import <iostream>;
+import std;
 
 int main()
 {

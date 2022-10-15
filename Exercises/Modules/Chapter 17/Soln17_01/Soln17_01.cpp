@@ -1,7 +1,7 @@
 // Adding a push_back() member function and a default constructor to the Array<> 
 // class template. Using copy-and-swap for a memory-safe push_back().
 import array;
-import <iostream>;
+import std;
 
 int main()
 {

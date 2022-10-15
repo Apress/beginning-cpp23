@@ -1,9 +1,7 @@
 export module box.formatter;
 
 import box;
-import <format>;
-import <string>;
-import <algorithm>;
+import std;
 
 // Adding specific specializations to the std namespace is allowed
 export template <>

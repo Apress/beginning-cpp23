@@ -1,7 +1,6 @@
 export module pair;
 
-import <compare>;
-import <iostream>;
+import std;
 
 export template <typename First, typename Second>
 class Pair
