@@ -1,7 +1,6 @@
 // Exercise 4-3 Using nested ifs and a logical && to check the value of a number.
 
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

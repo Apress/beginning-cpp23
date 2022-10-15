@@ -1,7 +1,6 @@
 // Exercise 4-1 Testing whether two integer values are equal. 
 
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

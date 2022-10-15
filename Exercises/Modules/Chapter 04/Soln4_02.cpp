@@ -3,8 +3,7 @@
 //              and we can use another to arrange the input as we need. 
 //              Then we use an if-else to generate the appropriate output.
 
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

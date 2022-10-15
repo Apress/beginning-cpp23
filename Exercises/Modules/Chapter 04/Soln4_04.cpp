@@ -2,8 +2,7 @@
 // As promised, you're to go look for a person "who is over 21, under 35, female, 
 // has a bachelor's or master's degree, is unmarried, and who speaks Hindi or Urdu"
 
-import <print>;
-import <iostream>;
+import std;
 
 #include <cctype>          // For std::tolower() / std::toupper()
 

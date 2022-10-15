@@ -1,7 +1,6 @@
 // Exercise 4-05
 // Using the conditional operator to select output.
-import <iostream>;
-import <print>;
+import std;
 
 int main()
 {
