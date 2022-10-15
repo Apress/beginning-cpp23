@@ -1,6 +1,6 @@
 // Exercise 13-2
 // Implementing the * operator for the Box class to pre-multiply by a number
-import <iostream>;
+import std;
 import box;
 
 int main()

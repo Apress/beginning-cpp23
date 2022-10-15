@@ -1,6 +1,6 @@
 // Exercise 13-3
 // Implementing the missing /, *=, +=, and /= operators for the Box class
-import <iostream>;
+import std;
 import box;
 
 int main()

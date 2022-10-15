@@ -1,7 +1,7 @@
 // Exercise 13-1
 // Implementing the * operator for the Box class
 // to post-multiply by an integer
-import <iostream>;
+import std;
 import box;
 
 int main()

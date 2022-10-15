@@ -1,6 +1,6 @@
 // Exercise 13-7
 // Rational operators
-import <iostream>;
+import std;
 import rational;
 
 int main()

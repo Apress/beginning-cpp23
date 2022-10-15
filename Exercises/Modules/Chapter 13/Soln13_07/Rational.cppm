@@ -1,5 +1,5 @@
 export module rational;
-import <iostream>;
+import std;
 
 export class Rational
 {
