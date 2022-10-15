@@ -2,7 +2,7 @@
 // An exercise to further deepen your understanding of the relation 
 // between pointers, pointer arithmetic, and arrays.
 
-import <print>;
+import std;
 
 int main()
 {
