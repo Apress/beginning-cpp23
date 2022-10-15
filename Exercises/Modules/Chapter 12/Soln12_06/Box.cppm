@@ -1,7 +1,6 @@
 export module box;
 
-import <iostream>;
-import <format>;
+import std;
 
 export class Box
 {

@@ -1,5 +1,5 @@
 module integer;
-import <iostream>;
+import std;
 
 Integer::Integer(int value) : m_value{value}
 {
