@@ -1,6 +1,5 @@
 // Creating a module implementation partition
-import <string>;
-import <iostream>;
+import std;
 import words;
 
 int main()

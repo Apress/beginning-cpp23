@@ -1,8 +1,7 @@
 // Splitting a module in multiple submodules
 import words;
 
-import <string>;
-import <iostream>;
+import std;
 
 int main()
 {

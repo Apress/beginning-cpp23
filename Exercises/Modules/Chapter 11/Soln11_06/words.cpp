@@ -1,7 +1,6 @@
 module words;
 
-import <iostream>;
-import <format>;
+import std;
 
 size_t max_word_length(const words::Words& words);
 
