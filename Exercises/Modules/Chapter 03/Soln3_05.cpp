@@ -3,7 +3,7 @@
 // Biggest complication is that you cannot apply any binary or other arithmetic operations
 // on values of a scoped enumaration type. For this, you have to first cast them to an integer.
 
-import <print>;
+import std;
 
 int main()
 {

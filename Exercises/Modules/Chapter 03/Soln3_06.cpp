@@ -1,7 +1,6 @@
 // Exercise 3-6. Swapping integers.
 
-import <iostream>;
-import <print>;
+import std;
 
 int main()
 {

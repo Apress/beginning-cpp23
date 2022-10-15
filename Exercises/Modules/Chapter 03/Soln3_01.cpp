@@ -4,8 +4,7 @@
 // (see Chapter 2 if you forgot some of the formatting options), 
 // as well as two's complement binary encoding and bitwise ~.
 
-import <print>;
-import <iostream>;
+import std;
 
 // See Appendix A (available online) for static_assert().
 // You should adjust the field widths of the table if ints have a different size.
