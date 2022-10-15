@@ -1,10 +1,6 @@
 export module words;
 
-import <iostream>;
-import <format>;
-import <memory>;
-import <string>;
-import <vector>;
+import std;
 
 export namespace words
 {

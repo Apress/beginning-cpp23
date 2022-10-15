@@ -1,8 +1,6 @@
 export module words.sorting;
 
-import <memory>;
-import <string>;
-import <vector>;
+import std;
 
 export namespace words
 {

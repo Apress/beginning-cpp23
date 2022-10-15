@@ -1,6 +1,5 @@
 // Splitting a module interface into partitions
-import <string>;
-import <iostream>;
+import std;
 import words;
 
 int main()

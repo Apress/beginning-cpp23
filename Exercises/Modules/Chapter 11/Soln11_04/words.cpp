@@ -1,7 +1,6 @@
 module words;
 
-import <iostream>;
-import <format>;
+import std;
 import :internals;
 
 void words::extract_words(Words& words, const std::string& text, const std::string& separators)

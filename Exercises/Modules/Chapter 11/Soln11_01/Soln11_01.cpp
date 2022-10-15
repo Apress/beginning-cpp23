@@ -1,7 +1,6 @@
 // Move all functions from Ex8_17.cpp (and not Ex8_18.cpp as the text says...)
 // to a words function, exporting only the functions used by main().
-import <string>;
-import <iostream>;
+import std;
 import words;
 
 int main()

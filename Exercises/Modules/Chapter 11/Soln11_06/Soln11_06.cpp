@@ -1,6 +1,5 @@
 // Defining alternate names for a namespace
-import <string>;
-import <iostream>;
+import std;
 import words;
 
 namespace wrds

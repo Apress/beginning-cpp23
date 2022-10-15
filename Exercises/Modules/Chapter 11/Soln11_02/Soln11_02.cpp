@@ -1,7 +1,6 @@
 // Moving the implementation of functions from the module interface file 
 // to a module implementation file.
-import <string>;
-import <iostream>;
+import std;
 import words;
 
 int main()

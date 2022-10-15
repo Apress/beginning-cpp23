@@ -1,8 +1,6 @@
 export module words:alias;
 
-import <memory>;
-import <string>;
-import <vector>;
+import std;
 
 namespace words
 {

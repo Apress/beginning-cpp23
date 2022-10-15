@@ -4,8 +4,7 @@ export module words:utils;
 import :alias;   // For use of words::Words alias
 import :internals;
 
-import <iostream>;
-import <format>;
+import std;
 
 export namespace words
 {
