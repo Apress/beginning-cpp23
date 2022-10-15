@@ -8,8 +8,8 @@ import std;
 int main()
 {
   std::string text;                                // Stores input prose or poem
-  std::cout << "Enter a poem or prose over one or more lines.\n"
-            << "Terminate the input with #:\n";
+  std::println("Enter a poem or prose over one or more lines.\n"
+               "Terminate the input with #:");
   getline(std::cin, text, '#');
 
   SparseArray<LinkedList<std::string>> lists;      // Sparse array of linked lists
@@ -40,11 +40,12 @@ int main()
     size_t count {};                               // Word counter
     for (auto iterator { lists[i].front_iterator() }; iterator; iterator.next())
     {
-      std::cout << iterator.value() << ' ';
+      std::print("{} ", iterator.value());
       if (!(++count % perline))
-        std::cout << std::endl;
+        std::println("");
     }
-    std::cout << std::endl;
+    if (count % perline)
+      std::println("");
   }
-  std::cout << std::endl;
+  std::println("");
 }

@@ -15,8 +15,8 @@ int main()
     const size_t numValues{ 50 };
     Array<double> values{ numValues };  // Now uses the initializer list constructor!
 
-    std::cout << "Wrong constructor used, so " << values.getSize() << " != " << numValues << std::endl;
-    std::cout << "Single value contained in Array<> is " << values[0] << std::endl;
+    std::println("Wrong constructor used, so the Array's size, {}, is not {}", values.getSize(), numValues);
+    std::println("Single value contained in Array<> is {}", values[0]);
   }
 
   // Workaround: do not use uniform initialization (or "near uniform", as is thus more appropriate...)
@@ -24,7 +24,7 @@ int main()
     const size_t numValues{ 50 };
     Array<double> values(numValues);    // Uses Array(size_t) constructor as before
 
-    std::cout << "Intended constructor used, so " << values.getSize() << " == " << numValues << std::endl;
-    std::cout << "All values are equal to " << values[numValues / 2] << std::endl;
+    std::println("Intended constructor used, so the Array's size is {}", values.getSize());
+    std::println("All values are equal to {}", values[numValues / 2]);
   }
 }
