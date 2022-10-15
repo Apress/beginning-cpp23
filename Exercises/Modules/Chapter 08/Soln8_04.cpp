@@ -1,6 +1,5 @@
 // Exercise 8_4 An overloaded plus() function. 
-import <print>;
-import <string>;
+import std;
 
 int plus(int a, int b);
 double plus(double x, double y);

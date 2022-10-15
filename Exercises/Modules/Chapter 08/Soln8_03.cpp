@@ -1,5 +1,5 @@
 // Exercise 8_3 Checking the number of arguments entered at the command line. 
-import <print>;
+import std;
 
 int main(int numArguments, char* arguments[])
 {
