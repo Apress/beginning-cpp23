@@ -4,9 +4,7 @@
 // then all calls should share the same static variable...
 // You should see this being reflected in the program's output
 // as main() starts by calling the function for doubles twice.
-import <iostream>;
-import <format>;
-import <string>;
+import std;
 
 template<typename T> T larger(T a, T b);    // Function template prototype
 

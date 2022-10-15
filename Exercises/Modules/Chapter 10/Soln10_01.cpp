@@ -3,9 +3,7 @@
 // a template that produces functions to clamp values to a given interval.
 // Different variations are possible, but we opted for the same as in the Standard Library:
 // namely one where all three arguments are of the same type, and passed by reference-to-const.
-import <iostream>;
-import <format>;
-import <string>;
+import std;
 
 /*
   Caution: the actual std::clamp() function uses a different argument order.

@@ -1,9 +1,6 @@
 // Exercise 10-4.cpp
 // Your very own interpretation of std::size()
-import <iostream>;
-import <array>;
-import <vector>;
-import <span>;
+import std;
 
 // Look ma, no sizeof()!
 template <typename T, size_t N>

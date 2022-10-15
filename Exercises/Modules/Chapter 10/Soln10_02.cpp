@@ -12,8 +12,7 @@
 // string literals themselves. To solve this, you should create a specialisation 
 // for const char* arrays. 
 
-import <iostream>;
-import <string_view>;
+import std;
 
 template<typename T>                     // Function template prototype
 T larger(T a, T b);                      
