@@ -1,7 +1,7 @@
 // Implementations of the Zoo class that stores pointers to Animals
 module zoo;
 import animals;
-import <print>;
+import std;
 
 // Constructor from a vector of animals
 Zoo::Zoo(const std::vector<AnimalPtr>& animals) 

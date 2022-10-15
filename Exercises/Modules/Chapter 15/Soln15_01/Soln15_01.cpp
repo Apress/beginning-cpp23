@@ -1,11 +1,6 @@
 // Exercise 15-1 Exercising Zoo and Animal classes
 import zoo;
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
-import <iostream>;
-import <print>;
-import <array>;
-import <string_view>;
+import std;
 
 // Creates a preudo-random number generator (PRNG) that generates unsigned integers 
 // in a closed interval [min, max].

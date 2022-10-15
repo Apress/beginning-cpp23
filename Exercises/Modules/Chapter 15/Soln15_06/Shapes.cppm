@@ -2,7 +2,7 @@
 export module shapes;
 
 import point;
-import <numbers>;
+import std;
 
 // Generic base class for shapes
 export class Shape
