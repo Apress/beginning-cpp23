@@ -1,6 +1,5 @@
 // Exercise 5-1 Squaring odd numbers
-import <iostream>;
-import <print>;
+import std;
 
 int main()
 {

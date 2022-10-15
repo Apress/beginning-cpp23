@@ -1,6 +1,5 @@
 // Exercise 5-2 Summing integers and calculating the average
-import <print>;
-import <iostream>;
+import std;
 
 #include <cctype>
 

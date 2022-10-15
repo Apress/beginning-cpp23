@@ -1,6 +1,5 @@
 // Exercise 5-3 Using a do-while loop to count characters
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {

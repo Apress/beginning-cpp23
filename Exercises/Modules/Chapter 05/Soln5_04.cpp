@@ -1,6 +1,5 @@
 // Exercise 5-4 Print out characters entered by the user in reverse order
-import <print>;
-import <iostream>;
+import std;
 
 int main()
 {
