@@ -27,13 +27,13 @@ int main()
 {
   // Random-access iterators:
   std::vector v{ 1, 2, 3, 4, 5 };
-  std::cout << *my_advance(v.begin(), 3) << std::endl;
+  std::println("{}",*my_advance(v.begin(), 3));
 
   // Bidirectional iterators:
   std::list l{ 1, 2, 3, 4, 5 };
-  std::cout << *my_advance(l.end(), -3) << std::endl;
+  std::println("{}",*my_advance(l.end(), -3));
 
   // Forward iterators:
   std::forward_list f{ 1, 2, 3, 4, 5 };
-  std::cout << *my_advance(f.begin(), 3) << std::endl;
+  std::println("{}",*my_advance(f.begin(), 3));
 }

@@ -64,23 +64,23 @@ auto medianOfSorted(Range&& range)
 int main()
 {
   std::array values_odd{ 1, 2, 3, 4, 5, 6, 7 };
-  std::cout << medianOfSorted(values_odd) << std::endl;
+  std::println("{}", medianOfSorted(values_odd));
 
   std::array values_even{ 1., 2., 3., 4., 5., 6. };
-  std::cout << medianOfSorted(values_even) << std::endl;
+  std::println("{}", medianOfSorted(values_even));
 
   std::string strings_odd[] { "1", "2", "3", "4", "5" };
-  std::cout << medianOfSorted(strings_odd) << std::endl;
+  std::println("{}", medianOfSorted(strings_odd));
 
   std::string strings_even[] { "1", "2", "3", "4", "5", "6" };
-  std::cout << medianOfSorted(std::span{ strings_even }) << std::endl;
+  std::println("{}", medianOfSorted(std::span{ strings_even }));
 
   std::vector dynamically_sized{ 1.f, 2.f, 3.f, 4.f };
-  std::cout << medianOfSorted(dynamically_sized) << std::endl;
+  std::println("{}", medianOfSorted(dynamically_sized));
 
   std::list non_random_access{ 4.f, 3.f, 2.f, 1.f, 0.f };
-  std::cout << medianOfSorted(non_random_access) << std::endl;
+  std::println("{}", medianOfSorted(non_random_access));
 
   std::forward_list non_sized_ranged{ 123, 456, 789 };
-  //std::cout << medianOfSorted(non_sized_ranged) << std::endl; /* Error: not sized! */
+  //std::println("{}", medianOfSorted(non_sized_ranged)); /* Error: not sized! */
 }
