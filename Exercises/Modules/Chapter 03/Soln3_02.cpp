@@ -37,9 +37,9 @@ int main()
   it may be more readable to split this computation over a few lines:
 
     const double shelf_length_inches = shelf_length * inches_per_foot;
-    const double shelf_depth_inches = shelf_length * inches_per_foot;
+    const double shelf_depth_inches = shelf_depth * inches_per_foot;
     const long complete_boxes_length = static_cast<long>(shelf_length_inches / box_size);
-    const long complete_boxes_depth = static_cast<long>(shelf_length_inches / box_size);
+    const long complete_boxes_depth = static_cast<long>(shelf_depth_inches / box_size);
     const double boxes = complete_boxes_length * complete_boxes_depth;
 
   In another variation, you may also first convert the box's dimension to feet
