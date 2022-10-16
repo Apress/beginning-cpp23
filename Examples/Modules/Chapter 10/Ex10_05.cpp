@@ -13,7 +13,7 @@ int main()
   std::println("{}", average(moreDoubles));
 
  // double* pointer = doubles;
- // std::cout << average(pointer) << std::endl;      /* will not compile */
+ // std::println("{}", average(pointer));      /* will not compile */
 
   std::println("{}", average({ 1.0, 2.0, 3.0, 4.0 }));
 
