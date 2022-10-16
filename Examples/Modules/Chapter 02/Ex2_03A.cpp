@@ -12,12 +12,12 @@ int main()
   unsigned int fish_count {};  // Number of fish (used to be of type double as well)
   double fish_length {};       // Average length of fish
 
-  std::cout << "Enter the number of fish you want to keep: ";
+  std::print("Enter the number of fish you want to keep: ");
   std::cin >> fish_count;
-  std::cout << "Enter the average fish length in inches: ";
+  std::print("Enter the average fish length in inches: ");
   std::cin >> fish_length;
   fish_length /= inches_per_foot;  // Convert to feet
-  std::cout << '\n';
+  std::println("");
 
   // Calculate the required surface area
   const double pond_area {fish_count * fish_length * fish_factor};
@@ -25,6 +25,6 @@ int main()
   // Calculate the pond diameter from the area
   const double pond_diameter {2.0 * std::sqrt(pond_area / std::numbers::pi)};
 
-  std::cout << "Pond diameter required for " << fish_count << " fish is "
-            << pond_diameter << " feet.\n";
+  std::println("Pond diameter required for {} fish is {} feet.", 
+               fish_count, pond_diameter);
 }
