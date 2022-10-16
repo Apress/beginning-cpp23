@@ -4,7 +4,7 @@ import std;
 int main()
 {
   char letter {};
-  std::cout << "Enter a letter: ";
+  std::print("Enter a letter: ");
   std::cin >> letter;
 
   if (std::isalpha(letter))

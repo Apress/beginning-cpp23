@@ -3,7 +3,7 @@ import std;
 
 int main()
 {
-  std::cout << "Please enter a number: ";
+  std::print("Please enter a number: ");
 
   int value;
   std::cin >> value;

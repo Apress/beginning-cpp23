@@ -3,8 +3,8 @@ import std;
 
 int main()
 {
-  char letter {};                      // Store input here
-  std::cout << "Enter a letter: ";     // Prompt for the input
+  char letter {};                  // Store input here
+  std::print("Enter a letter: ");  // Prompt for the input
   std::cin >> letter;
 
   if (std::isupper(letter))
