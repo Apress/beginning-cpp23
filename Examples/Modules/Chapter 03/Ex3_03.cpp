@@ -11,15 +11,15 @@ int main()
   Punctuation ch{ Punctuation::Comma };
 
   std::println("yesterday's value is {}{} but poets_day's is {}{}",
-    static_cast<int>(yesterday), static_cast<char>(ch),
-    static_cast<int>(poets_day), static_cast<char>(Punctuation::Exclamation));
+    std::to_underlying(yesterday), std::to_underlying(ch), 
+    std::to_underlying(poets_day), std::to_underlying(Punctuation::Exclamation));
 
   today = Day::Thursday;        // Assign new ...
   ch = Punctuation::Question;   // ... enumerator values
   tomorrow = poets_day;         // Copy enumerator value
 
   std::println("Is today's value({}) the same as poets_day({}){}",
-    static_cast<int>(today), static_cast<int>(poets_day), static_cast<char>(ch));
+      std::to_underlying(today), std::to_underlying(poets_day), std::to_underlying(ch));
 
 //  ch = tomorrow;              /* Uncomment any of these for an error */
 //  tomorrow = Friday;
