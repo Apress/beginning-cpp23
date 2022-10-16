@@ -5,9 +5,8 @@ import std;
 int main() 
 {
   unsigned int limit {};
-  std::print("This program calculates n! ");
-  std::println("and the sum of the integers up to n for values 1 to limit.");
-  std::print("What upper limit for n would you like? ");
+  std::print("This program calculates n! and the sum of the integers up to n ");
+  std::print("for values 1 to limit.\nWhat upper limit for n would you like? ");
   std::cin >> limit;
 
   // The format string for all rows of the table

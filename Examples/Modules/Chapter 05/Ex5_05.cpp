@@ -4,16 +4,15 @@ import std;
 int main()
 {
   unsigned int limit {};
-  std::cout << "This program calculates n! and the sum of the integers "
-            << "up to n for values 1 to limit.\n";
-  std::cout << "What upper limit for n would you like? ";
+  std::print("This program calculates n! and the sum of the integers up to n ");
+  std::print("for values 1 to limit.\nWhat upper limit for n would you like? ");
   std::cin >> limit;
 
   // The format string for all rows of the table
-  const auto table_format{ "{:>8} {:>8} {:>20}\n" };
+  constexpr auto table_format = "{:>8} {:>8} {:>20}";
   
   // Output column headings
-  std::cout << std::format(table_format, "integer", "sum", "factorial"); 
+  std::println(table_format, "integer", "sum", "factorial"); 
 
   unsigned int n {};
   unsigned int sum {};
@@ -23,6 +22,6 @@ int main()
   {
     sum += n;                    // Accumulate sum to current n
     factorial *= n;              // Calculate n! for current n
-    std::cout << std::format(table_format, n, sum, factorial);
+    std::println(table_format, n, sum, factorial);
   }
 }
