@@ -1,15 +1,15 @@
 // Exercise 3-6. Swapping integers.
 
-import <iostream>;
+import std;
 
 int main()
 {
   int first {}, second {};
-  std::cout << "Enter two integers separated by a space: ";
+  std::print("Enter two integers separated by a space: ");
   std::cin >> first >> second;
 
   first ^= second;
   second ^= first;
   first ^= second;
-  std::cout << "In reverse order they are " << first << " and " << second << std::endl;
+  std::println("In reverse order they are {} and {}", first, second);
 }
