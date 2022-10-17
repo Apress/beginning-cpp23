@@ -1,4 +1,4 @@
-// Working with maps
+// Ex20_05.cpp - Working with maps
 import std;
 
 // Type aliases
@@ -16,13 +16,13 @@ int main()
   std::string text;    // The string to count words in
 
   // Read a string from the keyboard
-  std::cout << "Enter a string terminated by *:" << std::endl;
+  std::println("Enter a string terminated by *:");
   getline(std::cin, text, '*');
 
-  const Words words{ extractWords(text) };
+  Words words = extractWords(text);
   if (words.empty())
   {
-    std::cout << "No words in text." << std::endl;
+    std::println("No words in text.");
     return 0;
   }
 
@@ -73,18 +73,18 @@ void showWordCounts(const WordCounts& wordCounts)
   char previous_initial{};
   for (const auto& [word, count] : wordCounts)
   {
-    if (count < 2) continue;   // Skip words that appear only once
+    if (count <= 1) continue;  // Skip words that appear only once
 
     // Output newline when initial letter changes or after 5 per line
     if ( (previous_initial && word[0] != previous_initial)
           || words_in_line++ == words_per_line)
     {
       words_in_line = 0;
-      std::cout << std::endl;
+      std::println("");
     }
     // Output "word (count)", where word has a dynamic field width
-    std::cout << std::format("{:>{}} ({:2})", word, field_width, count); 
+    std::print("{:>{}} ({:2})", word, field_width, count); 
     previous_initial = word[0];
   }
-  std::cout << std::endl;
+  std::println("");
 }

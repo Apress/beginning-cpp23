@@ -24,6 +24,6 @@ int main()
 
 void printVector(const std::vector<int>& v)
 {
-  for (auto i : v) std::cout << i << ' ';
-  std::cout << std::endl;
+  for (auto i : v) std::print("{} ", i);
+  std::println("");
 }
