@@ -1,5 +1,5 @@
 // Using a derived class copy constructor
-import <iostream>;
+import std;
 import carton;
 
 int main()

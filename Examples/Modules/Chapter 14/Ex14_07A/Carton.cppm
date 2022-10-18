@@ -1,32 +1,30 @@
 // Carton.cppm - defines the Carton class with the Box class as base
 export module carton;
 
-import <string>;
-import <string_view>;
-import <iostream>;
+import std;
 import box;
 
 export class Carton : public Box
 {
 public:
-  Carton() { std::cout << "Carton() called.\n"; }
+  Carton() { std::println("Carton() called."); }
 
   explicit Carton(std::string_view material) : m_material{material}
-  { std::cout << "Carton(string_view) called.\n"; }
+  { std::println("Carton(string_view) called."); }
 
   Carton(double side, std::string_view material) : Box{side}, m_material{material}
-  { std::cout << "Carton(double,string_view) called.\n"; }
+  { std::println("Carton(double,string_view) called."); }
 
   Carton(double l, double w, double h, std::string_view material)
     : Box{l, w, h}, m_material{material}
-    { std::cout << "Carton(double,double,double,string_view) called.\n"; } 
+    { std::println("Carton(double, double, double, string_view) called.)"); }
 
   // One new constructor
   Carton(double l, double w, double h, std::string_view m, double density, double thickness)
     : Carton{l, w, h, m} 
   {
     m_thickness = thickness; m_density = density;
-    std::cout << "Carton(double,double,double,string_view,double,double) called.\n";
+    std::println("Carton(double, double, double, string_view, double, double) called.)");
   }
 
   // Copy constructor
@@ -53,4 +51,3 @@ private:
   double m_thickness {0.125};   // Material thickness in inch
   double m_density {0.2};       // Material density in pounds/cubic inch
 };
-
