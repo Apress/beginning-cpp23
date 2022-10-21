@@ -16,7 +16,7 @@ int main()
   }
   catch (const Trouble&)
   {
-    std::cout << "No worries: I've caught it!" << std::endl;
+    std::println("No worries: I've caught it!");
   }
 }
 

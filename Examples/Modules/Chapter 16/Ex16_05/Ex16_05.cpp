@@ -20,16 +20,15 @@ int main()
       catch (const Trouble& t)
       {
         if (typeid(t) == typeid(Trouble))
-          std::cout << "Trouble object caught in inner block: " << t.what() << std::endl;
+          std::println("Trouble object caught in inner block: {}", t.what());
         else
           throw;     // Rethrow current exception
       }
     }
     catch (const Trouble& t)
     {
-      std::cout << typeid(t).name() << " object caught in outer block: "
-                << t.what() << std::endl;
+      std::println("{} object caught in outer block: {}", typeid(t).name(), t.what());
     }
-    std::cout << "End of the for loop (after the catch blocks) - i is " << i << std::endl;
+    std::println("End of the for loop (after the catch blocks) - i is {}", i);
   }
 }

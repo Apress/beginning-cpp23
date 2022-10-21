@@ -17,9 +17,9 @@ int main()
     }
     catch (const Trouble& t)
     {
-      //std::cout << "Trouble object caught: " << t.what() << std::endl;
-      std::cout << typeid(t).name() << " object caught: " << t.what() << std::endl;
+      std::println("Trouble object caught: {}", t.what());
+    //  std::println("{} object caught: {}", typeid(t).name(), t.what());
     }
-    std::cout << "End of the for loop (after the catch blocks) - i is " << i << std::endl;
+    std::println("End of the for loop (after the catch blocks) - i is {}", i);
   }
 }

@@ -1,19 +1,20 @@
-// Using an exception class
+// Embedding a stack trace in an exception
 import std;
-import box;               // For the Box class
-import dimension_error;   // For the dimension_error class
+import exception;
+
+int f3() { throw Exception{ "Something's amis!" }; }
+int f2() { return f3(); }
+int f1() { return f2(); }
 
 int main()
 {
   try
   {
-    Box box1 {1.0, 2.0, 3.0};
-    std::cout << "box1 volume is " << box1.volume() << std::endl;
-    Box box2 {1.0, -2.0, 3.0};
-    std::cout << "box2 volume is " << box2.volume() << std::endl;
+    f1();
   }
-  catch (const std::exception& ex)
+  catch (const Exception& ex)
   {
-    std::cout << "Exception caught in main(): " << ex.what() << std::endl;
+    std::println("Exception of type {} caught: {}; trace:\n{}", 
+        typeid(ex).name(), ex.what(), to_string(ex.getStackTrace()));
   }
 }
