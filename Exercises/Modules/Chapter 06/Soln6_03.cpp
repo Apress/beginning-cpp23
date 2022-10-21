@@ -42,12 +42,10 @@
 
 import std;
 
-#include <cmath>
-
 int main()
 {
   unsigned long long n {};
-  std::cout << "Enter the number of array elements: ";
+  std::print("Enter the number of array elements: ");
   std::cin >> n;
   auto* values{ new double[n] };
   for (unsigned long long i {}; i < n; ++i)
