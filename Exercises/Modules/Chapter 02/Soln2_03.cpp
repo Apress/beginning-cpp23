@@ -1,8 +1,6 @@
 // Exercise 2-3. Calculating the height of a tree
 import std;
 
-#include <cmath>
-
 int main()
 {
   const double inches_per_foot {12.0};

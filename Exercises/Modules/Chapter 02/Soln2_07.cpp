@@ -3,8 +3,6 @@
 
 import std;
 
-#include <cmath>
-
 int main()
 {
   // Define the format strings for the various rows of the table first
