@@ -17,8 +17,6 @@
 
 import std;
 
-#include <cmath>
-
 int main()
 {
   unsigned long long n {};
