@@ -1,8 +1,6 @@
 // Exercise 5-2 Summing integers and calculating the average
 import std;
 
-#include <cctype>
-
 int main()
 {
   unsigned int count {};

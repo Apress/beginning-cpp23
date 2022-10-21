@@ -3,8 +3,6 @@
 // You have to adjust the field widths until it looks OK.
 import std;
 
-#include <cctype>
-
 int main()
 {
   std::vector<unsigned> product_id;
