@@ -8,7 +8,7 @@ public:
   explicit DoubleArrayRAII(size_t size) : m_resource{ new double[size] } {}
   ~DoubleArrayRAII()
   {
-    std::cout << "Freeing memory..." << std::endl;
+    std::println("Freeing memory...");
     delete[] m_resource;
   }
 

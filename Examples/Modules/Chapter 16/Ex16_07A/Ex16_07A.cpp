@@ -15,7 +15,7 @@ int main()
   }
   catch (const Trouble&)
   {
-    std::cout << "No worries: I've caught it!" << std::endl;
+    std::println("No worries: I've caught it!");
   }
 }
 
@@ -30,7 +30,7 @@ double* computeValues(size_t howMany)
   }
   catch (const Trouble&)
   {
-    std::cout << "I sense trouble... Freeing memory..." << std::endl;
+    std::println("I sense trouble... Freeing memory...");
     delete[] values;
     throw;
   }

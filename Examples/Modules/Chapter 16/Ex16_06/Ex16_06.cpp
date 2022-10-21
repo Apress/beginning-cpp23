@@ -19,20 +19,19 @@ int main()
       }
       catch (const BigTrouble& bt)
       {
-        std::cout << "Oh dear, big trouble. Let's handle it here and now." << std::endl;
+        std::println("Oh dear, big trouble. Let's handle it here and now.");
         // Do not rethrow...
       }
       catch (...)   // Catch any other exception
       {
-        std::cout << "We caught something else! Let's rethrow it. " << std::endl;
+        std::println("We caught something else! Let's rethrow it.");
         throw;      // Rethrow current exception
       }
     }
     catch (const Trouble& t)
     {
-      std::cout << typeid(t).name() << " object caught in outer block: "
-                << t.what() << std::endl;
+      std::println("{} object caught in outer block: {}", typeid(t).name(), t.what());
     }
-    std::cout << "End of the for loop (after the catch blocks) - i is " << i << std::endl;
+    std::println("End of the for loop (after the catch blocks) - i is {}", i);
   }
 }

@@ -15,7 +15,7 @@ int main()
     catch (const Trouble& t)
     {
       // What seems to be the trouble?
-      std::cout << "Exception: " << t.what() << std::endl;
+      std::println("Exception: {}", t.what());
     }
   }
 }
