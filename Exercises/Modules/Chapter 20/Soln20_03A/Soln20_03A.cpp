@@ -13,8 +13,6 @@
 */
 import std;
 
-#include <cctype>
-
 int main()
 {
   std::string text;                                // Stores input prose or poem

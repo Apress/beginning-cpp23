@@ -1,6 +1,5 @@
 // Exercise 20-11: exercising range factories and range adaptors
 import std;
-#include <cmath>
 
 using namespace std::ranges::views;
 
