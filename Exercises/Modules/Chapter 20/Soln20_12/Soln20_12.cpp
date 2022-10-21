@@ -1,6 +1,5 @@
 // Exercise 20-12: exercising new range adaptors
 import std;
-#include <cmath>
 
 using namespace std::ranges::views;
 

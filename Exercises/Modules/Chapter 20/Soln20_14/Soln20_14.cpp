@@ -1,6 +1,5 @@
 // Exercise 20-14: the hard nut
 import std;
-#include <cmath>
 
 using namespace std::ranges::views;
 
