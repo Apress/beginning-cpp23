@@ -4,31 +4,28 @@ import std;
 int main()
 {
   std::vector numbers{ 91, 18, 92, 22, 13, 43 };
-  std::cout << "Minimum element: "
-            << *std::min_element(begin(numbers), end(numbers)) << std::endl;
-  std::cout << "Maximum element: "
-            << *std::max_element(begin(numbers), end(numbers)) << std::endl;
+  std::println("Minimum element: {}", *std::min_element(begin(numbers), end(numbers)));
+  std::println("Maximum element: {}", *std::max_element(begin(numbers), end(numbers)));
 
   int number_to_search_for {};
-  std::cout << "Please enter a number: ";
+  std::print("Please enter a number: ");
   std::cin >> number_to_search_for;
 
   auto nearer { [=](int x, int y) {
     return std::abs(x - number_to_search_for) < std::abs(y - number_to_search_for);
   }};
 
-  std::cout << "The number nearest to " << number_to_search_for << " is "
-            << *std::min_element(begin(numbers), end(numbers), nearer) << std::endl;
-  std::cout << "The number furthest from " << number_to_search_for << " is "
-            << *std::max_element(begin(numbers), end(numbers), nearer) << std::endl;
+  std::println("The number nearest to {} is {}", 
+     number_to_search_for, *std::min_element(begin(numbers), end(numbers), nearer));
+  std::println("The number furthest from {} is {}",
+     number_to_search_for, *std::max_element(begin(numbers), end(numbers), nearer));
 
 /*
   const auto [nearest, furthest]
     { std::minmax_element(begin(numbers), end(numbers), nearer) };
 
-  std::cout << "The number nearest to " << number_to_search_for << " is "
-            << *nearest << std::endl;
-  std::cout << "The number furthest from " << number_to_search_for << " is "
-            << *furthest << std::endl;
+  std::println("The number nearest to {} is {}", number_to_search_for, *nearest);
+  std::println("The number furthest from {} is {}", number_to_search_for,
+                                                                      *furthest);
 */
 }

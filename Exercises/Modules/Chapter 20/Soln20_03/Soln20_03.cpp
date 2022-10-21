@@ -21,8 +21,8 @@ import std;
 int main()
 {
   std::string text;                                // Stores input prose or poem
-  std::cout << "Enter a poem or prose over one or more lines.\n"
-            << "Terminate the input with #:\n";
+  std::println("Enter a poem or prose over one or more lines.\n"
+               "Terminate the input with #:");
   getline(std::cin, text, '#');
 
   std::map<char, std::vector<std::string>> lists;
@@ -54,13 +54,13 @@ int main()
     for (const auto& word : lists[letter])
     {
       if (count++ % perline == 0 && count != 1)
-        std::cout << std::endl;
-      std::cout << word << ' ';
+        std::println("");
+      std::print("{} ", word);
     }
-    std::cout << std::endl;
+    std::println("");
   }
 
-  std::cout << std::endl;
+  std::println("");
 
   /* Option 2: take advantage of the fact that the keys are already sorted in the map */
   for (const auto& [letter, list] : lists)
@@ -69,9 +69,9 @@ int main()
     for (const auto& word : list)
     {
       if (count++ % perline == 0 && count != 1)
-        std::cout << std::endl;
-      std::cout << word << ' ';
+        std::println("");
+      std::print("{} ", word);
     }
-    std::cout << std::endl;
+    std::println("");
   }
 }

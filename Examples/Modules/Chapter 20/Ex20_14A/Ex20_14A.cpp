@@ -3,11 +3,7 @@ import std;
 
 std::vector<int> fillVector_1toN(size_t N);  // Fill a vector with 1, 2, ..., N
 void printVector(std::string_view message, const std::vector<int>& numbers);
-
-void removeEvenNumbers(std::vector<int>& numbers)
-{
-  std::erase_if(numbers, [](int number) { return number % 2 == 0; });
-}
+void removeEvenNumbers(std::vector<int>& numbers);
 
 int main()
 {
@@ -32,7 +28,12 @@ std::vector<int> fillVector_1toN(size_t N)
 
 void printVector(std::string_view message, const std::vector<int>& numbers)
 {
-  std::cout << message << ": ";
-  for (int number : numbers) std::cout << number << ' ';
-  std::cout << std::endl;
+  std::print("{}: ", message);
+  for (int number : numbers) std::print("{} ", number);
+  std::println("");
+}
+
+void removeEvenNumbers(std::vector<int>& numbers)
+{
+  std::erase_if(numbers, [](int number) { return number % 2 == 0; });
 }

@@ -4,15 +4,7 @@ import std;
 
 std::vector<int> fillVector_1toN(size_t N);  // Fill a vector with 1, 2, ..., N
 void printVector(std::string_view message, const std::vector<int>& numbers);
-
-void removeEvenNumbers(std::vector<int>& numbers)
-{
-  // Use the remove_if() algorithm to remove all even numbers
-  auto first_to_erase{ std::remove_if(begin(numbers), end(numbers),
-                                      [](int number) { return number % 2 == 0; }) };
-  // Erase all elements including and beyond first_to_erase  
-  numbers.erase(first_to_erase, end(numbers));
-}
+void removeEvenNumbers(std::vector<int>& numbers);
 
 int main()
 {
@@ -37,7 +29,16 @@ std::vector<int> fillVector_1toN(size_t N)
 
 void printVector(std::string_view message, const std::vector<int>& numbers)
 {
-  std::cout << message << ": ";
-  for (int number : numbers) std::cout << number << ' ';
-  std::cout << std::endl;
+  std::print("{}: ", message);
+  for (int number : numbers) std::print("{} ", number);
+  std::println("");
+}
+
+void removeEvenNumbers(std::vector<int>& numbers)
+{
+  // Use the remove_if() algorithm to remove all even numbers
+  auto first_to_erase{ std::remove_if(begin(numbers), end(numbers),
+                                      [](int number) { return number % 2 == 0; }) };
+  // Erase all elements including and beyond first_to_erase  
+  numbers.erase(first_to_erase, end(numbers));
 }
