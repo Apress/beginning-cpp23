@@ -25,8 +25,6 @@
 */
 import std;
 
-#include <cmath>    // for std::sqrt() and std::isnan()
-
 void sort(std::vector<unsigned>& numbers);
 
 void getHighest(const std::vector<unsigned>& sortedNumbers, unsigned(&highest)[5]);
