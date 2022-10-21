@@ -1,7 +1,6 @@
 // A mocked database
 
 #include "DB.h"
-#include <cstring>    // For std::strcmp()
 import std;
 
 namespace
