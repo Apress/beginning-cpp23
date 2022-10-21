@@ -11,10 +11,7 @@
 */
 
 import std;
-
 import collect;
-
-#include <cctype>;         // For std::isupper()
 
 // Output vector elements
 template<typename T>
