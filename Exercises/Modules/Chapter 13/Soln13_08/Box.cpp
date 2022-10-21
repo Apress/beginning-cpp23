@@ -1,5 +1,3 @@
-module;
-#include <cmath>    // For the min() and max() function templates
 module box;
 
 import std;
