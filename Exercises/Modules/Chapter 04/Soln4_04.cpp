@@ -4,8 +4,6 @@
 
 import std;
 
-#include <cctype>          // For std::tolower() / std::toupper()
-
 enum class AcademicDegree
 {
   none, associate, bachelor, professional, master, doctor

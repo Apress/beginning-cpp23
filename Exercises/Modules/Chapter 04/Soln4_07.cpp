@@ -11,8 +11,6 @@
  */
 import std;
 
-#include <cctype>
-
 int main()
 {
   char entered_letter {};
