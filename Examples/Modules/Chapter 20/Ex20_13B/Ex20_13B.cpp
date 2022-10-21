@@ -7,13 +7,12 @@ void printVector(const std::vector<int>& v); // Print the contents of a vector t
 
 int main()
 {
-  const size_t num_numbers{ 20 };
+  const size_t num_numbers{20};
 
   const auto numbers{ fillSet_1toN(num_numbers) };
 
   std::vector<int> odd_numbers;
-  std::ranges::copy_if(numbers, back_inserter(odd_numbers),
-    [](int n) { return n % 2 == 1; });
+  std::ranges::copy_if(numbers, back_inserter(odd_numbers), [](int n) { return n % 2 == 1; });
 
   printVector(odd_numbers);
 }
@@ -28,6 +27,6 @@ std::set<int> fillSet_1toN(size_t N)   // Fill a set with 1, 2, ..., N
 
 void printVector(const std::vector<int>& v)
 {
-  for (auto i : v) std::cout << i << ' ';
-  std::cout << std::endl;
+  for (auto i : v) std::print("{} ", i);
+  std::println("");
 }
