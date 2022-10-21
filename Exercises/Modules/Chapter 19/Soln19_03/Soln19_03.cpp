@@ -1,10 +1,7 @@
 // Exercise 19-3. Comparing sorting algorithms
 
 import std;
-
 import sort;
-
-#include <cmath>        // For std::log2()
 
 /*
   If you look carefully, you will notice that our implementation of quicksort

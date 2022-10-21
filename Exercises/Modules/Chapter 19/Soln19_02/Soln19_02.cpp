@@ -2,11 +2,7 @@
 // Sorting in various ways using higher-order functions, functors, and lambda expressions.
 
 import std;
-
 import sort;
-
-#include <cctype>         // For std::tolower()
-#include <cmath>          // For std::abs()
 
 // Output vector elements
 template<typename T>
