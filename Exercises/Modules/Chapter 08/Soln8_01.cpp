@@ -18,8 +18,7 @@ int main()
   std::string months[]  {"January", "February", "March", "April", "May", "June", "July",
                          "August", "September", "October", "November", "December"  };
 
-  std::cout << std::endl;
-  std::println("You were born on the {} of {}, {}.", 
+  std::println("\nYou were born on the {} of {}, {}.", 
     std::to_string(date_day) + ending(date_day), 
     months[date_month - 1], 
     date_year
