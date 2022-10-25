@@ -50,11 +50,11 @@ void sort(words::Words& words, size_t start, size_t end)
   if (end > current + 1) sort(words, current + 1, end); // Sort right subset if exists
 }
 
-void words::show_words(const Words& words)
+void words::print_words(const Words& words)
 {
   const size_t field_width {max_word_length(words) + 1};
   const size_t words_per_line {8};
-  std::cout << std::format("{:{}}", *words[0], field_width); // Output first word
+  std::print("{:{}}", *words[0], field_width); // Output first word
 
   size_t words_in_line {};         // Number of words in current line
   for (size_t i {1}; i < words.size(); ++i)
@@ -62,9 +62,9 @@ void words::show_words(const Words& words)
     if ((*words[i])[0] != (*words[i - 1])[0] || ++words_in_line == words_per_line)
     {
       words_in_line = 0;
-      std::cout << std::endl;
+      std::println("");
     }
-    std::cout << std::format("{:{}}", *words[i], field_width); // Output a word
+    std::print("{:{}}", *words[i], field_width); // Output a word
   }
-  std::cout << std::endl;
+  std::println("");
 }

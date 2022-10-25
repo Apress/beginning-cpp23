@@ -18,16 +18,16 @@ int main()
   const auto separators{" ,.!?\"\n"};  // Word delimiters
 
   // Read the string to be processed from the keyboard
-  std::cout << "Enter a string terminated by *:" << std::endl;
+  std::println("Enter a string terminated by *:");
   getline(std::cin, text, '*');
 
   w::extract_words(the_words, text, separators);
   if (the_words.empty())
   {
-    std::cout << "No words in text." << std::endl;
+    std::println("No words in text.");
     return 0;
   }
 
   wrds::sort(the_words);         // Sort the words
-  w::show_words(the_words);   // Output the words
+  w::print_words(the_words);   // Output the words
 }

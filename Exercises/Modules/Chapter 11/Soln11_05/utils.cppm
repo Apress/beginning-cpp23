@@ -9,7 +9,7 @@ import std;
 export namespace words
 {
   void extract_words(Words& words, const std::string& text, const std::string& separators);
-  void show_words(const Words& words);
+  void print_words(const Words& words);
 }
 
 void words::extract_words(Words& words, const std::string& text, const std::string& separators)
@@ -26,7 +26,7 @@ void words::extract_words(Words& words, const std::string& text, const std::stri
   }
 }
 
-void words::show_words(const Words& words)
+void words::print_words(const Words& words)
 {
   const size_t field_width {max_word_length(words) + 1};
   const size_t words_per_line {8};

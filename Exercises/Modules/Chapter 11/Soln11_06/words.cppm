@@ -8,7 +8,7 @@ export namespace words
 
   void sort(Words& words);
   void extract_words(Words& words, const std::string& text, const std::string& separators);
-  void show_words(const Words& words);
+  void print_words(const Words& words);
 }
 
 export namespace w = words;

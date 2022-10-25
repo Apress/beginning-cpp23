@@ -10,5 +10,5 @@ namespace words
 export namespace words::utils
 {
   void extract_words(Words& words, const std::string& text, const std::string& separators);
-  void show_words(const Words& words);
+  void print_words(const Words& words);
 }
