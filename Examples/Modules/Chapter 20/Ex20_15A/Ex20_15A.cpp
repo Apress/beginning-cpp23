@@ -9,7 +9,7 @@ int main()
 
   // Sort the names lexicographically
   std::ranges::sort(names);
-  std::cout << "Names sorted lexicographically:" << std::endl;
+  std::println("Names sorted lexicographically:");
   for (const auto& name : names) std::print("{}, ", name);
   std::print("\n\n");
 
