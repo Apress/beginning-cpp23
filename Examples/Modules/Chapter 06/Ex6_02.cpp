@@ -15,9 +15,9 @@ int main()
   std::println("The unit price is ${:.2f}", unit_price / 100.0);
 
   // Calculate gross price
-  int* punit_price{ &unit_price };      // Pointer to unit_price
-  int price{ *pcount * *punit_price };  // Gross price via pointers
-  auto* pprice {&price};                // Pointer to gross price
+  int* punit_price{ &unit_price };     // Pointer to unit_price
+  int price{ *pcount * *punit_price }; // Gross price via pointers
+  auto* pprice {&price};               // Pointer to gross price
 
   // Calculate net price in US$
   double net_price{};
