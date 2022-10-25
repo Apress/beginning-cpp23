@@ -24,7 +24,7 @@ int main()
     }
   }
   
-  std::cout << "Curveball exception thrown " << exceptionCount << " times out of " << number << ".\n";
+  std::println("Curveball exception thrown {} times out of {}.", exceptionCount, number);
 }
 
 // See Chapter 12 for an explanation of this function principle.
