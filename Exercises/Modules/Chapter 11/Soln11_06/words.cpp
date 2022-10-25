@@ -66,7 +66,7 @@ size_t max_word_length(const words::Words& words)
   return max;
 }
 
-void words::show_words(const Words& words)
+void words::print_words(const Words& words)
 {
   const size_t field_width {max_word_length(words) + 1};
   const size_t words_per_line {8};
