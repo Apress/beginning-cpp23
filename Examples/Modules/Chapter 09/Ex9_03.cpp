@@ -4,7 +4,7 @@
 import std;
 
 // Old function prototypes
-//double largest(const double data[], size_t count);
+//double largest(const double data[], std::size_t count);
 //double largest(const std::vector<double>& data);
 //int largest(const std::vector<int>& data);
 //std::string largest(const std::vector<std::string>& words);
@@ -24,11 +24,11 @@ int main()
   std::array array_data{ 3.5, 5.0, 6.0, -1.2, 8.7, 6.4 }; // Throwing in an std::array for good measure
   std::vector<std::string> names {"Charles Dickens", "Emily Bronte", 
                                   "Jane Austen", "Henry James", "Arthur Miller"};
-  std::cout << "The largest of array is " << largest(array) << std::endl;
-  std::cout << "The largest of numbers is " << largest(numbers) << std::endl;
-  std::cout << "The largest of data is " << largest(data) << std::endl;
-  std::cout << "The largest of array_data is (also) " << largest(array_data) << std::endl;
-  std::cout << "The largest of names is " << largest(names) << std::endl;
+  std::println("The largest of array is {}", largest(array));
+  std::println("The largest of numbers is {}", largest(numbers));
+  std::println("The largest of data is {}", largest(data));
+  std::println("The largest of array_data is (also) {}", largest(array_data));
+  std::println("The largest of names is {}", largest(names));
 }
 
 // Finds the largest of a span of values
