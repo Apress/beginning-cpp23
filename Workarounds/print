@@ -1,0 +1,32 @@
+// Compatibility include for compilers that do not support the <print> module yet
+#pragma once
+
+import <format>;
+import <iostream>;
+import <iterator>;
+
+namespace std
+{
+	struct format_string
+	{
+		consteval format_string(const char* format)
+			: m_format(format)
+		{
+		}
+
+		const char* m_format;
+	};
+
+	template <typename... T>
+	void print(const format_string& format, T&&... args)
+	{
+		std::vformat_to(std::ostreambuf_iterator<char>(std::cout), format.m_format, std::make_format_args(std::forward<T>(args)...));
+	}
+	
+	template <typename... T>
+	void println(const format_string& format, T&&... args)
+	{
+		print(format, std::forward<T>(args)...);
+		std::cout << '\n';
+	}
+}
