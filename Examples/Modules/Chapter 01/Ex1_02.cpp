@@ -3,5 +3,5 @@ import std;
 
 int main()
 {
-  std::cout << "\"Least \'said\' \\\n\t\tsoonest \'mended\'.\"" << std::endl;
+  std::println("\"Least \'said\' \\\n\t\tsoonest \'mended\'.\"");
 }

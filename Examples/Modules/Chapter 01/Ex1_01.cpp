@@ -5,9 +5,7 @@ int main()
 {
   int answer {42};              // Defines answer with value 42
 
-  std::cout << "The answer to life, the universe, and everything is "
-            << answer
-            << std::endl;
+  std::println("The answer to life, the universe, and everything is {}", answer);
 
   return 0;
 }
