@@ -21,7 +21,7 @@ int main()
     }
     catch(Curveball& e)
     {
-      std::cout << e.what() << std::endl;
+      std::println("{}", e.what());
     
       if (++exceptionCount > maxExceptions)
         throw TooManyExceptions{ maxExceptions };
