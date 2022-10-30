@@ -27,8 +27,8 @@ int main()
 // so the original is not affected.
 std::string reverse(std::string str)
 {
-  const size_t length {str.length()};
-  for (size_t i {}; i < length / 2; ++i)
+  const std::size_t length {str.length()};
+  for (std::size_t i {}; i < length / 2; ++i)
   {
     char temp = str[i];
     str[i] = str[length - i - 1];
