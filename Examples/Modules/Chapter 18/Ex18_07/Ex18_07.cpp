@@ -19,7 +19,7 @@ int main()
 
   v.push_back(buildStringArray(1'000));
 
-  std::cout << std::endl;
+  std::println("");
 
   v.push_back(buildStringArray(2'000));
 }

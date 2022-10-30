@@ -29,7 +29,7 @@ Array<T>::Array(size_t size) : m_elements {new T[size] {}}, m_size {size}
 template <typename T>
 Array<T>::Array(const Array& array) : Array{array.m_size}
 {
-  std::cout << "Array of " << m_size << " elements copied" << std::endl;
+  std::println("Array of {} elements copied", m_size);
   for (size_t i {}; i < m_size; ++i)
     m_elements[i] = array.m_elements[i];
 }

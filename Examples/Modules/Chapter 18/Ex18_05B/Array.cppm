@@ -41,7 +41,7 @@ Array<T>::Array(size_t size) : m_elements {new T[size] {}}, m_size {size}
 template <typename T>
 Array<T>::Array(const Array& array) : Array{array.m_size}
 {
-  std::cout << "Array of " << m_size << " elements copied" << std::endl;
+  std::println("Array of {} elements copied", m_size);
   for (size_t i {}; i < m_size; ++i)
     m_elements[i] = array.m_elements[i];
 }
@@ -51,7 +51,7 @@ template <typename T>
 Array<T>::Array(Array&& moved)
   : m_size{moved.m_size}, m_elements{moved.m_elements}
 {
-  std::cout << "Array of " << m_size << " elements moved" << std::endl;
+  std::println("Array of {} elements moved", m_size);
   moved.m_elements = nullptr; // Otherwise destructor of moved would delete[] m_elements!
 }
 
@@ -90,7 +90,7 @@ Array<T>& Array<T>::operator=(const Array& rhs)
 template <typename T>
 Array<T>& Array<T>::operator=(Array&& rhs)
 {
-  std::cout << "Array of " << rhs.m_size << " elements moved (assignment)" << std::endl;
+  std::println("Array of {} elements moved (assignment)", rhs.m_size);
 
   if (&rhs != this)            // prevent trouble with self-assignments
   {
