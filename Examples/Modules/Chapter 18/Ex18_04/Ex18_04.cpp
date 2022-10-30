@@ -20,5 +20,5 @@ int main()
   strings = std::move(more_strings);           // Move more_strings into strings
 
   /* Caution: once moved, an object should not be used anymore! */
-// std::cout << more_strings[101] << std::endl; // ???
+// std::println("{}", more_strings[101]);      // ???
 }
