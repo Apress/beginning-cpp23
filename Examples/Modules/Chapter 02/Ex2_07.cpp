@@ -1,23 +1,14 @@
-// Finding maximum and minimum values for data types
+// Formatting numeric values with std::println() 
 import std;
 
 int main()
 {
-  std::println("The range for type short is from {} to {}",
-               std::numeric_limits<short>::min(), std::numeric_limits<short>::max());
-  std::println("The range for type unsigned int is from {} to {}",
-               std::numeric_limits<unsigned int>::min(),
-               std::numeric_limits<unsigned int>::max());
-  std::println("The range for type long is from {} to {}",
-               std::numeric_limits<long>::min(), std::numeric_limits<long>::max());
-  std::println("The positive range for type float is from {} to {}",
-               std::numeric_limits<float>::min(), std::numeric_limits<float>::max());
-  std::println("The full range for type float is from {} to {}",
-               std::numeric_limits<float>::lowest(), std::numeric_limits<float>::max());
-  std::println("The positive range for type double is from {} to {}",
-               std::numeric_limits<double>::min(),
-               std::numeric_limits<double>::max());
-  std::println("The positive range for type long double is from {} to {}",
-               std::numeric_limits<long double>::min(),
-               std::numeric_limits<long double>::max());
+  const double pi = std::numbers::pi;
+  std::println("Default: {:.2}, fixed: {:.2f}, scientific: {:.2e}, general: {:.2g}", 
+               pi, pi, pi, pi);
+  std::println("Default: {}, binary: {:b}, hex.: {:x}", 314, 314, 314);
+  std::println("Default: {}, decimal: {:d}, hex.: {:x}", 'c', 'c', 'c');
+  std::println("Alternative hex.: {:#x}, binary: {:#b}, HEX.: {:#X}", 314, 314, 314);
+  std::println("Forced sign: {:+}, space sign: {: }", 314, 314);
+  std::println("All together: {:*<+10.4f}, {:+#09x}", pi, 314);
 }
