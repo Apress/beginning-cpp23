@@ -1,6 +1,4 @@
-// Expressions with mixed variables types
-// (The difference with the original example 
-//  is the type of fish_count and inches_per_foot)
+// Tuning the precision of formatted floating-point numbers with std::println()
 import std;
 
 int main()
@@ -9,7 +7,7 @@ int main()
   const double fish_factor { 2.0/0.5 };       // Area per unit length of fish
   const unsigned int inches_per_foot { 12 };  // <-- Used to be of type double
 
-  unsigned int fish_count {};  // Number of fish (used to be of type double as well)
+  unsigned int fish_count {};  // Number of fish <-- Used to be of type double
   double fish_length {};       // Average length of fish
 
   std::print("Enter the number of fish you want to keep: ");
@@ -25,6 +23,6 @@ int main()
   // Calculate the pond diameter from the area
   const double pond_diameter {2.0 * std::sqrt(pond_area / std::numbers::pi)};
 
-  std::println("Pond diameter required for {} fish is {} feet.", 
+  std::println("Pond diameter required for {} fish is {:.2} inches.",
                fish_count, pond_diameter);
 }

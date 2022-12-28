@@ -1,15 +1,12 @@
-// Formatting numeric values with std::format() 
+// The width, alignment, fill, and 0 formatting options of std::format() 
 import std;
 
 int main()
 {
-  const double pi{ std::numbers::pi };
-  std::cout << std::format("Default: {:.2}, fixed: {:.2f}, scientific: {:.2e}, "
-    "general: {:.2g}\n", pi, pi, pi, pi);
-  std::cout << std::format("Default: {}, binary: {:b}, hex.: {:x}\n", 314, 314, 314);
-  std::cout << std::format("Default: {}, decimal: {:d}, hex.: {:x}\n", 'c', 'c', 'c');
-  std::cout << std::format("Alternative hex.: {:#x}, binary: {:#b}, HEX.: {:#X}\n",
-    314, 314, 314);
-  std::cout << std::format("Forced sign: {:+}, space sign: {: }\n", 314, 314);
-  std::cout << std::format("All together: {:*<+10.4f}, {:+#09x}\n", pi, 314);
+  // Default alignment: right for numbers, left otherwise
+  std::println("{:7}|{:7}|{:7}|{:7}", 1, -.2, "str", 'c');
+  // Left and right alignment + custom fill character
+  std::println("{:*<7}|{:*<7}|{:*>7}|{:*>7}", 1, -.2, "str", 'c');
+  // Centered alignment + 0 formatting option for numbers
+  std::println("{:^07}|{:^07}|{:^7}|{:^7}", 1, -.2, "str", 'c');
 }
