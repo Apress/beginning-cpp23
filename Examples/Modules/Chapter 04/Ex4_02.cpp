@@ -1,5 +1,5 @@
 // Three-way comparison of integers
-import std;
+import std; // Required also simply for using operator <=> (even for fundamental types)
 
 int main()
 {
