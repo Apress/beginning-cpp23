@@ -43,7 +43,7 @@ void print_data(const double data[], std::size_t count,
 
 const double* smallest(const double data[], std::size_t count)
 {
-  if (!count) return nullptr;     // There is no smallest in an empty array
+  if (count == 0) return nullptr;   // There is no smallest in an empty array
 
   std::size_t index_min {};
   for (std::size_t i {1}; i < count; ++i)
@@ -62,7 +62,7 @@ double* shift_range(double data[], std::size_t count, double delta)
 
 const double* largest(const double data[], std::size_t count)
 {
-  if (!count) return nullptr;    // There is no largest in an empty array
+  if (count == 0) return nullptr;  // There is no largest in an empty array
 
   std::size_t index_max {};
   for (std::size_t i {1}; i < count; ++i)
@@ -74,7 +74,7 @@ const double* largest(const double data[], std::size_t count)
 
 double* scale_range(double data[], std::size_t count, double divisor)
 {
-  if (!divisor) return data;     // Do nothing for a zero divisor
+  if (divisor == 0) return data;   // Do nothing for a zero divisor
 
   for (std::size_t i{}; i < count; ++i)
     data[i] /= divisor;
