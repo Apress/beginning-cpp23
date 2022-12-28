@@ -9,7 +9,7 @@ function(configureProject target)
 	target_include_directories(${target} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../Workarounds/)
 	if(MSVC)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /experimental:module")
-		target_compile_options(${target} PRIVATE /W4)
+		target_compile_options(${target} PRIVATE /W4 /w34062)
 	endif()
 endfunction()
 
