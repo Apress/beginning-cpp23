@@ -3,7 +3,7 @@ import std;
 
 int main()
 {
-  const unsigned size {6};                        // Array size
+  const std::size_t size {6};                     // Array size
   unsigned height[size] {26, 37, 47, 55, 62, 75}; // An array of heights
 
   unsigned total {};                              // Sum of heights
@@ -12,8 +12,8 @@ int main()
     total += height[i];
   }
 
-  const unsigned average {total/size};            // Calculate average height
-  std::println("The average height is {}.", average);
+  const auto average{ static_cast<double>(total) / size }; // Calculate average height
+  std::println("The average height is {:.1f}.", average);
 
   unsigned count {};
   for (std::size_t i {}; i < size; ++i)

@@ -9,15 +9,12 @@ int main()
   std::print("for values 1 to limit.\nWhat upper limit for n would you like? ");
   std::cin >> limit;
 
-  // The format string for all rows of the table
-  const auto table_format{ "{:>8} {:>8} {:>20}" };
-  
   // Output column headings
-  std::println(table_format, "integer", "sum", "factorial"); 
+  std::println("{:>8} {:>8} {:>20}", "integer", "sum", "factorial");
 
   for (unsigned long long n {1}, sum {1}, factorial {1}; n <= limit; 
                                   ++n, sum += n, factorial *= n)
   {
-    std::println(table_format, n, sum, factorial);
+    std::println("{:8} {:8} {:20}", n, sum, factorial);
   }
 }
