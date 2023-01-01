@@ -1,10 +1,9 @@
-// Exercise 2-2. Convert inches to feet and inches
-// The number of inches per foot is constant, 
+// Exercise 2-2. Convert SI to imperial weight
+// The conversion values are constant, 
 // and should not be changed within the program,
-// so we recognize this by declaring it as a const.
+// so we recognize this by declaring them as a const.
 //
-// Note: we always output "feet" and "inches", 
-// even if it concerns only 1 foot or 1 inch.
+// Note: we always output "pounds" even if it concerns only 1 pound.
 // In a later chapter you will learn about the conditional 
 // statements and expressions that allow you to refine this.
 
@@ -12,16 +11,27 @@ import std;
 
 int main()
 {
-  const int inches_per_foot{ 12 };    // Initialize constant variable
+  const auto pounds_per_stone{ 14 };
+  const auto kilogram_per_pound{ 0.45359237 };
 
-  std::println("This program will convert inches to feet and inches.");
+  double kilogram{};
+  std::print("May I be indiscreet and ask how much you weigh (in kg)? ");
+  std::cin >> kilogram;
 
-  int inches{};
-  std::println("Please enter a number of inches: ");
-  std::cin >> inches;
+  const double pounds = kilogram / kilogram_per_pound;
+  const double stone = std::floor(pounds / pounds_per_stone);
+  const double remaining_pounds = std::fmod(pounds, pounds_per_stone);
+  // Or: remaining_pounds = pounds - stone * pounds_per_stone;
+  
+  // At this point you can either do the rounding of remaining_pounds yourself, 
+  // or you can have std::println() do the rounding for you by using the appropriate precision.
+  // Casting to an integer without rounding first is less appropriate, 
+  // because you prefer nonintegral pounds to be rounded to the nearest integer.
 
-  const int feet{ inches / inches_per_foot };
-  const int remaining_inches{ inches % inches_per_foot };
+  // Solution with performing the rounding yourself:
+  const long integer_remaining_pounds = std::lround(remaining_pounds);
+  std::println("Sounds less in imperial units: only {} stone {} pounds.", stone, integer_remaining_pounds);
 
-  std::println("{} inches equals {} feet and {} inches.", inches, feet, remaining_inches);
+  // Solution with letting std::println() do the rounding for you:
+  //std::println("Sounds less in imperial units: only {} stone {:.0f} pounds.", stone, remaining_pounds);
 }
