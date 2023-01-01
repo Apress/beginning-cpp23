@@ -3,17 +3,14 @@ import std;
 
 int main()
 {
-  constexpr auto header_format = "{:^11}{:^11}{:^11}";  // 3 cols., 11 wide, centered (^)
-  constexpr auto body_format = "{0:^11}{0:^11X}{0:^11d}"; // Print same value three times
-
-  std::println(header_format, "Character", "Hexadecimal", "Decimal");
+  // 3 cols., 11 wide, centered (^)
+  std::println("{:^11}{:^11}{:^11}", "Character", "Hexadecimal", "Decimal");
 
   // Output 7-bit ASCII characters and corresponding codes
-  char ch{};
-  do
+  for (int ch {}; ch <= 127; ++ch)
   {
     if (!std::isprint(ch))  // If it's not printable...
       continue;             // ...skip this iteration
-    std::println(body_format, ch);
-  } while (ch++ < 127);
+    std::println("{0:^11}{0:^11X}{0:^11d}", static_cast<char>(ch)); // Print 3 times
+  }
 }

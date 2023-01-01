@@ -19,5 +19,5 @@ int main()
     std::cin >> reply;                           // Get response
   } while (std::tolower(reply) == 'y');
 
-  std::println("The average temperature is {}", total/count);
+  std::println("The average temperature is {:.3}", total / count);
 }
