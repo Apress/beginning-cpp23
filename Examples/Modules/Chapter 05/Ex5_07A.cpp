@@ -1,73 +1,61 @@
 // Generating multiplication tables using nested loops
 // In this version an indefinite for loop is used, in combination with break statements.
-import <iostream>;
-import <format>;
-
-#include <cctype>		// for std::tolower()
+import std;
 
 int main()
 {
-  size_t table {};              // Table size
-  const size_t table_min {2};   // Minimum table size - at least up to the 2-times
-  const size_t table_max {12};  // Maximum table size
-  char reply {};                // Response to prompt
+  int table {};             // Table size
+  const int table_min {2};  // Minimum table size - at least up to the 2-times
+  const int table_max {12}; // Maximum table size
+  char reply {};            // Response to prompt
 
-  const size_t max_tries{ 3 };   // Max. number of times a user can try entering a table size
+  const int max_tries {3};  // Max. number of times a user can try entering a table size
   do
   {
-    for (size_t count{ 1 }; ; ++count)  // Indefinite loop
+    for (int count {1}; ; ++count)  // Indefinite loop
     {
-      std::cout <<
-        std::format("What size table would you like ({} to {})? ", table_min, table_max);
+      std::print("What size table would you like ({} to {})? ", table_min, table_max);
       std::cin >> table; // Get the table size
 
       // Make sure table size is within the limits
       if (table >= table_min && table <= table_max)
       {
-        break;      // Exit the input loop
+        break;  // Exit the input loop
       }
       else if (count < max_tries)
       {
-        std::cout << "Invalid input - try again.\n";
+        std::println("Invalid input - try again.");
       }
       else
       {
-        std::cout << "Invalid table size entered - yet again!\nSorry, only "
-          << max_tries << " allowed - program terminated." << std::endl;
+        std::println("Invalid table size entered - yet again!");
+        std::println("Sorry, only {} allowed - program terminated.", max_tries);
         return 1;
       }
     }
-
-
-    // Create the top line of the table
-    std::cout << std::format("{:>6}", '|');
-    for (size_t i {1}; i <= table; ++i)
-    {
-      std::cout << std::format(" {:3} |", i);
-    }
-    std::cout << std::endl;
+    std::println("");
 
     // Create the separator row
-    for (size_t i {}; i <= table; ++i)
+    for (int i {}; i <= table; ++i)
     {
-      std::cout << "------";
+      std::print("------");
     }
-    std::cout << std::endl;
+    std::println("");
 
-    for (size_t i {1}; i <= table; ++i)
+    for (int i {1}; i <= table; ++i)
     {    // Iterate over rows
-      std::cout << std::format(" {:3} |", i);      // Start the row
+      std::print(" {:3} |", i);      // Start the row
 
       // Output the values in a row
-      for (size_t j {1}; j <= table; ++j)
+      for (int j {1}; j <= table; ++j)
       {
-        std::cout << std::format(" {:3} |", i*j);  // For each column
+        std::print(" {:3} |", i*j); // For each column
       }
-      std::cout << std::endl;                      // End the row
+      std::println("");             // End the row
     }
 
     // Check if another table is required
-    std::cout << "\nDo you want another table (y or n)? ";
+    std::print("\nDo you want another table (y or n)? ");
     std::cin >> reply;
 
   } while (std::tolower(reply) == 'y');

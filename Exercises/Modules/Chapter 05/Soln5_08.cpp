@@ -3,8 +3,7 @@
 // Fibonacci number grow fairly rapidly.
 // 93 is the most that are possible with type unsigned long long on most platforms.
 
-import <iostream>;
-import <array>;
+import std;
 
 // See Appendix A (available online) for static_assert()
 static_assert(sizeof(unsigned long long) >= 8,
@@ -12,15 +11,15 @@ static_assert(sizeof(unsigned long long) >= 8,
 
 int main()
 {
-  const size_t n {93};
+  const std::size_t n {93};
   std::array<unsigned long long, n> fib;
   fib[0] = fib[1] = 1UL;
-  for (size_t i {2}; i < n; ++i)
+  for (std::size_t i {2}; i < n; ++i)
     fib[i] = fib[i - 1] + fib[i - 2];
 
-  std::cout << "The first " << n << " Fibonacci numbers are:\n";
+  std::println("The first {} Fibonacci numbers are:", n);
   for (auto number : fib)
   {
-    std::cout << number << std::endl;
+    std::println("{}", number);
   }
 }
