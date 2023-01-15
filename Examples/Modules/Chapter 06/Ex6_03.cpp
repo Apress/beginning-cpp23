@@ -16,18 +16,17 @@ int main()
   unsigned choice {};
   std::cin >> choice;
 
-  constexpr const char* pformat {"Your lucky star is {}."};
   switch (choice)
   {
-  case 1: std::println(pformat, pstar1); break;
-  case 2: std::println(pformat, pstar2); break;
-  case 3: std::println(pformat, pstar3); break;
-  case 4: std::println(pformat, pstar4); break;
-  case 5: std::println(pformat, pstar5); break;
-  case 6: std::println(pformat, pstar6); break;
-  case 7: std::println(pformat, pstar7); break;
-  case 8: std::println(pformat, pstar8); break;
-
+  case 1: std::println("Your lucky star is {}.", pstar1); break;
+  case 2: std::println("Your lucky star is {}.", pstar2); break;
+  case 3: std::println("Your lucky star is {}.", pstar3); break;
+  case 4: std::println("Your lucky star is {}.", pstar4); break;
+  case 5: std::println("Your lucky star is {}.", pstar5); break;
+  case 6: std::println("Your lucky star is {}.", pstar6); break;
+  case 7: std::println("Your lucky star is {}.", pstar7); break;
+  case 8: std::println("Your lucky star is {}.", pstar8); break;
+  
   default: std::println("Sorry, you haven't got a lucky star.");
   }
 }

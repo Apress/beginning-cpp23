@@ -11,7 +11,7 @@ int main()
     auto day_records{ std::make_shared<std::vector<double>>() };
     records.push_back(day_records); // Save pointer in records vector
 
-    std::print("Enter the temperatures for day separated by spaces. ", day);
+    std::print("Enter the temperatures for day {} separated by spaces.", day);
     std::println("Enter 1000 to end:");
 
     while (true)
@@ -32,7 +32,7 @@ int main()
   for (int day{ 1 }; auto record : records)
   {
     double total{};
-    size_t count{};
+    std::size_t count{};
 
     std::println("\nTemperatures for day {}:", day++);
     for (auto temp : *record)

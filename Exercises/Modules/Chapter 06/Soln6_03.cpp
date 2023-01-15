@@ -9,12 +9,13 @@
     for (unsigned i {}; i < n; ++i)
       *(values+i) = 1.0 / ((i + 1)*(i + 1));
     
-    Why? Take a second to think about it...
-    The only elementary operation that, 
-    if neither of the operands is infinity, leads to infinity is division-by-zero.
-    And once an infinity value enters a sum, the end result remains infinity.
+    Why? We suggest you take a second to think about it... (we certainly had to...)
+    You'll probably recall that the only elementary operation that division-by-zero 
+    leads to infinity if neither of the operands is infinity.
+    And that once infinity enters a computation, the end result generally remains infinity
+    (or even degenerates to not-a-number).
     
-    So, next question: how can ((i + 1)*(i + 1)) be zero? 
+    Next question therefore: how can ((i + 1)*(i + 1)) be zero? 
     If the unsigned type is not large enough to represent the result, of course.
     To see why, you could run the following loop
 
@@ -27,14 +28,14 @@
         (i + 1) * (i + 1) == 0 for i == 65535
 
     Here 65535 is, not coincidentally, equal to 2^16 - 1,
-    which means that (65535 + 1) * (65535 + 1) equal to 2^32, a power of 2 that should ring a bell...
+    which means that (65535 + 1) * (65535 + 1) is equal to 2^32, a power of 2 that should ring a bell...
     Note that this also means that for any number larger than 65535,
-    the result of (i + 1) * (i + 1) would also not be correct anymore.
-    In other words: this division-by-zero-leading-to-infinity bug would be somewhat of a blessing,
+    the result of (i + 1) * (i + 1) would not be correct anymore.
+    In other words: this division-by-zero-leading-to-infinity bug we just decribed would be somewhat of a blessing,
     as it is far easier to discover than any other wrong results due to integer overflow!
 
-    The solution we went with was to use a larger integer type, unsigned long long.
-    But another interesting alternative would be to cast the integer to double before performing the computation:
+    The solution we went with was in our solution is the use of a larger integer type, unsigned long long.
+    Another interesting alternative, though, would be to cast the integer to double before performing the computation:
 
     for (unsigned i {}; i < n; ++i)
       *(values+i) = 1.0 / ((static_cast<double>(i) + 1)*(static_cast<double>(i) + 1));

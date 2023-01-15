@@ -9,7 +9,7 @@ int main()
   std::cin >> n;
   auto values{ std::make_unique<std::vector<double>>(n) };
 
-  for (unsigned long long i {}; i < n; ++i)
+  for (unsigned long long i {}; i < n; ++i) // See Soln6_03 for the use of unsigned long long
     (*values)[i] = 1.0 / ((i + 1)*(i + 1));
   
   double sum {};

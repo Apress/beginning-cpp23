@@ -18,13 +18,13 @@ int main()
   for (int i {}; i < n; ++i)
   {
     std::print("{:5}", *(odds + i));
-    if ((i + 1) % perline == 0)                        // Uses the loop counter to decide when a newline is required
+    if ((i + 1) % perline == 0)            // Uses the loop counter to decide when a newline is required
       std::println("");
   }
 
   std::println("\nIn reverse order these numbers are:");
-  for (int i {n - 1}; i >= 0; --i)                     // This won't work with int for the loop counter
-  {                                                    // because int cannot be negative
+  for (int i {n - 1}; i >= 0; --i)         // Caution: this won't work with a loop counter of type std::size_t
+  {                                        // because std::size_t cannot be negative
     std::print("{:5}", *(odds + i));
     if (i % perline == 0)
       std::println("");
