@@ -3,7 +3,7 @@ import std;
 
 int main()
 {
-  const int max_length {100};   // Array size
+  const std::size_t max_length {100};   // Array size
   char text[max_length] {};     // Array to hold input string
 
   std::println("Enter a line of text:");

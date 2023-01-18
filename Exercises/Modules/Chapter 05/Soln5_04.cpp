@@ -22,7 +22,8 @@ int main()
   Subtracting one from zero wraps around to std::numeric_limits<size_t>::max(), a huge number.
   
   Other solutions besides the one we use below include:
-    // Cast to a signed integer (works even for count == 0!)
+    // Best solution, probably: cast to a signed integer (works even for count == 0!)
+    // (Or, of course, defined count as a signed integer to begin with...)
     for (int i{ static_cast<int>(i) - 1 }; i != -1; --i)
       ...
     
