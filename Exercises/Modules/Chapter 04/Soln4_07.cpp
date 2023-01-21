@@ -45,7 +45,7 @@ int main()
 
   // Output the character code as binary (with println())
   // - 0 is an argument index to repeat lower_case_letter twice;
-  // - 08 ensures sets the output field width to 8, adding leading zeroes if needed 
+  // - 08 sets the output field width to 8, adding leading zeroes if needed 
   //   (this to make the output equivalent to that with std::cout below, which also adds leading zeroes);
   // - b triggers binary formatting
   std::println("The binary code for '{0}' is {0:08b} (std::println() version).", lower_case_letter);
