@@ -1,18 +1,15 @@
 // Three-way comparison of integers
-import <compare>;  // Required when using operator <=> (even for fundamental types)
-import <format>;
-import <iostream>;
+import std; // Required also simply for using operator <=> (even for fundamental types)
 
 int main()
 {
-  std::cout << "Please enter a number: ";
-
+  std::print("Please enter a number: ");
   int value;
   std::cin >> value;
 
   std::strong_ordering ordering{ value <=> 0 };
 
-  std::cout << std::format("value < 0: {}\n", ordering == std::strong_ordering::less);
-  std::cout << std::format("value > 0: {}\n", ordering == std::strong_ordering::greater);
-  std::cout << std::format("value == 0: {}\n", ordering == std::strong_ordering::equal);
+  std::println("value < 0: {}", ordering == std::strong_ordering::less);
+  std::println("value > 0: {}", ordering == std::strong_ordering::greater);
+  std::println("value == 0: {}", ordering == std::strong_ordering::equal);
 }

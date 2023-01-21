@@ -1,5 +1,5 @@
 // Combining logical operators for loan approval
-import <iostream>;
+import std;
 
 int main()
 {
@@ -8,12 +8,12 @@ int main()
   int balance {};              // Current bank balance
 
   // Get the basic data for assessing the loan
-  std::cout << "Please enter your age in years: ";
-  std::cin  >> age;
-  std::cout << "Please enter your annual income in dollars: ";
-  std::cin  >> income;
-  std::cout << "What is your current account balance in dollars: ";
-  std::cin  >> balance;
+  std::print("Please enter your age in years: ");
+  std::cin >> age;
+  std::print("Please enter your annual income in dollars: ");
+  std::cin >> income;
+  std::print("What is your current account balance in dollars: ");
+  std::cin >> balance;
 
   // We only lend to people who are at least 21 years of age,
   // who make over $25,000 per year,
@@ -31,10 +31,10 @@ int main()
     {
       loan = balance/2;
     }
-    std::cout << "\nYou can borrow up to $" << loan << std::endl;
+    std::println("\nYou can borrow up to ${}", loan);
   }
   else     // No loan for you...
   {
-    std::cout << "\nUnfortunately, you don't qualify for a loan." << std::endl;
+    std::println("\nUnfortunately, you don't qualify for a loan.");
   }
 }

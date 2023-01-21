@@ -1,34 +1,34 @@
 // Using the switch statement
-import <iostream>;
+import std;
 
 int main()
 {
-  std::cout << "Your electronic recipe book is at your service.\n"
-            << "You can choose from the following delicious dishes:\n"
-            << "1. Boiled eggs\n"
-            << "2. Fried eggs\n"
-            << "3. Scrambled eggs\n"
-            << "4. Coddled eggs\n\n"
-            << "Enter your selection number: ";
+  std::println("Your electronic recipe book is at your service.");
+  std::println("You can choose from the following delicious dishes:");
+  std::println(" 1. Boiled eggs");
+  std::println(" 2. Fried eggs");
+  std::println(" 3. Scrambled eggs");
+  std::println(" 4. Coddled eggs");
 
+  std::print("\nEnter your selection number: ");
   int choice {};  // Stores selection value
   std::cin >> choice;
 
   switch (choice)
   {
   case 1:
-    std::cout << "Boil some eggs." << std::endl;
+    std::println("Boil some eggs.");
     break;
   case 2:
-    std::cout << "Fry some eggs." << std::endl;
+    std::println("Fry some eggs.");
     break;
   case 3:
-    std::cout << "Scramble some eggs." << std::endl;
+    std::println("Scramble some eggs.");
     break;
   case 4:
-    std::cout << "Coddle some eggs."  << std::endl;
+    std::println("Coddle some eggs.");
     break;
   default:
-    std::cout << "You entered a wrong number - try raw eggs." << std::endl;
+    std::println("You entered a wrong number - try raw eggs.");
   }
 }
