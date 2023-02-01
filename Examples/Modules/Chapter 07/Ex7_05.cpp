@@ -1,6 +1,8 @@
 // Searching within substrings
 import std;
 
+#include <version>  // To allow testing if :? is supported already (later addition to the library)
+
 int main()
 {
   std::string text;          // The string to be searched
@@ -19,5 +21,9 @@ int main()
     index += word.length();  // Advance by full word (discards overlapping occurrences)
   }
 
+#ifdef __cpp_lib_format_ranges
+  std::println("Your text contained {} occurrences of {:?}.", count, word);
+#else // :? not supported: fall back to adding the double quotes ourselves...
   std::println("Your text contained {} occurrences of \"{}\".", count, word);
+#endif
 }
