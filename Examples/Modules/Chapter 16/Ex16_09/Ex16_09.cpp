@@ -1,7 +1,7 @@
 
 // Embedding a stack trace in an exception
 import std;
-import tracing_exception;
+import tracing;
 
 int f3() { throw TracingException{ "Something's amiss!" }; } // Creates a stacktrace!
 int f2() { return f3(); }
@@ -16,6 +16,6 @@ int main()
   catch (const TracingException& ex)
   {
     std::println("Exception of type {} caught: {}; trace:\n{}", 
-        typeid(ex).name(), ex.what(), to_string(ex.getTrace()));
+        typeid(ex).name(), ex.what(), std::to_string(ex.getTrace()));
   }
 }

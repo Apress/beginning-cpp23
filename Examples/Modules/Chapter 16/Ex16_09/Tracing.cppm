@@ -1,15 +1,13 @@
 // A custom exception class that carries a stack trace
-export module tracing_exception;
+export module tracing;
 import std;
 
 export class TracingException : public std::exception
 {
 public:
-  TracingException(
-    std::string_view message, 
-    std::stacktrace trace = std::stacktrace::current()
-  )
-    : m_message{ message }    // Should use move semantics (twice): see Chapter 18
+  TracingException(std::string_view message, 
+      std::stacktrace trace = std::stacktrace::current())
+    : m_message{ message }
     , m_trace{ trace }
   {}
 
