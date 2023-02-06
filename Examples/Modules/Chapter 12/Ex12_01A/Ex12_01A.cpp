@@ -5,13 +5,13 @@ import std;
 class Box
 {
 public:
-// Box() {}           // Explicitly defined default constructor
+  // Box() {}           // Explicitly defined default constructor
   Box() = default;    // Defaulted default constructor
 
   // Constructor
   Box(double length, double width, double height)
   {
-    std::cout << "Box constructor called."  << std::endl;
+    std::println("Box constructor called.");
     m_length = length;
     m_width = width;
     m_height = height;
@@ -33,7 +33,7 @@ int main()
 {
   Box firstBox {80.0, 50.0, 40.0};            // Create a box
   double firstBoxVolume {firstBox.volume()};  // Calculate the box volume
-  std::cout << "Volume of Box object is " << firstBoxVolume << std::endl;
+  std::println("Volume of Box object is {}", firstBoxVolume);
 
   Box secondBox;        // No longer causes a compiler error message
 }

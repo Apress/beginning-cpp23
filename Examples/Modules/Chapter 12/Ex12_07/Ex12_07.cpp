@@ -5,14 +5,15 @@ import box;
 int main()
 {
   Box myBox {3.0, 4.0, 5.0};
-  std::cout << "myBox dimensions are " << myBox.getLength()
-            << " by " << myBox.getWidth()
-            << " by " << myBox.getHeight() << std::endl;
+  std::println("myBox dimensions are {} by {} by {}",
+      myBox.getLength(), myBox.getWidth(), myBox.getHeight());
 
-  myBox.setLength(-20.0);       // ignored!
+  myBox.setLength(-20.0);  // ignored!
   myBox.setWidth(40.0);
   myBox.setHeight(10.0);
-  std::cout << "myBox dimensions are now " << myBox.getLength()  // 3 (unchanged)
-    << " by " << myBox.getWidth()                        // by 40
-    << " by " << myBox.getHeight() << std::endl;         // by 10
+  std::println("myBox dimensions are now {} by {} by {}",
+    myBox.getLength(),     // 3 (unchanged)
+    myBox.getWidth(),      // by 40
+    myBox.getHeight()      // by 10
+  );
 }

@@ -6,7 +6,7 @@ import std;
 Box::Box(double length, double width, double height)
   : m_length{ length }, m_width{ width }, m_height{ height }
 {
-  std::cout << "Box constructor called." << std::endl;
+  std::println("Box constructor called.");
 }
 
 // Const member function definition
@@ -19,6 +19,6 @@ double Box::volume() const
 void Box::printVolume() const
 {
   // Count how many times printVolume() is called using a mutable member in a const function
-  std::cout << "The volume of this box is " << volume() << std::endl;
-  std::cout << "printVolume() has been called " << ++m_count << " time(s)" << std::endl;
+  std::println("The volume of this box is {}", volume());
+  std::println("printVolume() has been called {} time(s)", ++m_count);
 }

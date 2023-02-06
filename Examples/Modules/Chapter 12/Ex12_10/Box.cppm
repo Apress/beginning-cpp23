@@ -11,14 +11,14 @@ public:
   double volume() const;    // Const function to calculate the volume of a box
 
   // Non-const overloads (return references to dimension variable)
-  double& length() { std::cout << "non-const overload called\n"; return m_length; };
-  double& width()  { std::cout << "non-const overload called\n"; return m_width; };
-  double& height() { std::cout << "non-const overload called\n"; return m_height; };
+  double& length() { std::println("non-const overload called"); return m_length; };
+  double& width()  { std::println("non-const overload called"); return m_width; };
+  double& height() { std::println("non-const overload called"); return m_height; };
 
   // Const overloads (return references to const variables)
-  const double& length() const { std::cout << "const overload called\n"; return m_length; };
-  const double& width()  const { std::cout << "const overload called\n"; return m_width; };
-  const double& height() const { std::cout << "const overload called\n"; return m_height; };
+  const double& length() const { std::println("const overload called"); return m_length; };
+  const double& width()  const { std::println("const overload called"); return m_width; };
+  const double& height() const { std::println("const overload called"); return m_height; };
 
   // Attempt to return non-const references to member variables from const functions
 // double& length() const { return m_length; };   // This must not be allowed to compile!

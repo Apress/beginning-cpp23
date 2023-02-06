@@ -20,22 +20,22 @@ private:
 Box::Box(double length, double width, double height) 
   : m_length{length}, m_width{width}, m_height{height}
 {
-  std::cout << "Box constructor 1 called." << std::endl;
+  std::println("Box constructor 1 called.");
 }
 
 // This second constructor forwards to the first one to initialize all members.
 // Note that you do not repeat the explicit keyword here!
-Box::Box(double side) : Box{ side, side, side }
+Box::Box(double side) : Box{side, side, side}
 {
-  std::cout << "Box constructor 2 called." << std::endl;
+  std::println("Box constructor 2 called.");
 }
 
 int main()
 {
-  Box box1{ 2.0, 3.0, 4.0 };     // An arbitrary box
-  Box box2{ 5.0 };               // A box that is a cube
-  std::cout << "box1 volume = " << box1.volume() << std::endl;
-  std::cout << "box2 volume = " << box2.volume() << std::endl;
+  Box box1 {2.0, 3.0, 4.0};     // An arbitrary box
+  Box box2 {5.0};               // A box that is a cube
+  std::println("box1 volume = {}", box1.volume());
+  std::println("box2 volume = {}", box2.volume());
 }
 
 double Box::volume()

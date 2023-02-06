@@ -1,5 +1,4 @@
 export module box;
-
 import std;
 
 export class Box
@@ -21,9 +20,10 @@ public:
     return +1;
   }
 
-  void listBox() const
+  friend std::string to_string(const Box& box)
   {
-    std::cout << std::format("Box({:.1f},{:.1f},{:.1f})", m_length, m_width, m_height);
+    return std::format("Box({:.1f},{:.1f},{:.1f})",
+                       box.m_length, box.m_width, box.m_height);
   }
 
 private:

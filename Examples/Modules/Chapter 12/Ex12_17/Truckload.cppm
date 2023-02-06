@@ -19,7 +19,7 @@ public:
   SharedBox getNextBox();           // Get the next Box
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
-  void listBoxes() const;           // Output the Boxes
+  void printBoxes() const;          // Output the Boxes
 
 private:
   Package* m_head {};               // First in the list

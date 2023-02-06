@@ -8,17 +8,17 @@ int main()
   Truckload load1;  // Create an empty list
 
   // Add 12 random Box objects to the list
-  const size_t boxCount {12};
-  for (size_t i {} ; i < boxCount ; ++i)
+  const std::size_t boxCount {12};
+  for (std::size_t i {} ; i < boxCount ; ++i)
     load1.addBox(randomSharedBox());
 
-  std::cout << "The first list:\n";
-  load1.listBoxes();
+  std::println("The first list:");
+  load1.printBoxes();
 
   // Copy the truckload
   Truckload copy{load1};
-  std::cout << "The copied truckload:\n";
-  copy.listBoxes();
+  std::println("The copied truckload:");
+  copy.printBoxes();
 
   // Find the largest Box in the list
   SharedBox largestBox{load1.getFirstBox()};
@@ -31,29 +31,25 @@ int main()
     nextBox = load1.getNextBox();
   }
 
-  std::cout << "\nThe largest box in the first list is ";
-  largestBox->listBox();
-  std::cout << std::endl;
+  std::println("\nThe largest box in the first list is {}", to_string(*largestBox));
   load1.removeBox(largestBox);
-  std::cout << "\nAfter deleting the largest box, the list contains:\n";
-  load1.listBoxes();
+  std::println("\nAfter deleting the largest box, the list contains:");
+  load1.printBoxes();
 
-  const size_t nBoxes {20};            // Number of vector elements
+  const std::size_t nBoxes {16};       // Number of vector elements
   std::vector<SharedBox> boxes;        // Array of Box objects
 
-  for (size_t i {} ; i < nBoxes ; ++i)
+  for (std::size_t i {} ; i < nBoxes ; ++i)
     boxes.push_back(randomSharedBox());
 
   Truckload load2{boxes};
-  std::cout << "\nThe second list:\n";
-  load2.listBoxes();
+  std::println("\nThe second list:");
+  load2.printBoxes();
 
-  auto smallestBox{ load2.getFirstBox() };
-  for (auto box{ load2.getNextBox() }; box; box = load2.getNextBox())
+  auto smallestBox = load2.getFirstBox();
+  for (auto box = load2.getNextBox(); box; box = load2.getNextBox())
     if (box->compare(*smallestBox) < 0)
       smallestBox = box;
 
-  std::cout << "\nThe smallest box in the second list is ";
-  smallestBox->listBox();
-  std::cout << std::endl;
+  std::println("\nThe smallest box in the second list is {}", to_string(*smallestBox));
 }
