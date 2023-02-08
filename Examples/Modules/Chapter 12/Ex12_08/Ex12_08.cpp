@@ -1,4 +1,4 @@
-// Accessing private members through getters and setters (method chaining variant)
+// Accessing private members through getters and setters
 import std;
 import box;
 
@@ -8,8 +8,9 @@ int main()
   std::println("myBox dimensions are {} by {} by {}",
       myBox.getLength(), myBox.getWidth(), myBox.getHeight());
 
-  myBox.setLength(-20.0).setWidth(40.0).setHeight(10.0); // Set all dimensions of myBox
-
+  myBox.setLength(-20.0);  // ignored!
+  myBox.setWidth(40.0);
+  myBox.setHeight(10.0);
   std::println("myBox dimensions are now {} by {} by {}",
     myBox.getLength(),     // 3 (unchanged)
     myBox.getWidth(),      // by 40

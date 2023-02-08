@@ -1,9 +1,8 @@
 export module truckload;
-import box;
 
+export import :shared_box;
+import :package;
 import std;
-
-export using SharedBox = std::shared_ptr<Box>;
 
 export class Truckload
 {
@@ -23,16 +22,6 @@ public:
   void printBoxes() const;          // Output the Boxes
 
 private:
-  class Package
-  {
-  public:
-    SharedBox m_box;      // Pointer to the Box object contained in this Package
-    Package* m_next;      // Pointer to the next Package in the list
-
-    Package(SharedBox box) : m_box{ box }, m_next{ nullptr } {} // Constructor
-    ~Package() { delete m_next; }                           // Destructor
-  };
-
   Package* m_head {};               // First in the list
   Package* m_tail {};               // Last in the list
   Package* m_current {};            // Last retrieved from the list

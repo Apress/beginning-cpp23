@@ -9,15 +9,15 @@ public:
 
   double volume();    // Function to calculate the volume of a box
 
-  // Inspector functions
+  // Functions to provide access to the values of member variables
   double getLength() { return m_length; }
   double getWidth()  { return m_width; }
   double getHeight() { return m_height; }
 
-  // Mutator functions
-  Box& setLength(double length);
-  Box& setWidth(double width);
-  Box& setHeight(double height);
+  // Functions to set member variable values
+  void setLength(double length) { if (length > 0) m_length = length; }
+  void setWidth(double width)   { if (width > 0)  m_width  = width;  }
+  void setHeight(double height) { if (height > 0) m_height = height; }
 
 private:
   double m_length{1.0};

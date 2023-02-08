@@ -1,4 +1,4 @@
-// Using a linked list
+// Using nested classes
 import box.random;
 import truckload;
 import std;

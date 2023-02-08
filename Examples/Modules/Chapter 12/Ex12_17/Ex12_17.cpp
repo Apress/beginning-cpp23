@@ -1,55 +1,25 @@
-// Using a linked list
-import box.random;
-import truckload;
+// Implementing a destructor
 import std;
+import box;
 
-int main()  
+int main()
 {
-  Truckload load1;  // Create an empty list
+  std::println("There are now {} Box objects.", Box::getObjectCount());
 
-  // Add 12 random Box objects to the list
-  const std::size_t boxCount {12};
-  for (std::size_t i {} ; i < boxCount ; ++i)
-    load1.addBox(randomSharedBox());
+  const Box box1 {2.0, 3.0, 4.0};     // An arbitrary box
+  Box box2 {5.0};                     // A box that is a cube
 
-  std::println("The first list:");
-  load1.printBoxes();
+  std::println("There are now {} Box objects.", Box::getObjectCount());
 
-  // Copy the truckload
-  Truckload copy{load1};
-  std::println("The copied truckload:");
-  copy.printBoxes();
-
-  // Find the largest Box in the list
-  SharedBox largestBox{load1.getFirstBox()};
-
-  SharedBox nextBox{load1.getNextBox()};
-  while (nextBox)
+  for (double d {} ; d < 3.0 ; ++d)
   {
-    if (nextBox->compare(*largestBox) > 0)
-      largestBox = nextBox;
-    nextBox = load1.getNextBox();
+    Box box {d, d + 1.0, d + 2.0};
+    std::println("Box volume is {}", box.volume());
   }
 
-  std::println("\nThe largest box in the first list is {}", to_string(*largestBox));
-  load1.removeBox(largestBox);
-  std::println("\nAfter deleting the largest box, the list contains:");
-  load1.printBoxes();
+   std::println("There are now {} Box objects.", Box::getObjectCount());
 
-  const std::size_t nBoxes {16};       // Number of vector elements
-  std::vector<SharedBox> boxes;        // Array of Box objects
-
-  for (std::size_t i {} ; i < nBoxes ; ++i)
-    boxes.push_back(randomSharedBox());
-
-  Truckload load2{boxes};
-  std::println("\nThe second list:");
-  load2.printBoxes();
-
-  auto smallestBox = load2.getFirstBox();
-  for (auto box = load2.getNextBox(); box; box = load2.getNextBox())
-    if (box->compare(*smallestBox) < 0)
-      smallestBox = box;
-
-  std::println("\nThe smallest box in the second list is {}", to_string(*smallestBox));
+  auto pBox{ std::make_unique<Box>(1.5, 2.5, 3.5) };
+  std::println("Box volume is {}", pBox->volume());
+  std::println("There are now {} Box objects.", Box::getObjectCount());
 }

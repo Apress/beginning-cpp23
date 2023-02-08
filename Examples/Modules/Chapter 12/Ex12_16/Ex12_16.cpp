@@ -1,25 +1,10 @@
-// Implementing a destructor
+// Defining and using static constants
 import std;
-import box;
+import cylindrical;
 
 int main()
 {
-  std::println("There are now {} Box objects.", Box::getObjectCount());
-
-  const Box box1 {2.0, 3.0, 4.0};     // An arbitrary box
-  Box box2 {5.0};                     // A box that is a cube
-
-  std::println("There are now {} Box objects.", Box::getObjectCount());
-
-  for (double d {} ; d < 3.0 ; ++d)
-  {
-    Box box {d, d + 1.0, d + 2.0};
-    std::println("Box volume is {}", box.volume());
-  }
-
-   std::println("There are now {} Box objects.", Box::getObjectCount());
-
-  auto pBox{ std::make_unique<Box>(1.5, 2.5, 3.5) };
-  std::println("Box volume is {}", pBox->volume());
-  std::println("There are now {} Box objects.", Box::getObjectCount());
+  CylindricalBox bigBox{ 1.23f,
+            CylindricalBox::s_max_height, CylindricalBox::s_default_material };
+  std::println("The volume of bigBox is {}", bigBox.volume());
 }

@@ -1,33 +1,23 @@
 export module box;
+
 import std;
 
 export class Box
 {
 public:
-  Box() = default;
-  Box(double length, double width, double height) 
-    : m_length{length}, m_width{width}, m_height{height} {};
+  Box();                     // Default constructor  
+  Box(double side);          // Constructor for a cube
+  Box(const Box& box);       // Copy constructor
+  Box(double length, double width, double height);
+  ~Box();   // Destructor
 
-  double volume() const 
-  {
-    return m_length * m_width * m_height;
-  }
+  double volume() const { return m_length * m_width * m_height; }
 
-  int compare(const Box& box) const
-  {
-    if (volume() < box.volume()) return -1;
-    if (volume() == box.volume()) return 0;
-    return +1;
-  }
-
-  friend std::string to_string(const Box& box)
-  {
-    return std::format("Box({:.1f},{:.1f},{:.1f})",
-                       box.m_length, box.m_width, box.m_height);
-  }
+  static std::size_t getObjectCount() { return s_object_count; }
 
 private:
   double m_length {1.0};
   double m_width {1.0};
   double m_height {1.0};
+  static inline std::size_t s_object_count {};   // Count of objects ever created
 };

@@ -9,11 +9,10 @@ public:
   Box(double side);          // Constructor for a cube
   Box(const Box& box);       // Copy constructor
   Box(double length, double width, double height);
-  ~Box();   // Destructor
 
   double volume() const { return m_length * m_width * m_height; }
 
-  static std::size_t getObjectCount() { return s_object_count; }
+  std::size_t getObjectCount() const { return s_object_count; }
 
 private:
   double m_length {1.0};

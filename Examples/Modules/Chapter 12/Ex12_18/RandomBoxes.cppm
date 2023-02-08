@@ -1,5 +1,4 @@
 export module box.random;
-
 import box;
 import std;
 
@@ -16,7 +15,7 @@ export Box randomBox()
 {
   const int dimLimit{ 100 };          // Upper limit on Box dimensions
   static auto random{ createUniformPseudoRandomNumberGenerator(dimLimit) };
-  return Box{ random(), random(), random() };
+  return { random(), random(), random() };
 }
 
 export auto randomSharedBox()

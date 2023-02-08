@@ -1,4 +1,5 @@
 module box;
+
 import std;
 
 // Constructor definition
