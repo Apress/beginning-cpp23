@@ -15,7 +15,7 @@ public:
 
   int compare(const Integer& obj) const;
   
-  void show() const;
+  void printValue() const;
 
 private:
   int m_value;

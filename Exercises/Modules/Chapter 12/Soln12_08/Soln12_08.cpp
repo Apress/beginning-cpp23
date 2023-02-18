@@ -35,35 +35,33 @@ int main()
   Truckload load;  // Create an empty list
 
   // Add 12 random Box objects to the list
-  const size_t boxCount{ 12 };
-  for (size_t i{}; i < boxCount; ++i)
+  const std::size_t boxCount{ 12 };
+  for (std::size_t i{}; i < boxCount; ++i)
     load.addBox(randomSharedBox());
 
-  std::cout << "The random truckload:\n";
-  load.listBoxes();
-  std::cout << std::endl;
+  std::println("The random truckload:");
+  load.printBoxes();
+  std::println("");
 
   const auto largestIter{ findLargestBox(load) };
   const auto smallestIter{ findSmallestBox(load) };
 
-  std::cout << "The largest box (found using forward iteration) is ";
-  largestIter.getCurrentBox()->listBox();
-  std::cout << '\n' << std::endl;
+  std::println("The largest box (found using forward iteration) is {}", to_string(*largestIter.getCurrentBox()));
+  std::println("");
 
   load.removeBox(largestIter);
 
-  std::cout << "The truckload without its largest box:\n";
-  load.listBoxes();
-  std::cout << std::endl;
+  std::println("The truckload without its largest box:");
+  load.printBoxes();
+  std::println("");
 
-  std::cout << "The smallest box (found using reverse iteration) is ";
-  smallestIter.getCurrentBox()->listBox();
-  std::cout << '\n' << std::endl;
-  
+  std::println("The smallest box (found using reverse iteration) is {}", to_string(*smallestIter.getCurrentBox()));
+  std::println("");
+
   load.removeBox(smallestIter);
 
-  std::cout << "The truckload without its smallest box (in reverse order):\n";
-  load.listBoxesReversed();
+  std::println("The truckload without its smallest box (in reverse order):");
+  load.printBoxesReversed();
 }
 
 Truckload::Iterator findLargestBox(const Truckload& truckload)

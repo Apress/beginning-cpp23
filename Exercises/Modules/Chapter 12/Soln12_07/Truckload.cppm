@@ -24,8 +24,8 @@ public:
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
 
-  void listBoxes() const;           // Output the Boxes
-  void listBoxesReversed() const;   // Output the Boxes in reversed order
+  void printBoxes() const;           // Output the Boxes
+  void printBoxesReversed() const;   // Output the Boxes in reversed order
 
 private:
   class Package;

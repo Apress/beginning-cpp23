@@ -3,8 +3,7 @@ module truckload;
 import std;
 
 // Definition of the nested class member
-// Since this member is private, 
-// its definition can be moved to the source file.
+// Since this member is private, its definition can be moved to the source file.
 class Truckload::Package
 {
 public:
@@ -46,30 +45,28 @@ Truckload::~Truckload()
   delete m_head;
 }
 
-void Truckload::listBoxes() const
+void Truckload::printBoxes() const
 {
-  const size_t boxesPerLine{ 4 };
-  size_t count {};  
+  const std::size_t boxesPerLine{ 4 };
+  std::size_t count {};  
   for (Package* package{m_head}; package; package = package->m_next)
   {
-    std::cout << ' ';
-    package->m_box->listBox();
-    if (! (++count % boxesPerLine)) std::cout << std::endl;
+    std::print(" {}", to_string(*package->m_box));
+    if (! (++count % boxesPerLine)) std::println("");
   }
-  if (count % boxesPerLine) std::cout << std::endl;
+  if (count % boxesPerLine) std::println("");
 }
 
-void Truckload::listBoxesReversed() const
+void Truckload::printBoxesReversed() const
 {
-  const size_t boxesPerLine{ 4 };
-  size_t count{};
+  const std::size_t boxesPerLine{ 4 };
+  std::size_t count{};
   for (Package* package{ m_tail }; package; package = package->m_previous)
   {
-    std::cout << ' ';
-    package->m_box->listBox();
-    if (!(++count % boxesPerLine)) std::cout << std::endl;
+    std::print(" {}", to_string(*package->m_box));
+    if (!(++count % boxesPerLine)) std::println("");
   }
-  if (count % boxesPerLine) std::cout << std::endl;
+  if (count % boxesPerLine) std::println("");
 }
 
 Truckload::Iterator Truckload::getIterator() const

@@ -10,26 +10,26 @@ import std;
 Integer::Integer(int value) : m_value{value}
 {
   ++s_count;
-  std::cout << "Object created." << std::endl;
+  std::println("Object created.");
 }
 
 // Copy constructor
 Integer::Integer(const Integer& obj) : m_value{obj.m_value}
 {
   ++s_count;
-  std::cout << "Object created by copy constructor." << std::endl;
+  std::println("Object created by copy constructor.");
 }
 
 // Destructor
 Integer::~Integer()
 {
   --s_count;
-  std::cout << "Object deleted." << std::endl;
+  std::println("Object deleted.");
 }
 
-void Integer::show() const
+void Integer::printValue() const
 {
-  std::cout << "Value is " << m_value << std::endl;
+  std::println("Value is {}.", m_value);
 }
 
 int Integer::compare(const Integer& obj) const
@@ -44,5 +44,5 @@ int Integer::compare(const Integer& obj) const
 
 void Integer::printCount()
 {
-  std::cout << "There are now " << s_count << " Integer object(s)." << std::endl;
+  std::println("There are now {} Integer object(s).", s_count);
 }

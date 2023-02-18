@@ -24,7 +24,6 @@ int main()
   // We can calculate 4*5*5*5+6*5*5+7*5+8 as:
   //     ((4*5+6)*5+7)*5+8
   Integer result {four};                       // Set result object as copy of four
-  std::cout << "Result is "
-            << result.multiply(5).add(six).multiply(5).add(7).multiply(5).add(eight).getValue()
-            << std::endl;
+  std::println("Result is {}", 
+      result.multiply(5).add(six).multiply(5).add(7).multiply(5).add(eight).getValue());
 }

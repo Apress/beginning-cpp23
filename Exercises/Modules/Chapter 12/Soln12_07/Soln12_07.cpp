@@ -15,25 +15,20 @@ int main()
   Truckload load;  // Create an empty list
 
   // Add 12 random Box objects to the list
-  const size_t boxCount{ 12 };
-  for (size_t i{}; i < boxCount; ++i)
+  const std::size_t boxCount{ 12 };
+  for (std::size_t i{}; i < boxCount; ++i)
     load.addBox(randomSharedBox());
 
-  std::cout << "The random truckload:\n";
-  load.listBoxes();
-  std::cout << std::endl;
+  std::println("The random truckload:");
+  load.printBoxes();
+  std::println("");
+  
+  std::println("The same random truckload in reverse:");
+  load.printBoxesReversed();
+  std::println("");
 
-  std::cout << "The same random truckload in reverse:\n";
-  load.listBoxesReversed();
-  std::cout << std::endl;
-
-  std::cout << "The largest box (found using forward iteration) is ";
-  findLargestBox(load)->listBox();
-  std::cout << std::endl;
-
-  std::cout << "The smallest box (found using reverse iteration) is ";
-  findSmallestBox(load)->listBox();
-  std::cout << std::endl;
+  std::println("The largest box (found using forward iteration) is {}", to_string(*findLargestBox(load)));
+  std::println("The smallest box (found using reverse iteration) is {}", to_string(*findSmallestBox(load)));
 }
 
 SharedBox findLargestBox(const Truckload& truckload)

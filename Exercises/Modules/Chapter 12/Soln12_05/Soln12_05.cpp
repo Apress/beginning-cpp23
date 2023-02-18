@@ -4,28 +4,28 @@ import integer;
 
 void showIntegerVal(Integer it)
 {
-  it.show();
+  it.printValue();
   Integer::printCount();    // passed by value, so object count temporarily increases
 }
 void showIntegerRef(const Integer& it)
 {
-  it.show();
+  it.printValue();
   Integer::printCount();    // passed by reference, so object count did not increase
 }
 
 int main()
 {
-  std::cout << "Create i with the value 0." << std::endl;
+  std::println("Create i with the value 0.");
   Integer i;
-  i.show();
+  i.printValue();
   
   Integer::printCount();	// 1 object
  
   if (i.getValue() == 0)
   {
-    std::cout << "Create j from object i." << std::endl;
+    std::println("Create j from object i.");
     Integer j {i};
-    j.show();
+    j.printValue();
     Integer::printCount();	// 2 objects
   }
   

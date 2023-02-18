@@ -4,27 +4,27 @@ import integer;
 
 int main()
 {
-  std::cout << "Create i with the value 10." << std::endl;
+  std::println("Create i with the value 10.");
   Integer i {10};
-  i.show();
-  std::cout << "Change value  of i to 15." << std::endl;
+  i.printValue();
+  std::println("Change value  of i to 15.");
   i.setValue(15);
-  i.show();
+  i.printValue();
  
-  std::cout << "Create j from object i." << std::endl;
+  std::println("Create j from object i.");
   Integer j {i};
-  j.show();
-  std::cout << "Set value of j to 150 times that of i." << std::endl;
+  j.printValue();
+  std::println("Set value of j to 150 times that of i.");
   j.setValue(150 * i.getValue());
-  j.show();
+  j.printValue();
 
-  std::cout << "Create k with the value 789." << std::endl;
+  std::println("Create k with the value 789.");
   Integer k {789};
-  k.show();
-  std::cout << "Set value of k to sum of i and j values." << std::endl;
+  k.printValue();
+  std::println("Set value of k to sum of i and j values.");
   k.setValue(i.getValue() + j.getValue());
-  k.show();
+  k.printValue();
 
-  std::cout << "Result of comparing i and j is " << compare(i, j) << std::endl;
-  std::cout << "Result of comparing k and j is " << compare(k, j) << std::endl;
+  std::println("Result of comparing i and j is {}", compare(i, j));
+  std::println("Result of comparing k and j is {}", compare(k, j));
 }

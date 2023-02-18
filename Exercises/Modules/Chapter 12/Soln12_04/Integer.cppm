@@ -9,7 +9,7 @@ public:
   int getValue() const { return m_value; }
   void setValue(int value) { m_value = value; }
 
-  void show() const;
+  void printValue() const;
 
   friend int compare(const Integer& obj1, const Integer& obj2);  // friend compare function
 

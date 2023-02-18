@@ -25,8 +25,8 @@ public:
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
   bool removeBox(Iterator iter);    // Remove the Box pointed to by this Iterator
 
-  void listBoxes() const;           // Output the Boxes
-  void listBoxesReversed() const;   // Output the Boxes in reversed order
+  void printBoxes() const;           // Output the Boxes
+  void printBoxesReversed() const;   // Output the Boxes in reversed order
 
 private:
   class Package;

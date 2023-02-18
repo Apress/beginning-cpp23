@@ -3,10 +3,10 @@ import std;
 
 Integer::Integer(int value) : m_value{value}
 {
-  std::cout << "Object created." << std::endl;
+  std::println("Object created.");
 }
 
-void Integer::show() const
+void Integer::printValue() const
 {
-  std::cout << "Value is " << m_value << std::endl;
+  std::println("Value is {}.", m_value);
 }

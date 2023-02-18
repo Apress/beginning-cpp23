@@ -25,7 +25,7 @@ public:
 //  int compare(Integer obj) const;        // Compare function with value parameter
   int compare(const Integer& obj) const;   // Compare function with reference parameter
 
-  void show() const;
+  void printValue() const;
 
 private:
   int m_value{};
