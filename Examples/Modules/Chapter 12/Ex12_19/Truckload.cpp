@@ -1,12 +1,6 @@
 module truckload;
 import std;
 
-// Constructor - one Box (moved to source file to gain access to definition of Package)
-Truckload::Truckload(SharedBox box)          
-{
-  m_head = m_tail = new Package{ box };
-}
-
 // Constructor - vector of Boxes
 Truckload::Truckload(const std::vector<SharedBox>& boxes)
 {
@@ -45,19 +39,18 @@ void Truckload::printBoxes() const
 
 SharedBox Truckload::getFirstBox()
 {
-  // Return m_head's box (or nullptr if the list is empty)
-  m_current = m_head;
-  return m_current? m_current->m_box : nullptr;
+  m_next = m_head;      // nullptr only for an empty truckload
+  return getNextBox();
 }
 
 SharedBox Truckload::getNextBox()
 {
-  if (!m_current)                                 // If there's no current...
-    return getFirstBox();                         // ...return the 1st Box
-
-  m_current = m_current->m_next;                  // Move to the next package
-
-  return m_current? m_current->m_box : nullptr;   // Return its box (or nullptr...).
+  if (!m_next)          // If there's no next...
+    return nullptr;     // ...return nullptr
+                                    
+  SharedBox result = m_next->m_box; // Extract the box to return
+  m_next = m_next->m_next;          // Move to the next package
+  return result;
 }
 
 void Truckload::addBox(SharedBox box)
@@ -68,34 +61,33 @@ void Truckload::addBox(SharedBox box)
     m_tail->m_next = package;      // Append the new object to the tail
   else                             // List is empty
     m_head = package;              // so new object is the head
-
   m_tail = package;                // Either way: the latest object is the (new) tail
 }
 
 bool Truckload::removeBox(SharedBox boxToRemove)
 {
-  Package* previous {nullptr};       // no previous yet
-  Package* current {m_head};         // initialize current to the head of the list
+  Package* previous {nullptr};     // no previous yet
+  Package* current {m_head};       // initialize current to the head of the list
   while (current)
   {
-    if (current->m_box == boxToRemove)      // We found the Box!
+    if (current->m_box == boxToRemove)  // We found the Box!
     {
-      // If there is a previous Package make it point to the next one (Figure 12.10)
+      // If there is a previous Package make it point to the next one (Figure 12-10)
       if (previous) previous->m_next = current->m_next;
 
-      // Update pointers in member variables where required:
-      if (current == m_head) m_head = current->m_next;
-      if (current == m_tail) m_tail = previous;
-      if (current == m_current) m_current = current->m_next;
-                                     
-      current->m_next = nullptr;     // Disconnect the current Package from the list
-      delete current;                // and delete it
-                                     
-      return true;                   // Return true: we found and removed the box
-    }                                
-                                     // Move both pointers along (mind the order!)
-    previous = current;              //  - first current becomes the new previous
-    current = current->m_next;       //  - then move current along to the next Package
+      // Restore class invariants by updating impacted member variable pointers:
+      if (current == m_head) m_head = current->m_next; // Removing first box
+      if (current == m_tail) m_tail = previous;        // Removing last box
+      if (current == m_next) m_next = current->m_next; // Removing "next" box
+
+      current->m_next = nullptr;   // Disconnect the current Package from the list
+      delete current;              // and delete it
+                                   
+      return true;                 // Return true: we found and removed the box
+    }                              
+                                   // Move both pointers along (mind the order!)
+    previous = current;            //  - first current becomes the new previous
+    current = current->m_next;     //  - then move current along to the next Package
   }
 
   return false;     // Return false: boxToRemove was not found

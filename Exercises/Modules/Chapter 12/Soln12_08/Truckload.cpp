@@ -90,22 +90,18 @@ SharedBox Truckload::Iterator::getLastBox()
 
 SharedBox Truckload::Iterator::getNextBox()
 {
-  if (!m_current)                                 // If there's no current...
-    return getFirstBox();                         // ...return the 1st Box
+  if (m_current)                                 
+    m_current = m_current->m_next;                // Move to the next package
 
-  m_current = m_current->m_next;                  // Move to the next package
-
-  return getCurrentBox();
+  return m_current? m_current->m_box : nullptr;   // Return its box (or nullptr...).
 }
 
 SharedBox Truckload::Iterator::getPreviousBox()
 {
-  if (!m_current)                                 // If there's no current...
-    return getLastBox();                          // ...return the last Box
+  if (m_current)                                 
+    m_current = m_current->m_previous;           // Move to the previous package
 
-  m_current = m_current->m_previous;              // Move to the next package
-
-  return getCurrentBox();
+  return m_current ? m_current->m_box : nullptr; // Return its box (or nullptr...).
 }
 
 SharedBox Truckload::Iterator::getCurrentBox() const
@@ -132,9 +128,9 @@ bool Truckload::removeBox(SharedBox boxToRemove)
 {
   for (auto* current{ m_head }; current != nullptr; current = current->m_next)
   {
-    if (current->m_box == boxToRemove)      // We found the Box!
+    if (current->m_box == boxToRemove)  // We found the Box!
     {
-      removePackage(current);
+      removePackage(current);           // Delegate the heavy lifting to removePackage()...
       return true;
     }  
   }

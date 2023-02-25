@@ -9,7 +9,8 @@ export class Truckload
 public:
   Truckload() = default;            // Default constructor - empty truckload
 
-  Truckload(SharedBox box);         // Constructor - one Box
+  Truckload(SharedBox box)          // Constructor - one Box
+  { m_head = m_tail = new Package{ box }; }
   Truckload(const std::vector<SharedBox>& boxes);  // Constructor - vector of Boxes
   Truckload(const Truckload& src);  // Copy constructor
 
@@ -22,7 +23,7 @@ public:
   void printBoxes() const;          // Output the Boxes
 
 private:
-  Package* m_head {};               // First in the list
-  Package* m_tail {};               // Last in the list
-  Package* m_current {};            // Last retrieved from the list
+  Package* m_head{};                // First in the list
+  Package* m_tail{};                // Last in the list
+  Package* m_next{};                // The package whose Box to retrieve next
 };

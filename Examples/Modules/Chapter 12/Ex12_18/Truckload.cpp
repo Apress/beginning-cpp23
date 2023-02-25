@@ -2,12 +2,6 @@ module truckload;
 
 import std;
 
-// Constructor - one Box (moved to source file to gain access to definition of Package)
-Truckload::Truckload(SharedBox box)          
-{
-  m_head = m_tail = new Package{ box };
-}
-
 // Constructor - vector of Boxes
 Truckload::Truckload(const std::vector<SharedBox>& boxes)
 {
@@ -41,24 +35,23 @@ void Truckload::printBoxes() const
     std::print(" {}", to_string(*package->getBox()));
     if (! (++count % boxesPerLine)) std::println("");
   }
-  if (count % boxesPerLine) std::println("");
+  if (count && count % boxesPerLine) std::println("");
 }
 
 SharedBox Truckload::getFirstBox()
 {
-  // Return m_head's box (or nullptr if the list is empty)
-  m_current = m_head;
-  return m_current? m_current->getBox() : nullptr;
+  m_next = m_head;      // nullptr only for an empty truckload
+  return getNextBox();
 }
 
 SharedBox Truckload::getNextBox()
 {
-  if (!m_current)                                    // If there's no current...
-    return getFirstBox();                            // ...return the 1st Box
+  if (!m_next)          // If there's no next...
+    return nullptr;     // ...return nullptr
 
-  m_current = m_current->getNext();                  // Move to the next package
-
-  return m_current? m_current->getBox() : nullptr;   // Return its box (or nullptr...).
+  SharedBox result = m_next->getBox(); // Extract the box to return
+  m_next = m_next->getNext();          // Move to the next package
+  return result;
 }
 
 void Truckload::addBox(SharedBox box)
@@ -81,13 +74,13 @@ bool Truckload::removeBox(SharedBox boxToRemove)
   {
     if (current->getBox() == boxToRemove)      // We found the Box!
     {
-      // If there is a previous Package make it point to the next one (Figure 12.10)
+      // If there is a previous Package make it point to the next one (Figure 12-10)
       if (previous) previous->setNext(current->getNext());
 
-      // Update pointers in member variables where required:
-      if (current == m_head) m_head = current->getNext();
-      if (current == m_tail) m_tail = previous;
-      if (current == m_current) m_current = current->getNext();
+      // Restore class invariants by updating impacted member variable pointers:
+      if (current == m_head) m_head = current->getNext(); // Removing first box
+      if (current == m_tail) m_tail = previous;           // Removing last box
+      if (current == m_next) m_next = current->getNext(); // Removing "next" box
 
       current->setNext(nullptr);        // Disconnect the current Package from the list
       delete current;                   // and delete it

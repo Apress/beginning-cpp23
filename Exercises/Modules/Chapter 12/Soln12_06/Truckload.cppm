@@ -24,10 +24,10 @@ public:
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
 
-  void printBoxes() const;           // Output the Boxes
+  void printBoxes() const;          // Output the Boxes
 
 private:
-  class Package;
+  class Package;                    // Implementation detail: class definition can move to the source file
 
   Package* m_head {};               // First in the list
   Package* m_tail {};               // Last in the list
@@ -43,8 +43,8 @@ public:
 
 private:
   Package* m_head;          // The head of the linked list (needed for getFirstBox())
-  Package* m_current;       // The package whose Box was last retrieved
+  Package* m_next;          // The package whose Box to retrieve next
 
   friend class Truckload;   // Only a Truckload can create an Iterator
-  explicit Iterator(Package* head) : m_head{ head }, m_current{ nullptr } {}
+  explicit Iterator(Package* head) : m_head{ head }, m_next{} {}
 };

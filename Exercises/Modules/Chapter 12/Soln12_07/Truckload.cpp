@@ -90,22 +90,18 @@ SharedBox Truckload::Iterator::getLastBox()
 
 SharedBox Truckload::Iterator::getNextBox()
 {
-  if (!m_current)                                 // If there's no current...
-    return getFirstBox();                         // ...return the 1st Box
-
-  m_current = m_current->m_next;                  // Move to the next package
+  if (m_current)                                 
+    m_current = m_current->m_next;                // Move to the next package
 
   return m_current? m_current->m_box : nullptr;   // Return its box (or nullptr...).
 }
 
 SharedBox Truckload::Iterator::getPreviousBox()
 {
-  if (!m_current)                                 // If there's no current...
-    return getLastBox();                          // ...return the last Box
+  if (m_current)                                 
+    m_current = m_current->m_previous;           // Move to the previous package
 
-  m_current = m_current->m_previous;              // Move to the next package
-
-  return m_current ? m_current->m_box : nullptr;  // Return its box (or nullptr...).
+  return m_current ? m_current->m_box : nullptr; // Return its box (or nullptr...).
 }
 
 void Truckload::addBox(SharedBox box)
@@ -127,7 +123,7 @@ bool Truckload::removeBox(SharedBox boxToRemove)
 {
   // No need for a trailing pointer anymore!
   // (We can go back one using the m_previous pointer of the doubly-linked list...)
-  Package* current {m_head};         // initialize current to the head of the list
+  Package* current {m_head};       // initialize current to the head of the list
   while (current)
   {
     if (current->m_box == boxToRemove)      // We found the Box!
@@ -141,13 +137,13 @@ bool Truckload::removeBox(SharedBox boxToRemove)
       if (current == m_head) m_head = current->m_next;
       if (current == m_tail) m_tail = current->m_previous;
                                      
-      current->m_next = nullptr;     // Disconnect the current Package from the list
-      delete current;                // and delete it
-                                     
-      return true;                   // Return true: we found and removed the box
+      current->m_next = nullptr;   // Disconnect the current Package from the list
+      delete current;              // and delete it
+                                   
+      return true;                 // Return true: we found and removed the box
     }  
 
-    current = current->m_next;       //  Move current along to the next Package
+    current = current->m_next;     //  Move current along to the next Package
   }
 
   return false;     // Return false: boxToRemove was not found
