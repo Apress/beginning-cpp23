@@ -1,42 +1,30 @@
-// Using static members and a destructor to keep track of an object count
+// Using a friend function
 import std;
 import integer;
 
-void showIntegerVal(Integer it)
-{
-  it.printValue();
-  Integer::printCount();    // passed by value, so object count temporarily increases
-}
-void showIntegerRef(const Integer& it)
-{
-  it.printValue();
-  Integer::printCount();    // passed by reference, so object count did not increase
-}
-
 int main()
 {
-  std::println("Create i with the value 0.");
-  Integer i;
+  std::println("Create i with the value 10.");
+  Integer i {10};
   i.printValue();
-  
-  Integer::printCount();	// 1 object
+  std::println("Change value  of i to 15.");
+  i.setValue(15);
+  i.printValue();
  
-  if (i.getValue() == 0)
-  {
-    std::println("Create j from object i.");
-    Integer j {i};
-    j.printValue();
-    Integer::printCount();	// 2 objects
-  }
-  
-  Integer::printCount();	// 1 object again (Integer j was deleted because its scope ended)
+  std::println("Create j from object i.");
+  Integer j {i};
+  j.printValue();
+  std::println("Set value of j to 150 times that of i.");
+  j.setValue(150 * i.getValue());
+  j.printValue();
 
-  Integer array[] { 1, 2, 3 };
-  
-  Integer::printCount();   // 4 objects
-  
-  showIntegerRef(array[0]);
-  showIntegerVal(array[1]);
-  
-  Integer::printCount();   // 4 objects again
+  std::println("Create k with the value 789.");
+  Integer k {789};
+  k.printValue();
+  std::println("Set value of k to sum of i and j values.");
+  k.setValue(i.getValue() + j.getValue());
+  k.printValue();
+
+  std::println("Result of comparing i and j is {}", compare(i, j));
+  std::println("Result of comparing k and j is {}", compare(k, j));
 }

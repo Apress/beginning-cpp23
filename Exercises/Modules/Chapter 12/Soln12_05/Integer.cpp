@@ -1,30 +1,32 @@
-/*****************************************************************\
- To implement printCount(), you first need a static member variable
- to store the object count. Every constructor should then increment
- this count, and you need to add a destructor that decrements it. 
-\*****************************************************************/
 module integer;
 import std;
+
+/****************************************************************\
+ Implementing compare() as a friend is quite simple.
+ We must declare the function as a friend in the class definition.
+ We now need both objects as arguments and the code in the
+ body of the function just compares the n members of the arguments.
+ Both parameters are references-to-const.
+
+ However, other than the need for you to exercise friend functions,
+ there's no real reason for the compare() function to be a friend
+ of the Integer class: it can be implemented perfectly fine
+ using the public getValue() function as well.
+ The nonFriendCompare() function given below is therefore 
+ preferred over a friend function.
+\****************************************************************/
+
 
 // Constructor
 Integer::Integer(int value) : m_value{value}
 {
-  ++s_count;
   std::println("Object created.");
 }
 
 // Copy constructor
-Integer::Integer(const Integer& obj) : m_value{obj.m_value}
+Integer::Integer(const Integer& obj) : m_value{ obj.m_value }
 {
-  ++s_count;
   std::println("Object created by copy constructor.");
-}
-
-// Destructor
-Integer::~Integer()
-{
-  --s_count;
-  std::println("Object deleted.");
 }
 
 void Integer::printValue() const
@@ -32,17 +34,24 @@ void Integer::printValue() const
   std::println("Value is {}.", m_value);
 }
 
-int Integer::compare(const Integer& obj) const
+// friend compare function
+int compare(const Integer& obj1, const Integer& obj2)
 {
-  if (m_value < obj.m_value)
+  if (obj1.m_value < obj2.m_value)
     return -1;
-  else if (m_value == obj.m_value)
+  else if (obj1.m_value == obj2.m_value)
     return 0;
   else
-    return 1;
+	  return 1;
 }
 
-void Integer::printCount()
+// non-friend compare function
+int nonFriendCompare(const Integer& obj1, const Integer& obj2)
 {
-  std::println("There are now {} Integer object(s).", s_count);
+  if (obj1.getValue() < obj2.getValue())
+    return -1;
+  else if (obj1.getValue() == obj2.getValue())
+    return 0;
+  else
+  	return 1;
 }

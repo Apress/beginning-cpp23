@@ -1,34 +1,14 @@
-// Remove Boxes from a Truckload without searching a second time
+// Create a doubly-linked list of Packages
 import box.random;
 import truckload;
 import std;
 
-/********************************************************************************\
-  The key to the solution is that the Iterator object already contains
-  a pointer to the Package that needs to be removed.
-  Of course, external code cannot use a Package, but it can use the Iterator.
-  To exploit the knowledge contained in the Iterator, we add an overload
-  of the removeBox() function with an Iterator parameter instead of a Box.
+/*
+   To show reverse iteration, we've modified findSmallestBox() to iterate in reverse order
+ */
 
-  To facilitate things, we also added getCurrentBox() to Iterator,
-  which allowed us to remove some duplicated code in the various other getters
-  of that class.
-  
-  Both findLargestBox() and findSmallestBox() are updated to return an Iterator
-  as well. Note that the same technique is used by all Standard Library 
-  containers and algorithms (see Chapter 20)!
-
-  Notice also that we created removePackage() to avoid duplicating this code
-  in the two overloads of removeBox().
-
-  An alternative solution that also does not duplicate the removal logic
-  consists of using an Iterator in removeBox(SharedBox), 
-  and then invoke removeBox(Iterator) once the box is found. 
-  removePackage() is then no longer required. We recommend you give this a try!
-\**********************************************************************************/
-
-Truckload::Iterator findLargestBox(const Truckload& truckload);
-Truckload::Iterator findSmallestBox(const Truckload& truckload);
+SharedBox findLargestBox(const Truckload& truckload);
+SharedBox findSmallestBox(const Truckload& truckload);
 
 int main()
 {
@@ -42,58 +22,43 @@ int main()
   std::println("The random truckload:");
   load.printBoxes();
   std::println("");
-
-  const auto largestIter{ findLargestBox(load) };
-  const auto smallestIter{ findSmallestBox(load) };
-
-  std::println("The largest box (found using forward iteration) is {}", to_string(*largestIter.getCurrentBox()));
-  std::println("");
-
-  load.removeBox(largestIter);
-
-  std::println("The truckload without its largest box:");
-  load.printBoxes();
-  std::println("");
-
-  std::println("The smallest box (found using reverse iteration) is {}", to_string(*smallestIter.getCurrentBox()));
-  std::println("");
-
-  load.removeBox(smallestIter);
-
-  std::println("The truckload without its smallest box (in reverse order):");
+  
+  std::println("The same random truckload in reverse:");
   load.printBoxesReversed();
+  std::println("");
+
+  std::println("The largest box (found using forward iteration) is {}", to_string(*findLargestBox(load)));
+  std::println("The smallest box (found using reverse iteration) is {}", to_string(*findSmallestBox(load)));
 }
 
-Truckload::Iterator findLargestBox(const Truckload& truckload)
+SharedBox findLargestBox(const Truckload& truckload)
 {
   auto iterator{ truckload.getIterator() };  // Type of iterator is Truckload::Iterator
-  iterator.getFirstBox();
-  auto largestBoxIterator{ iterator };
+  SharedBox largestBox{ iterator.getFirstBox() };
 
-  while (iterator.getNextBox())
+  SharedBox nextBox{ iterator.getNextBox() };
+  while (nextBox)
   {
-    if (iterator.getCurrentBox()->compare(*largestBoxIterator.getCurrentBox()) > 0)
-    {
-      largestBoxIterator = iterator;
-    }
+    if (nextBox->compare(*largestBox) > 0)
+      largestBox = nextBox;
+    nextBox = iterator.getNextBox();
   }
 
-  return largestBoxIterator;
+  return largestBox;
 }
 
-Truckload::Iterator findSmallestBox(const Truckload& truckload)
+SharedBox findSmallestBox(const Truckload& truckload)
 {
   auto iterator{ truckload.getIterator() };  // Type of iterator is Truckload::Iterator
-  iterator.getLastBox();
-  auto smallestBoxIterator{ iterator };
+  SharedBox smallestBox{ iterator.getLastBox() };
 
-  while (iterator.getPreviousBox())
+  SharedBox nextBox{ iterator.getPreviousBox() };
+  while (nextBox)
   {
-    if (iterator.getCurrentBox()->compare(*smallestBoxIterator.getCurrentBox()) < 0)
-    {
-      smallestBoxIterator = iterator;
-    }
+    if (nextBox->compare(*smallestBox) < 0)
+      smallestBox = nextBox;
+    nextBox = iterator.getPreviousBox();
   }
 
-  return smallestBoxIterator;
+  return smallestBox;
 }
