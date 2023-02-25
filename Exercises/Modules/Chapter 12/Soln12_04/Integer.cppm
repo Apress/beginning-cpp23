@@ -3,19 +3,55 @@ export module integer;
 export class Integer
 {
 public:
-  Integer(int value = 0);
-  Integer(const Integer& obj);
+  constexpr Integer(int value = 0);
+  // Implicit copy constructor is implicitly constexpr...
+
+  constexpr int getValue() const { return m_value; }
+  constexpr void setValue(int value) { m_value = value; }
   
-  int getValue() const { return m_value; }
-  void setValue(int value) { m_value = value; }
+  constexpr Integer& add(const Integer& obj);
+  constexpr Integer& subtract(const Integer& obj);
+  constexpr Integer& multiply(const Integer& obj);
 
+  constexpr int compare(const Integer& obj) const;
+  
   void printValue() const;
-
-  friend int compare(const Integer& obj1, const Integer& obj2);  // friend compare function
 
 private:
   int m_value;
 };
 
-// A non-friend function that implements the same function
-export int nonFriendCompare(const Integer& obj1, const Integer& obj2);
+
+// Constructor
+constexpr Integer::Integer(int value)
+    : m_value{ value }
+{
+}
+
+constexpr Integer& Integer::add(const Integer& obj)
+{
+    m_value += obj.m_value;
+    return *this;
+}
+
+constexpr Integer& Integer::subtract(const Integer& obj)
+{
+    m_value -= obj.m_value;
+    return *this;
+}
+
+constexpr Integer& Integer::multiply(const Integer& obj)
+{
+    m_value *= obj.m_value;
+    return *this;
+}
+
+constexpr int Integer::compare(const Integer& obj) const
+{
+    if (m_value < obj.m_value)
+        return -1;
+    else if (m_value == obj.m_value)
+        return 0;
+    else
+        return 1;
+}
