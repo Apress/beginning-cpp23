@@ -32,7 +32,7 @@ int main()
 
   // Calculate the sum of the heights
   unsigned int total {};
-  for (size_t i {}; i < count; ++i)
+  for (std::size_t i {}; i < count; ++i)
   {
     total += height[i];
   }

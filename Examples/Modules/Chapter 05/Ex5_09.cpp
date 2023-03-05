@@ -53,7 +53,7 @@ int main()
   std::println("Your data in ascending sequence:");
   const unsigned perline {10};  // Number output per line
   unsigned n {};                // Number on current line
-  for (size_t i {}; i < count; ++i)
+  for (std::size_t i {}; i < count; ++i)
   {
     std::print("{:8.1f}", data[i]);
     if (++n == perline)        // When perline have been written...

@@ -59,7 +59,7 @@ int main()
     std::println("");
   }
   // Output line below table
-  for (size_t i {1}; i < wt_count; ++i)
+  for (std::size_t i {1}; i < wt_count; ++i)
     std::print("--------");
   std::println("\nBMI from 18.5 to 24.9 is normal");
 }
