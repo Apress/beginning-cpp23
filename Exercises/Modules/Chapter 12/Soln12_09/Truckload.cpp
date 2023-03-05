@@ -138,11 +138,13 @@ bool Truckload::removeBox(SharedBox boxToRemove)
   return false;     // Return false: boxToRemove was not found
 }
 
-bool Truckload::removeBox(Iterator iter)
+bool Truckload::removeBox(Iterator& iter)
 {
   if (iter.m_current)
   {
+    auto* next = iter.m_current->m_next;
     removePackage(iter.m_current);
+    iter.m_current = next;      // Bonus exercise: make sure the iterator is not invalidated by moving it to the next Package
     return true;
   }
   else

@@ -23,7 +23,7 @@ public:
 
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
-  bool removeBox(Iterator iter);    // Remove the Box pointed to by this Iterator
+  bool removeBox(Iterator& iter);   // Remove the Box pointed to by this Iterator
 
   void printBoxes() const;           // Output the Boxes
   void printBoxesReversed() const;   // Output the Boxes in reversed order

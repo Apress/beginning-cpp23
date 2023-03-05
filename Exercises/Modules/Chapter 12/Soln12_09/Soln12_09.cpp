@@ -43,8 +43,8 @@ int main()
   load.printBoxes();
   std::println("");
 
-  const auto largestIter{ findLargestBox(load) };
-  const auto smallestIter{ findSmallestBox(load) };
+  auto largestIter{ findLargestBox(load) };
+  auto smallestIter{ findSmallestBox(load) };
 
   std::println("The largest box (found using forward iteration) is {}", to_string(*largestIter.getCurrentBox()));
   std::println("");
