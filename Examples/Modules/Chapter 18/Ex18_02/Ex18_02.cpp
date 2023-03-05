@@ -6,7 +6,7 @@ import std;
 Array<std::string> buildStringArray(const size_t size)
 {
   Array<std::string> result{ size };
-  for (size_t i {}; i < size; ++i)
+  for (std::size_t i {}; i < size; ++i)
     result[i] = "You should learn from your competitor, but never copy. Copy and you die.";
   return result;
 }
@@ -19,7 +19,7 @@ int main()
   std::vector<Array<std::string>> vectorOfArrays;
   vectorOfArrays.reserve(numArrays);  // Inform the vector<> how many Arrays we'll be adding
 
-  for (size_t i {}; i < numArrays; ++i)
+  for (std::size_t i {}; i < numArrays; ++i)
   {
      vectorOfArrays.push_back(buildStringArray(numStringsPerArray));
   }

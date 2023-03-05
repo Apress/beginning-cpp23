@@ -9,7 +9,7 @@ import std;
 Array<std::string> buildStringArray(const size_t size)
 {
   Array<std::string> result{ size };
-  for (size_t i {}; i < size; ++i)
+  for (std::size_t i {}; i < size; ++i)
     result[i] = "You should learn from your competitor, but never copy. Copy and you die.";
   return result;
 }
