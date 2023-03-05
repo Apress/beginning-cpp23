@@ -1,7 +1,7 @@
 // Extracting all odd numbers using std::back_inserter().
 import std;
 
-std::set<int> fillSet_1toN(size_t N);        // Fill a set with 1, 2, ..., N
+std::set<int> fillSet_1toN(std::size_t N);        // Fill a set with 1, 2, ..., N
 void printVector(const std::vector<int>& v); // Print the contents of a vector
 
 int main()
@@ -17,7 +17,7 @@ int main()
   printVector(odd_numbers);
 }
 
-std::set<int> fillSet_1toN(size_t N)   // Fill a set with 1, 2, ..., N
+std::set<int> fillSet_1toN(std::size_t N)   // Fill a set with 1, 2, ..., N
 {
   std::set<int> numbers;
   for (int i{ 1 }; i <= N; ++i)

@@ -5,7 +5,7 @@
 // Note also that in this case std::erase_if() is even more compact (see Ex20_14A).
 import std;
 
-std::vector<int> fillVector_1toN(size_t N);  // Fill a vector with 1, 2, ..., N
+std::vector<int> fillVector_1toN(std::size_t N);  // Fill a vector with 1, 2, ..., N
 void printVector(std::string_view message, const std::vector<int>& numbers);
 
 void removeEvenNumbers(std::vector<int>& numbers)
@@ -38,7 +38,7 @@ int main()
   printVector("The numbers that were kept", numbers);
 }
 
-std::vector<int> fillVector_1toN(size_t N)
+std::vector<int> fillVector_1toN(std::size_t N)
 {
   std::vector<int> numbers;
   for (int i{ 1 }; i <= N; ++i)
