@@ -6,11 +6,11 @@ size_t max_word_length(const words::Words& words);
 
 void words::extract_words(Words& words, const std::string& text, const std::string& separators)
 {
-  size_t start {text.find_first_not_of(separators)}; // Start index of first word
+  std::size_t start {text.find_first_not_of(separators)}; // Start index of first word
 
   while (start != std::string::npos)
   {
-    size_t end{ text.find_first_of(separators, start + 1) }; // Find end of a word
+    std::size_t end{ text.find_first_of(separators, start + 1) }; // Find end of a word
     if (end == std::string::npos)                    // Found a separator?
       end = text.length();                           // Yes, so set to end of text
     words.push_back(std::make_shared<std::string>(text.substr(start, end - start)));
@@ -19,14 +19,14 @@ void words::extract_words(Words& words, const std::string& text, const std::stri
 }
 
 /* Additional helpers for word::sort(Words&) */
-void swap(words::Words& words, size_t first, size_t second)
+void swap(words::Words& words, std::size_t first, std::size_t second)
 {
   auto temp{ words[first] };
   words[first] = words[second];
   words[second] = temp;
 }
 
-void sort(words::Words& words, size_t start, size_t end);
+void sort(words::Words& words, std::size_t start, std::size_t end);
 
 // Sort strings in ascending sequence
 void words::sort(Words& words)
@@ -35,7 +35,7 @@ void words::sort(Words& words)
     ::sort(words, 0, words.size() - 1);
 }
 
-void sort(words::Words& words, size_t start, size_t end)
+void sort(words::Words& words, std::size_t start, std::size_t end)
 {
   // start index must be less than end index for 2 or more elements
   if (!(start < end))
@@ -45,8 +45,8 @@ void sort(words::Words& words, size_t start, size_t end)
   swap(words, start, (start + end) / 2);     // Swap middle address with start
 
   // Check words against chosen word
-  size_t current {start};
-  for (size_t i {start + 1}; i <= end; i++)
+  std::size_t current {start};
+  for (std::size_t i {start + 1}; i <= end; i++)
   {
     if (*words[i] < *words[start])           // Is word less than chosen word?
       swap(words, ++current, i);             // Yes, so swap to the left
@@ -58,9 +58,9 @@ void sort(words::Words& words, size_t start, size_t end)
   if (end > current + 1) sort(words, current + 1, end); // Sort right subset if exists
 }
 
-size_t max_word_length(const words::Words& words)
+std::size_t max_word_length(const words::Words& words)
 {
-  size_t max {};
+  std::size_t max {};
   for (auto& pword : words)
     if (max < pword->length()) max = pword->length();
   return max;
@@ -68,12 +68,12 @@ size_t max_word_length(const words::Words& words)
 
 void words::print_words(const Words& words)
 {
-  const size_t field_width {max_word_length(words) + 1};
-  const size_t words_per_line {8};
+  const std::size_t field_width {max_word_length(words) + 1};
+  const std::size_t words_per_line {8};
   std::print("{:{}}", *words[0], field_width); // Output first word
 
-  size_t words_in_line {};         // Number of words in current line
-  for (size_t i {1}; i < words.size(); ++i)
+  std::size_t words_in_line {};  // Number of words in current line
+  for (std::size_t i {1}; i < words.size(); ++i)
   { // Output newline when initial letter changes or after 8 per line
     if ((*words[i])[0] != (*words[i - 1])[0] || ++words_in_line == words_per_line)
     {

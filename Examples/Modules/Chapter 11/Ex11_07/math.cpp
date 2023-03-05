@@ -77,21 +77,21 @@ namespace math
     // See Chapter 20 for built-in means of (partially) sorting data
     quicksort(sorted);
 
-    const size_t mid = data.size() / 2;
+    const std::size_t mid = data.size() / 2;
     return data.empty() ? std::numeric_limits<double>::quiet_NaN() // Or std::nan
          : data.size() % 2 == 1 ? sorted[mid]
          : (sorted[mid - 1] + sorted[mid]) / 2;
   }
 }
 
-void quicksort(std::vector<double>& data, size_t start, size_t end);
+void quicksort(std::vector<double>& data, std::size_t start, std::size_t end);
 void quicksort(std::vector<double>& data)
 {
   if (!data.empty())
     quicksort(data, 0, data.size() - 1);
 }
 
-void quicksort(std::vector<double>& data, size_t start, size_t end)
+void quicksort(std::vector<double>& data, std::size_t start, std::size_t end)
 {
   // start index must be less than end index for 2 or more elements
   if (!(start < end))
@@ -102,8 +102,8 @@ void quicksort(std::vector<double>& data, size_t start, size_t end)
   std::swap(data[start], data[(start + end) / 2]);
   
   // Compare all other values against chosen value at index start
-  size_t current{ start };
-  for (size_t i{ start + 1 }; i <= end; i++)
+  std::size_t current{ start };
+  for (std::size_t i{ start + 1 }; i <= end; i++)
   {
     if (data[i] < data[start]) // Is the value less than chosen value?
       std::swap(data[++current], data[i]); // Yes, so swap to the left

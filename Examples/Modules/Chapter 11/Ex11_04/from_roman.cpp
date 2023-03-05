@@ -5,7 +5,7 @@ import :internals;
 unsigned int from_roman(std::string_view roman)
 {
   unsigned int result{};
-  for (size_t i{}, n{ roman.length() }; i < n; ++i)
+  for (std::size_t i{}, n{ roman.length() }; i < n; ++i)
   {
     const auto j{ from_roman(roman[i]) };   // Integer value of the i'th roman digit
     // Look at the next digit (if there is one) to know whether to add or subtract j

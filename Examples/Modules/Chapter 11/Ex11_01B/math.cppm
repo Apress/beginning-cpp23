@@ -4,7 +4,7 @@ export
 {
   auto square(const auto& x);
 
-  const double lambda = 1.303577269034296391257;  // Conway's constant
+  const double lambda{ 1.303577269034296391257 };  // Conway's constant
 
   enum class Oddity { Even, Odd };
   auto getOddity(int x);
