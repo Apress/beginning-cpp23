@@ -1,7 +1,7 @@
 // Defining templates for functions that accept fixed-size arrays
 import std;
 
-template <typename T, size_t N>
+template <typename T, std::size_t N>
 T average(const T(&array)[N]);
 
 int main()
@@ -21,11 +21,11 @@ int main()
   std::println("{}", average(ints));
 }
 
-template <typename T, size_t N>
+template <typename T, std::size_t N>
 T average(const T(&array)[N])
 {
   T sum{};                         // Accumulate total in here
-  for (size_t i{}; i < N; ++i)
+  for (std::size_t i{}; i < N; ++i)
     sum += array[i];               // Sum array elements
   return sum / N;                  // Return average
 }
