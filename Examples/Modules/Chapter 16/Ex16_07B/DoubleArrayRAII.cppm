@@ -5,7 +5,7 @@ import std;
 export class DoubleArrayRAII final
 {
 public:
-  explicit DoubleArrayRAII(size_t size) : m_resource{ new double[size] } {}
+  explicit DoubleArrayRAII(std::size_t size) : m_resource{ new double[size] } {}
   ~DoubleArrayRAII()
   {
     std::println("Freeing memory...");
@@ -17,8 +17,8 @@ public:
   DoubleArrayRAII& operator=(const DoubleArrayRAII&) = delete;
 
   // Array subscript operator
-  double& operator[](size_t index) noexcept { return m_resource[index]; }
-  const double& operator[](size_t index) const noexcept { return m_resource[index]; }
+  double& operator[](std::size_t index) noexcept { return m_resource[index]; }
+  const double& operator[](std::size_t index) const noexcept { return m_resource[index]; }
 
   // Function to access the encapsulated resource
   double* get() const noexcept { return m_resource; }

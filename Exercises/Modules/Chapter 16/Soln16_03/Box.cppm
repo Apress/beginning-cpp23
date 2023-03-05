@@ -14,9 +14,9 @@ public:
     return m_length * m_width * m_height;
   }
 
-  friend std::ostream& operator<<(std::ostream& out, const Box& box)
+  friend auto to_string(const Box& box)
   {
-    return out << std::format("Box({:.1f}, {:.1f}, {:.1f})", box.m_length, box.m_width, box.m_height);
+      return std::format("Box({:.1f}, {:.1f}, {:.1f})", box.m_length, box.m_width, box.m_height);
   }
 
 private:

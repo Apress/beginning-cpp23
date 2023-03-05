@@ -2,8 +2,8 @@
 import std;
 import troubles;
 
-double computeValue(size_t x);         // A function to compute a single value
-double* computeValues(size_t howMany); // A function to compute an array of values
+double computeValue(std::size_t x);         // A function to compute a single value
+double* computeValues(std::size_t howMany); // A function to compute an array of values
 
 int main()
 {
@@ -19,12 +19,12 @@ int main()
   }
 }
 
-double* computeValues(size_t howMany)
+double* computeValues(std::size_t howMany)
 {
   double* values{ new double[howMany] };
   try
   {
-    for (size_t i {}; i < howMany; ++i)
+    for (std::size_t i {}; i < howMany; ++i)
       values[i] = computeValue(i);
     return values;
   }
@@ -36,7 +36,7 @@ double* computeValues(size_t howMany)
   }
 }
 
-double computeValue(size_t x)
+double computeValue(std::size_t x)
 {
   if (x < 100)
     return std::sqrt(x);   // Return the square root of the input argument

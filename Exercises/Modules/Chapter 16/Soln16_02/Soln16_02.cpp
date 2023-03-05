@@ -9,11 +9,11 @@ void throwCurveballSometimes();
 // This program will terminate abnormally when the TooManyExceptions exception is thrown.
 int main()
 {
-  size_t number{ 1000 };             // Number of loop iterations
-  size_t exceptionCount {};          // Count of exceptions thrown
-  const size_t maxExceptions{ 10 };  // Maximum number of exceptions
+  unsigned number{ 1'000 };            // Number of loop iterations
+  unsigned exceptionCount {};          // Count of exceptions thrown
+  const unsigned maxExceptions{ 10 };  // Maximum number of exceptions
 
-  for (size_t i {}; i < number; ++i)
+  for (unsigned i {}; i < number; ++i)
   {
     try
     {
