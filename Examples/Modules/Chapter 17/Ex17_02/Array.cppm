@@ -6,7 +6,7 @@ export template <typename T, int startIndex>
 class Array
 {
 public:
-  explicit Array(size_t size);              // Constructor
+  explicit Array(std::size_t size);              // Constructor
   ~Array();                                 // Destructor
   Array(const Array& array);                // Copy constructor  
   Array& operator=(const Array& rhs);       // Assignment operator
@@ -22,14 +22,14 @@ private:
 
 // Constructor template
 template <typename T, int startIndex>
-Array<T, startIndex>::Array(size_t size) : m_elements{ new T[size] {} }, m_size{ size }
+Array<T, startIndex>::Array(std::size_t size) : m_elements{ new T[size] {} }, m_size{ size }
 {}
 
 // Copy constructor template
 template <typename T, int startIndex>
 Array<T, startIndex>::Array(const Array& array) : Array{array.m_size}
 {
-  for (size_t i {}; i < m_size; ++i)
+  for (std::size_t i {}; i < m_size; ++i)
     m_elements[i] = array.m_elements[i];
 }
 

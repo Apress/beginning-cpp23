@@ -33,7 +33,7 @@ int main()
 
   Stack<char> characters;       // A stack for characters
 
-  for (size_t i {}; i < text.length(); ++i)
+  for (std::size_t i {}; i < text.length(); ++i)
     characters.push(text[i]);   // Push the string characters onto the stack
 
   std::println("");

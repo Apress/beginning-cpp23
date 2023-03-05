@@ -14,7 +14,7 @@ int main()
 
     std::print("Sums of pairs of elements:");
     size_t lines {};
-    for (size_t i {numValues - 1}; i >= 0; --i)
+    for (std::size_t i {numValues - 1}; i >= 0; --i)
     {
       if (lines++ % 5 == 0) std::println("");
       std::print("{:5g}", values[i] + values[i-1]);
@@ -29,7 +29,7 @@ int main()
   {
     const size_t numBoxes {5};
     Array<Box> boxes {numBoxes};
-    for (size_t i {} ; i <= numBoxes ; ++i)
+    for (std::size_t i {} ; i <= numBoxes ; ++i)
       std::println("Box volume is {}", boxes[i].volume());
   }
   catch (const std::out_of_range& ex)
