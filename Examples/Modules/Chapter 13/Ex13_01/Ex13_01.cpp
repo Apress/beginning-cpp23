@@ -12,8 +12,6 @@ int main()
     if (box < smallBox) smallBox = box;
   }
 
-  std::cout << "The smallest box has dimensions "
-    << smallBox.getLength() << 'x'
-    << smallBox.getWidth()  << 'x'
-    << smallBox.getHeight() << std::endl;
+  std::println("The smallest box has dimensions {} x {} x {}", 
+               smallBox.getLength(), smallBox.getWidth(), smallBox.getHeight());
 }

@@ -20,11 +20,11 @@ int main()
   const size_t boxCount {16};   // Number of Box object to be created
 
   // Create boxCount Box objects
-  for (size_t i {}; i < boxCount; ++i)
+  for (std::size_t i {}; i < boxCount; ++i)
     load.addBox(std::make_shared<Box>(random(), random(), random()));
 
-  std::cout << "The boxes in the Truckload are:\n";
-  std::cout << load;
+  std::println("The boxes in the Truckload are:");
+  load.printBoxes();
 
   // Find the largest Box in the Truckload
   double maxVolume {};
@@ -32,7 +32,7 @@ int main()
   size_t i {};
   while (load[i])
   {
-    if (load[i]->volume() > maxVolume)
+    if (*load[i] > maxVolume)
     {
       maxIndex = i;
       maxVolume = load[i]->volume();
@@ -40,10 +40,10 @@ int main()
     ++i;
   }
 
-  std::cout << "\nThe largest box is: ";
-  std::cout << *load[maxIndex] << std::endl;
+  std::println("\nThe largest box is: {}", to_string(*load[maxIndex]));
 
   load.removeBox(load[maxIndex]);
-  std::cout << "\nAfter deleting the largest box, the Truckload contains:\n";
-  std::cout << load;
+
+  std::println("\nAfter deleting the largest box, the Truckload contains:");
+  load.printBoxes();
 }

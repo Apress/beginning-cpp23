@@ -9,18 +9,18 @@ int main()
   const Box theBox {3.0, 1.0, 4.0};
 
   for (const auto& box : boxes)
-    if (theBox > box) 
-      std::cout << theBox << " is greater than " << box << std::endl;  // > works
+    if (theBox > box)     // > works
+      std::cout << theBox << " is greater than " << box << std::endl;  
 
   std::cout << std::endl;
 
   for (const auto& box : boxes)
-    if (theBox != box) 
-      std::cout << theBox << " is not equal to " << box << std::endl; // != works
+    if (theBox != box)    // != works
+      std::cout << theBox << " is not equal to " << box << std::endl; 
 
   std::cout << std::endl;  
 
   for (const auto& box : boxes)
-    if (6.0 <= box)                     // Yes, even double <= Box works!!
+    if (6.0 <= box)       // Yes, even double <= Box works!!         
       std::cout << "6 is less than or equal to " << box << std::endl;
 }

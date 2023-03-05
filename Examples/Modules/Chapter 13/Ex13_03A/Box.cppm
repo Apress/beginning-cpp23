@@ -33,3 +33,9 @@ private:
   double m_height{ 1.0 };
 };
 
+// Conversion to string
+export std::string to_string(const Box& box)
+{
+    return std::format("Box({:.1f}, {:.1f}, {:.1f})",
+        box.getLength(), box.getWidth(), box.getHeight());
+}

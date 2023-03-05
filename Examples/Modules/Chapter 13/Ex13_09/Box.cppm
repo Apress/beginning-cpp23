@@ -68,10 +68,8 @@ const Box Box::operator--(int)  // Postfix operator--
   return copy;         // Return copy of the original value
 }
 
-export std::ostream& operator<<(std::ostream& stream, const Box& box)
+export std::string to_string(const Box& box)
 {
-  stream << std::format("Box({:.1f}, {:.1f}, {:.1f})",
-                             box.getLength(), box.getWidth(), box.getHeight());
-  return stream;
+    return std::format("Box({:.1f}, {:.1f}, {:.1f})",
+        box.getLength(), box.getWidth(), box.getHeight());
 }
-

@@ -1,5 +1,7 @@
 export module box;
 
+import std;
+
 export class Box
 {
 public:
@@ -37,4 +39,11 @@ bool Box::operator<(double value) const
 export bool operator<(double value, const Box& aBox)
 {
   return value < aBox.volume();
+}
+
+// Conversion to string
+export std::string to_string(const Box& box)
+{
+    return std::format("Box({:.1f}, {:.1f}, {:.1f})",
+        box.getLength(), box.getWidth(), box.getHeight());
 }
