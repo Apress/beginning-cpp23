@@ -1,7 +1,7 @@
-// Defining classes with in-class member definitions.
+// Defining class members in a module implementation file
 
 import std;
-import box;        // For use of the Box class
+import box;         // For use of the Box class
 
 int main()
 {

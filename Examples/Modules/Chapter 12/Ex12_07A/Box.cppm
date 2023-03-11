@@ -1,13 +1,19 @@
 export module box;
+import std;
 
 // Class to represent a box
 export class Box
 {
 public:
   Box() = default;
-  Box(double length, double width, double height);
+  Box(double length, double width, double height)
+    : m_length{ length }, m_width{ width }, m_height{ height }
+  {
+    std::println("Box constructor called.");
+  }
 
-  double volume();   // Function to calculate the volume of a box
+  // Function to calculate the volume of a box
+  double volume() { return m_length * m_width * m_height; }
 
 private:
   double m_length{ 1.0 };
