@@ -49,5 +49,3 @@ private:
   friend class Truckload;   // Only a Truckload can create an Iterator
   explicit Iterator(Package* head) : m_head{ head }, m_next{} {}
 };
-
-export std::ostream& operator<<(std::ostream& stream, const Truckload& load);
