@@ -1,4 +1,3 @@
-// Exercise 13-3
 // Implementing the missing /, *=, +=, and /= operators for the Box class
 import std;
 import box;
@@ -6,21 +5,21 @@ import box;
 int main()
 {
   Box box {2, 3, 4};
-  std::cout << "Box is " << box << std::endl;
-  size_t n {3};
+  std::println("Box is {}", to_string(box));
+  std::size_t n {3};
   box *= 3;
-  std::cout << "After multiplying by " << n << " box is " << box << std::endl;
+  std::println("After multiplying by {} box is {}", n, to_string(box));
   box /= 3;
-  std::cout << "After dividing by " << n << ", the box is again " << box << std::endl;
+  std::println("After dividing by {}, box is again {}", n, to_string(box));
   
   Box newBox {2 * box};
-  std::cout << "Twice " << box << " is " << newBox << std::endl;
+  std::println("Twice {} is {}", to_string(box), to_string(newBox));
   
-  std::cout << "Half that is again " << (newBox / 2) << std::endl;
+  std::println("Half that is again {}", to_string(newBox / 2));
   
-  std::cout << "Adding both boxes gives " << (box + newBox) << std::endl;
+  std::println("Adding both boxes gives {}", to_string(box + newBox));
   
   box += newBox;
   
-  std::cout << "The same can be obtained by usign += as well: " << box << std::endl;
+  std::println("The same can be obtained by usign += as well: {}", to_string(box));
 }

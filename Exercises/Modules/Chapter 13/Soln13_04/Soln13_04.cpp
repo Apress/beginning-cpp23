@@ -1,4 +1,3 @@
-// Exercise 13-4
 // Adding support for equality operators that compare Boxes and volumes
 import std;
 import box;
@@ -16,8 +15,8 @@ int main()
   Box box3{ 1, 2, 3 };
 
   // Try out all == and != operators (old and new, the latter in both directions)
-  std::cout << "box1 and box2 are " << (box1 == box2 ? "" : "not ") << "equal\n";
-  std::cout << "box1 and box3 are " << (box1 != box3 ? "not " : "") << "equal\n";
-  std::cout << "box1 is " << (box1 == 6.0 ? "" : "not ") << "equal to 6.0\n";
-  std::cout << "10.0 is " << (10 != box2 ? "not " : "") << "equal to box2\n";
+  std::println("box1 and box2 are {}", box1 == box2 ? "equal" : "not equal");
+  std::println("box1 and box3 are {}", box1 != box3 ? "not equal" : "equal");
+  std::println("box1 is {} to 6.0", box1 == 6.0 ? "equal" : "not equal");
+  std::println("10.0 is {} to box2", 10 != box2 ? "not equal" : "equal");
 }

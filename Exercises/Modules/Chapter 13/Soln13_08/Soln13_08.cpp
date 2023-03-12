@@ -1,4 +1,3 @@
-// Exercise 13-7
 // Rational operators
 import std;
 import rational;

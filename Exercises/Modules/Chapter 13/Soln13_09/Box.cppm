@@ -33,4 +33,4 @@ private:
   double m_height {1.0};
 };
 
-export std::ostream& operator<<(std::ostream& stream, const Box& box);
+export std::string to_string(const Box& box);

@@ -41,4 +41,5 @@ private:
 // Function to pre-multiply a Box with a given factor
 export Box operator*(double factor, const Box& box);
 
-export std::ostream& operator<<(std::ostream& stream, const Box& box);
+// Conversion to string
+export std::string to_string(const Box& box);

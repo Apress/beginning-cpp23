@@ -35,9 +35,8 @@ std::partial_ordering Box::operator<=>(double value) const
   return volume() <=> value;
 }
 
-std::ostream& operator<<(std::ostream& stream, const Box& box)
+std::string to_string(const Box& box)
 {
-  stream << std::format("Box({:.1f}, {:.1f}, {:.1f})",
-                          box.getLength(), box.getWidth(), box.getHeight());
-  return stream;
+    return std::format("Box({:.1f}, {:.1f}, {:.1f})",
+                       box.getLength(), box.getWidth(), box.getHeight());
 }

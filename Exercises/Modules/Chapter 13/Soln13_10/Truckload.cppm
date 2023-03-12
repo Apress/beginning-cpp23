@@ -1,10 +1,9 @@
 export module truckload;
 
 import box;
-
 import std;
 
-using SharedBox = std::shared_ptr<Box>;
+export using SharedBox = std::shared_ptr<Box>;
 
 export class Truckload
 {
@@ -26,7 +25,9 @@ public:
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
 
-  SharedBox& operator[](size_t index) const;   // Overloaded subscript operator
+  void printBoxes() const;          // Output the Boxes
+
+  SharedBox& operator[](std::size_t index) const;   // Overloaded subscript operator
 
 private:
   class Package;
@@ -34,11 +35,12 @@ private:
   Package* m_head {};               // First in the list
   Package* m_tail {};               // Last in the list
 
+  // inline is required to allow for this definition to appear in-class.
   static inline SharedBox nullBox{}; // Pointer to nullptr
 };
 
 // Out-of-class definition of the nested Iterator class 
-// (class itself is part of the public interface, so belongs in the header)
+// (class itself is part of the public interface, so belongs in the module interface)
 class Truckload::Iterator
 {
 public:
@@ -47,10 +49,8 @@ public:
 
 private:
   Package* m_head;          // The head of the linked list (needed for getFirstBox())
-  Package* m_current;       // The package whose Box was last retrieved
+  Package* m_next;          // The package whose Box to retrieve next
 
   friend class Truckload;   // Only a Truckload can create an Iterator
-  explicit Iterator(Package* head) : m_head{ head }, m_current{ nullptr } {}
+  explicit Iterator(Package* head) : m_head{ head }, m_next{} {}
 };
-
-export std::ostream& operator<<(std::ostream& stream, const Truckload& load);

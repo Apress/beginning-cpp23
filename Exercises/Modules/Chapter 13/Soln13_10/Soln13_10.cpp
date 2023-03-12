@@ -1,4 +1,3 @@
-// Exercise 13-9
 // Adding an assignment operator for Truckload
 import std;
 import truckload;
@@ -14,22 +13,25 @@ auto createUniformPseudoRandomNumberGenerator(double max)
 
 int main()
 {
-  const double limit{ 99.0 };    // Upper limit on Box dimensions
+  const double limit{ 99.0 };      // Upper limit on Box dimensions
   auto random{ createUniformPseudoRandomNumberGenerator(limit) };
 
   Truckload load;
-  const size_t boxCount {20};               // Number of Box object to be created
+  const std::size_t boxCount {20}; // Number of Box object to be created
 
   // Create boxCount Box objects
-  for (size_t i {}; i < boxCount; ++i)
+  for (std::size_t i {}; i < boxCount; ++i)
     load.addBox(std::make_shared<Box>(random(), random(), random()));
 
-  std::cout << "The boxes in the Truckload are:\n";
-  std::cout << load << std::endl;
+  std::println("The boxes in the Truckload are:");
+  load.printBoxes();
+
+  std::println("");
 
   Truckload copied;
   copied = load;		// Use copy assignment
+  copied = copied;      // World does not end when attempting self-assignment
  
-  std::cout << "The boxes in the copied Truckload are:\n";
-  std::cout << copied;
+  std::println("The boxes in the copied Truckload are:");
+  copied.printBoxes();
 }

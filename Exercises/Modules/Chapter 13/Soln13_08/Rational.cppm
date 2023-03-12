@@ -17,7 +17,7 @@ public:
   void setNumerator(int numerator) { m_numerator = numerator; }
   void setDenominator(int denominator) { m_denominator = denominator; }
   
-  // Casting operators (could be non-explicit as well: is a matter of taste)
+  // Casting operators (needs to be explicit to avoid ambiguities!)
   explicit operator double() const { return static_cast<double>(m_numerator) / m_denominator; }
   explicit operator float() const { return static_cast<float>(m_numerator) / m_denominator; }
   
@@ -25,19 +25,19 @@ public:
   // through the magic of the spaceship operator. 
   // The only other operator you need to define here is equality
   // (because the spaceship operator cannot be defaulted).
-  auto operator<=>(const Rational& other)
+  auto operator<=>(const Rational& other) const
   {
     return m_numerator * other.m_denominator <=> other.m_numerator * m_denominator;
   }
-  auto operator<=>(double value)
+  auto operator<=>(double value) const
   {
-    return static_cast<double>(*this) <=> value;
+      return static_cast<double>(*this) <=> value;
   }
-  bool operator==(const Rational& other)
+  bool operator==(const Rational& other) const
   {
     return m_numerator * other.m_denominator == other.m_numerator * m_denominator;
   }
-  bool operator==(double value)
+  bool operator==(double value) const
   {
     return static_cast<double>(*this) == value;
   }
