@@ -3,8 +3,7 @@ module truckload;
 import std;
 
 // Definition of the nested class member
-// Since this member is private, 
-// its definition can be moved to the source file.
+// Since this member is private, its definition can be moved to the source file.
 class Truckload::Package
 {
 public:

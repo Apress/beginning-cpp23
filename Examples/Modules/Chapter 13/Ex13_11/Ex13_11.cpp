@@ -2,18 +2,6 @@
 import std;
 import truckload;
 
-/*
-  Caution: in the text, we suggest to add 
-    
-    static SharedBox nullBox{};
-  
-  to the Truckload class definition. This will not compile.
-  In-class definitions of non-const static members are only allowed
-  if you add the inline keyword, as we did in this solution.
-  See Chapter 12 for more explanation,
-  and for the alternative of defining the member out-of-class.
-*/
-
 // See Chapter 12 for an explanation of this function
 auto createUniformPseudoRandomNumberGenerator(double max)
 {
