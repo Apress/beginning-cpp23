@@ -1,10 +1,11 @@
 export module PRNG;
+import std;
 
 export class PseudoRandomNumberGenerator
 {
 public:
   PseudoRandomNumberGenerator(int n = 0)
-    : m_n{ n }
+    : m_n{ std::abs(n) % 100 }
   {}
 
   // A function call operator (no parameters, return type int)
