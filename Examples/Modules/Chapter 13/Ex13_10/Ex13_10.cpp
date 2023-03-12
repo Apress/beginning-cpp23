@@ -17,7 +17,7 @@ int main()
   auto random = createUniformPseudoRandomNumberGenerator(limit);
 
   Truckload load;
-  const size_t boxCount {16};   // Number of Box object to be created
+  const std::size_t boxCount {16};   // Number of Box object to be created
 
   // Create boxCount Box objects
   for (std::size_t i {}; i < boxCount; ++i)
@@ -28,8 +28,8 @@ int main()
 
   // Find the largest Box in the Truckload
   double maxVolume {};
-  size_t maxIndex {};
-  size_t i {};
+  std::size_t maxIndex {};
+  std::size_t i {};
   while (load[i])
   {
     if (*load[i] > maxVolume)
