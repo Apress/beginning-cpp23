@@ -6,18 +6,18 @@ export template <typename T, int startIndex>
 class Array
 {
 public:
-  explicit Array(std::size_t size);              // Constructor
+  explicit Array(std::size_t size);         // Constructor
   ~Array();                                 // Destructor
   Array(const Array& array);                // Copy constructor  
   Array& operator=(const Array& rhs);       // Assignment operator
   void swap(Array& other) noexcept;         // noexcept swap() function
   T& operator[](int index);                 // Subscript operator
   const T& operator[](int index) const;     // Subscript operator-const arrays
-  size_t getSize() const { return m_size; } // Accessor for size
+  std::size_t getSize() const noexcept { return m_size; } // Accessor for size
 
 private:
-  T* m_elements;   // Array of type T
-  size_t m_size;   // Number of array elements
+  T* m_elements;      // Array of elements of type T
+  std::size_t m_size; // Number of array elements
 };
 
 // Constructor template

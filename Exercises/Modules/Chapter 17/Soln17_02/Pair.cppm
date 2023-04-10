@@ -5,26 +5,44 @@ export template <typename First, typename Second>
 class Pair
 {
 public:
-  // Public members + no m_ prefix analogous to std::pair<> (see <utility> module)
-  First first;    
-  Second second;
-
   Pair() = default;
-  Pair(const First& f, const Second& s);
-  
-  // In retrospect, this is no longer such an interesting exercise on writing
-  // member function templates now that the compiler generates all lexicographical 
-  // comparison operators for you.
-  //
-  // Note: not all compiler may fully support this generation yet (C++20)...
-  // (replacing auto with std::strong_ordering may make Soln17_02.cpp compile then,
-  // but in general auto is better because First and/or Second could be types 
-  // that are not strongly ordered, such as a floating-point types)
+  Pair(const First& first, const Second& second);
+
+  // Defined out-of-class
+  const First& getFirst() const;
+  void setFirst(const First& first);
+
+  // Defined in-class
+  const Second& getSecond() const { return m_second; }
+  void setSecond(const Second& second) { m_second = second; }
+
+  // Long live modern compilers: no code needed at all!
   auto operator<=>(const Pair& other) const = default;
+
+private:
+  First m_first;
+  Second m_second;
 };
 
-// Constructor
+export template <typename First, typename Second>
+std::ostream& operator<<(std::ostream& out, const Pair<First, Second>& pair)
+{
+  return out << '(' << pair.getFirst() << ", " << pair.getSecond() << ')';
+}
+
 template <typename First, typename Second>
 Pair<First, Second>::Pair(const First& f, const Second& s)
-  : first{f}, second{s}
+  : m_first{f}, m_second{s}
 {}
+
+template <typename First, typename Second>
+const First& Pair<First, Second>::getFirst() const
+{
+  return m_first;
+}
+
+template <typename First, typename Second>
+void Pair<First, Second>::setFirst(const First& f)
+{
+  m_first = f;
+}

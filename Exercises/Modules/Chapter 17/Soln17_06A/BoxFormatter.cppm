@@ -14,7 +14,7 @@ public:
     // the format string starting from the format specifications to be parsed,
     // e.g. in
     //
-    //   std::format("My new box, {:.2}, is fabulous!", box)
+    //   std::println("My new box, {:.2}, is fabulous!", box)
     //
     // the range will contain ".2}, is fabulous!". The formatter should
     // parse specifiers until '}' or the end of the range.
@@ -25,7 +25,6 @@ public:
 
     if (std::ranges::empty(context))  // May happen for empty {} format specifiers
     {
-      m_box_format = "Box({}, {}, {})";
       return context.begin();
     }
 
@@ -36,21 +35,21 @@ public:
       throw std::format_error{ "missing closing braces, }" };
     }
     
-    auto format = std::string(context.begin(), closing_brace);
-    m_box_format = "Box({" + format + "}, {" + format + "}, {" + format + "})";
+    m_format = std::string(context.begin(), closing_brace);
 
     return closing_brace;
   }
 
   auto format(const Box& box, auto& context)
   {
+    const auto f = std::string(m_format);
     return std::vformat_to(
       context.out(), 
-      m_box_format,
+      "Box({" + f + "}, {" + f + "}, {" + f + "})",
       std::make_format_args(box.getLength(), box.getWidth(), box.getHeight())
     );
   }
 
 private:
-  std::string m_box_format;
+  std::string_view m_format;
 };

@@ -12,7 +12,7 @@ int main()
 
   // But... caution!
   {
-    const size_t numValues{ 50 };
+    const std::size_t numValues{ 20 };
     Array<double> values{ numValues };  // Now uses the initializer list constructor!
 
     std::println("Wrong constructor used, so the Array's size, {}, is not {}", values.getSize(), numValues);
@@ -21,7 +21,7 @@ int main()
 
   // Workaround: do not use uniform initialization (or "near uniform", as is thus more appropriate...)
   { 
-    const size_t numValues{ 50 };
+    const std::size_t numValues{ 20 };
     Array<double> values(numValues);    // Uses Array(std::size_t) constructor as before
 
     std::println("Intended constructor used, so the Array's size is {}", values.getSize());

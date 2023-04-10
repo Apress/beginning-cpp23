@@ -1,55 +1,52 @@
-// Exercising the SparseArray class template
-// We create a sparse array of integers, populate 20 of its entries 
-// (checking for duplicates among the randomly generated indices)
-// and output the resulting index/value pairs.
-
-import sparse_array;
+// Exercise 17-5 Exercising the LinkedList template class
+// This program reverses the text that is entered
+import linked_list;
 import std;
-
-
-// See Chapter 12 for an explanation of this principle.
-// The main difference here is that we need a std::uniform_int_distribution 
-// instead of a std::uniform_real_distribution to generate integers instead 
-// of float-point (or, "real") numbers.
-auto createUniformPseudoRandomNumberGenerator(int min, int max)
-{
-  std::random_device seeder;         // True random number generator to obtain a seed (slow)
-  std::default_random_engine generator{ seeder() };     // Efficient pseudo-random generator
-  std::uniform_int_distribution distribution{ min, max }; // Generate in [min, max) interval
-  return std::bind(distribution, generator);            //... and in the darkness bind them!
-}
 
 int main()
 {
-  const size_t count {20};                 // Number of elements to be created
-  const int min_value{32};
-  const int max_value{212};
-  const size_t max_index{499};
-  
-  // Create the (pseudo)-random number generators 
-  // (we use +1 because these generate integers in a half-open interval [min,max)...)
-  auto generate_random_index{ createUniformPseudoRandomNumberGenerator(0, max_index + 1) };
-  auto generate_random_value{ createUniformPseudoRandomNumberGenerator(min_value, max_value + 1) };
+  std::string text;                            // Stores input prose or poem
+  std::println("Enter a poem or prose over one or more lines.\n"
+               "Terminate the input with #:");
+  getline(std::cin, text, '#');
 
-  SparseArray<int> numbers;               // Create empty sparse array
-  
-  for (size_t i {}; i < count; ++i)       // Create count entries in numbers array
+  LinkedList<std::string> words;               // List to store words
+
+  // Extract words and store in the list
+  std::string_view separators{ " ,.\"?!;:\n" };// Separators between words
+  std::size_t start {};                        // Start of a word
+  std::size_t end {};                          // separator position after a word
+  while (std::string::npos != (start = text.find_first_not_of(separators, start)))
   {
-    size_t index {};                      // Stores new index value
-
-    // Must ensure that indexes after the first are not duplicates
-    do
-    {
-      index = generate_random_index();    // Get a random index 0 to max_index-1
-    }
-    while (numbers.element_exists_at(index));
-
-    numbers[index] = generate_random_value();  // Store value at new index position
+    end = text.find_first_of(separators, start+1);
+    words.push_back(text.substr(start,end-start));
+    start = end;
   }
 
-  for (size_t i {}; i <= max_index; ++i)       // Create count entries in numbers array
+  // List the words 5 to a line
+  std::println("\nThe words are:\n");
+  auto iterator{ words.front_iterator() };
+  std::size_t count {};            // Word counter
+  const std::size_t perline {5};   // Worde per line
+  while (iterator.hasValue())
   {
-    if (numbers.element_exists_at(i))
-      std::println("Element at index {} equals {}", i, numbers.at(i));
+    std::print("{} ", iterator.value());
+    if (!(++count % perline))
+      std::println("");
+    iterator.next();
   }
+  std::println("");
+
+  // List the words in reverse order 5 to a line
+  std::println("\nIn reverse order, the words are:\n");
+  iterator = words.back_iterator();
+  count = 0;
+  while (iterator.hasValue())
+  {
+    std::print("{} ", iterator.value());
+    if(!(++count % perline))
+      std::println("");
+    iterator.previous();
+  }
+  std::println("");
 }

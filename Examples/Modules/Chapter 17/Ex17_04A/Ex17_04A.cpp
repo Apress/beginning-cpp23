@@ -36,7 +36,6 @@ int main()
   for (std::size_t i {}; i < text.length(); ++i)
     characters.push(text[i]);   // Push the string characters onto the stack
 
-  std::println("");
   while (!characters.isEmpty())
     std::print("{}", characters.pop()); // Pop the characters off the stack
 

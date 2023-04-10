@@ -9,7 +9,7 @@ int main()
 
   Array<unsigned> squares;       // default construction
   for (unsigned i {}; i < numElements; ++i)
-	  squares.push_back(i * i);    // push_back()
+	  squares.push_back(i * i);  // push_back()
 
   std::println("{} squares were added.", squares.getSize());
   std::println("For instance: 13 squared equals {}", squares[13]);
