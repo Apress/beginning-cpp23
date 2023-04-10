@@ -16,12 +16,12 @@ public:
   void swap(Array& other) noexcept;        
   T& operator[](std::size_t index);             
   const T& operator[](std::size_t index) const; 
-  size_t getSize() const { return m_size; }
+  size_t getSize() const noexcept { return m_size; }
   void push_back(T element) requires std::movable<T>;
 
 private:
-  T* m_elements;    // Array of type T
-  size_t m_size;    // Number of array elements
+  T* m_elements;      // Array of elements of type T
+  std::size_t m_size; // Number of array elements
 };
 
 // Forwarding default constructor template
