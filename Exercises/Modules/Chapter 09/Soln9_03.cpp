@@ -1,10 +1,19 @@
 // Exercise 9.3. Using vocabulary types 
-// Your solution should use all types you learned about in Chapter 9!
 import std;
+
+// Note: while we didn't do so in this solution (go ahead if you want),
+// you could also replace the optional parameters 
+// of show_data() with parameters of form std::optional<...> = {}.
+// In the function definition you could then use expressions such as 
+// title.value_or("Data Values"), or perLine.value_or(5).
+// One advantage of that approach
+// (beyond making it more explicit that the parameters are optional)
+// would be that you can then change the default argument values 
+// without recompiling the function call sites.
 
 void show_data(std::span<const double> data, 
                std::string_view title = "Data Values",
-               size_t width = 10, size_t perLine = 5);
+               std::size_t width = 10, std::size_t perLine = 5);
 std::optional<double> largest(std::span<const double> data);
 std::optional<double> smallest(std::span<const double> data);
 std::span<double> shift_range(std::span<double> data, double delta);
@@ -26,27 +35,27 @@ int main()
 
 // Outputs an array of double values
 void show_data(std::span<const double> data,
-               std::string_view title, size_t width, size_t perLine)
+               std::string_view title, std::size_t width, std::size_t perLine)
 {
-  std::cout << title << std::endl;  // Display the title
+  std::println("{}", title);  // Print the title
 
   // Output the data values
-  for (size_t i {}; i < data.size(); ++i)
+  for (std::size_t i {}; i < data.size(); ++i)
   {
-    // Display a data item (uses a dynamic field width: see Chapter 7)
-    std::cout << std::format("{:{}.6g}", data[i], width); 
+    // Print a data item (uses a dynamic field width: see Chapter 7)
+    std::print("{:{}.6g}", data[i], width); 
     if ((i + 1) % perLine == 0)     // Newline after perLine values
-      std::cout << '\n';
+      std::println("");
   }
-  std::cout << std::endl;
+  std::println("");
 }
 
 std::optional<double> smallest(std::span<const double> data)
 {
   if (data.empty()) return {};     // There is no smallest in an empty sequence
 
-  size_t index_min {};
-  for (size_t i {1}; i < data.size(); ++i)
+  std::size_t index_min {};
+  for (std::size_t i {1}; i < data.size(); ++i)
     if (data[index_min] > data[i])
       index_min = i;
 
@@ -55,7 +64,7 @@ std::optional<double> smallest(std::span<const double> data)
 
 std::span<double> shift_range(std::span<double> data, double delta)
 {
-  for (size_t i {}; i < data.size(); ++i)
+  for (std::size_t i {}; i < data.size(); ++i)
     data[i] += delta;
   return data;
 }
@@ -64,8 +73,8 @@ std::optional<double> largest(std::span<const double> data)
 {
   if (data.empty()) return {};    // There is no largest in an empty array
 
-  size_t index_max {};
-  for (size_t i {1}; i < data.size(); ++i)
+  std::size_t index_max {};
+  for (std::size_t i {1}; i < data.size(); ++i)
     if (data[index_max] < data[i])
       index_max = i;
 
@@ -76,7 +85,7 @@ std::span<double> scale_range(std::span<double> data, double divisor)
 {
   if (!divisor) return data;     // Do nothing for a zero divisor
 
-  for (size_t i{}; i < data.size(); ++i)
+  for (std::size_t i{}; i < data.size(); ++i)
     data[i] /= divisor;
   return data;
 }

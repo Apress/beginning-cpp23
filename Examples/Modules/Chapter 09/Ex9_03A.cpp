@@ -2,7 +2,7 @@
 import std;
 
 // Old function prototypes
-//double largest(const double data[], size_t count);
+//double largest(const double data[], std::size_t count);
 //double largest(const std::vector<double>& data);
 //int largest(const std::vector<int>& data);
 //std::string largest(const std::vector<std::string>& words);
