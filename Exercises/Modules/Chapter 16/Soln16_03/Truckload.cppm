@@ -25,7 +25,7 @@ public:
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
 
-  SharedBox& operator[](size_t index) const;   // Overloaded subscript operator
+  SharedBox& operator[](std::size_t index) const;   // Overloaded subscript operator
 
 private:
   class Package;
