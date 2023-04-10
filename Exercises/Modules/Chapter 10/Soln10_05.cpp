@@ -26,7 +26,7 @@ int main()
 template <typename T>
 T larger(T a, T b)
 {
-  static size_t counter{};
+  static unsigned counter{};
   std::cout << "This instantation has now been called " << ++counter << " time(s)\n";
   return a > b? a : b;
 }

@@ -3,14 +3,14 @@
 import std;
 
 // Look ma, no sizeof()!
-template <typename T, size_t N>
+template <typename T, std::size_t N>
 size_t my_size(const T (&array)[N]) { return N; }
 
 // Overload with two other templates for std::vector<> and array<> 
 template <typename T>
 size_t my_size(const std::vector<T>& vector) { return vector.size(); }
 
-template <typename T, size_t N>
+template <typename T, std::size_t N>
 size_t my_size(const std::array<T,N>& array) { return N; }  // or array.size();
 
 /*
