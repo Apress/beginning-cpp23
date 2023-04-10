@@ -18,7 +18,7 @@ int main()
   }
   catch (const Curveball& /*caught*/)
   {
-    std::cerr << "...hit it out of the park!" << std::endl;
+    std::println("...hit it out of the park!");
   }
 }
 
@@ -32,23 +32,23 @@ void askEvenNumber()
 {
   try
   {
-    std::cout << "Please enter an even number: ";
+    std::print("Please enter an even number: ");
     const int read = readEvenNumber();
-    std::cout << std::format("Well done. {} is a beautiful even number. Thank you!\n", read);
+    std::println("Well done. {} is a beautiful even number. Thank you!", read);
   }
   catch (const NotANumber& nan)
   {
-    std::cerr << nan.what() << std::endl;
+    std::println("{}", nan.what());
     return;
   }
   catch (const std::domain_error& domainException)
   {
-    std::cerr << domainException.what() << std::endl;
+    std::println("{}", domainException.what());
     askEvenNumber();  // Recursive call
   }
   catch (const std::exception& exception)
   {
-    std::cerr << exception.what() << std::endl;
+    std::println("{}", exception.what());
     throw;
   }
 }
@@ -63,21 +63,21 @@ void askEvenNumber()
     {
       std::cout << "Please enter an even number: ";
       const int read = readEvenNumber();
-      std::cout << std::format("Well done. {} is a beautiful even number. Thank you!\n", read);
+      std::println("Well done. {} is a beautiful even number. Thank you!", read);
       break;
     }
     catch (const NotANumber& nan)
     {
-      std::cerr << nan.what() << std::endl;
+      std::println("{}", nan.what());
       return;
     }
     catch (const std::out_of_range& range)
     {
-      std::cerr << range.what() << std::endl;
+      std::println("{}", range.what());
     }
     catch (const std::exception& exception)
     {
-      std::cerr << exception.what() << std::endl;
+      std::println("{}", exception.what());
       throw;
     }
   }

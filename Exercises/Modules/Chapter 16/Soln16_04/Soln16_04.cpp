@@ -47,7 +47,7 @@ int main()
   {
     // Remember: a polymorphic class is a class with at least one virtual function.
     BaseClass* polymorphic{ nullptr };
-    std::cout << typeid(*polymorphic).name();
+    std::println("{}", typeid(*polymorphic).name());
   }
   catch (const std::bad_typeid& exception)
   {
@@ -73,6 +73,16 @@ int main()
   catch (const std::bad_optional_access& exception)
   {
     std::println("std::bad_optional_access: {}", exception.what());
+  }
+
+  try
+  {
+    std::expected<std::string, int> error{ std::unexpected(123) };
+    std::println("{}", error.value());
+  }
+  catch (const std::bad_expected_access<int>& exception)
+  {
+    std::println("std::bad_expected_access: {} (error: {})", exception.what(), exception.error());
   }
 
   try

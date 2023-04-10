@@ -14,17 +14,17 @@ Customer::Customer(
   , m_city{ city }
 {}
 
-std::string Customer::toString() const
+std::string to_string(const Customer& customer)
 {
   std::string result;
-  result += m_surname;
+  result += customer.m_surname;
   result += ' ';
-  result += m_name;
+  result += customer.m_name;
   result += ", ";
-  result += m_street;
+  result += customer.m_street;
   result += ' ';
-  result += std::to_string(m_streetNumber);
+  result += std::to_string(customer.m_streetNumber);
   result += ", ";
-  result += m_city;
+  result += customer.m_city;
   return result;
 }

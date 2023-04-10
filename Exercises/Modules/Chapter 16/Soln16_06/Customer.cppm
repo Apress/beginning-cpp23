@@ -15,7 +15,7 @@ public:
       std::string_view city
   );
 
-  std::string toString() const;
+  friend std::string to_string(const Customer& customer);
   
 private:
   std::string m_surname;
