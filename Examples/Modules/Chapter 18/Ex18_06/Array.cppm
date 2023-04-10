@@ -18,21 +18,21 @@ class Array
 {
 public:
   Array();                                  // Default constructor
-  explicit Array(std::size_t size);              // Constructor
+  explicit Array(std::size_t size);         // Constructor
   ~Array();                                 // Destructor
   Array(const Array& array);                // Copy constructor
-  Array(Array&& array) noexcept;                     // Move constructor
+  Array(Array&& array) noexcept;            // Move constructor
   Array& operator=(const Array& rhs);       // Copy assignment operator
   Array& operator=(Array&& rhs) noexcept;   // Move assignment operator
   void swap(Array& other) noexcept;         // Swap member function
-  T& operator[](std::size_t index);              // Subscript operator
+  T& operator[](std::size_t index);         // Subscript operator
   const T& operator[](std::size_t index) const;  // Subscript operator-const arrays
-  size_t getSize() const { return m_size; } // Accessor for m_size
-  void push_back(T element);                // Copy or move element to the back of the array
+  std::size_t getSize() const noexcept { return m_size; }    // Accessor for m_size
+  void push_back(T element);       // Copy or move element to the back of the array
 
 private:
-  T* m_elements;    // Array of type T
-  size_t m_size;    // Number of array elements
+  T* m_elements;      // Array of elements of type T
+  std::size_t m_size; // Number of array elements
 };
 
 // Forwarding default constructor template

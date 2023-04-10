@@ -5,7 +5,7 @@ import array;
 import std;
 
 // Construct an Array<> of a given size, filled with some arbitrary string data
-Array<std::string> buildStringArray(const size_t size)
+Array<std::string> buildStringArray(const std::size_t size)
 {
   Array<std::string> result{ size };
   for (std::size_t i {}; i < size; ++i)

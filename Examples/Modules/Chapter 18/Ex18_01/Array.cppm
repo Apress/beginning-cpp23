@@ -7,17 +7,17 @@ class Array
 {
 public:
   explicit Array(std::size_t size);              // Constructor
-  ~Array();                                 // Destructor
-  Array(const Array& array);                // Copy constructor
-  Array& operator=(const Array& rhs);       // Copy assignment operator
-  void swap(Array& other) noexcept;         // Swap member function
+  ~Array();                                      // Destructor
+  Array(const Array& array);                     // Copy constructor
+  Array& operator=(const Array& rhs);            // Copy assignment operator
+  void swap(Array& other) noexcept;              // noexcept swap function
   T& operator[](std::size_t index);              // Subscript operator
   const T& operator[](std::size_t index) const;  // Subscript operator-const arrays
-  size_t getSize() const { return m_size; } // Accessor for m_size
+  std::size_t getSize() const noexcept { return m_size; } // Accessor for m_size
 
 private:
-  T* m_elements;    // Array of type T
-  size_t m_size;    // Number of array elements
+  T* m_elements;      // Array of elements of type T
+  std::size_t m_size; // Number of array elements
 };
 
 // Constructor template
