@@ -1,15 +1,15 @@
-// Ex20_05.cpp - Working with maps
+// Working with maps
 import std;
 
 // Type aliases
 using Words = std::vector<std::string_view>;
-using WordCounts = std::map<std::string_view, size_t>;
+using WordCounts = std::map<std::string_view, std::size_t>;
 
 // Function prototypes
 Words extractWords(std::string_view text, std::string_view separators = " ,.!?\"\n");
 WordCounts countWords(const Words& words);
 void showWordCounts(const WordCounts& wordCounts);
-size_t maxWordLength(const WordCounts& wordCounts);
+std::size_t maxWordLength(const WordCounts& wordCounts);
 
 int main()
 {
@@ -33,8 +33,8 @@ int main()
 Words extractWords(std::string_view text, std::string_view separators)
 {
   Words words;
-  size_t start{ text.find_first_not_of(separators) };    // Start 1st word
-  size_t end{};                                          // Index for the end of a word
+  std::size_t start{ text.find_first_not_of(separators) }; // Start 1st word
+  std::size_t end{};                                       // Index for the end of a word
                                                          
   while (start != std::string_view::npos)                
   {                                                      
@@ -51,14 +51,14 @@ Words extractWords(std::string_view text, std::string_view separators)
 WordCounts countWords(const Words& words)
 {
   WordCounts result;
-  for (auto& word : words)
+  for (const auto& word : words)
     ++result[word];
   return result;
 }
 
-size_t maxWordLength(const WordCounts& wordCounts)
+std::size_t maxWordLength(const WordCounts& wordCounts)
 {
-  size_t max{};
+  std::size_t max{};
   for (const auto& [word, count] : wordCounts)
     if (count >= 2 && max < word.length()) max = word.length();
   return max;
@@ -66,10 +66,10 @@ size_t maxWordLength(const WordCounts& wordCounts)
 
 void showWordCounts(const WordCounts& wordCounts)
 {
-  const size_t field_width{maxWordLength(wordCounts) + 1};
-  const size_t words_per_line{5};
+  const std::size_t field_width{maxWordLength(wordCounts) + 1};
+  const std::size_t words_per_line{5};
 
-  size_t words_in_line{};      // Number of words in the current line
+  std::size_t words_in_line{}; // Number of words in the current line
   char previous_initial{};
   for (const auto& [word, count] : wordCounts)
   {

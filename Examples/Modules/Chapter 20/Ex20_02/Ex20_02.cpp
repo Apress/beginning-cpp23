@@ -1,4 +1,4 @@
-// Ex20_02.cpp - Working with stacks and queues
+// Working with stacks and queues
 import std;
 
 int main()

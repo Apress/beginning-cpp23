@@ -10,6 +10,5 @@ int main()
   for (int& i : numbers | std::ranges::views::filter(isEven))
     i *= i;
 
-  for (int i : numbers) std::print("{} ", i);
-  std::println("");
+  std::println("{}", numbers);
 }

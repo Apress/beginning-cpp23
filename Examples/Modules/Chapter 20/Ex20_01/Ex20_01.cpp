@@ -1,4 +1,4 @@
-// Ex20_01.cpp - Working with std::deque<>
+// Working with std::deque<>
 import std;
 
 int main()
@@ -14,5 +14,5 @@ int main()
 
   for (int element : my_deque) // A deque<>, like all containers, is a range
     std::print("{} ", element);
-  std::println(""); 
+  std::println("");
 }

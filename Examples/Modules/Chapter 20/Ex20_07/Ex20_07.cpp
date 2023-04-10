@@ -3,7 +3,7 @@ import std;
 
 int main()
 {
-  std::print("Enter a sequence of positive numbers, terminated by -1: ");
+  std::print("Enter a sequence of positive numbers, terminated by -1:");
 
   std::list<unsigned> numbers;
 
@@ -15,7 +15,7 @@ int main()
     numbers.push_back(static_cast<unsigned>(number));
   }
 
-  std::print("You entered the following numbers: ");
+  std::print("You entered the following numbers:");
   for (auto iter {numbers.begin()}; iter != numbers.end(); ++iter)
   {
     std::print("{} ", *iter);
