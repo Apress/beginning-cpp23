@@ -1,25 +1,28 @@
-// Exercise 10-3.cpp
 // Defining a function template for adding numbers, 
 // and an overload that works for pointer types.
 // Extra: also make plus() work with string literals...
 import std;
 
-template <typename T>
-T plus(const T& a, const T& b)
+// As always, different variations are possible,
+// but since the exercise asks you to allow "potentially different types",
+// it makes most sense to use two different template type parameters 
+// (be it explicitly using template <typename T1, typename T2>, 
+// or implicitly through abbreviated template syntax as we did).
+
+auto plus(const auto& a, const auto& b)
 {
-    return a + b;
+  return a + b;
 }
 
 // Overload with another template for pointer types
-template <typename T>
-T plus(const T* a, const T* b)
+auto plus(const auto* a, const auto* b)
 {
-    return *a + *b;
+  return *a + *b;
 }
 
-// Result cannot be const char*, but has to be a new object.
-// Function template specialization can thus not be used either
-// (but that is, as you know, never a good idea anyway!).
+// Overload with a plain function for string literals / C-style strings.
+// The return type cannot be const char*, since we need to create a new string.
+// Function template specialization could therefore not be used, even if you wanted to...
 std::string plus(const char* a, const char* b)
 {
   return std::string{ a } + b;
@@ -28,18 +31,19 @@ std::string plus(const char* a, const char* b)
 int main()
 {
     int n{ plus(3, 4) };
-    std::cout << "plus(3, 4) returns " << n << std::endl;
+    std::println("plus(3, 4) returns {}", n);
     
-    double d{ plus(3.2, 4.2) };
-    std::cout << "plus(3.2, 4.2) returns " << d << std::endl;
+    double d{ plus(3, 4.2) };
+    std::println("plus(3.2, 4.2) returns {}", d);
     
     std::string s1{ "aaa" };
     std::string s2{ "bbb" };
     auto s3{ plus(s1, s2) };
-    std::cout << "With s1 as " << s1 << " and s2 as " << s2 << std::endl;
-    std::cout << "plus(s1, s2) returns " << s3 << std::endl;
+    std::println("With s1 as {} and s2 as {}, plus(s1, s2) returns {}", s1, s2, s3);
 
     // The extra part:
-    std::string s{ plus("he", "llo") };
-    std::cout << "plus(\"he\", \"llo\") returns " << s << std::endl;
+    std::println("plus(\"he\", \"llo\") returns {}", plus("he", "llo"));
+
+    // Note: std::string + literal also works thanks to non-member + operators for std::string...
+    std::println("plus(s1, \"llo\") returns {}", plus(s1, "llo"));
 }
