@@ -61,7 +61,7 @@ void askEvenNumber()
   {
     try
     {
-      std::cout << "Please enter an even number: ";
+      std::print("Please enter an even number: ");
       const int read = readEvenNumber();
       std::println("Well done. {} is a beautiful even number. Thank you!", read);
       break;
