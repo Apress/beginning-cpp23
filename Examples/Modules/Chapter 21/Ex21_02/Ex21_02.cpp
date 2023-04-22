@@ -23,10 +23,10 @@ concept NoExceptDestructible = requires (T & value) { { value.~T() } noexcept; }
 
 template <typename C>
 concept Character = std::same_as<std::remove_cv_t<C>, char>
-                  || std::same_as<std::remove_cv_t<C>, char8_t>
-                  || std::same_as<std::remove_cv_t<C>, char16_t>
-                  || std::same_as<std::remove_cv_t<C>, char32_t>
-                  || std::same_as<std::remove_cv_t<C>, wchar_t>;
+                 || std::same_as<std::remove_cv_t<C>, char8_t>
+                 || std::same_as<std::remove_cv_t<C>, char16_t>
+                 || std::same_as<std::remove_cv_t<C>, char32_t>
+                 || std::same_as<std::remove_cv_t<C>, wchar_t>;
 
 template <typename S>
 concept String = std::ranges::range<S> && requires(S & s, const S & cs)
