@@ -1,4 +1,3 @@
-// Exercise 19-1. 
 // A lambda expression returning the number of vector elements that begin with a given letter.
 
 import std;
@@ -6,10 +5,7 @@ import std;
 int main()
 {
   std::vector<std::string> words{"apple", "pear", "plum", "orange", "peach", "grape", "greengage"};
-  std::cout << "Words are:\n";
-  for (const auto& word : words)
-    std::cout << std::format("{:10}", word);
-  std::cout << std::endl;
+  std::println("Words are: {}", words);
 
   const auto count {
     [&words](char letter)
@@ -22,7 +18,7 @@ int main()
   };
   
   char ch {'p'};
-  std::cout << std::format("There are {} words that begin with {}.\n", count(ch), ch);
+  std::println("There are {} words that begin with {}.", count(ch), ch);
   ch = 'g';
-  std::cout << std::format("There are {} words that begin with {}.\n", count(ch), ch);
+  std::println("There are {} words that begin with {}.", count(ch), ch);
 }

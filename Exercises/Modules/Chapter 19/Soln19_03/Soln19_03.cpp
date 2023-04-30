@@ -1,4 +1,4 @@
-// Exercise 19-3. Comparing sorting algorithms
+// Comparing sorting algorithms
 
 import std;
 import sort;
@@ -65,17 +65,15 @@ int main()
     const auto bubble_sort_theory = size * size;
     const auto std_sort_theory = static_cast<unsigned>(size * std::log2(size));
 
-    std::cout 
-      << std::format(
-          "Number of comparisons for {} elements:\n"
-          " - quicksort: {} (n*log(n): {}; ratio: {:.2})\n"
-          " - bubble sort: {} (n*n: {}; ratio: {:.2})\n"
-          " - Standard Library sort: {} (n*log(n): {}; ratio: {:.2})\n",
-          size,
-          quicksort_count, quick_sort_theory, static_cast<float>(quick_sort_theory) / quicksort_count,
-          bubble_sort_count, bubble_sort_theory, static_cast<float>(bubble_sort_theory) / bubble_sort_count,
-          std_sort_count, std_sort_theory, static_cast<float>(std_sort_theory) / std_sort_count
-        ) 
-     << std::endl;
+    std::println(
+      "Number of comparisons for {} elements:\n"
+      " - quicksort: {} (n*log(n): {}; ratio: {:.2})\n"
+      " - bubble sort: {} (n*n: {}; ratio: {:.2})\n"
+      " - Standard Library sort: {} (n*log(n): {}; ratio: {:.2})\n",
+      size,
+      quicksort_count, quick_sort_theory, static_cast<float>(quicksort_count) / quick_sort_theory,
+      bubble_sort_count, bubble_sort_theory, static_cast<float>(bubble_sort_count) / bubble_sort_theory,
+      std_sort_count, std_sort_theory, static_cast<float>(std_sort_count) / std_sort_theory
+    );
   }
 }

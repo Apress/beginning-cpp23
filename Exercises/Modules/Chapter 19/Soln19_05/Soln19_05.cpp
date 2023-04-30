@@ -1,4 +1,3 @@
-// Exercise 19-5. 
 // Using callback functions to implement the so-called observer pattern,
 // where a callback function is called whenever a certain event occurs 
 // (in this case: when a Box is delivered).
@@ -10,7 +9,7 @@ import box.random;
 
 void logDelivary(SharedBox box)
 {
-  std::cout << "The box " << *box << " was delivered. On time, as always!" << std::endl;
+  std::println("The box {} was delivered. On time, as always!", to_string(*box));
 }
 
 int main()
@@ -35,5 +34,5 @@ int main()
   for (size_t i : { 5u, 8u, 11u })
     truck.deliverBox(load[i]);
 
-  std::cout << count << " boxes were delivered. On time, as always!" << std::endl;
+  std::println("{} boxes were delivered. On time, as always!", count);
 }
