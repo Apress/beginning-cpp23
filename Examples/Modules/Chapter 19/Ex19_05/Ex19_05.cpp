@@ -1,4 +1,4 @@
-// Exercising the use of stateless lambda expressions as callback functions
+// Using lambda expressions as callback functions
 import std;
 import optimum;
 
@@ -6,12 +6,13 @@ int main()
 {
   std::vector numbers{ 91, 18, 92, 22, 13, 43 };
   std::println("Minimum element: {}", 
-                        *findOptimum(numbers, [](int x, int y) { return x < y; }));
+               *findOptimum(numbers, [](int x, int y) { return x < y; }));
   std::println("Maximum element: {}",
-                        *findOptimum(numbers, [](int x, int y) { return x > y; }));
+               *findOptimum(numbers, [](int x, int y) { return x > y; }));
 
   // Define two anonymous comparison functions for strings:
-  auto alpha = [](std::string_view x, std::string_view y) { return x > y; };
+  auto alpha{ [](std::string_view x, std::string_view y) { return x > y; };
+  auto longer = [](std::string_view x, std::string_view y) { return x.length() > y.length(); };
   auto longer = [](std::string_view x, std::string_view y) { return x.length() > y.length(); };
 
   std::vector<std::string> names{ "Moe", "Larry", "Shemp", "Curly", "Joe", "Curly Joe" };

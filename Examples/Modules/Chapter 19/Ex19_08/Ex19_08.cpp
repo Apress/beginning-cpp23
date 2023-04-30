@@ -6,7 +6,7 @@ bool less(int x, int y) { return x < y; }
 
 int main()
 {
-  int a{ 18 }, b{ 8 };  
+  const int a{ 18 }, b{ 8 };  
 
   std::function<bool(int,int)> compare;
 
