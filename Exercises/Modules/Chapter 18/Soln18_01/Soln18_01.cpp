@@ -12,7 +12,6 @@ import box.random;
 
 int main()
 {
-  const double dimLimit {99.0};             // Upper limit on Box dimensions
   Truckload load;
   const size_t boxCount {20};               // Number of Box object to be created
 
@@ -20,17 +19,17 @@ int main()
   for (size_t i {}; i < boxCount; ++i)
     load.addBox(randomSharedBox());
 
-  std::cout << "The boxes in the Truckload are:\n";
-  std::cout << load << std::endl;
+  std::println("The boxes in the Truckload are:");
+  load.printBoxes();
 
   Truckload moveConstructedLoad{ std::move(load) };
 
-  std::cout << "The boxes in the move constructed Truckload are:\n";
-  std::cout << moveConstructedLoad << std::endl;
+  std::println("\nThe boxes in the move constructed Truckload are:");
+  moveConstructedLoad.printBoxes();
 
   Truckload moveAssignedLoad;
   moveAssignedLoad = std::move(moveConstructedLoad);
   
-  std::cout << "The boxes in the move assigned Truckload are:\n";
-  std::cout << moveAssignedLoad << std::endl;
+  std::println("\nThe boxes in the move assigned Truckload are:");
+  moveAssignedLoad.printBoxes();
 }

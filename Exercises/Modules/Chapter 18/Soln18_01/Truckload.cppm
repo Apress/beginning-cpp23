@@ -1,7 +1,6 @@
 export module truckload;
 
 import box;
-
 import std;
 
 export using SharedBox = std::shared_ptr<Box>;
@@ -10,18 +9,17 @@ export class Truckload
 {
 public:
   Truckload() = default;            // Default constructor - empty truckload
-  ~Truckload();                     // Destructor
 
   Truckload(SharedBox box);         // Constructor - one Box
   Truckload(const std::vector<SharedBox>& boxes);  // Constructor - vector of Boxes
 
-  Truckload(const Truckload& src);  // Copy constructor
+  Truckload(const Truckload& src);             // Copy constructor
   Truckload& operator=(const Truckload& src);  // Copy assignment operator
 
-  Truckload(Truckload&& src) noexcept;  // Move constructor
+  Truckload(Truckload&& src) noexcept;             // Move constructor
   Truckload& operator=(Truckload&& src) noexcept;  // Move assignment operator
 
-  void swap(Truckload& other) noexcept;
+  ~Truckload();                     // Destructor
 
   class Iterator;      // Declaration of a public nested class, Truckload::Iterator
 
@@ -29,8 +27,12 @@ public:
 
   void addBox(SharedBox box);       // Add a new SharedBox
   bool removeBox(SharedBox box);    // Remove a Box from the Truckload
+  
+  void printBoxes() const;          // Output the Boxes
 
-  SharedBox& operator[](size_t index) const;   // Overloaded subscript operator
+  SharedBox& operator[](std::size_t index) const;   // Overloaded subscript operator
+
+  void swap(Truckload& other) noexcept;
 
 private:
   class Package;
@@ -40,7 +42,7 @@ private:
 };
 
 // Out-of-class definition of the nested Iterator class 
-// (class itself is part of the public interface, so belongs in a module interface file)
+// (class itself is part of the public interface, so belongs in the module interface)
 class Truckload::Iterator
 {
 public:
@@ -49,13 +51,8 @@ public:
 
 private:
   Package* m_head;          // The head of the linked list (needed for getFirstBox())
-  Package* m_current;       // The package whose Box was last retrieved
+  Package* m_next;          // The package whose Box to retrieve next
 
   friend class Truckload;   // Only a Truckload can create an Iterator
-  explicit Iterator(Package* head) : m_head{ head }, m_current{ nullptr } {}
+  explicit Iterator(Package* head) : m_head{ head }, m_next{} {}
 };
-
-export std::ostream& operator<<(std::ostream& stream, const Truckload& load);
-
-// Optional yet conventional non-member function (forwards to member function)
-export void swap(Truckload& one, Truckload& other) noexcept;
