@@ -10,7 +10,7 @@ int main()
   const auto count {
     [&words](char letter)
     {
-      size_t n {};
+      std::size_t n {};
       for (auto& word : words)
         if (letter == word[0]) ++n;
       return n;
