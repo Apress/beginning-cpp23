@@ -57,7 +57,7 @@ public:
 
   bool empty() const;                      // Checks whether the list is empty or not
   void clear();                            // Function to remove all elements from the list
-  size_t size() const;                     // Get the number of elements from the list
+  std::size_t size() const;                // Get the number of elements from the list
 
   class Iterator;                          // Nested Iterator class declaration (definition below)
   Iterator front_iterator() const;         // Get an Iterator that starts at the head
@@ -86,7 +86,7 @@ private:
 
   Node* m_head{};    // Pointer to first node
   Node* m_tail{};    // Pointer to last node
-  size_t m_size{};
+  std::size_t m_size{};
 };
 
 // Non-member swap function.

@@ -8,7 +8,7 @@ namespace
   struct QueryResult
   {
     std::vector<std::vector<const char*>> data;
-    size_t index {};
+    std::size_t index {};
   };
 
   class Database

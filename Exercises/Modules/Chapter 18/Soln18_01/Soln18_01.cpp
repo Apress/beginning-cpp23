@@ -13,10 +13,10 @@ import box.random;
 int main()
 {
   Truckload load;
-  const size_t boxCount {20};               // Number of Box object to be created
+  const std::size_t boxCount {20};      // Number of Box object to be created
 
   // Create boxCount Box objects
-  for (size_t i {}; i < boxCount; ++i)
+  for (std::size_t i {}; i < boxCount; ++i)
     load.addBox(randomSharedBox());
 
   std::println("The boxes in the Truckload are:");
