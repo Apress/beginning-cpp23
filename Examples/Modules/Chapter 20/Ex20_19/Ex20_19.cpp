@@ -1,8 +1,6 @@
 // Converting ranges to containers
 import std;
 
-import <random>;
-
 bool isOdd(int i) { return i % 2 == 1; }
 
 int main()
