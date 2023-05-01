@@ -15,7 +15,7 @@ public:
   void swap(Array& other) noexcept;        
   T& operator[](std::size_t index);             
   const T& operator[](std::size_t index) const; 
-  size_t getSize() const noexcept { return m_size; }
+  std::size_t getSize() const noexcept { return m_size; }
   void push_back(T element) requires std::movable<T>;
 
 private:
