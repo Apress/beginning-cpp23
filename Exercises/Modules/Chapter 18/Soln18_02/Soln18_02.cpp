@@ -6,12 +6,12 @@ import std;
 
 void printList(std::string_view message, const LinkedList<std::unique_ptr<int>>& list)
 {
-  std::cout << message << ": ";
+  std::print("{}: ", message);
   for (auto iterator{ list.front_iterator() }; iterator; iterator.next())
   {
-    std::cout << *iterator.value() << ' ';
+    std::print("{} ", *iterator.value());
   }
-  std::cout << std::endl;
+  std::println("");
 }
 
 int main()
