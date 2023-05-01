@@ -16,7 +16,7 @@ namespace
   public:
     Database() = default;
     
-	  bool hasConnection() const { return m_connected; }
+    bool hasConnection() const { return m_connected; }
     void connect() { m_connected = true; }
     void disconnect() { m_connected = false; }
     
