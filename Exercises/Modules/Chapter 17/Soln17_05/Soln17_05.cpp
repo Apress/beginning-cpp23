@@ -3,8 +3,6 @@ import sparse_array;
 import linked_list;
 import std;
 
-#include <cctype>
-
 int main()
 {
   std::string text;                                // Stores input prose or poem
@@ -41,7 +39,7 @@ int main()
     for (auto iterator { lists[i].front_iterator() }; iterator; iterator.next())
     {
       std::print("{} ", iterator.value());
-      if (!(++count % perline))
+      if (++count % perline == 0)
         std::println("");
     }
     if (count % perline)
