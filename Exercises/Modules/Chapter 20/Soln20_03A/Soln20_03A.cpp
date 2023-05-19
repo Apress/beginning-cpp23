@@ -1,7 +1,7 @@
 // Exercise 20-3 Replacing custom container types with standard ones
 /*
 	The following replacements were made compared to Soln17_06.cpp:
-		- SparseArray<LinkedList<T>> --> std::multimap<size_t, T>
+		- SparseArray<LinkedList<T>> --> std::multimap<std::size_t, T>
 	
 	This means that compared to Soln20_03, we replaced std::map<Key, std::vector<Value>>
 	with the more compact (and efficient) std::multimap<Key, Value>. 
@@ -16,8 +16,8 @@ import std;
 int main()
 {
   std::string text;                                // Stores input prose or poem
-  std::cout << "Enter a poem or prose over one or more lines.\n"
-    << "Terminate the input with #:\n";
+  std::println("Enter a poem or prose over one or more lines.\n"
+               "Terminate the input with #:");
   getline(std::cin, text, '#');
 
   std::multimap<char, std::string> words;
@@ -26,8 +26,8 @@ int main()
   // Extract words and store in the appropriate list
   // A list in the SparseArray is selected by the index in letters of the first letter in a word.
   const std::string_view separators{ " \n\t,.\"?!;:" }; // Separators between words
-  size_t start{};                                 // Start of a word
-  size_t end{};                                   // separator position after a word
+  std::size_t start{};                                  // Start of a word
+  std::size_t end{};                                    // separator position after a word
   while (std::string::npos != (start = text.find_first_not_of(separators, start)))
   {
     end = text.find_first_of(separators, start + 1);
@@ -38,7 +38,7 @@ int main()
   }
 
   // List the words in order 5 to a line
-  const size_t perline{ 5 };
+  const std::size_t perline{ 5 };
 
   /* Option 1: use a loop similar to the original one */
   for (char letter : letters)
@@ -46,39 +46,40 @@ int main()
     if (!words.contains(letter))
       continue;
 
-    size_t count{};                               // Word counter
+    std::size_t count{};        // Word counter
     // Retrieve the range of all words that begin with letter
-    const auto [begin, end] { words.equal_range(letter) };
-    for (auto iter{ begin }; iter != end; ++iter)
+    const auto [from, to] { words.equal_range(letter) };
+    for (auto iter{ from }; iter != to; ++iter)
     {
-      if (count++ % perline == 0 && count != 1)
-        std::cout << std::endl;
-      std::cout << iter->second << ' ';
-      
+      std::print("{} ", iter->second);
+      if (++count % perline == 0)
+        std::println("");
     }
-    std::cout << std::endl;
+    if (count % perline)
+      std::println("");
   }
 
-  std::cout << std::endl;
+  std::println("");
 
   /* Option 2: take advantage of the fact that the keys are already sorted in the multimap */
-  size_t count{};          // Word counter
+  std::size_t count{};          // Word counter
   char previous_letter{};
   for (const auto& [letter, word] : words)
   {
-    // Add extra enter after each new letter (but not the first time)
-    if (count && letter != previous_letter)
+    if (letter != previous_letter)
     {
-      std::cout << std::endl;
-      count = 0;
+      if (count % perline)  // Add line break after each new letter if need be
+        std::println("");
+      count = 0;            // Always reset counter
     }
 
-    if (count++ % perline == 0 && count != 1)
-      std::cout << std::endl;
-    std::cout << word << ' ';
+    std::print("{} ", word);
+    if (++count % perline == 0)
+      std::println("");
 
     previous_letter = letter;
   }
-
-  std::cout << std::endl;
+  
+  if (count % perline)
+    std::println("");
 }

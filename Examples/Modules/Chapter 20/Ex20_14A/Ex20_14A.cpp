@@ -1,4 +1,4 @@
-// Removing all elements that satisfy a certain condition usign std::erase_if()
+// Removing all elements that satisfy a certain condition using std::erase_if()
 import std;
 
 std::vector<int> fillVector_1toN(int N);  // Fill a vector with 1, 2, ..., N

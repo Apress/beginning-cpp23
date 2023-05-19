@@ -50,9 +50,10 @@ int main()
 
   std::stack<char> characters;     // A stack for characters
 
-  for (size_t i{}; i < text.length(); ++i)
+  // Alternative to loop: characters.push_range(text);
+  for (std::size_t i{}; i < text.length(); ++i)
     characters.push(text[i]);      // Push the string characters onto the stack
-
+    
   std::println("");
   while (!characters.empty())
   {

@@ -17,13 +17,13 @@ int main()
   std::println("The element 1 occurs {} time(s)", my_set.count(1));
 
   // Like all containers, sets are ranges...
-  int sum{};
+  int sum {};
   for (int x : my_set) sum += x; // ... and can thus be used in a range-based loop
   std::println("The sum of the elements is {}", sum);
 
   my_set.erase(1);   // Remove the element 1 once
-  std::println("There are {} elements in my_set: {:n}", my_set.size(), my_set);
+  std::println("After erase(1), my_set holds {} elements: {:n}", my_set.size(), my_set);
 
   my_set.clear();    // Remove all elements
-  std::println("There are {} elements in my_set: {:n}", my_set.size(), my_set);
+  std::println("After clear(), my_set holds {} elements: {:n}", my_set.size(), my_set);
 }

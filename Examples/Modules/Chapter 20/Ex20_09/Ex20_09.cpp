@@ -14,8 +14,13 @@ int main()
   numbers.insert(numbers.end(), more_numbers.begin(), more_numbers.end());
   std::println("{}", numbers);   // [1, 2, 3, 4, 5, 6, 7, 8]
 
-  numbers.erase(numbers.end() - 3, numbers.end());      // Erase last 3 elements
-  numbers.erase(numbers.begin() + numbers.size() / 2);  // Erase the middle element
-  numbers.erase(numbers.begin());                       // Erase the first element
+  std::vector some_more{ 9, 10 };
+  // numbers.insert(numbers.end(), some_more.begin(), some_more.end()); // Ugh
+  // numbers.insert_range(numbers.end(), some_more);  // Shorter
+  numbers.append_range(some_more);                    // Shortest 
+
+  numbers.erase(numbers.end() - 5, numbers.end());     // Erase last 5 elements
+  numbers.erase(numbers.begin() + numbers.size() / 2); // Erase the middle element
+  numbers.erase(numbers.begin());                      // Erase the first element
   std::println("{}", numbers);   // [2, 4, 5]
 }

@@ -27,8 +27,10 @@ int main()
         | take_while([max](unsigned prime) { return prime < max; }) 
         | reverse)
   {
-    std::cout << prime << ' ';
+    std::print("{} ", prime);
     if (++count % per_line == 0)
-      std::cout << std::endl;
+      std::println("");
   }
+  if (count % per_line)
+    std::println("");
 }

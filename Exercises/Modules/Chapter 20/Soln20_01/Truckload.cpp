@@ -4,7 +4,7 @@ import std;
 
 // Constructor - one Box
 Truckload::Truckload(SharedBox box)
-  : m_boxes{ 1, box }
+  : m_boxes{ 1, std::move(box) }
 {
 }
 
@@ -26,25 +26,32 @@ void swap(Truckload& one, Truckload& other) noexcept
   one.swap(other);
 }
 
-Truckload::Iterator Truckload::getIterator() const { return Iterator{ m_boxes }; }
-
-// Only thing we changed was adding "Iterator::" to the member's qualification
-SharedBox Truckload::Iterator::getFirstBox()
+void Truckload::printBoxes() const
 {
-  // Return m_head's box (or nullptr if the list is empty)
-  m_current = m_boxes->begin();
-  return m_current != m_boxes->end() ? *m_current : SharedBox{};
+  const std::size_t boxesPerLine{ 4 };
+  std::size_t count {};
+  for (const auto& box : m_boxes)   // Can use range-based loop now...
+  {
+    std::print(" {}", to_string(*box));
+    if (!(++count % boxesPerLine)) std::println("");
+  }
+  if (count % boxesPerLine) std::println("");
 }
 
-// Only thing we changed was adding "Iterator::" to the member's qualification
+Truckload::Iterator Truckload::getIterator() const { return Iterator{ m_boxes }; }
+
+SharedBox Truckload::Iterator::getFirstBox()
+{
+  m_next = m_boxes->begin();
+  return getNextBox();
+}
+
 SharedBox Truckload::Iterator::getNextBox()
 {
-  if (m_current == m_boxes->end())                // If there's no current...
-    return getFirstBox();                         // ...return the 1st Box
+  if (m_next == m_boxes->end())   // If there's no next...
+    return  {};                   // ...return nullptr
 
-  ++m_current;                                    // Move to the next package
-
-  return m_current != m_boxes->end() ? *m_current : SharedBox{};
+  return *m_next++;
 }
 
 void Truckload::addBox(SharedBox box)
@@ -73,27 +80,14 @@ bool Truckload::removeBox(SharedBox boxToRemove)
 */
 }
 
-SharedBox& Truckload::operator[](size_t index)
+SharedBox& Truckload::operator[](std::size_t index)
 {
   // Original implementation performed bounds checking, so use at() instead of []
   return m_boxes.at(index);
 }
 
-SharedBox Truckload::operator[](size_t index) const
+SharedBox Truckload::operator[](std::size_t index) const
 {
   // Original implementation performed bounds checking, so use at() instead of []
   return m_boxes.at(index);
-}
-
-std::ostream& operator<<(std::ostream& stream, const Truckload& load)
-{
-  size_t count{};
-  auto iterator{ load.getIterator() };
-  for (auto box{ iterator.getFirstBox() }; box; box = iterator.getNextBox())
-  {
-    std::cout << *box << ' ';
-    if (!(++count % 4)) std::cout << std::endl;
-  }
-  if (count % 4) std::cout << std::endl;
-  return stream;
 }

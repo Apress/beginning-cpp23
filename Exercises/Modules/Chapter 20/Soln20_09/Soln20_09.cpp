@@ -15,7 +15,7 @@ auto createUniformPseudoRandomNumberGenerator(unsigned min, unsigned max)
 
 int main()
 {
-  const size_t num_numbers{ 25'000 };
+  const std::size_t num_numbers{ 25'000 };
   std::vector<int> numbers(num_numbers);
 
   /* Caution: a pseudo-random number generator cannot safely be accessed concurrently! */
@@ -28,5 +28,5 @@ int main()
   // And number three; this time combined with the remove-erase idiom (or unique-erase, if you will)
   numbers.erase(std::unique(std::execution::par, begin(numbers), end(numbers)), end(numbers));
 
-  std::cout << "Number of unique numbers: " << numbers.size() << std::endl;
+  std::println("Number of unique numbers: {}", numbers.size());
 }

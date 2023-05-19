@@ -16,14 +16,16 @@ bool isPrime(unsigned number)
 
 int main()
 {
-  const unsigned num_primes{ 100 };
+  const unsigned num_primes{ 1'000 };
   const unsigned per_line{ 10 };
 
   unsigned count{};
   for (auto prime : iota(2) | filter(&isPrime) | take(num_primes) | reverse)
   {
-    std::cout << prime << ' ';
+    std::print("{} ", prime);
     if (++count % per_line == 0)
-      std::cout << std::endl;
+      std::println("");
   }
+  if (count % per_line)
+    std::println("");
 }

@@ -7,7 +7,7 @@ void removeEvenNumbers(std::vector<int>& numbers);
 
 int main()
 {
-  const int num_numbers{ 20 };
+  const int num_numbers{ 15 };
 
   auto numbers{ fillVector_1toN(num_numbers) };
 

@@ -5,24 +5,24 @@ bool isOdd(int i) { return i % 2 == 1; }
 
 int main()
 {
-  auto view = std::views::iota(1, 10); // Could be any view/range...
+  auto view = std::views::iota(1, 11); // Could be any view/range...
 
   // std::ranges::to<>() range conversion:
   auto deque = std::ranges::to<std::deque<int>>(view); // Any container
-  auto vector = std::ranges::to<std::vector>(view);    // Deducing type
+  auto vector = std::ranges::to<std::vector>(view);    // Deducing element type
   auto set = deque | std::ranges::to<std::unordered_set>(); // Pipe syntax
-  auto longs = set | std::ranges::to<std::vector<long>>();  // Type conversion
+  auto longs = set | std::ranges::to<std::vector<long>>();  // Element type conversion
 
   // Constructors with std::from_range tag:
   std::vector v{ std::from_range, set | std::views::filter(isOdd) };
   
   // xxx_range() members:
   std::vector<int> v1;
-  v1.assign_range(view | std::views::reverse); // Assign 9, 8, 7, ..., 1
-  v1.append_range(std::views::repeat(-1, 3));  // Append 3 times -1
-  v1.insert_range(v1.begin(), set);            // Insert any range
+  v1.assign_range(view | std::views::reverse); // Assign 10, 9, 8, 7, ..., 1
+  v1.append_range(std::views::repeat(-1, 3)); // Append 3 times -1
+  v1.insert_range(v1.begin() + 5, set);      // Insert any range
   
-  // Pre-C++23: iterator-pair based (same as before)
+  // Same operations, but now using pre-C++23 iterator-pair based functions:
   auto odds = set | std::views::filter(isOdd);
   std::vector<int> v2{ odds.begin(), odds.end() };
   
