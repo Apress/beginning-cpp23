@@ -28,7 +28,9 @@ int main()
   case 4:
     std::println("Coddle some eggs.");
     break;
+    
   default:
     std::println("You entered a wrong number - try raw eggs.");
+    break;
   }
 }
