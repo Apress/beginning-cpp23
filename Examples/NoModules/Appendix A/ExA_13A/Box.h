@@ -2,8 +2,6 @@
 #ifndef BOX_H
 #define BOX_H
 
-#include <ostream>   // Caution: do not use import <ostream>; here!
-
 class Box
 {
 public:
@@ -31,13 +29,6 @@ inline Box::Box(double length, double width, double height)
 inline double Box::volume() const
 {
   return m_length * m_width * m_height;
-}
-
-// Definitions of non-member functions of course must be inline as well
-inline std::ostream& operator<<(std::ostream& out, const Box& box)
-{
-  return out << "Box(" << box.getLength() << ", " 
-             << box.getWidth() << ", " << box.getHeight() << ')';
 }
 
 #endif

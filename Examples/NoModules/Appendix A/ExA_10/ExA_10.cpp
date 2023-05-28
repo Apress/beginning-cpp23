@@ -1,8 +1,9 @@
-#include <iostream>
+// Including the same definitions twice
+import std;
 #include "BadMath.h"
 #include "BadMath.h"
 
 int main()
 {
-  std::cout << square(1.234) << std::endl;
+  std::println("{}", square(1.234));
 }

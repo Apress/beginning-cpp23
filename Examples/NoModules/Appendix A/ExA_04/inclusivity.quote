@@ -1,0 +1,3 @@
+std::println("We are trying to construct a more inclusive society.");
+std::println("We are going to make a country in which no one is left out.\n"
+             "\t\t\t\t- Franklin D. Roosevelt");

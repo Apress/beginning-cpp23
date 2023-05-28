@@ -1,12 +1,12 @@
 // Defining object-like macros
-#include <iostream>
+import std;
 
 #define POINTER_SIZE sizeof(int*) * BITS_PER_BYTE
 #define BITS_PER_BYTE 8
 
 int main()
 {
-  std::cout << POINTER_SIZE << std::endl;   // 32 or 64, normally
+  std::println("{}", POINTER_SIZE);   // 32 or 64, normally
 }
 
 // The next macro (while providing a perfectly valid definition for "main") 
