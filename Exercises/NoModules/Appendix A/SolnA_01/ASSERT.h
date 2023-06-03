@@ -1,4 +1,4 @@
-#ifndef ASSERT_H    // Do not forget the #includ guard!
+#ifndef ASSERT_H    // Do not forget the #include guard!
 #define ASSERT_H
 
 #include <iostream>

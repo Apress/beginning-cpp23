@@ -4,10 +4,10 @@
 #include <stdexcept>
 #include <source_location>
 
-class SmartException : public std::logic_error
+class SmarterException : public std::logic_error
 {
 public:
-  SmartException(const std::string& message, std::source_location location = std::source_location::current())
+  SmarterException(const std::string& message, std::source_location location = std::source_location::current())
     : std::logic_error{ message }
     , m_location{ std::move(location) }
   {
@@ -30,13 +30,13 @@ private:
 };
 
 // Note: do not repeat the default argument value!
-inline void SmartException::throwFromHere(std::source_location location)
+inline void SmarterException::throwFromHere(std::source_location location)
 {
   m_location = std::move(location);
   throw *this;
 }
 
-inline const std::source_location& SmartException::where() const
+inline const std::source_location& SmarterException::where() const
 {
   return m_location;
 }

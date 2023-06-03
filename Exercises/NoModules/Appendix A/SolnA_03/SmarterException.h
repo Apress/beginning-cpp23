@@ -1,13 +1,13 @@
-#ifndef SMART_EXCEPTION_H
-#define SMART_EXCEPTION_H
+#ifndef SMARTER_EXCEPTION_H
+#define SMARTER_EXCEPTION_H
 
 #include <stdexcept>
 #include <source_location>
 
-class SmartException : public std::logic_error
+class SmarterException : public std::logic_error
 {
 public:
-  SmartException(const std::string& message, std::source_location location = std::source_location::current());
+  SmarterException(const std::string& message, std::source_location location = std::source_location::current());
 
   /* Throws the exception at this location
    * For cases where the exception is not created at the same line where it is thrown:

@@ -1,7 +1,7 @@
 // Exercise A-1   Defining a function-like macro
-#include <iostream>
-#include <format>
 
+// import std;  /* This does not work with Visual Studio 17 preview: using #include <print> instead... */
+#include <print>
 #include "ASSERT.h"
 
 int main()
@@ -10,7 +10,7 @@ int main()
 
   for (int x{}; x < 20; ++x)
   {
-    std::cout << std::format("x = {}\ty = {}", x, y) << std::endl;
-    ASSERT(x < y, "Whoopsidaisies, too far!");
+    std::println("x = {}\ty = {}", x, y);
+    ASSERT(x < y, "Whoops-a-daisy, too far!");
   }
 }

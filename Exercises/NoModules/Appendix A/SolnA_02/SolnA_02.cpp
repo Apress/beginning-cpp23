@@ -1,6 +1,7 @@
-// Exercise A-2   Conditional compilation
-#include <iostream>
-#include <format>
+// import std;  /* This does not work with Visual Studio 17 preview: using #include <print> instead... */
+
+// import std;  /* This does not work with Visual Studio 17 preview: using #include <print> instead... */
+#include <print>
 
 // Define (before including ASSERT.h) to disable the assertion
 #define NDEBUG
@@ -12,7 +13,7 @@ int main()
 
   for (int x{}; x < 20; ++x)
   {
-    std::cout << std::format("x = {}\ty = {}", x, y) << std::endl;
-    ASSERT(x < y, "Whoopsidaisies, too far!");
+    std::println("x = {}\ty = {}", x, y);
+    ASSERT(x < y, "Whoops-a-daisy, too far!");
   }
 }
