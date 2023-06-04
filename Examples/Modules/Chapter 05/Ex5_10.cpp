@@ -14,7 +14,7 @@ int main()
 
   unsigned int vowels {};       // Count of vowels
   unsigned int consonants {};   // Count of consonants
-  for (int i {}; text[i] != '\0'; i++)
+  for (std::size_t i {}; text[i] != '\0'; i++)
   {
     if (std::isalpha(text[i]))  // If it is a letter...
     {

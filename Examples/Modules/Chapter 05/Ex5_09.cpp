@@ -1,10 +1,10 @@
-// Sorting an array in ascending sequence - using an indefinite while loop
+// Sorting an array in ascending sequence using an indefinite while loop
 import std;
 
 int main()
 {
   const std::size_t size {1000}; // Array size
-  double x[size] {};             // Stores data to be sorted
+  double data[size] {};          // Stores data to be sorted
   std::size_t count {};          // Number of values in array
 
   while (true)
@@ -15,7 +15,7 @@ int main()
     if (input == 0)
       break;
 
-    x[count] = input;
+    data[count] = input;
 
     if (++count == size)
     {
@@ -37,11 +37,11 @@ int main()
     bool swapped{ false };    // Becomes true when not all values are in order
     for (std::size_t i {}; i < count - 1; ++i)
     {
-      if (x[i] > x[i + 1])    // Out of order so swap them
+      if (data[i] > data[i + 1])    // Out of order so swap them
       {
-        const auto temp = x[i];
-        x[i] = x[i+1];
-        x[i + 1] = temp;
+        const auto temp{ data[i] };
+        data[i] = data[i+1];
+        data[i + 1] = temp;
         swapped = true;
       }
     }
@@ -55,7 +55,7 @@ int main()
   unsigned n {};                // Number on current line
   for (size_t i {}; i < count; ++i)
   {
-    std::print("{:8.1f}", x[i]);
+    std::print("{:8.1f}", data[i]);
     if (++n == perline)        // When perline have been written...
     {
       std::println("");        // Start a new line and...

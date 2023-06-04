@@ -3,8 +3,8 @@ import std;
 
 int main()
 {
-  const size_t values_per_line {3}; // Outputs per line
-  size_t values_current_line {};    // Number of outputs on current line
+  const unsigned values_per_line {3}; // Outputs per line
+  unsigned values_current_line {};    // Number of outputs on current line
   for (double radius {0.2}; radius < 3.0 + 0.001; radius += 0.2)
   {
     const auto area{ std::numbers::pi * radius * radius };

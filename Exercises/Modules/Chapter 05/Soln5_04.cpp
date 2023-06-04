@@ -15,16 +15,16 @@ int main()
 
 /*
   Take care: never write the following:
-    for (std::size_t i = count - 1; i >= 0; --i)
+    for (std::size_t i{ count - 1 }; i >= 0; --i)
       ...
   Because size_t is unsigned, the loop continuation condition i >= 0 shall always and forever be true. 
   That is: every size_t value is always greater or equal to zero, by definition. 
   Subtracting one from zero wraps around to std::numeric_limits<size_t>::max(), a huge number.
   
   Other solutions besides the one we use below include:
-    // Best solution, probably: cast to a signed integer (works even for count == 0!)
-    // (Or, of course, defined count as a signed integer to begin with...)
-    for (int i{ static_cast<int>(i) - 1 }; i != -1; --i)
+    // Preferred solution: cast to a signed integer (works even for count == 0!)
+    // (Or, of course, define count as a signed integer to begin with...)
+    for (int i{ static_cast<int>(count) - 1 }; i != -1; --i)
       ...
     
     // Subtract in second for expression (less readable, fails if count == 0)

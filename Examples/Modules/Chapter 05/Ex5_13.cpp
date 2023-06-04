@@ -6,9 +6,9 @@ int main()
   {
     std::println("First we try out the comparison operators for std::array<> objects:");
 	
-    std::array<double,4> these {1.0, 2.0, 3.0, 4.0};
-    std::array<double,4> those {1.0, 2.0, 3.0, 4.0};
-    std::array<double,4> them  {1.0, 1.0, 5.0, 5.0};
+    std::array these {1.0, 2.0, 3.0, 4.0};
+    std::array those {1.0, 2.0, 3.0, 4.0};
+    std::array them  {1.0, 1.0, 5.0, 5.0};
 
     if (these == those) std::println("these and those are equal.");
     if (those != them)  std::println("those and them are not equal.");
@@ -21,9 +21,9 @@ int main()
   {
 	std::println("Next we repeat exactly the same comparisons with plain C++ arrays:");
 
-    double these[4] {1.0, 2.0, 3.0, 4.0};
-    double those[4] {1.0, 2.0, 3.0, 4.0};
-    double them[4]  {1.0, 1.0, 5.0, 5.0};
+    double these[] {1.0, 2.0, 3.0, 4.0};
+    double those[] {1.0, 2.0, 3.0, 4.0};
+    double them[]  {1.0, 1.0, 5.0, 5.0};
 
     if (these == those) std::println("these and those are equal.");
     if (those != them)  std::println("those and them are not equal.");

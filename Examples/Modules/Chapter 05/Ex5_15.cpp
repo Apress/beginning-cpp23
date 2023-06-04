@@ -31,7 +31,7 @@ int main()
     {
       if (data[i] > data[i + 1])   // Out of order so swap them
       {
-        const auto temp = data[i];
+        const auto temp{ data[i] };
         data[i] = data[i+1];
         data[i + 1] = temp;
         swapped = true;
