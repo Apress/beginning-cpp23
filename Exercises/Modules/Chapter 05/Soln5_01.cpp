@@ -1,14 +1,13 @@
 // Exercise 5-1 Squaring odd numbers
-import <iostream>;
-import <format>;
+import std;
 
 int main()
 {
-  int limit {};
-  std::cout << "Enter the upper limit for squared odd numbers: ";
+  unsigned long long limit {};
+  std::print("Enter the upper limit for squared odd numbers: ");
   std::cin >> limit;
-  for (int i {1}; i <= limit; i += 2)
+  for (unsigned long long i {1}; i <= limit; i += 2)
   {
-    std::cout << std::format("{:4} squared is {:8}\n", i, i * i);
+    std::println("{:4} squared is {:8}", i, i * i);
   }
 }
