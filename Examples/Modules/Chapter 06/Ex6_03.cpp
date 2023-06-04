@@ -1,5 +1,5 @@
 // Initializing pointers with strings
-import <iostream>;
+import std;
 
 int main()
 {
@@ -11,22 +11,22 @@ int main()
   const char* pstar6 {"Mae West"};
   const char* pstar7 {"Oliver Hardy"};
   const char* pstar8 {"Greta Garbo"};
-  const char* pstr {"Your lucky star is "};
-
-  std::cout << "Pick a lucky star! Enter a number between 1 and 8: ";
-  size_t choice {};
+  
+  std::print("Pick a lucky star! Enter a number between 1 and 8: ");
+  unsigned choice {};
   std::cin >> choice;
 
   switch (choice)
   {
-  case 1: std::cout << pstr << pstar1 << std::endl; break;
-  case 2: std::cout << pstr << pstar2 << std::endl; break;
-  case 3: std::cout << pstr << pstar3 << std::endl; break;
-  case 4: std::cout << pstr << pstar4 << std::endl; break;
-  case 5: std::cout << pstr << pstar5 << std::endl; break;
-  case 6: std::cout << pstr << pstar6 << std::endl; break;
-  case 7: std::cout << pstr << pstar7 << std::endl; break;
-  case 8: std::cout << pstr << pstar8 << std::endl; break;
-  default: std::cout << "Sorry, you haven't got a lucky star." << std::endl;
+  case 1: std::println("Your lucky star is {}.", pstar1); break;
+  case 2: std::println("Your lucky star is {}.", pstar2); break;
+  case 3: std::println("Your lucky star is {}.", pstar3); break;
+  case 4: std::println("Your lucky star is {}.", pstar4); break;
+  case 5: std::println("Your lucky star is {}.", pstar5); break;
+  case 6: std::println("Your lucky star is {}.", pstar6); break;
+  case 7: std::println("Your lucky star is {}.", pstar7); break;
+  case 8: std::println("Your lucky star is {}.", pstar8); break;
+  
+  default: std::println("Sorry, you haven't got a lucky star.");
   }
 }
