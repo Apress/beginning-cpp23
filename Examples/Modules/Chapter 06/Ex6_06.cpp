@@ -21,7 +21,7 @@ int main()
   {
     bool isprime {true};  // Indicates when a prime is found
 
-    const auto limit = static_cast<unsigned long>(std::sqrt(trial));
+    const auto limit{ static_cast<unsigned long>(std::sqrt(trial)) };
     for (unsigned i {}; primes[i] <= limit && isprime; ++i)
     {
       isprime = trial % primes[i] > 0;  // False for exact division

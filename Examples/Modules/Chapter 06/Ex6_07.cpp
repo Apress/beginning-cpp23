@@ -11,7 +11,7 @@ int main()
     auto day_records{ std::make_shared<std::vector<double>>() };
     records.push_back(day_records); // Save pointer in records vector
 
-    std::print("Enter the temperatures for day {} separated by spaces.", day);
+    std::print("Enter the temperatures for day {} separated by spaces. ", day);
     std::println("Enter 1000 to end:");
 
     while (true)
