@@ -26,5 +26,5 @@ int main()
   k.printValue();
 
   std::println("Result of comparing i and j is {}", compare(i, j));
-  std::println("Result of comparing k and j is {}", compare(k, j));
+  std::println("Result of comparing k and j is {}", nonFriendCompare(k, j));
 }

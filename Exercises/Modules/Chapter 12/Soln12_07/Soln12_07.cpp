@@ -10,7 +10,7 @@ import std;
  into "Truckload::Iterator::".
  
  Makes sense: the logic for iterating the linked lists has not changed.
- The only difference is that now there are m_current and m_head pointers
+ The only difference is that now there are m_next and m_head pointers
  per iteration, instead of only the one pair in the Truckload object.
  This allows nested iterations, concurrent iterations, and so on.
  You will encounter this iterator pattern again in Chapters 19 and 20.

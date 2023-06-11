@@ -40,7 +40,7 @@ class Truckload::Iterator
 {
 public:
   SharedBox getFirstBox();    // Get the first Box
-  SharedBox getLastBox();     // Get the first Box
+  SharedBox getLastBox();     // Get the last Box
   SharedBox getNextBox();     // Get the next Box
   SharedBox getPreviousBox(); // Get the previous Box
 

@@ -71,7 +71,7 @@ SharedBox Truckload::Iterator::getNextBox()
   if (!m_next)          // If there's no next...
     return nullptr;     // ...return nullptr
                                     
-  SharedBox result = m_next->m_box; // Extract the box to return
+  SharedBox result{ m_next->m_box };// Extract the box to return
   m_next = m_next->m_next;          // Move to the next package
   return result;
 }

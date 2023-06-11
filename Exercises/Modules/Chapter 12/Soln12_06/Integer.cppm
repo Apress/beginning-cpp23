@@ -3,7 +3,7 @@ export module integer;
 export class Integer
 {
 public:
-  Integer(int value = 0);                  // Contructor with given value
+  Integer(int value = 0);                  // Constructor with given value
   Integer(const Integer& obj);             // Copy constructor
   ~Integer();                              // Destructor
 

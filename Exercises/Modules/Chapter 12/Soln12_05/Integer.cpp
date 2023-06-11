@@ -1,11 +1,12 @@
 module integer;
 import std;
 
-/****************************************************************\
+/******************************************************************\
  Implementing compare() as a friend is quite simple.
  We must declare the function as a friend in the class definition.
- We now need both objects as arguments and the code in the
- body of the function just compares the n members of the arguments.
+ We now need both objects as arguments 
+ and the code in the body of the function 
+ just compares the m_value members of the arguments.
  Both parameters are references-to-const.
 
  However, other than the need for you to exercise friend functions,
@@ -14,7 +15,7 @@ import std;
  using the public getValue() function as well.
  The nonFriendCompare() function given below is therefore 
  preferred over a friend function.
-\****************************************************************/
+\******************************************************************/
 
 
 // Constructor
