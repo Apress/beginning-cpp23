@@ -1,8 +1,5 @@
 // Overloading function templates
-import <iostream>;
-import <format>;
-import <string>;
-import <vector>;
+import std;
 
 template<typename T> T larger(T a, T b);    // Function template prototype
 template <typename T> T* larger(T*, T*);
@@ -10,18 +7,17 @@ template <typename T> const T* larger(const std::vector<T>& data);
 
 int main()
 {
-  int big_int {17011983}, small_int {10};
-  std::cout << std::format("Larger of {} and {} is {}", 
-                 big_int, small_int, larger(big_int, small_int)) << std::endl;
-  std::cout << std::format("Larger of {} and {} is {}",
-                 big_int, small_int, *larger(&big_int, &small_int)) << std::endl;
+  const int big_int {17011983}, small_int {10};
+  std::println("Larger of {} and {} is {}", 
+               big_int, small_int, larger(big_int, small_int));
+  std::println("Larger of {} and {} is {}",
+               big_int, small_int, *larger(&big_int, &small_int));
 
-  std::vector<double> data {-1.4, 7.3, -100.0, 54.1, 16.3};
-  std::cout << "The largest value in data is " << *larger(data) << std::endl;
+  const std::vector<double> data {-1.4, 7.3, -100.0, 54.1, 16.3};
+  std::println("The largest value in data is {}", *larger(data));
 
-  std::vector<std::string> words {"The", "higher", "the", "fewer"};
-  std::cout << std::format(R"(The largest word in words is "{}")", *larger(words)) 
-            << std::endl;
+  const std::vector<std::string> words {"The", "higher", "the", "fewer"};
+  std::println(R"(The largest word in words is "{}")", *larger(words));
 }
 
 // Template for functions to return the larger of two values
