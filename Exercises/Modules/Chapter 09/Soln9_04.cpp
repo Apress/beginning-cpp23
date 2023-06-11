@@ -1,10 +1,5 @@
 // Exercise 9-4. Using std::optional<>
-import <iostream>;
-import <string>;
-import <vector>;
-import <array>;
-import <span>;
-import <optional>;
+import std;
 
 // Function prototypes
 std::optional<double> largest(std::span<const double> data);
@@ -19,14 +14,14 @@ int main()
   const std::array array_data{ 3.5, 5.0, 6.0, -1.2, 8.7, 6.4 }; // Throwing in an std::array for good measure
   const std::vector<std::string> names{ "Charles Dickens", "Emily Bronte",
                                   "Jane Austen", "Henry James", "Arthur Miller" };
-  std::cout << "The largest of array is " << *largest(array) << std::endl;            // Crashes if nullopt is returned
-  std::cout << "The largest of numbers is " << largest(numbers).value() << std::endl; // Throws exception (see Chapter 16) for nullopt
-  std::cout << "The largest of data is " << largest(data).value() << std::endl;
-  std::cout << "The largest of array_data is (also) " << *largest(array_data) << std::endl;
-  std::cout << "The largest of names is " << largest(names).value_or("<null>") << std::endl;
+  std::println("The largest of array is {}", *largest(array));            // Crashes if nullopt is returned
+  std::println("The largest of numbers is {}", largest(numbers).value()); // Throws exception (see Chapter 16) for nullopt
+  std::println("The largest of data is {}", largest(data).value());
+  std::println("The largest of array_data is (also) {}", *largest(array_data));
+  std::println("The largest of names is {}", largest(names).value_or("<null>"));
 }
 
-// Finds the largest of a span of values
+// Finds the largest of a sequence of double values
 std::optional<double> largest(std::span<const double> data)
 {
   if (data.empty()) return {};  // Or return std::nullopt;
@@ -37,7 +32,7 @@ std::optional<double> largest(std::span<const double> data)
   return max;
 }
 
-// Finds the largest of a vector of int values
+// Finds the largest of a sequence of int values
 std::optional<int> largest(std::span<const int> data)
 {
   if (data.empty()) return {};  // Or return std::nullopt;
@@ -48,7 +43,7 @@ std::optional<int> largest(std::span<const int> data)
   return max;
 }
 
-// Finds the largest of a vector of string objects
+// Finds the largest of a sequence of std::string values
 std::optional<std::string> largest(std::span<const std::string> words)
 {
   if (words.empty()) return {};  // Or return std::nullopt;

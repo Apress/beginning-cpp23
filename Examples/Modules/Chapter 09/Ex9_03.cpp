@@ -1,63 +1,52 @@
-// Using std::span<> to reduce the number of overloads of largest()
-// Clearly the three resulting functions are still similar. 
-// See Chapter 10 on how you can eliminate this duplication using function templates.
-import <iostream>;
-import <string>;
-import <vector>;
-import <array>;
-import <span>;
+// Using std::string_view parameters
+import std;
 
-// Old function prototypes
-//double largest(const double data[], size_t count);
-//double largest(const std::vector<double>& data);
-//int largest(const std::vector<int>& data);
-//std::string largest(const std::vector<std::string>& words);
+using std::string;
+using std::string_view;
+using std::vector;
+using std::size_t;
 
-// New function prototypes
-// (these functions work for any sequential input, not just arrays or vectors)
-/* Caution: these signatures are not ideal yet: see Ex9_03A */
-double largest(std::span<double> data);
-int largest(std::span<int> data);
-std::string largest(std::span<std::string> words);
+void find_words(vector<string>& words, string_view text, string_view separators);
+void list_words(const vector<string>& words);
 
 int main()
 {
-  double array[] {1.5, 44.6, 13.7, 21.2, 6.7};
-  std::vector numbers {15, 44, 13, 21, 6, 8, 5, 2};
-  std::vector data{3.5, 5.0, 6.0, -1.2, 8.7, 6.4};
-  std::array array_data{ 3.5, 5.0, 6.0, -1.2, 8.7, 6.4 }; // Throwing in an std::array for good measure
-  std::vector<std::string> names {"Charles Dickens", "Emily Bronte", 
-                                  "Jane Austen", "Henry James", "Arthur Miller"};
-  std::cout << "The largest of array is " << largest(array) << std::endl;
-  std::cout << "The largest of numbers is " << largest(numbers) << std::endl;
-  std::cout << "The largest of data is " << largest(data) << std::endl;
-  std::cout << "The largest of array_data is (also) " << largest(array_data) << std::endl;
-  std::cout << "The largest of names is " << largest(names) << std::endl;
+  std::string text;         // The string to be searched
+  std::println("Enter some text terminated by *:");
+  std::getline(std::cin, text, '*');
+
+  const std::string separators{ " ,;:.\"!?'\n" };  // Word delimiters
+  std::vector<std::string> words;                 // Words found
+
+  find_words(words, text, separators);
+  list_words(words);
 }
 
-// Finds the largest of a span of values
-double largest(std::span<double> data)
+void find_words(vector<string>& words, string_view text, string_view separators)
 {
-  double max {data[0]};
-  for (auto value : data)
-    if (max < value) max = value;
-  return max;
+  size_t start{ text.find_first_not_of(separators) }; // First word start index
+  size_t end{};                                       // Index for end of a word
+
+  while (start != string_view::npos)                  // Find the words
+  {
+    end = text.find_first_of(separators, start + 1);  // Find end of word
+    if (end == string::npos)                          // Found a separator?
+      end = text.length();                            // No, so set to end of text
+
+    words.push_back(std::string{text.substr(start, end - start)});    // Store the word
+    start = text.find_first_not_of(separators, end + 1); // Find 1st letter of next word
+  }
 }
 
-// Finds the largest of a vector of int values
-int largest(std::span<int> data)
+void list_words(const vector<string>& words)
 {
-  int max {data[0]};
-  for (auto value : data)
-    if (max < value) max = value;
-  return max;
-}
-
-// Finds the largest of a vector of string objects
-std::string largest(std::span<std::string> words)
-{
-  std::string max_word {words[0]};
+  std::println("Your string contains the following {} words:", words.size());
+  size_t count{};                 // Number of outputted words
   for (const auto& word : words)
-    if (max_word < word) max_word = word;
-  return max_word;
+  {
+    std::print("{:>15}", word);
+    if (!(++count % 5))
+      std::println("");
+  }
+  std::println("");
 }
