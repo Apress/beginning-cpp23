@@ -15,16 +15,17 @@ int main()
   // of a reachable type is visible. The name of the size() member of std::string is therefore visible,
   // meaning this member function can therefore be invoked...
   [[maybe_unused]]
-  const std::size_t num_numerals = to_roman(1234).size();  // 8 numerals ("MCCXXXIV")
+  const auto num_numerals{ to_roman(1234).size() }; // 8 numerals ("MCCXXXIV")
   
   // Even though you cannot use the invisible std::string / std::string_view names,
   // you can still capture objects of these types using auto / const auto&...
   
-// std::string_view s{ "MMXX" };   /* Error: the name std::string_view is not visible */
+// std::string_view s{ "MMXXIII" };/* Error: the name std::string_view is not visible */
 // std::string roman{ to_roman(567) };  /* Error: the name std::string is not visible */
   
-  auto roman{ to_roman(567) };
-  auto first_X = roman.find('X');  // 2 (index of first X in "DLXVII")
+  const auto roman{ to_roman(789) };      // "DCCLXXXIX"
+  [[maybe_unused]]
+  const auto first_X{ roman.find('X') };  // 4
   
-// auto i = std::stoi(to_roman(567));
+  // auto i{ std::stoi(to_roman(567)) }; /* Error: the name std::stoi is not visible */
 }

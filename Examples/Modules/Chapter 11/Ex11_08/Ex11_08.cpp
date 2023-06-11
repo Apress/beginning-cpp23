@@ -18,6 +18,7 @@ auto hypotenuse(const auto& x, const auto& y)
 int main()
 {
   std::println("math::sqrt2 has the value {}", math::sqrt2);
+  std::println("Squared that number equals {}", math::square(math::sqrt2));
   std::println("This should be 0: {}", math::sqrt2 - std::numbers::sqrt2);
   std::println("This should be 5: {}", hypotenuse(3, 4));
 }

@@ -21,7 +21,7 @@ int main()
       std::println("Well done! And remember: you have to be odd to be number one!");
     break;
     case Even:
-      std::println("Odd, {} seems to be even?", number);
+      std::println("Odd, {} appears to be even?", number);
     break;
   }
 }

@@ -2,15 +2,6 @@
 import std;
 import words;
 
-namespace wrds
-{
-  // A using directive us not a declaration, 
-  // and can therefore not be exported from a module.
-  // Namespace aliases are therefore the preferred over 
-  // using directives inside a namespace...
-  using namespace words;
-}
-
 int main()
 {
   wrds::Words the_words;

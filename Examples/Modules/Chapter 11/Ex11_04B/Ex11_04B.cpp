@@ -1,4 +1,4 @@
-// Creating module interface partitions
+// Module implementation partitions
 import std;
 import roman;
 
