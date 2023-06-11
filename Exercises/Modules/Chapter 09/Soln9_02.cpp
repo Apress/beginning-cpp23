@@ -16,7 +16,7 @@ void show_data(
   std::string_view title = "Data Values",
   std::size_t width = 10, std::size_t perLine = 5);
 
-// Extra overload to output a single value (.
+// Extra overload to output a single value.
 void show_data(
   int data,
   std::string_view title = "Data Values",

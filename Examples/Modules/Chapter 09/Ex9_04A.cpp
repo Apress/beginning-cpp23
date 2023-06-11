@@ -28,7 +28,7 @@ int main()
   std::println("The largest of names is {}", largest(names));
 }
 
-// Finds the largest of a span of values
+// Finds the largest of a sequence of double values
 double largest(std::span<const double> data)
 {
   double max {data[0]};
@@ -37,7 +37,7 @@ double largest(std::span<const double> data)
   return max;
 }
 
-// Finds the largest of a vector of int values
+// Finds the largest of a sequence of int values
 int largest(std::span<const int> data)
 {
   int max {data[0]};
@@ -46,7 +46,7 @@ int largest(std::span<const int> data)
   return max;
 }
 
-// Finds the largest of a vector of string objects
+// Finds the largest of a sequence of std::string values
 std::string largest(std::span<const std::string> words)
 {
   std::string max_word {words[0]};

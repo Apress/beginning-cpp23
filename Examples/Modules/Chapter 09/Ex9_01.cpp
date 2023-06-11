@@ -3,7 +3,7 @@ import std;
 
 std::optional<std::size_t> find_last(
    const std::string& string, char to_find,
-   std::optional<std::size_t> start_index = std::nullopt); // or: … start_index = {});
+   std::optional<std::size_t> start_index = std::nullopt); // or: ... start_index = {});
 
 int main()
 {

@@ -33,7 +33,7 @@ int main()
   show_data(samples, "Normalized Values", 12);  // Output normalized values
 }
 
-// Outputs an array of double values
+// Outputs a sequence of double values
 void show_data(std::span<const double> data,
                std::string_view title, std::size_t width, std::size_t perLine)
 {
@@ -71,7 +71,7 @@ std::span<double> shift_range(std::span<double> data, double delta)
 
 std::optional<double> largest(std::span<const double> data)
 {
-  if (data.empty()) return {};    // There is no largest in an empty array
+  if (data.empty()) return {};    // There is no largest in an empty sequence
 
   std::size_t index_max {};
   for (std::size_t i {1}; i < data.size(); ++i)

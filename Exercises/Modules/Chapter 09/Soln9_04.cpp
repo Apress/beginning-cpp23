@@ -21,7 +21,7 @@ int main()
   std::println("The largest of names is {}", largest(names).value_or("<null>"));
 }
 
-// Finds the largest of a span of values
+// Finds the largest of a sequence of double values
 std::optional<double> largest(std::span<const double> data)
 {
   if (data.empty()) return {};  // Or return std::nullopt;
@@ -32,7 +32,7 @@ std::optional<double> largest(std::span<const double> data)
   return max;
 }
 
-// Finds the largest of a vector of int values
+// Finds the largest of a sequence of int values
 std::optional<int> largest(std::span<const int> data)
 {
   if (data.empty()) return {};  // Or return std::nullopt;
@@ -43,7 +43,7 @@ std::optional<int> largest(std::span<const int> data)
   return max;
 }
 
-// Finds the largest of a vector of string objects
+// Finds the largest of a sequence of std::string values
 std::optional<std::string> largest(std::span<const std::string> words)
 {
   if (words.empty()) return {};  // Or return std::nullopt;

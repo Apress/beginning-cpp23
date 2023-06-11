@@ -6,7 +6,7 @@ using std::string_view;
 using std::vector;
 using std::size_t;
 
-void find_words(vector<string>& words, string_view str, string_view separators);
+void find_words(vector<string>& words, string_view text, string_view separators);
 void list_words(const vector<string>& words);
 
 int main()
