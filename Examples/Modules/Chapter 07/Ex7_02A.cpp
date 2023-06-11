@@ -13,7 +13,7 @@ int main()
   for (const char ch : text)
   {
     if (std::isalpha(ch))                    // Check for a letter
-	{
+    {
       switch (std::tolower(ch))              // Convert to lowercase
       {
         case 'a': case 'e': case 'i': case 'o': case 'u':
@@ -24,7 +24,7 @@ int main()
           ++consonants;
           break;
       }
-	}
+    }
   }
 
   std::println("Your input contained {} vowels and {} consonants.", vowels, consonants);

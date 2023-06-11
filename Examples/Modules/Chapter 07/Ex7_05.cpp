@@ -13,17 +13,13 @@ int main()
   std::println("Enter the string to be found and press Enter:");
   std::getline(std::cin, word);
 
-  size_t count{};            // Count of substring occurrences
-  size_t index{};            // String index
+  unsigned count{};          // Count of substring occurrences
+  std::size_t index{};       // String index
   while ((index = text.find(word, index)) != std::string::npos)
   {
     ++count;
     index += word.length();  // Advance by full word (discards overlapping occurrences)
   }
 
-#ifdef __cpp_lib_format_ranges
   std::println("Your text contained {} occurrences of {:?}.", count, word);
-#else // :? not supported: fall back to adding the double quotes ourselves...
-  std::println("Your text contained {} occurrences of \"{}\".", count, word);
-#endif
 }
