@@ -1,5 +1,5 @@
 module integer;
-import <iostream>;
+import std;
 
 // Constructor
 Integer::Integer(int value) 
@@ -41,7 +41,7 @@ int Integer::compare(const Integer& obj) const
   	return 1;
 }
 
-void Integer::show() const
+void Integer::printValue() const
 {
-  std::cout << "Value is " << m_value << std::endl;
+  std::println("Value is {}.", m_value);
 }

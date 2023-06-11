@@ -1,18 +1,18 @@
 module integer;
-import <iostream>;
+import std;
 
 // Constructor
 Integer::Integer(int value)
   : m_value{ value }
 {
-  std::cout << "Object created." << std::endl;
+  std::println("Object created.");
 }
 
 // Copy constructor
 Integer::Integer(const Integer& obj) 
   : m_value{ obj.m_value }
 {
-  std::cout << "Object created by copy constructor." << std::endl;
+  std::println("Object created by copy constructor.");
 }
 
 // Compare function with reference parameter
@@ -26,7 +26,7 @@ int Integer::compare(const Integer& obj) const
     return 1;
 }
 
-void Integer::show() const
+void Integer::printValue() const
 {
-  std::cout << "Value is " << m_value << std::endl;
+  std::println("Value is {}.", m_value);
 }

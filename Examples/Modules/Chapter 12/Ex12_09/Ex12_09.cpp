@@ -1,22 +1,18 @@
-// Const objects and const member functions
-import <iostream>;
+// Accessing private members through getters and setters (method chaining variant)
+import std;
 import box;
 
 int main()
 {
-  // v-- this const was added...
-  const Box myBox {3.0, 4.0, 5.0};
-  std::cout << "myBox dimensions are " << myBox.getLength()
-            << " by " << myBox.getWidth()
-            << " by " << myBox.getHeight() << std::endl;
+  Box myBox {3.0, 4.0, 5.0};
+  std::println("myBox dimensions are {} by {} by {}",
+      myBox.getLength(), myBox.getWidth(), myBox.getHeight());
 
-  // Invoking mutators / setters is not possible on a const object:
-  //myBox.setLength(-20.0);       // ignored!
-  //myBox.setWidth(40.0);
-  //myBox.setHeight(10.0);
-  //std::cout << "myBox dimensions are now " << myBox.getLength()  // 3 (unchanged)
-  //  << " by " << myBox.getWidth()                        // by 40
-  //  << " by " << myBox.getHeight() << std::endl;         // by 10
+  myBox.setLength(-20.0).setWidth(40.0).setHeight(10.0); // Set all dimensions of myBox
 
-  std::cout << "myBox's volume is " << myBox.volume() << std::endl;
+  std::println("myBox dimensions are now {} by {} by {}",
+    myBox.getLength(),     // 3 (unchanged)
+    myBox.getWidth(),      // by 40
+    myBox.getHeight()      // by 10
+  );
 }

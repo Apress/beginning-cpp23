@@ -1,8 +1,7 @@
 export module box.random;
+
 import box;
-import <random>;        // For random number generation
-import <functional>;    // For std::bind()
-import <memory>;        // For std::make_shared<>() and std::shared_ptr<>;
+import std;
 
 // Creates a pseudorandom number generator (PRNG) for random doubles between 0 and max
 auto createUniformPseudoRandomNumberGenerator(double max)
@@ -17,7 +16,7 @@ export Box randomBox()
 {
   const int dimLimit{ 100 };          // Upper limit on Box dimensions
   static auto random{ createUniformPseudoRandomNumberGenerator(dimLimit) };
-  return { random(), random(), random() };
+  return Box{ random(), random(), random() };
 }
 
 export auto randomSharedBox()

@@ -1,5 +1,4 @@
 export module box;
-import <iostream>;
 
 export class Box
 {
@@ -10,20 +9,15 @@ public:
 
   double volume() const;    // Const function to calculate the volume of a box
 
-  // Non-const overloads (return references to dimension variable)
-  double& length() { std::cout << "non-const overload called\n"; return m_length; };
-  double& width()  { std::cout << "non-const overload called\n"; return m_width; };
-  double& height() { std::cout << "non-const overload called\n"; return m_height; };
+  // Functions to provide access to the values of member variables (all const!)
+  double getLength() const { return m_length; }
+  double getWidth()  const { return m_width; }
+  double getHeight() const { return m_height; }
 
-  // Const overloads (return references to const variables)
-  const double& length() const { std::cout << "const overload called\n"; return m_length; };
-  const double& width()  const { std::cout << "const overload called\n"; return m_width; };
-  const double& height() const { std::cout << "const overload called\n"; return m_height; };
-
-  // Attempt to return non-const references to member variables from const functions
-// double& length() const { return m_length; };   // This must not be allowed to compile!
-// double& width()  const { return m_width; };
-// double& height() const { return m_height; };
+  // Functions to set member variable values (not const!)
+  void setLength(double length) { if (length > 0) m_length = length; }
+  void setWidth(double width)   { if (width > 0)  m_width  = width;  }
+  void setHeight(double height) { if (height > 0) m_height = height; }
 
 private:
   double m_length{1.0};

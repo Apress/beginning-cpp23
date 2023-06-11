@@ -3,7 +3,7 @@
 // in this example we put the function definitions after the main() function.
 // This illustrates that to invoke a member function,
 // the compiler again only needs access to the signature of the member function.
-import <iostream>;
+import std;
 
 // Class to represent a box
 class Box
@@ -24,15 +24,15 @@ int main()
 {
   Box firstBox {80.0, 50.0, 40.0};            // Create a box
   double firstBoxVolume {firstBox.volume()};  // Calculate the box volume
-  std::cout << "Volume of Box object is " << firstBoxVolume << std::endl;
+  std::println("Volume of Box object is {}", firstBoxVolume);
 
-  Box secondBox;        // No longer causes a compiler error message
+  Box secondBox;
 }
 
 // Constructor definition
 Box::Box(double length, double width, double height)
 {
-  std::cout << "Box constructor called." << std::endl;
+  std::println("Box constructor called.");
   m_length = length;
   m_width = width;
   m_height = height;

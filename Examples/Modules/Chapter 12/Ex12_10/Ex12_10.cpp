@@ -1,14 +1,23 @@
-// Overloading on const
-import <iostream>;
+// Const objects and const member functions
+import std;
 import box;
 
 int main()
 {
-  const Box constBox{ 1, 2, 3 };
-  // constBox.length() = 2;                          // Does not compile: good!
-  std::cout << constBox.length() << std::endl;
+  // v-- this const was added...
+  const Box myBox {3.0, 4.0, 5.0};
+  std::println("myBox dimensions are {} by {} by {}",
+      myBox.getLength(), myBox.getWidth(), myBox.getHeight());
 
-  Box nonConstBox{ 3, 2, 1 };
-  nonConstBox.length() *= 2;
-  std::cout << nonConstBox.length() << std::endl;
+  // Invoking mutators / setters is not possible on a const object:
+  //myBox.setLength(-20.0);       // ignored!
+  //myBox.setWidth(40.0);
+  //myBox.setHeight(10.0);
+  //std::println("myBox dimensions are now {} by {} by {}",
+  //  myBox.getLength(),     // 3 (unchanged)
+  //  myBox.getWidth(),      // by 40
+  //  myBox.getHeight()      // by 10
+  //);
+
+  std::println("myBox's volume is {}", myBox.volume());
 }

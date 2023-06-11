@@ -6,7 +6,7 @@ public:
   Integer(int value);
   int getValue() const { return m_value; }
   void setValue(int value) { m_value = value; }
-  void show() const;
+  void printValue() const;
 
 private:
   int m_value;

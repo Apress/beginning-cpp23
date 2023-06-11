@@ -11,12 +11,12 @@
 
 export module integer;
 
-// Option 1: zero-initialize n and add a default constructor
+// Option 1: zero-initialize m_value and add a default constructor
 export class Integer
 {
 public:
   Integer() = default;                     // Zero-arg constructor
-  Integer(int value);                      // Contructor with given value
+  Integer(int value);                      // Constructor with given value
   Integer(const Integer& obj);             // Copy constructor
 
   int getValue() const { return m_value; }
@@ -25,18 +25,18 @@ public:
 //  int compare(Integer obj) const;        // Compare function with value parameter
   int compare(const Integer& obj) const;   // Compare function with reference parameter
 
-  void show() const;
+  void printValue() const;
 
 private:
   int m_value{};
 };
 
-// Option 2: use zero a default parameter value
+// Option 2: use zero as default argument value
 /*
 export class Integer
 {
 public:
-  Integer(int value = 0);                  // Contructor with given value
+  Integer(int value = 0);                  // Constructor with given value
 
   int getValue() const { return m_value; }
   void setValue(int value) { m_value = value; }

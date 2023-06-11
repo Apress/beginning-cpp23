@@ -78,14 +78,14 @@ SharedBox Truckload::Iterator::getFirstBox()
 {
   // Return m_head's box (or nullptr if the list is empty)
   m_current = m_head;
-  return m_current? m_current->m_box : nullptr;
+  return getCurrentBox();
 }
 
 SharedBox Truckload::Iterator::getLastBox()
 {
   // Return m_tail's box (or nullptr if the list is empty)
   m_current = m_tail;
-  return m_current ? m_current->m_box : nullptr;
+  return getCurrentBox();
 }
 
 SharedBox Truckload::Iterator::getNextBox()
@@ -93,7 +93,7 @@ SharedBox Truckload::Iterator::getNextBox()
   if (m_current)                                 
     m_current = m_current->m_next;                // Move to the next package
 
-  return m_current? m_current->m_box : nullptr;   // Return its box (or nullptr...).
+  return getCurrentBox();   // Return its box (or nullptr...).
 }
 
 SharedBox Truckload::Iterator::getPreviousBox()
@@ -101,7 +101,12 @@ SharedBox Truckload::Iterator::getPreviousBox()
   if (m_current)                                 
     m_current = m_current->m_previous;           // Move to the previous package
 
-  return m_current ? m_current->m_box : nullptr; // Return its box (or nullptr...).
+  return getCurrentBox(); // Return its box (or nullptr...).
+}
+
+SharedBox Truckload::Iterator::getCurrentBox() const
+{
+  return m_current ? m_current->m_box : nullptr;
 }
 
 void Truckload::addBox(SharedBox box)
@@ -121,30 +126,43 @@ void Truckload::addBox(SharedBox box)
 
 bool Truckload::removeBox(SharedBox boxToRemove)
 {
-  // No need for a trailing pointer anymore!
-  // (We can go back one using the m_previous pointer of the doubly-linked list...)
-  Package* current {m_head};       // initialize current to the head of the list
-  while (current)
+  for (auto* current{ m_head }; current != nullptr; current = current->m_next)
   {
-    if (current->m_box == boxToRemove)      // We found the Box!
+    if (current->m_box == boxToRemove)  // We found the Box!
     {
-      // Update the doubly-linked list pointers 
-      // (make a sketch of this to better see what is going on here!)
-      if (current->m_previous) current->m_previous->m_next = current->m_next;
-      if (current->m_next) current->m_next->m_previous = current->m_previous;
-
-      // Update pointers in member variables where required:
-      if (current == m_head) m_head = current->m_next;
-      if (current == m_tail) m_tail = current->m_previous;
-                                     
-      current->m_next = nullptr;   // Disconnect the current Package from the list
-      delete current;              // and delete it
-                                   
-      return true;                 // Return true: we found and removed the box
+      removePackage(current);           // Delegate the heavy lifting to removePackage()...
+      return true;
     }  
-
-    current = current->m_next;     //  Move current along to the next Package
   }
 
   return false;     // Return false: boxToRemove was not found
+}
+
+bool Truckload::removeBox(Iterator& iter)
+{
+  if (iter.m_current)
+  {
+    auto* next{ iter.m_current->m_next };
+    removePackage(iter.m_current);
+    iter.m_current = next;      // Bonus exercise: make sure the iterator is not invalidated by moving it to the next Package
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+void Truckload::removePackage(Package* package)
+{
+  // Update the doubly-linked list pointers
+  if (package->m_previous) package->m_previous->m_next = package->m_next;
+  if (package->m_next) package->m_next->m_previous = package->m_previous;
+
+  // Update pointers in member variables where required:
+  if (package == m_head) m_head = package->m_next;
+  if (package == m_tail) m_tail = package->m_previous;
+
+  package->m_next = nullptr;     // Disconnect the current Package from the list
+  delete package;                // and delete it
 }

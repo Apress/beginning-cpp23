@@ -3,20 +3,19 @@ export module integer;
 export class Integer
 {
 public:
-  Integer(int value = 0);                  // Contructor with given value
-  Integer(const Integer& obj);             // Copy constructor
-  ~Integer();                              // Destructor
-
+  Integer(int value = 0);
+  Integer(const Integer& obj);
+  
   int getValue() const { return m_value; }
   void setValue(int value) { m_value = value; }
 
-  int compare(const Integer& obj) const;   // Compare function with reference parameter
+  void printValue() const;
 
-  void show() const;
-  
-  static void printCount();
+  friend int compare(const Integer& obj1, const Integer& obj2);  // friend compare function
 
 private:
   int m_value;
-  static inline unsigned int s_count {};
 };
+
+// A non-friend function that implements the same function
+export int nonFriendCompare(const Integer& obj1, const Integer& obj2);

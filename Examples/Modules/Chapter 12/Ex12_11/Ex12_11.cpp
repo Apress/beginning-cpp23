@@ -1,15 +1,14 @@
-// Const objects and const member functions
-import <iostream>;
+// Overloading on const
+import std;
 import box;
 
 int main()
 {
-  const Box myBox {3.0, 4.0, 5.0};
-  std::cout << "myBox dimensions are " << myBox.getLength()
-            << " by " << myBox.getWidth()
-            << " by " << myBox.getHeight() << std::endl;
+  const Box constBox{ 1, 2, 3 };
+  // constBox.length() = 2;                          // Does not compile: good!
+  std::println("{}", constBox.length());
 
-  myBox.printVolume();
-  myBox.printVolume();
-  myBox.printVolume();
+  Box nonConstBox{ 3, 2, 1 };
+  nonConstBox.length() *= 2;
+  std::println("{}", nonConstBox.length());
 }
