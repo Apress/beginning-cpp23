@@ -12,12 +12,12 @@ int main()
   double moreDoubles[] { 1.0, 2.0, 3.0, 4.0 };
   std::println("{}", average(moreDoubles));
 
- // double* pointer = doubles;
+ // double* pointer{ doubles };
  // std::println("{}", average(pointer));      /* will not compile */
 
   std::println("{}", average({ 1.0, 2.0, 3.0, 4.0 }));
 
-  int ints[] = { 1, 2, 3, 4 };
+  int ints[] { 1, 2, 3, 4 };
   std::println("{}", average(ints));
 }
 

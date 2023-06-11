@@ -26,6 +26,6 @@ template <typename T>
 T larger(T a, T b)
 {
   static unsigned counter{};
-  std::println("This instantation has now been called {} time(s)", ++counter);
+  std::println("This instantiation has now been called {} time(s)", ++counter);
   return a > b? a : b;
 }

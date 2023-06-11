@@ -12,7 +12,7 @@ decltype(auto) larger(const T& a, const T& b)
 
 int main()
 {
-  int big_int {17011983}, small_int {10};
+  const int big_int {17011983}, small_int {10};
   std::println("Larger of {} and {} is {}", 
                big_int, small_int, larger(big_int, small_int));
   std::println("Larger of {} and {} is {}",

@@ -7,7 +7,7 @@ import std;
 // but since the exercise asks you to allow "potentially different types",
 // it makes most sense to use two different template type parameters 
 // (be it explicitly using template <typename T1, typename T2>, 
-// or implicitly through abbreviated template syntax as we did).
+// or implicitly through abbreviated function template syntax as we did).
 
 auto plus(const auto& a, const auto& b)
 {
@@ -33,7 +33,7 @@ int main()
     int n{ plus(3, 4) };
     std::println("plus(3, 4) returns {}", n);
     
-    double d{ plus(3, 4.2) };
+    double d{ plus(3.2, 4.2) };
     std::println("plus(3.2, 4.2) returns {}", d);
     
     std::string s1{ "aaa" };

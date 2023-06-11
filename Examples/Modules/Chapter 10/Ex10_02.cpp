@@ -7,16 +7,16 @@ template <typename T> const T* larger(const std::vector<T>& data);
 
 int main()
 {
-  int big_int {17011983}, small_int {10};
+  const int big_int {17011983}, small_int {10};
   std::println("Larger of {} and {} is {}", 
                big_int, small_int, larger(big_int, small_int));
   std::println("Larger of {} and {} is {}",
                big_int, small_int, *larger(&big_int, &small_int));
 
-  std::vector<double> data {-1.4, 7.3, -100.0, 54.1, 16.3};
+  const std::vector<double> data {-1.4, 7.3, -100.0, 54.1, 16.3};
   std::println("The largest value in data is {}", *larger(data));
 
-  std::vector<std::string> words {"The", "higher", "the", "fewer"};
+  const std::vector<std::string> words {"The", "higher", "the", "fewer"};
   std::println(R"(The largest word in words is "{}")", *larger(words));
 }
 
