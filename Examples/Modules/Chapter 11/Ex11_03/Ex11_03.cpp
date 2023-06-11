@@ -1,27 +1,31 @@
 // Using types with reachable definitions but whose names are not visible
-import <iostream>;
+// Note: we added [[maybe_unused]] annotations to silence compiler warnings
+// (remove them, and your compiler will likely warn that for instance num_numerals is never used...)
+
 import roman;
 
 int main()
 {
-  // std::string_view is reachable, so its constructor can be invoked 
-  // (this constructor, unlike the std::string_view name itself, is visible)
-  std::cout << "MMXX in Arabic numerals is " << from_roman("MMXX") << std::endl;
+  // Even though the std::string and std::string_view names are not visible,
+  // their reachability implies that the names of their constructors and destructors (see Chapter 12) are visible...
+  from_roman("DCLXVI"); // Creates std::string_view object to invoke from_roman(string_view)
+  to_roman(1234);      // Receives and destructs the string object returned by to_roman(int)
 
-  // The names of the c_str() and size() members are visible as well
-  // (because the definition of std::string is reachable), 
-  // and can thus be invoked.
-  std::cout << "1234 in Roman numerals is " << to_roman(1234).c_str() << std::endl;
-  std::cout << "This consists of " << to_roman(1234).size() << " numerals" << std::endl;
-
-  // std::string_view s{ "MMXX" };   /* Error: the name std::string_view is not visible */
-  // std::string roman{ to_roman(567) };  /* Error: the name std::string is not visible */
-
-  auto roman{ to_roman(567) };
-  std::cout << "567 in Roman numerals is " << roman.c_str() << std::endl;
-
-  // std::cout << "std::stoi() is not visible: " << std::stoi("1234") << std::endl;
-
-  // The << operator (which is implemented as a non-member function) is not visible either
-  // std::cout << "1234 in Roman numerals is " << to_roman(1234) << std::endl;
+  // In fact, the name of any member function, not just the constructor or destructor,
+  // of a reachable type is visible. The name of the size() member of std::string is therefore visible,
+  // meaning this member function can therefore be invoked...
+  [[maybe_unused]]
+  const auto num_numerals{ to_roman(1234).size() }; // 8 numerals ("MCCXXXIV")
+  
+  // Even though you cannot use the invisible std::string / std::string_view names,
+  // you can still capture objects of these types using auto / const auto&...
+  
+// std::string_view s{ "MMXXIII" };/* Error: the name std::string_view is not visible */
+// std::string roman{ to_roman(567) };  /* Error: the name std::string is not visible */
+  
+  const auto roman{ to_roman(789) };      // "DCCLXXXIX"
+  [[maybe_unused]]
+  const auto first_X{ roman.find('X') };  // 4
+  
+  // auto i{ std::stoi(to_roman(567)) }; /* Error: the name std::stoi is not visible */
 }

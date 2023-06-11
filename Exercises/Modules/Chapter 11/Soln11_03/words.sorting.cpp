@@ -1,14 +1,14 @@
 module words.sorting;
 
 /* Additional helpers for word::sort(Words&) */
-void swap(words::Words& words, size_t first, size_t second)
+void swap(words::Words& words, std::size_t first, std::size_t second)
 {
   auto temp{ words[first] };
   words[first] = words[second];
   words[second] = temp;
 }
 
-void sort(words::Words& words, size_t start, size_t end);
+void sort(words::Words& words, std::size_t start, std::size_t end);
 
 // Sort strings in ascending sequence
 void words::sorting::sort(Words& words)
@@ -17,7 +17,7 @@ void words::sorting::sort(Words& words)
     ::sort(words, 0, words.size() - 1);
 }
 
-void sort(words::Words& words, size_t start, size_t end)
+void sort(words::Words& words, std::size_t start, std::size_t end)
 {
   // start index must be less than end index for 2 or more elements
   if (!(start < end))
@@ -27,8 +27,8 @@ void sort(words::Words& words, size_t start, size_t end)
   swap(words, start, (start + end) / 2);     // Swap middle address with start
 
   // Check words against chosen word
-  size_t current {start};
-  for (size_t i {start + 1}; i <= end; i++)
+  std::size_t current {start};
+  for (std::size_t i {start + 1}; i <= end; i++)
   {
     if (*words[i] < *words[start])           // Is word less than chosen word?
       swap(words, ++current, i);             // Yes, so swap to the left

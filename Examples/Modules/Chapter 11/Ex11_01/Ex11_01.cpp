@@ -1,29 +1,27 @@
 // Consuming your own module
-import <iostream>;
-import <format>;
+import std;
 import math;
 
 int main()
 {
-  std::cout << "Lambda squared: " << square(lambda) << std::endl;
+  std::println("Lambda squared: {}", square(lambda));
 
   int number;
-  std::cout << "\nPlease enter an odd number: ";
+  std::print("\nPlease enter an odd number: ");
   std::cin >> number;
-  std::cout << std::endl;
-
-  // if (isOdd(number))            /* Error: identifier not found: 'isOdd' */
-  //   std::cout << "Well done!" << std::endl;
+  std::println("");
+  
+// if (isOdd(number))            /* Error: identifier not found: 'isOdd' */
+//   std::println("Well done!");
 
   switch (getOddity(number))
   {
     using enum Oddity;
-  case Odd:
-    std::cout << "Well done! And remember: you have to be odd to be number one!";
+    case Odd:
+      std::println("Well done! And remember: you have to be odd to be number one!");
     break;
-  case Even:
-    std::cout << std::format("Odd, {} seems to be even?", number);
+    case Even:
+      std::println("Odd, {} appears to be even?", number);
     break;
   }
-  std::cout << std::endl;
 }

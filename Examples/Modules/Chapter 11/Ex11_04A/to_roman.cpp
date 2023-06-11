@@ -1,8 +1,7 @@
-// Module interface file for the to partition of the roman module
-export module roman:to;
-import std;
+// Implementation of the to_roman() function
+module roman.to;
 
-export std::string to_roman(unsigned int i)
+std::string to_roman(unsigned int i)
 {
   if (i > 3999) return {}; // 3999, or MMMCMXCIX, is the largest standard Roman numeral
   static const std::string ms[]{ "","M","MM","MMM" };

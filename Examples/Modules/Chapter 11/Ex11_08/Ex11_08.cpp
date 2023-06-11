@@ -1,6 +1,6 @@
 // Using using declarations and using directives
 // (Note: example was not named in the text)
-import <iostream>;
+import std;
 import squaring;
 
 /* Make names from the math namespace available locally */
@@ -17,8 +17,8 @@ auto hypotenuse(const auto& x, const auto& y)
 
 int main()
 {
-  std::cout << "math::sqrt2 has the value " << math::sqrt2 << std::endl;
-  std::cout << "This should be 0: " << (math::sqrt2 - std::numbers::sqrt2) << std::endl;
-  std::cout << "This should be 2: " << math::square(math::sqrt2) << std::endl;
-  std::cout << "This should be 5: " << hypotenuse(3, 4) << std::endl;
+  std::println("math::sqrt2 has the value {}", math::sqrt2);
+  std::println("Squared that number equals {}", math::square(math::sqrt2));
+  std::println("This should be 0: {}", math::sqrt2 - std::numbers::sqrt2);
+  std::println("This should be 5: {}", hypotenuse(3, 4));
 }

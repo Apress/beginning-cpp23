@@ -1,6 +1,6 @@
 export module math;
 
-import <span>;
+import std;
 
 export namespace math
 {

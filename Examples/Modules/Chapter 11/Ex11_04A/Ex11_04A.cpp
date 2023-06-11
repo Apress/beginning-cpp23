@@ -1,4 +1,4 @@
-// Creating module interface partitions
+// Simulating submodules
 import std;
 import roman;
 
