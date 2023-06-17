@@ -1,4 +1,3 @@
-// Ex2_02.cpp
 // Converting distances
 import std;
 
