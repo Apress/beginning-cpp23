@@ -27,7 +27,7 @@ public:
 
   void printBoxes() const;          // Output the Boxes
 
-  SharedBox& operator[](std::size_t index) const;   // Overloaded subscript operator
+  SharedBox& operator[](std::size_t index);   // Overloaded subscript operator
 
 private:
   class Package;

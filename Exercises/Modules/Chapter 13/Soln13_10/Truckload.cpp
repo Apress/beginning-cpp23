@@ -137,7 +137,7 @@ bool Truckload::removeBox(SharedBox boxToRemove)
     return false;     // Return false: boxToRemove was not found
 }
 
-SharedBox& Truckload::operator[](std::size_t index) const
+SharedBox& Truckload::operator[](std::size_t index)
 {
     std::size_t count {};       // Package count
     for (Package* package{ m_head }; package; package = package->m_next)

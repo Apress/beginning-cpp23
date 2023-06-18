@@ -24,5 +24,5 @@ private:
 
 export void swap(Message& one, Message& other) noexcept
 {
-  return one.swap(other);
+  one.swap(other);
 }

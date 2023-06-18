@@ -10,7 +10,7 @@ double Box::volume() const
 // Overloaded += operator
 Box& Box::operator+=(const Box& aBox)
 {
-  // New object has larger length and width, and sum of heights
+  // Updated object has larger length and width, and sum of heights
   m_length = std::max(m_length, aBox.m_length);
   m_width = std::max(m_width, aBox.m_width);
   m_height += aBox.m_height;

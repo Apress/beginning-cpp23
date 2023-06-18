@@ -3,7 +3,7 @@ import std;
 import box;
 
 /*
-  Because the C++20 compiler automatically rewrites != expression 
+  Because the compiler automatically rewrites != expression 
   in terms of == and/or even reverses the order of the operands,
   only one additional operator overload definition is required to make it all work.
 */

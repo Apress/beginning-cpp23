@@ -39,8 +39,7 @@ Box& Box::operator+=(const Box& aBox)
 
 Box& Box::operator*=(double factor)
 {
-  m_length *= factor;
-  m_width  *= factor;
+  // Adjusted object has adjusted height
   m_height *= factor;
   return *this;   // Return a reference to the left operand (convention)
 }

@@ -14,10 +14,10 @@ auto createUniformPseudoRandomNumberGenerator(double max)
 int main()
 {
   const double limit {99.0};    // Upper limit on Box dimensions
-  auto random = createUniformPseudoRandomNumberGenerator(limit);
+  auto random{ createUniformPseudoRandomNumberGenerator(limit) };
 
   Truckload load;
-  const std::size_t boxCount {16};   // Number of Box object to be created
+  const std::size_t boxCount {16};   // Number of Box objects to be created
 
   // Create boxCount Box objects
   for (std::size_t i {}; i < boxCount; ++i)

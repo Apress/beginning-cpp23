@@ -16,7 +16,7 @@ int main()
   const double limit {99};    // Upper limit on Box dimensions
   auto random { createUniformPseudoRandomNumberGenerator(limit) };
 
-  const std::size_t boxCount {20}; // Number of Box object to be created
+  const std::size_t boxCount {20}; // Number of Box objects to be created
   std::vector<Box> boxes;     // Vector of Box objects
 
   // Create 20 Box objects

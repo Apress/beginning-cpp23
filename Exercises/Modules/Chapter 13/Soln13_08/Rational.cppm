@@ -68,8 +68,8 @@ public:
   Rational& operator*=(const Rational& other)
   { 
     m_numerator *= other.m_numerator;
-	  m_denominator *= other.m_denominator;
-	  return *this;
+    m_denominator *= other.m_denominator;
+    return *this;
   };
   Rational& operator/=(const Rational& other)
   { 
@@ -86,7 +86,7 @@ public:
   }
   const Rational operator++(int)
   {
-    auto copy(*this);   // Create a copy of the current object
+    auto copy{*this};   // Create a copy of the current object
     ++(*this);          // Increment the current object using the prefix operator...
     return copy;        // Return the unincremented copy
   }
@@ -98,7 +98,7 @@ public:
 
   const Rational operator--(int)
   {
-    auto copy(*this);   // Create a copy of the current object
+    auto copy{*this};   // Create a copy of the current object
     --(*this);          // Increment the current object using the prefix operator...
     return copy;        // Return the unincremented copy
   }
@@ -114,7 +114,7 @@ export std::ostream& operator<<(std::ostream& stream, const Rational& r)
 }
 
 // Binary arithmetic operators: non-member functions to allow for implicit conversions
-// This allows expressions such as 2 * (myRationale + 1)
+// This allows expressions such as 2 * (myRational + 1)
 export Rational operator+(const Rational& one, const Rational& other) { auto copy{ one }; return copy += other; }
 export Rational operator-(const Rational& one, const Rational& other) { auto copy{ one }; return copy -= other; }
 export Rational operator*(const Rational& one, const Rational& other) { auto copy{ one }; return copy *= other; }

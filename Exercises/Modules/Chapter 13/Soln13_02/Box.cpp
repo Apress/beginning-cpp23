@@ -17,7 +17,8 @@ Box Box::operator+(const Box& aBox) const
 
 Box Box::operator*(double factor) const
 {
-  return Box{ m_length * factor, m_width * factor, m_height * factor };
+  // New object has adjusted height
+  return Box{ m_length, m_width, m_height * factor };
 }
 
 Box operator*(double factor, const Box& box)
