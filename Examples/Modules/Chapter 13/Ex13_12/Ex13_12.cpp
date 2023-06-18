@@ -1,6 +1,6 @@
 // Defining a copy assignment operator
 import message;
-import <iostream>;
+import std;
 
 int main()
 {
@@ -9,6 +9,6 @@ int main()
   
   warning = beware;    // Call assignment operator
 
-  std::cout << "After assignment beware is: " << beware.getText() << std::endl;
-  std::cout << "After assignment warning is: " << warning.getText() << std::endl;
+  std::println("After assignment beware is: {}", beware.getText());
+  std::println("After assignment warning is: {}", warning.getText());
 }

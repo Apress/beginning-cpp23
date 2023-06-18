@@ -1,7 +1,6 @@
 export module box;
 
-import <compare>;  // For std::partial_ordering (see Chapter 4)
-import <ostream>;  // For std::ostream
+import std;
 
 export class Box
 {
@@ -42,4 +41,5 @@ private:
 // Function to pre-multiply a Box with a given factor
 export Box operator*(double factor, const Box& box);
 
-export std::ostream& operator<<(std::ostream& stream, const Box& box);
+// Conversion to string
+export std::string to_string(const Box& box);

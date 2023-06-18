@@ -1,4 +1,4 @@
-// Using the subscript operator
+// Adding an assignment operator for Truckload
 import std;
 import truckload;
 
@@ -13,11 +13,11 @@ auto createUniformPseudoRandomNumberGenerator(double max)
 
 int main()
 {
-  const double limit {99.0};    // Upper limit on Box dimensions
-  auto random = createUniformPseudoRandomNumberGenerator(limit);
+  const double limit{ 99.0 };      // Upper limit on Box dimensions
+  auto random{ createUniformPseudoRandomNumberGenerator(limit) };
 
   Truckload load;
-  const std::size_t boxCount {16};   // Number of Box object to be created
+  const std::size_t boxCount {20}; // Number of Box object to be created
 
   // Create boxCount Box objects
   for (std::size_t i {}; i < boxCount; ++i)
@@ -26,24 +26,12 @@ int main()
   std::println("The boxes in the Truckload are:");
   load.printBoxes();
 
-  // Find the largest Box in the Truckload
-  double maxVolume {};
-  std::size_t maxIndex {};
-  std::size_t i {};
-  while (load[i])
-  {
-    if (*load[i] > maxVolume)
-    {
-      maxIndex = i;
-      maxVolume = load[i]->volume();
-    }
-    ++i;
-  }
+  std::println("");
 
-  std::println("\nThe largest box is: {}", to_string(*load[maxIndex]));
-
-  load.removeBox(load[maxIndex]);
-
-  std::println("\nAfter deleting the largest box, the Truckload contains:");
-  load.printBoxes();
+  Truckload copied;
+  copied = load;		// Use copy assignment
+  copied = copied;      // World does not end when attempting self-assignment
+ 
+  std::println("The boxes in the copied Truckload are:");
+  copied.printBoxes();
 }

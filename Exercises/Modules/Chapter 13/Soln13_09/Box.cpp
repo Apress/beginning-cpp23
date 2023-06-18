@@ -7,23 +7,22 @@ double Box::volume() const
     return m_length * m_width * m_height;
 }
 
-Box Box::operator+(const Box& aBox) const
+// Overloaded += operator
+Box& Box::operator+=(const Box& aBox)
 {
   // New object has larger length and width, and sum of heights
-  return Box{ std::max(m_length, aBox.m_length),
-              std::max(m_width, aBox.m_width),
-              m_height + aBox.m_height };
+  m_length = std::max(m_length, aBox.m_length);
+  m_width = std::max(m_width, aBox.m_width);
+  m_height += aBox.m_height;
+  return *this;
 }
 
-Box Box::operator*(double factor) const
+// Function to add two Box objects
+Box Box::operator+(const Box& aBox) const
 {
-  return Box{ m_length * factor, m_width * factor, m_height * factor };
-}
-
-Box operator*(double factor, const Box& box)
-{
-  // Or: return box * factor;
-  return Box{ box.getLength() * factor, box.getWidth() * factor, box.getHeight() * factor };
+  Box copy{ *this };
+  copy += aBox;
+  return copy;
 }
 
 std::partial_ordering Box::operator<=>(const Box& aBox) const

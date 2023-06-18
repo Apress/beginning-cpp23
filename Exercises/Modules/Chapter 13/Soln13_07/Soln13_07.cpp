@@ -1,63 +1,38 @@
-// Exercise 13-7
-// Rational operators
-import <iostream>;
-import rational;
+// In canonical C++, you should only implement a single operator to allow 
+// objects to be used in if statements, and in Boolean expressions in general:
+// a conversion operator for type bool.
+//
+// This conversion operator, moreover, is normally qualified as explicit.
+// This is far from obvious: despite the explicit qualifier,
+// objects still implicitly convert to bool in, for instance, if statements.
+// As illustrated at the bottom of main(), however, 
+// simply assigning a Box to a variable of type bool indeed no longer works
+// without an explicit type conversion (in most cases this is the desired behavior).
+import std;
+import box;
+
+void testBox(const Box& box)
+{
+  std::println("The box's volume is {}.", box.volume());
+  if (box)
+    std::println("This volume is non-zero.");
+  if (!box)
+    std::println("This volume is zero.");
+}
 
 int main()
 {
-  Rational x{3, 4};
-  Rational y{1, 2};
+  Box box1{2, 3, 4};
+  std::println("box1 is {}", to_string(box1));
+  testBox(box1);
   
-  std::cout << "x = " << x << std::endl;
-  std::cout << "y = " << y << std::endl;
-  
-  std::cout << "x = " << static_cast<float>(x) << std::endl;
-  std::cout << "y = " << static_cast<double>(y) << std::endl;
-  
-  std::cout << "-x = " << -x << std::endl;
-  
-  std::cout << "x + y = " << x + y << std::endl;
-  std::cout << "x - y = " << x - y << std::endl;
-  std::cout << "x * y = " << x * y << std::endl;
-  std::cout << "x / y = " << x / y << std::endl;
-  
-  std::cout << "x + 2 = " << x + 2 << std::endl;
-  std::cout << "3 - y = " << 3 - y << std::endl;
-  std::cout << "x * 4 = " << x * 4 << std::endl;
-  std::cout << "5 / y = " << 5 / y << std::endl;
-  
-  std::cout << std::boolalpha;  // Print true and false as "true" and "false" instead of "1" and "0"
-  std::cout << "x < y = " << (x < y) << std::endl;
-  std::cout << "x > y = " << (x > y) << std::endl;
-  std::cout << "x == y = " << (x == y) << std::endl;
-  std::cout << "x != y = " << (x != y) << std::endl;
-  std::cout << "x >= y = " << (x >= y) << std::endl;
-  std::cout << "x >= y = " << (x <= y) << std::endl;
-  
-  std::cout << "x < 1 = " << (x < 1) << std::endl;
-  std::cout << "2 > y = " << (2 > y) << std::endl;
-  std::cout << "x == 3 = " << (x == 3) << std::endl;
-  std::cout << "4 != y = " << (4 != y) << std::endl;
-  std::cout << "x >= 5 = " << (x >= 5) << std::endl;
-  std::cout << "6 >= y = " << (6 <= y) << std::endl;
-  
-  std::cout << "x < 1.0 = " << (x < 1.0) << std::endl;
-  std::cout << "2 > y = " << (2.0 > y) << std::endl;
-  std::cout << "x == 0.75 = " << (x == 0.75) << std::endl;
-  std::cout << "1.5 != y = " << (1.5 != y) << std::endl;
-  std::cout << "x >= 5 = " << (x >= 5.0) << std::endl;
-  std::cout << "6 >= y = " << (6.0 <= y) << std::endl;
-  
-  x += Rational(1, 4);
-  std::cout << "x += 1/4 --> x = " << x << std::endl;
-  x *= 2;
-  std::cout << "x *= 2 --> x = " << x << std::endl;
-  
-  y += 1;
-  std::cout << "y += 1 --> y = " << y << std::endl;
-  
-  std::cout << "y++ = " << y++ << std::endl;
-  std::cout << "y = " << y << std::endl;
-  std::cout << "--y = " << --y << std::endl;
-}
+  std::println("");
 
+  Box box2{ 0, 0, 0 };
+  std::println("box2 is {}", to_string(box2));
+  testBox(box2);  
+
+  // bool b1{ box1 };    /* Does not compile! */
+  [[maybe_unused]]  // Tip: [[maybe_unused]] attribute silences compiler warnings about not using b2
+  bool b2{ static_cast<bool>(box2) };  // Needs an explicit type conversion
+}

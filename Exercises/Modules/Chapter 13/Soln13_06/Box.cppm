@@ -1,8 +1,6 @@
 export module box;
 
-import <compare>;  // For std::partial_ordering (see Chapter 4)
-import <ostream>;  // For std::ostream
-import <format>;
+import std;
 
 export class Box
 {
@@ -18,19 +16,22 @@ public:
   double getWidth()  const { return m_width; }
   double getHeight() const { return m_height; }
 
-  std::partial_ordering operator<=>(const Box& otherBox) const 
+  auto operator<=>(const Box& otherBox) const 
   { 
     return volume() <=> otherBox.volume();
   }
-  std::partial_ordering operator<=>(double otherVolume) const 
+  auto operator<=>(double otherVolume) const
   { 
     return volume() <=> otherVolume;
   }
 
   bool operator==(const Box& otherBox) const = default;
 
-  // Explicit type conversion operator (converts a Box to a Boolean; true if it has volume)
-  explicit operator bool() const  { return volume() != 0; }  
+  // Unary negation operator (!box is true if the Box has no volume)
+  bool operator!() const { return volume() == 0; }  
+
+  // Type conversion operator (converts a Box to a Boolean; true if it has volume)
+  operator bool() const  { return volume() != 0; }  
 
 private:
   double m_length{ 1.0 };
@@ -38,10 +39,8 @@ private:
   double m_height{ 1.0 };
 };
 
-export std::ostream& operator<<(std::ostream& stream, const Box& box)
+export auto to_string(const Box& box)
 {
-  stream << std::format("Box({:.1f}, {:.1f}, {:.1f})",
-                             box.getLength(), box.getWidth(), box.getHeight());
-  return stream;
+    return std::format("Box({:.1f}, {:.1f}, {:.1f})",
+                       box.getLength(), box.getWidth(), box.getHeight());
 }
-

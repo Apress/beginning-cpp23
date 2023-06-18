@@ -1,20 +1,18 @@
-// Overloading pre- and postfix inrement and decrement operators
-import <iostream>;
+// Overloading pre- and postfix increment and decrement operators
+import std;
 import box;
 
 int main()
 {
   Box theBox{ 3.0, 1.0, 3.0 };
 
-  std::cout << "Our test Box is " << theBox << std::endl;
+  std::println("Our test Box is {}", to_string(theBox));
 
-  std::cout << "Postfix increment evaluates to the original object: "
-    << theBox++ << std::endl;
+  std::println("Postfix increment evaluates to the original object: {}",
+               to_string(theBox++));
+  std::println("After postfix increment: {}", to_string(theBox));
 
-  std::cout << "After postfix increment: " << theBox << std::endl;
-
-  std::cout << "Prefix decrement evaluates to the decremented object: "
-    << --theBox << std::endl;
-  std::cout << "After prefix decrement: " << theBox << std::endl;
+  std::println("Prefix decrement evaluates to the decremented object: {}", 
+               to_string(--theBox));
+  std::println("After prefix decrement: {}", to_string(theBox));
 }
-

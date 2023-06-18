@@ -1,19 +1,6 @@
 // Overloading <=> and == to fully support all comparison operators
-import <iostream>;
-import <format>;
-import <string_view>;
-import <vector>;
+import std;
 import box;
-
-void show(const Box& box)
-{
-  std::cout << std::format("Box({:.1f}, {:.1f}, {:.1f})", 
-                  box.getLength(), box.getWidth(), box.getHeight());
-}
-void show(const Box& box1, std::string_view relationship, const Box& box2)
-{
-  show(box1); std::cout << relationship; show(box2); std::cout << std::endl;
-}
 
 int main()
 {
@@ -22,16 +9,18 @@ int main()
   const Box theBox {3.0, 1.0, 4.0};
 
   for (const auto& box : boxes)
-    if (theBox > box) show(theBox, " is greater than ", box);  // > works
+    if (theBox > box)     // > works
+      std::println("{} is greater than {}", to_string(theBox), to_string(box));
 
-  std::cout << std::endl;
-
-  for (const auto& box : boxes)
-    if (theBox != box) show(theBox, " is not equal to ", box); // != works
-
-  std::cout << std::endl;  
+  std::println("");
 
   for (const auto& box : boxes)
-    if (6.0 <= box)                     // Yes, even double <= Box works!!
-      { std::cout << "6 is less than or equal to "; show(box); std::cout << std::endl; }
+    if (theBox != box)    // != works
+      std::println("{} is not equal to {}", to_string(theBox), to_string(box));
+
+  std::println("");
+
+  for (const auto& box : boxes)
+    if (6.0 <= box)      // Yes, even double <= Box works!!
+       std::println("6 is less than or equal to {}", to_string(box)); 
 }

@@ -1,59 +1,62 @@
-// Exercise 13-8
-// Creating a simply pseudo-random number generator (PRNG) functor class.
-// Ours is a very limited one that generates numbers between 0 and 100.
-// Seeding and using it requires some type conversions,
-// but other than that our PRNG functor acts as a drop-in replacement to the original one!
-import <iostream>;
-import <format>;
-import <vector>;
-import <random>;       // For random number generation
-import <functional>;   // For std::bind()
-import box;
-import PRNG;
+// Rational operators
+import std;
+import rational;
 
 int main()
 {
-  const double limit {99};       // Upper limit on Box dimensions
-
-  std::random_device seeder;     // True random number generator to obtain a seed (slow)
-  auto random{ PseudoRandomNumberGenerator{ static_cast<int>(seeder()) } };
-
-  const size_t boxCount {20}; // Number of Box object to be created
-  std::vector<Box> boxes;     // Vector of Box objects
-
-  // Create 20 Box objects
-  for (size_t i {}; i < boxCount; ++i)
-    boxes.push_back(Box{ static_cast<double>(random()), static_cast<double>(random()), static_cast<double>(random()) });
-
-  size_t first {};     // Index of first Box object of pair
-  size_t second {1};   // Index of second Box object of pair
-  double minVolume {(boxes[first] + boxes[second]).volume()};
-
-  for (size_t i {}; i < boxCount - 1; ++i)
-  {  
-    for (size_t j {i + 1}; j < boxCount; j++)
-    {
-      if (boxes[i] + boxes[j] < minVolume)
-      {
-        first = i;
-        second = j;
-        minVolume = (boxes[i] + boxes[j]).volume();
-      }
-    }
-  }
-
-  std::cout << "The two boxes that sum to the smallest volume are "
-            << boxes[first] << " and " << boxes[second] << '\n';
-  std::cout << std::format("The volume of the first box is {:.1f}\n",
-                            boxes[first].volume());
-  std::cout << std::format("The volume of the second box is {:.1f}\n",
-                            boxes[second].volume());
-  std::cout << "The sum of these boxes is " << (boxes[first] + boxes[second]) << '\n';
-  std::cout << std::format("The volume of the sum is {:.1f}", minVolume) << std::endl;
-
-  Box sum{ 0, 0, 0 };            // Start from an empty Box
-  for (const auto& box : boxes)  // And then add all randomly generated Box objects
-    sum += box;
-
-  std::cout << "The sum of " << boxCount << " random boxes is " << sum << std::endl;
+  Rational x{3, 4};
+  Rational y{1, 2};
+  
+  std::cout << "x = " << x << std::endl;
+  std::cout << "y = " << y << std::endl;
+  
+  std::cout << "x = " << static_cast<float>(x) << std::endl;
+  std::cout << "y = " << static_cast<double>(y) << std::endl;
+  
+  std::cout << "-x = " << -x << std::endl;
+  
+  std::cout << "x + y = " << x + y << std::endl;
+  std::cout << "x - y = " << x - y << std::endl;
+  std::cout << "x * y = " << x * y << std::endl;
+  std::cout << "x / y = " << x / y << std::endl;
+  
+  std::cout << "x + 2 = " << x + 2 << std::endl;
+  std::cout << "3 - y = " << 3 - y << std::endl;
+  std::cout << "x * 4 = " << x * 4 << std::endl;
+  std::cout << "5 / y = " << 5 / y << std::endl;
+  
+  std::cout << std::boolalpha;  // Print true and false as "true" and "false" instead of "1" and "0"
+  std::cout << "x < y = " << (x < y) << std::endl;
+  std::cout << "x > y = " << (x > y) << std::endl;
+  std::cout << "x == y = " << (x == y) << std::endl;
+  std::cout << "x != y = " << (x != y) << std::endl;
+  std::cout << "x >= y = " << (x >= y) << std::endl;
+  std::cout << "x >= y = " << (x <= y) << std::endl;
+  
+  std::cout << "x < 1 = " << (x < 1) << std::endl;
+  std::cout << "2 > y = " << (2 > y) << std::endl;
+  std::cout << "x == 3 = " << (x == 3) << std::endl;
+  std::cout << "4 != y = " << (4 != y) << std::endl;
+  std::cout << "x >= 5 = " << (x >= 5) << std::endl;
+  std::cout << "6 >= y = " << (6 <= y) << std::endl;
+  
+  std::cout << "x < 1.0 = " << (x < 1.0) << std::endl;
+  std::cout << "2 > y = " << (2.0 > y) << std::endl;
+  std::cout << "x == 0.75 = " << (x == 0.75) << std::endl;
+  std::cout << "1.5 != y = " << (1.5 != y) << std::endl;
+  std::cout << "x >= 5 = " << (x >= 5.0) << std::endl;
+  std::cout << "6 >= y = " << (6.0 <= y) << std::endl;
+  
+  x += Rational(1, 4);
+  std::cout << "x += 1/4 --> x = " << x << std::endl;
+  x *= 2;
+  std::cout << "x *= 2 --> x = " << x << std::endl;
+  
+  y += 1;
+  std::cout << "y += 1 --> y = " << y << std::endl;
+  
+  std::cout << "y++ = " << y++ << std::endl;
+  std::cout << "y = " << y << std::endl;
+  std::cout << "--y = " << --y << std::endl;
 }
+

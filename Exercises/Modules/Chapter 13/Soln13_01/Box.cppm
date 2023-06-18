@@ -1,7 +1,6 @@
 export module box;
 
-import <compare>;  // For std::partial_ordering (see Chapter 4)
-import <ostream>;  // For std::ostream
+import std;
 
 export class Box
 {
@@ -34,4 +33,5 @@ private:
   double m_height {1.0};
 };
 
-export std::ostream& operator<<(std::ostream& stream, const Box& box);
+// Conversion to string
+export std::string to_string(const Box& box);

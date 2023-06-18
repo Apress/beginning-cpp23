@@ -1,8 +1,6 @@
 export module box;
 
-import <compare>;  // For std::partial_ordering (see Chapter 4)
-import <ostream>;  // For std::ostream
-import <format>;
+import std;
 
 export class Box
 {
@@ -29,12 +27,6 @@ public:
 
   bool operator==(const Box& otherBox) const = default;
 
-  // Unary negation operator (!box is true if the Box has no volume)
-  bool operator!() const { return volume() == 0; }  
-
-  // Type conversion operator (converts a Box to a Boolean; true if it has volume)
-  operator bool() const  { return volume() != 0; }  
-
 private:
   double m_length{ 1.0 };
   double m_width{ 1.0 };
@@ -43,7 +35,16 @@ private:
 
 export std::ostream& operator<<(std::ostream& stream, const Box& box)
 {
-  stream << std::format("Box({:.1f}, {:.1f}, {:.1f})",
-                             box.getLength(), box.getWidth(), box.getHeight());
-  return stream;
+    stream << std::setprecision(1) << std::fixed; // Same as .1f format specifier
+    stream << "Box(" << box.getLength() << ", "
+        << box.getWidth() << ", " << box.getHeight() << ')';
+    return stream;
+}
+
+export std::istream& operator>>(std::istream& stream, Box& box)
+{
+    double length, width, height;
+    stream >> length >> width >> height;
+    box = { length, width, height }; // Short for: box = Box{ length, width, height };
+    return stream;
 }
