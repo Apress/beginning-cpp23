@@ -1,19 +1,20 @@
-// Using an exception class
-import <iostream>;
-import box;               // For the Box class
-import dimension_error;   // For the dimension_error class
+// Embedding a stack trace in an exception
+import std;
+import tracing;
+
+int f3() { throw TracingException{ "Something's amiss!" }; } // Obtains a stacktrace!
+int f2() { return f3(); }
+int f1() { return f2(); }
 
 int main()
 {
   try
   {
-    Box box1 {1.0, 2.0, 3.0};
-    std::cout << "box1 volume is " << box1.volume() << std::endl;
-    Box box2 {1.0, -2.0, 3.0};
-    std::cout << "box2 volume is " << box2.volume() << std::endl;
+    f1();
   }
-  catch (const std::exception& ex)
+  catch (const TracingException& ex)
   {
-    std::cout << "Exception caught in main(): " << ex.what() << std::endl;
+    std::println("Exception of type {} caught: {}; trace:\n{}", 
+        typeid(ex).name(), ex.what(), std::to_string(ex.where()));
   }
 }

@@ -1,16 +1,14 @@
 // A mocked database
 
 #include "DB.h"
-#include <cstring>    // For std::strcmp()
-import <memory>;
-import <vector>;
+import std;
 
 namespace
 {
   struct QueryResult
   {
     std::vector<std::vector<const char*>> data;
-    size_t index {};
+    std::size_t index {};
   };
 
   class Database

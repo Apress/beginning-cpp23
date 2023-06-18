@@ -1,7 +1,6 @@
 // Troubles.cppm Exception classes
 export module troubles;
-import <string>;
-import <string_view>;
+import std;
 
 export class Trouble
 {

@@ -1,7 +1,6 @@
 export module dimension_error;
 
-import <stdexcept>;        // For derived exception classes such as std::out_of_range
-import <string>;           // For std::to_string() and the std::string type
+import std;
 
 export class DimensionError : public std::out_of_range
 {

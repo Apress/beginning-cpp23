@@ -1,19 +1,17 @@
 // Throwing and catching Curveballs
 import curveball;
-import <iostream>;
+import std;
 
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
 
-void throwCurveballSometimes();           // Suggested solution
+void throwCurveballSometimes();           // First suggested solution
 void throwCurveballSometimesBernouilli(); // Alternate solution
 
 int main() 
 {
-  size_t number {1000};                             // Number of loop iterations
-  size_t exceptionCount {};                         // Count of exceptions thrown
+  unsigned number {1'000'000};         // Number of loop iterations
+  unsigned exceptionCount {};          // Count of exceptions thrown
 
-  for (size_t i {}; i < number; ++i)
+  for (unsigned i {}; i < number; ++i)
   {
     try
     {
@@ -26,29 +24,29 @@ int main()
     }
   }
   
-  std::cout << "Curveball exception thrown " << exceptionCount << " times out of " << number << ".\n";
+  std::println("Curveball exception thrown {} times out of {}.", exceptionCount, number);
 }
 
 // See Chapter 12 for an explanation of this function principle.
-auto createUniformPseudoRandomNumberGenerator(double min, double max)
+auto createUniformPseudoRandomNumberGenerator(int min, int max)
 {
-  std::random_device seeder;          // True random number generator to obtain a seed (slow)
-  std::default_random_engine generator{ seeder() };      // Efficient pseudo-random generator
-  std::uniform_real_distribution distribution{ min, max }; // Generate in [min, max) interval
-  return std::bind(distribution, generator);             //... and in the darkness bind them!
+  std::random_device seeder;         // True random number generator to obtain a seed (slow)
+  std::default_random_engine generator{ seeder() };     // Efficient pseudo-random generator
+  std::uniform_int_distribution distribution{ min, max }; // Generate in [min, max] interval
+  return std::bind(distribution, generator);            //... and in the darkness bind them!
 }
 
 // Throw a Curveball exception 25% of the time
 void throwCurveballSometimes()
 {
-  static auto random{ createUniformPseudoRandomNumberGenerator(0, 100) };
-  if (random() < 25)
+  static auto random{ createUniformPseudoRandomNumberGenerator(1, 100) };
+  if (random() <= 25)
     throw Curveball{};
 }
 
 /*
- Alternate solution: instead of generating numbers in the interval [0,100)
- using a std::uniform_real_distribution, and comparing against 25,
+ Alternate solution: instead of generating numbers in the interval [1,100]
+ using a std::uniform_int_distribution and comparing against 25,
  you could also generate Boolean values directly using a std::bernoulli_distribution
  (see https://en.cppreference.com/w/cpp/numeric/random/bernoulli_distribution;
   named after https://en.wikipedia.org/wiki/Bernoulli_distribution):

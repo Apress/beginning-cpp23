@@ -1,6 +1,5 @@
 // Throwing and catching objects in a hierarchy
-import <iostream>;
-import <string_view>;    // for operator<<
+import std;
 import troubles;
 
 int main()
@@ -18,17 +17,17 @@ int main()
     }
     catch (const BigTrouble& t)
     {
-      std::cout << "BigTrouble object caught: " << t.what() << std::endl;
+      std::println("BigTrouble object caught: {}", t.what());
     }
     catch (const MoreTrouble& t)
     {
-      std::cout << "MoreTrouble object caught: " << t.what() << std::endl;
+      std::println("MoreTrouble object caught: {}", t.what());
     }
     catch (const Trouble& t)
     {
-      std::cout << "Trouble object caught: " << t.what() << std::endl;
+      std::println("Trouble object caught: {}", t.what());
     }
 
-    std::cout << "End of the for loop (after the catch blocks) - i is " << i << std::endl;
+    std::println("End of the for loop (after the catch blocks) - i is {}", i);
   }
 }

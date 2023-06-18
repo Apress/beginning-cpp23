@@ -1,10 +1,5 @@
 // Throwing and catching standard exceptions
-import <iostream>;
-import <stdexcept>;
-import <vector>;
-import <format>;
-import <typeinfo>;
-import <optional>;
+import std;
 
 /*
   This solution triggers all exceptions mentioned in the text 
@@ -32,31 +27,31 @@ int main()
   try
   {
     std::vector v{ 1, 2, 3, 4, 5 };
-    std::cout << v.at(10) << std::endl;
+    std::println("{}", v.at(10));
   }
   catch (const std::out_of_range& exception)
   {
-    std::cout << "std::out_of_range: " << exception.what() << std::endl;
+    std::println("std::out_of_range: {}", exception.what());
   }
 
   try
   {
-    std::cout << std::format("Hello {:g}!\n", "World");
+    std::cout << std::vformat("Hello {:g}!\n", std::make_format_args("World"));
   }
   catch (const std::format_error& exception)
   {
-    std::cout << "std::format_error: " << exception.what() << std::endl;
+    std::println("std::format_error: {}", exception.what());
   }
 
   try
   {
     // Remember: a polymorphic class is a class with at least one virtual function.
     BaseClass* polymorphic{ nullptr };
-    std::cout << typeid(*polymorphic).name();
+    std::println("{}", typeid(*polymorphic).name());
   }
   catch (const std::bad_typeid& exception)
   {
-    std::cout << "std::bad_typeid: " << exception.what() << std::endl;
+    std::println("std::bad_typeid: {}", exception.what());
   }
 
   try
@@ -67,17 +62,27 @@ int main()
   }
   catch (const std::bad_cast& exception)
   {
-    std::cout << "std::bad_cast: " << exception.what() << std::endl;
+    std::println("std::bad_cast: {}", exception.what());
   }
 
   try
   {
     std::optional<int> empty;
-    std::cout << empty.value() << std::endl;
+    std::println("{}", empty.value());
   }
   catch (const std::bad_optional_access& exception)
   {
-    std::cout << "std::bad_optional_access: " << exception.what() << std::endl;
+    std::println("std::bad_optional_access: {}", exception.what());
+  }
+
+  try
+  {
+    std::expected<std::string, int> error{ std::unexpected(123) };
+    std::println("{}", error.value());
+  }
+  catch (const std::bad_expected_access<int>& exception)
+  {
+    std::println("std::bad_expected_access: {} (error: {})", exception.what(), exception.error());
   }
 
   try
@@ -87,6 +92,6 @@ int main()
   }
   catch (const std::bad_alloc& exception)
   {
-    std::cout << "std::bad_alloc: " << exception.what() << std::endl;
+    std::println("std::bad_alloc: {}", exception.what());
   }
 }

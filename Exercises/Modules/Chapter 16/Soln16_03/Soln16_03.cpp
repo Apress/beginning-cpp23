@@ -1,28 +1,27 @@
 // Using exceptions to signal index-out-of-bounds errors.
-import <iostream>;
-import <memory>;
+import std;
 import truckload;
 import box.random;
 
 int main()
 {
   Truckload load;
-  const size_t boxCount {20};               // Number of Box object to be created
+  const std::size_t boxCount {20};   // Number of Box object to be created
 
   // Create boxCount Box objects
-  for (size_t i {}; i < boxCount; ++i)
+  for (std::size_t i {}; i < boxCount; ++i)
     load.addBox(randomSharedBox());
 
   try
   {
-    std::cout << "The truckload contains the following boxes: " << std::endl;
-    for (size_t i {}; i < 100; ++i)
+    std::println("The truckload contains the following boxes: ");
+    for (std::size_t i {}; i < 100; ++i)
     {
-	    std::cout << *load[i] << std::endl;
+	    std::println("{}", to_string(*load[i]));
     }
   }
   catch (const std::exception& caughtException)
   {
-    std::cerr << "Oops: " << caughtException.what() << std::endl;
+    std::println("Oops: {}", caughtException.what());
   }
 }

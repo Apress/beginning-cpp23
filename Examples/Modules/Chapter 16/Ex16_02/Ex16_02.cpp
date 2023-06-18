@@ -1,6 +1,5 @@
 // Throw an exception object
-import <iostream>;
-import <string_view>;    // for operator<<
+import std;
 import troubles;
 
 void trySomething(int i);
@@ -16,7 +15,7 @@ int main()
     catch (const Trouble& t)
     {
       // What seems to be the trouble?
-      std::cout << "Exception: " << t.what() << std::endl;
+      std::println("Exception: {}", t.what());
     }
   }
 }

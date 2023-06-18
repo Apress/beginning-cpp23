@@ -5,13 +5,12 @@
 // from size_t to TooManyExceptions are not desired).
 
 export module too_many;
-import <exception>;
-import <string>;     // For std::string / std::to_string()
+import std;
 
 export class TooManyExceptions : public std::exception
 {
 public:
-  explicit TooManyExceptions(size_t howMany)
+  explicit TooManyExceptions(unsigned howMany)
     : m_how_many{ howMany }
     , m_message{ "Too many exceptions occurred: " + std::to_string(m_how_many) }
   {}
@@ -21,12 +20,12 @@ public:
     return m_message.c_str();
   }
 
-  size_t howMany() const noexcept
+  unsigned howMany() const noexcept
   {
     return m_how_many;
   }
 
 private:
-  size_t m_how_many;
+  unsigned m_how_many;
   std::string m_message;
 };

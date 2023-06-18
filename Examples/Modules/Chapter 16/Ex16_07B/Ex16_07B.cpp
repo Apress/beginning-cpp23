@@ -1,12 +1,10 @@
 // Exceptions may result in resource leaks!
-import <iostream>;
+import std;
 import troubles;
 import raii;
 
-#include <cmath>                    // For std::sqrt()
-
-double computeValue(size_t x);         // A function to compute a single value
-double* computeValues(size_t howMany); // A function to compute an array of values
+double computeValue(std::size_t x);         // A function to compute a single value
+double* computeValues(std::size_t howMany); // A function to compute an array of values
 
 int main()
 {
@@ -18,19 +16,19 @@ int main()
   }
   catch (const Trouble&)
   {
-    std::cout << "No worries: I've caught it!" << std::endl;
+    std::println("No worries: I've caught it!");
   }
 }
 
-double* computeValues(size_t howMany)
+double* computeValues(std::size_t howMany)
 {
   DoubleArrayRAII values{ howMany };
-  for (size_t i{}; i < howMany; ++i)
+  for (std::size_t i{}; i < howMany; ++i)
     values[i] = computeValue(i);
   return values.release();
 }
 
-double computeValue(size_t x)
+double computeValue(std::size_t x)
 {
   if (x < 100)
     return std::sqrt(x);   // Return the square root of the input argument

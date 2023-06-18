@@ -4,11 +4,7 @@
  * and rethrowing (catch-by-reference + "throw;" !)
  */
 
-import <iostream>;
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
-import <format>;
-import <string>;
+import std;
 import curveball;
 import domain_exceptions;
 
@@ -22,7 +18,7 @@ int main()
   }
   catch (const Curveball& /*caught*/)
   {
-    std::cerr << "...hit it out of the park!" << std::endl;
+    std::println("...hit it out of the park!");
   }
 }
 
@@ -36,23 +32,23 @@ void askEvenNumber()
 {
   try
   {
-    std::cout << "Please enter an even number: ";
-    const int read = readEvenNumber();
-    std::cout << std::format("Well done. {} is a beautiful even number. Thank you!\n", read);
+    std::print("Please enter an even number: ");
+    const int read{ readEvenNumber() };
+    std::println("Well done. {} is a beautiful even number. Thank you!", read);
   }
   catch (const NotANumber& nan)
   {
-    std::cerr << nan.what() << std::endl;
+    std::println("{}", nan.what());
     return;
   }
   catch (const std::domain_error& domainException)
   {
-    std::cerr << domainException.what() << std::endl;
+    std::println("{}", domainException.what());
     askEvenNumber();  // Recursive call
   }
   catch (const std::exception& exception)
   {
-    std::cerr << exception.what() << std::endl;
+    std::println("{}", exception.what());
     throw;
   }
 }
@@ -65,23 +61,23 @@ void askEvenNumber()
   {
     try
     {
-      std::cout << "Please enter an even number: ";
-      const int read = readEvenNumber();
-      std::cout << std::format("Well done. {} is a beautiful even number. Thank you!\n", read);
+      std::print("Please enter an even number: ");
+      const int read{ readEvenNumber() };
+      std::println("Well done. {} is a beautiful even number. Thank you!", read);
       break;
     }
     catch (const NotANumber& nan)
     {
-      std::cerr << nan.what() << std::endl;
+      std::println("{}", nan.what());
       return;
     }
-    catch (const std::out_of_range& range)
+    catch (const std::domain_error& domainException)
     {
-      std::cerr << range.what() << std::endl;
+      std::println("{}", domainException.what());
     }
     catch (const std::exception& exception)
     {
-      std::cerr << exception.what() << std::endl;
+      std::println("{}", exception.what());
       throw;
     }
   }

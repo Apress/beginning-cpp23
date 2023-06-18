@@ -2,14 +2,11 @@
 // Note: this example is given but not named in the text.
 // Instead of a custom RAII class DoubleArrayRAII, it uses std::vector<>.
 // Unlike the former, the latter can of course be returned from computeValues() as well.
-import <iostream>;
-import <vector>;
+import std;
 import troubles;
 
-#include <cmath>            // For std::sqrt()
-
-double computeValue(size_t x);      // A function to compute a single value
-std::vector<double> computeValues(size_t howMany); // A function to compute an array of values
+double computeValue(std::size_t x);      // A function to compute a single value
+std::vector<double> computeValues(std::size_t howMany); // A function to compute an array of values
 
 int main()
 {
@@ -19,19 +16,19 @@ int main()
   }
   catch (const Trouble&)
   {
-    std::cout << "No worries: I've caught it!" << std::endl;
+    std::println("No worries: I've caught it!");
   }
 }
 
-std::vector<double> computeValues(size_t howMany)
+std::vector<double> computeValues(std::size_t howMany)
 {
   std::vector<double> values;
-  for (size_t i{}; i < howMany; ++i)
+  for (std::size_t i{}; i < howMany; ++i)
     values.push_back(computeValue(i));
   return values;
 }
 
-double computeValue(size_t x)
+double computeValue(std::size_t x)
 {
   if (x < 100)
     return std::sqrt(x);   // Return the square root of the input argument
