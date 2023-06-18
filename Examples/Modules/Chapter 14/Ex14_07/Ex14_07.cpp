@@ -12,7 +12,7 @@ int main()
   std::println("cornflakes weight is {:.3}", cornflakes.getWeight());
 /*
   // Here is one way to make this work (see Ex14_07A and B for alternatives)
-  std::println("cornflakes volume is {}", cornflakes.Carton::volume());
+  std::println("cornflakes volume is {:.3}", cornflakes.Carton::volume());
   std::println("cornflakes weight is {:.3}", cornflakes.FoodContainer::getWeight());
 */
 }
