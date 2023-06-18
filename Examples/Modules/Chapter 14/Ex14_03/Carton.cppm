@@ -17,7 +17,7 @@ public:
 
   Carton(double l, double w, double h, std::string_view material)
     : Box{l, w, h}, m_material{material}
-    { std::println("Carton(double, double, double, string_view) called.)"); }  
+    { std::println("Carton(double, double, double, string_view) called."); }  
 
   // Copy constructor (wrong)
   Carton(const Carton& carton) : m_material {carton.m_material}

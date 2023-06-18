@@ -5,16 +5,16 @@ import std;
 export class FoodContainer
 {
 public:
-  FoodContainer() { std::cout << "FoodContainer() called.\n"; }
+  FoodContainer() { std::println("FoodContainer() called."); }
 
   FoodContainer(std::string_view name) : name {name}
-  { std::cout << "FoodContainer(string_view) called.\n"; }
+  { std::println("FoodContainer(string_view) called."); }
 
   FoodContainer(std::string_view name, double density, double volume)
     : name {name}, density {density}, volume {volume}
-  { std::cout << "FoodContainer(string_view,double,double) called.\n"; }
+  { std::println("FoodContainer(string_view,double,double) called."); }
 
-  ~FoodContainer() { std::cout << "FoodContainer destructor" << std::endl; }
+  ~FoodContainer() { std::println("FoodContainer destructor"); }
 
   double getWeight() const { return volume * density; }
 

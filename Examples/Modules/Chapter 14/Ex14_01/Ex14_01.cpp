@@ -12,7 +12,7 @@ int main()
   // Check them out - sizes first of all
   std::println("box occupies {} bytes", sizeof box);
   std::println("carton occupies {} bytes", sizeof carton);
-  std::println("candyCarton occupies {} bytes", sizeof chocolateCarton);
+  std::println("chocolateCarton occupies {} bytes", sizeof chocolateCarton);
 
   // Now volumes...
   std::println("box volume is {}", box.volume());

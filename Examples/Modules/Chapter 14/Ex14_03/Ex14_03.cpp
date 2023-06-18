@@ -6,11 +6,12 @@ int main()
 {
   // Declare and initialize a Carton object
   Carton carton{ 20.0, 30.0, 40.0, "Expanded polystyrene" };
-  std::cout << std::endl;
+  std::println("");
 
   Carton cartonCopy{ carton };  // Use copy constructor
-  std::cout << std::endl;
+  std::println("");
 
-  std::cout << "Volume of carton is " << carton.volume() << std::endl
-            << "Volume of cartonCopy is " << cartonCopy.volume() << std::endl;
+  std::println("Volume of carton is {}", carton.volume());
+  std::println("Volume of cartonCopy is {}", cartonCopy.volume());
 }
+

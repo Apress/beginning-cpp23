@@ -17,27 +17,27 @@ public:
 
   Carton(double l, double w, double h, std::string_view material)
     : Box{l, w, h}, m_material{material}
-    { std::println("Carton(double, double, double, string_view) called.)"); }
+    { std::println("Carton(double, double, double, string_view) called."); }
 
   // One new constructor
   Carton(double l, double w, double h, std::string_view m, double density, double thickness)
     : Carton{l, w, h, m} 
   {
     m_thickness = thickness; m_density = density;
-    std::println("Carton(double, double, double, string_view, double, double) called.)");
+    std::println("Carton(double, double, double, string_view, double, double) called.");
   }
 
   // Copy constructor
   Carton(const Carton& carton) : Box{carton}, m_material{carton.m_material},
      m_thickness{carton.m_thickness}, m_density{carton.m_density}
   {
-    std::cout << "Carton copy constructor" << std::endl;
+     std::println("Carton copy constructor");
   }
 
   // Destructor
   ~Carton()
   {
-    std::cout << "Carton destructor. Material = " << m_material << std::endl;
+    std::println("Carton destructor. Material = {}", m_material);
   }
 
   double getWeight() const

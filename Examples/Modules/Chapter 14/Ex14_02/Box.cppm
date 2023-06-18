@@ -23,7 +23,7 @@ public:
   double getHeight() const { return m_height; }
 
 protected:                   // Protected to facilitate further examples
-  double m_length {1.0};     // later this chapter (should normally be private)
+  double m_length {1.0};     // later in this chapter (should normally be private)
   double m_width {1.0};
   double m_height {1.0};
 };

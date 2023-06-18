@@ -12,7 +12,7 @@ public:
   Carton() = default;   // Required by Visual C++
   Carton(double length, double width, double height, std::string_view mat)
      : Box{length, width, height}, m_material{mat}
-     { std::println("Carton(double, double, double, string_view) called.)"); }
+     { std::println("Carton(double, double, double, string_view) called."); }
 
 private:
   std::string m_material {"Cardboard"};
