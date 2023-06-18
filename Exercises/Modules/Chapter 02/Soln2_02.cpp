@@ -1,4 +1,4 @@
-// Exercise 2-2. Convert SI to imperial weight
+// Convert SI to imperial weight
 // The conversion values are constant, 
 // and should not be changed within the program,
 // so we recognize this by declaring them as a const.

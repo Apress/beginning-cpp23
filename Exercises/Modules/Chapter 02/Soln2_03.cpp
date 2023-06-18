@@ -1,4 +1,4 @@
-// Exercise 2-2 Compute the area of a circle
+// Compute the area of a circle
 // This solution tunes the precision used when printing the result
 // (we opted for 2 decimals after the decimal points).
 
@@ -9,7 +9,7 @@ int main()
   std::println("This program will compute the area of a circle.");
 
   double radius {};
-  std::println("Please enter the radius of the circle: ");
+  std::print("Please enter the radius of the circle: ");
   std::cin >> radius;
   
   const auto area{ std::numbers::pi * radius * radius };

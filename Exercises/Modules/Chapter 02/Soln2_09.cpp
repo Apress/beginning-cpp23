@@ -1,4 +1,4 @@
-// Exercise 2-8. Finding the largest of two integers without comparing them.
+// Finding the largest of two integers without comparing them.
 import std;
 
 int main()
@@ -6,9 +6,9 @@ int main()
   unsigned a {};
   unsigned b {};
 
-  std::cout << "Enter a positive integer: ";
+  std::print("Enter a positive integer: ");
   std::cin >> a;
-  std::cout << "Enter another positive integer: ";
+  std::print("Enter another positive integer: ");
   std::cin >> b;
 
   // The trick is that, for integer values x and y, 
@@ -19,6 +19,6 @@ int main()
 
   const unsigned larger {(a * (a / b) + b * (b / a)) / (a / b + b / a)};
   const unsigned smaller {(b * (a / b) + a * (b / a)) / (a / b + b / a)};
-  std::cout << "The larger integer is " << larger << ".\n"
-            << "The smaller integer is " << smaller << '.' << std::endl;
+  std::println("The larger integer is {}.", larger);
+  std::println("The smaller integer is {}.", smaller);
 }

@@ -1,4 +1,4 @@
-// Exercise 2-1. Printing the sizes of numerical types
+﻿// Printing the sizes of numerical types
 // Take care: char, signed char, and unsigned char are three different types.
 
 import std;

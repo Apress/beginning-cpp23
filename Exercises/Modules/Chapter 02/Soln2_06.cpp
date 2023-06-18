@@ -1,4 +1,4 @@
-// Exercise 2-5. Output your BMI with one decimal after the decimal point.
+// Output your BMI with one decimal after the decimal point.
 
 import std;
 
@@ -12,13 +12,13 @@ int main()
   unsigned int h_feet{};
   unsigned int h_inches{};
 
-  std::cout << "Enter your weight in pounds: ";
+  std::print("Enter your weight in pounds: ");
   std::cin >> w_lbs;
-  std::cout << "Enter you height in feet and inches: ";
+  std::print("Enter you height in feet and inches: ");
   std::cin >> h_feet >> h_inches;
 
   const double w_kg{ w_lbs / lbs_per_kg };
   const double h_meters{ meters_per_foot * h_feet + h_inches / inches_per_foot };
   const double bmi{ w_kg / (h_meters * h_meters) };
-  std::cout << std::format("Your BMI is {:.1f}\n", bmi);
+  std::println("Your BMI is {:.1f}", bmi);
 }

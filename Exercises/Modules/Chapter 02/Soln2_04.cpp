@@ -1,4 +1,4 @@
-// Exercise 2-3. Calculating the height of a tree
+// Calculating the height of a tree
 import std;
 
 int main()
@@ -8,12 +8,12 @@ int main()
   double feet {};
   double inches {};
 
-  std::cout << "Enter the distance from the tree in feet and inches: ";
+  std::print("Enter the distance from the tree in feet and inches: ");
   std::cin >> feet >> inches;
   const double distance {feet + inches / inches_per_foot};
 
   double angle {};
-  std::cout << "Enter the angle of the top of the tree in degrees: ";
+  std::print("Enter the angle of the top of the tree in degrees: ");
   std::cin >> angle;
   
   // First convert angle to radians 
@@ -21,7 +21,7 @@ int main()
   angle *= std::numbers::pi / pi_degrees;     
                                               
   double eye_height {};
-  std::cout << "Enter your eye height from the ground in inches: ";
+  std::print("Enter your eye height from the ground in inches: ");
   std::cin >> eye_height;
   eye_height /= inches_per_foot;                                  // Convert to feet
   
@@ -29,7 +29,5 @@ int main()
   const unsigned height_feet {static_cast<unsigned>(height)};
   const unsigned height_inches {static_cast<unsigned>(std::round(inches_per_foot * (height - height_feet)))};
 
-  std::cout << "\nThe height of the tree is "
-            << height_feet << " feet "
-            << height_inches << " inches.\n" << std::endl;
+  std::println("\nThe height of the tree is {} feet {} inches.", height_feet, height_inches);
 }
