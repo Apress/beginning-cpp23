@@ -57,7 +57,7 @@ int main()
       return 2;
     }
     
-    for (auto& customer : customers)
+    for (const auto& customer : customers)
     {
         std::println("{}", to_string(customer));
     }

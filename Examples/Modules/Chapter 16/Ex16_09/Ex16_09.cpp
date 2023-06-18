@@ -1,9 +1,8 @@
-
 // Embedding a stack trace in an exception
 import std;
 import tracing;
 
-int f3() { throw TracingException{ "Something's amiss!" }; } // Creates a stacktrace!
+int f3() { throw TracingException{ "Something's amiss!" }; } // Obtains a stacktrace!
 int f2() { return f3(); }
 int f1() { return f2(); }
 

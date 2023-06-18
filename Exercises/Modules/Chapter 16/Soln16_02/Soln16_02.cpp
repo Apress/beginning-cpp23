@@ -19,7 +19,7 @@ int main()
     {
       throwCurveballSometimes();
     }
-    catch(Curveball& e)
+    catch (const Curveball& e)
     {
       std::println("{}", e.what());
     

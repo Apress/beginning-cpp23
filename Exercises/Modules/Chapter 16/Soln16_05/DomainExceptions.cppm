@@ -4,7 +4,7 @@ import std;
 
 /*
 	std::domain_error is one of the exception types defined by
-	the Standard Libray. It is intended to be used mostly inside
+	the Standard Library. It is intended to be used mostly inside
 	mathematical functions in case an argument is provided for which
 	the function is not defined (for instance, should a regular 
 	square root function be called with a negative number)

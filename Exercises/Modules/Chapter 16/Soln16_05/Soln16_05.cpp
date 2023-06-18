@@ -33,7 +33,7 @@ void askEvenNumber()
   try
   {
     std::print("Please enter an even number: ");
-    const int read = readEvenNumber();
+    const int read{ readEvenNumber() };
     std::println("Well done. {} is a beautiful even number. Thank you!", read);
   }
   catch (const NotANumber& nan)
@@ -62,7 +62,7 @@ void askEvenNumber()
     try
     {
       std::print("Please enter an even number: ");
-      const int read = readEvenNumber();
+      const int read{ readEvenNumber() };
       std::println("Well done. {} is a beautiful even number. Thank you!", read);
       break;
     }
@@ -71,9 +71,9 @@ void askEvenNumber()
       std::println("{}", nan.what());
       return;
     }
-    catch (const std::out_of_range& range)
+    catch (const std::domain_error& domainException)
     {
-      std::println("{}", range.what());
+      std::println("{}", domainException.what());
     }
     catch (const std::exception& exception)
     {
