@@ -1,4 +1,4 @@
-// Fixed-point formatting of floating-point numbers with std::println()
+// Fixed-point formatting of floating-point numbers with std::cout
 import std;
 
 int main()
@@ -23,6 +23,7 @@ int main()
   // Calculate the pond diameter from the area
   const double pond_diameter {2.0 * std::sqrt(pond_area / std::numbers::pi)};
 
-  std::println("Pond diameter required for {} fish is {:.2f} inches.",
-               fish_count, pond_diameter);
+  std::cout << "Pond diameter required for " << fish_count << " fish is "
+              << std::setprecision(2) << std::fixed << pond_diameter << " feet." 
+              << std::endl;
 }
