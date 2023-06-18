@@ -1,8 +1,7 @@
 // Carton.cppm - defines the Carton class with the Box class as private base
 export module carton;
 
-import <string>;
-import <string_view>;
+import std;
 import box;
 
 export class Carton : private Box

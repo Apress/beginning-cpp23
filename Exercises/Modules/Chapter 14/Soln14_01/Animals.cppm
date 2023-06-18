@@ -6,9 +6,7 @@ export module animals;
 //  - file and module names do not have to match the name of a class; and
 //  - multiple classes may be declared and defined in the same module
 
-import <string>;
-import <string_view>;
-import <iostream>;
+import std;
 
 export class Animal
 {
@@ -19,7 +17,7 @@ public:
   
   void who() const                  // Display name and weight
   {
-    std::cout << "My name is " << m_name << " and I weigh " << m_weight << "lbs." << std::endl;
+    std::println("My name is {} and I weigh {} lbs.", m_name, m_weight);
   }
 
 private:
