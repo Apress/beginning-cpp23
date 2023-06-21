@@ -1,5 +1,5 @@
 // Calculating the Body Mass Index.
-// In the expression for bmi, both h_feet and h_inches will be implicitly converted to double
+// In the expression for h_meters, both h_feet and h_inches will be implicitly converted to double
 // because the other operand of the sub-expression is double.
 
 import std;

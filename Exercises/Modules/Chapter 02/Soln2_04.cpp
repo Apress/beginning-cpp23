@@ -17,7 +17,7 @@ int main()
   std::cin >> angle;
   
   // First convert angle to radians 
-  // (the trigoniometric functions of <cmath> operate with radians)
+  // (the trigonometric functions of <cmath> operate with radians)
   angle *= std::numbers::pi / pi_degrees;     
                                               
   double eye_height {};

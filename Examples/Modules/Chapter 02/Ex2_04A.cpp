@@ -25,9 +25,9 @@ int main()
   const double pond_diameter {2.0 * std::sqrt(pond_area / std::numbers::pi)};
 
   // Convert to feet and inches
-  const double pond_diameter_feet = std::floor(pond_diameter);
-  const double pond_diameter_inch =
-      std::round((pond_diameter - pond_diameter_feet) * inches_per_foot);
+  const double pond_diameter_feet{ std::floor(pond_diameter) };
+  const double pond_diameter_inch{
+      std::round((pond_diameter - pond_diameter_feet) * inches_per_foot) };
 
   std::println("Pond diameter required for {} fish is {} feet {} inches.",
                fish_count, pond_diameter_feet, pond_diameter_inch);

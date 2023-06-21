@@ -23,6 +23,6 @@ int main()
   // Calculate the pond diameter from the area
   const double pond_diameter {2.0 * std::sqrt(pond_area / std::numbers::pi)};
 
-  std::println("Pond diameter required for {} fish is {} inches.",
+  std::println("Pond diameter required for {} fish is {} feet.",
                fish_count, pond_diameter);
 }

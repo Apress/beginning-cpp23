@@ -11,8 +11,8 @@ int main()
   std::print("Enter another positive integer: ");
   std::cin >> b;
 
-  // The trick is that, for integer values x and y, 
-  // x / y equals zero if x < y.
+  // The trick is that, for integer values a and b, 
+  // a / b equals zero if a < b.
   // So unless a and b are equal, either a/b or b/a is zero,
   // meaning in (x * (a/b) + y * (b/a)) one of both operands of + equals 0.
   // Once you have that, it's just a matter of working out the details.

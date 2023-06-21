@@ -3,7 +3,7 @@ import std;
 
 int main()
 {
-  const double pi = std::numbers::pi;
+  const double pi{ std::numbers::pi };
   std::println("Default: {0:.2}, fixed: {0:.2f}, scientific: {0:.2e}, general: {0:.2g}", pi);
   std::println("Default: {0}, binary: {0:b}, hex.: {0:x}", 314);
   std::println("Default: {0}, decimal: {0:d}, hex.: {0:x}", 'c');

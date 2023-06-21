@@ -18,9 +18,9 @@ int main()
   std::print("May I be indiscreet and ask how much you weigh (in kg)? ");
   std::cin >> kilogram;
 
-  const double pounds = kilogram / kilogram_per_pound;
-  const double stone = std::floor(pounds / pounds_per_stone);
-  const double remaining_pounds = std::fmod(pounds, pounds_per_stone);
+  const double pounds{ kilogram / kilogram_per_pound };
+  const double stone{ std::floor(pounds / pounds_per_stone) };
+  const double remaining_pounds{ std::fmod(pounds, pounds_per_stone) };
   // Or: remaining_pounds = pounds - stone * pounds_per_stone;
   
   // At this point you can either do the rounding of remaining_pounds yourself, 
@@ -29,9 +29,9 @@ int main()
   // because you prefer nonintegral pounds to be rounded to the nearest integer.
 
   // Solution with performing the rounding yourself:
-  const long integer_remaining_pounds = std::lround(remaining_pounds);
-  std::println("Sounds less in imperial units: only {} stone {} pounds.", stone, integer_remaining_pounds);
+  const long integer_remaining_pounds{ std::lround(remaining_pounds) };
+  std::println("Sounds less in imperial units: only {} stone {} pounds (using std::lround()).", stone, integer_remaining_pounds);
 
   // Solution with letting std::println() do the rounding for you:
-  //std::println("Sounds less in imperial units: only {} stone {:.0f} pounds.", stone, remaining_pounds);
+  std::println("Sounds less in imperial units: only {} stone {:.0f} pounds (using :.0f format specifier).", stone, remaining_pounds);
 }
