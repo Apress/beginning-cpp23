@@ -1,41 +1,31 @@
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <concepts>;
+import std;
 
 export template <typename T> requires std::default_initializable<T> && std::destructible<T>
 class Array
 {
 public:
-  Array();                                  
-  explicit Array(size_t size);              
+  explicit Array(std::size_t size = 0);              
   ~Array();                                 
   Array(const Array& array) requires std::copyable<T>;
   Array& operator=(const Array& rhs) requires std::copyable<T>;
   Array(Array&& array) noexcept requires std::movable<T>;
   Array& operator=(Array&& rhs) noexcept requires std::movable<T>;
   void swap(Array& other) noexcept;        
-  T& operator[](size_t index);             
-  const T& operator[](size_t index) const; 
-  size_t getSize() const { return m_size; }
+  T& operator[](std::size_t index);             
+  const T& operator[](std::size_t index) const; 
+  size_t getSize() const noexcept { return m_size; }
   void push_back(T element) requires std::movable<T>;
 
 private:
-  T* m_elements;    // Array of type T
-  size_t m_size;    // Number of array elements
+  T* m_elements;      // Array of elements of type T
+  std::size_t m_size; // Number of array elements
 };
-
-// Forwarding default constructor template
-template <typename T> requires std::default_initializable<T> && std::destructible<T>
-Array<T>::Array() 
-  : Array{0}
-{}
 
 // Constructor template
 template <typename T> requires std::default_initializable<T> && std::destructible<T>
-Array<T>::Array(size_t size) 
+Array<T>::Array(std::size_t size) 
   : m_elements {new T[size] {}}, m_size {size}
 {}
 
@@ -44,8 +34,7 @@ template <typename T> requires std::default_initializable<T> && std::destructibl
 Array<T>::Array(const Array& array) requires std::copyable<T> 
   : Array{array.m_size}
 {
-  for (size_t i {}; i < m_size; ++i)
-    m_elements[i] = array.m_elements[i];
+  std::ranges::copy_n(array.m_elements, m_size, m_elements);
 }
 
 // Move constructor template
@@ -62,7 +51,7 @@ Array<T>::~Array() { delete[] m_elements; }
 
 // const subscript operator template
 template <typename T> requires std::default_initializable<T> && std::destructible<T>
-const T& Array<T>::operator[](size_t index) const
+const T& Array<T>::operator[](std::size_t index) const
 {
   if (index >= m_size)
     throw std::out_of_range {"Index too large: " + std::to_string(index)};
@@ -72,7 +61,7 @@ const T& Array<T>::operator[](size_t index) const
 // Non-const subscript operator template in terms of const one
 // Uses the 'const-and-back-again' idiom
 template <typename T> requires std::default_initializable<T> && std::destructible<T>
-T& Array<T>::operator[](size_t index)
+T& Array<T>::operator[](std::size_t index)
 {
   return const_cast<T&>(std::as_const(*this)[index]);
 }
@@ -123,7 +112,7 @@ template <typename T> requires std::default_initializable<T> && std::destructibl
 void Array<T>::push_back(T element) requires std::movable<T>
 {
   Array<T> newArray{m_size + 1};      // Allocate a larger Array<>
-  for (size_t i{}; i < m_size; ++i)   // Move all existing elements...
+  for (std::size_t i{}; i < m_size; ++i)   // Move all existing elements...
     newArray[i] = std::move(m_elements[i]);
 
   newArray[m_size] = std::move(element); // Move the new one (could itself be a copy already)...

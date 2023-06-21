@@ -1,15 +1,10 @@
 // Asserting that a type models a concept
-import <concepts>;    // For the std::same_as<> and std::convertible_to<> concepts
-import <ranges>;      // For std::ranges::range<> concept
-import <type_traits>; // For the std::remove_cv<> type trait
-import <list>;
-import <vector>;
-import <string>;
+import std;
 
 template <typename Iter>
 concept BidirectionalIterator = true; // Feel free to further work out all requirements...
 
-template<class Iter>
+template <typename Iter>
 concept RandomAccessIterator = BidirectionalIterator<Iter>
   && requires(const Iter i, const Iter j, Iter k, const int n)
      {
@@ -28,10 +23,10 @@ concept NoExceptDestructible = requires (T & value) { { value.~T() } noexcept; }
 
 template <typename C>
 concept Character = std::same_as<std::remove_cv_t<C>, char>
-                  || std::same_as<std::remove_cv_t<C>, char8_t>
-                  || std::same_as<std::remove_cv_t<C>, char16_t>
-                  || std::same_as<std::remove_cv_t<C>, char32_t>
-                  || std::same_as<std::remove_cv_t<C>, wchar_t>;
+                 || std::same_as<std::remove_cv_t<C>, char8_t>
+                 || std::same_as<std::remove_cv_t<C>, char16_t>
+                 || std::same_as<std::remove_cv_t<C>, char32_t>
+                 || std::same_as<std::remove_cv_t<C>, wchar_t>;
 
 template <typename S>
 concept String = std::ranges::range<S> && requires(S & s, const S & cs)

@@ -3,12 +3,7 @@
 // and iterator pairs where the end iterator (or, sentinel) 
 // is of a different type than the begin iterator,
 // all with proper type constraints.
-import <iostream>;
-import <concepts>;    // Standard concepts
-import <ranges>;      // Range factories and adaptors
-import <functional>;  // For the std::identity and std::ranges::less functor classes, and std::invoke()
-import <iterator>;    // Iterator-based concepts, std::sentinel_for, and std::projected
-import <vector>;
+import std;
 
 using namespace std::ranges::views;
 
@@ -78,36 +73,36 @@ int main()
   auto first_boxes{ boxes | take_while([](const Box& box) { return box.volume() < 15; }) };
   
   /* This therefore generally does not compile... */
-  //std::cout << "Volume of smallest box: " 
-  //  << original_find_optimum(first_boxes.begin(), first_boxes.end(),
-  //        [](const Box& box1, const Box& box2) { return box1.isSmallerThan(box2); })->volume()
-  //  << std::endl;
+  //std::println("Volume of smallest box: {}", 
+  //  original_find_optimum(first_boxes.begin(), first_boxes.end(),
+  //    [](const Box& box1, const Box& box2) { return box1.isSmallerThan(box2); })->volume()
+  //);
 
   // Side-note: you can use the std::ranges::views::common to turn a range
   // where begin and end have a different type into a view where they do.
   auto common_boxes{ first_boxes | common };
-  std::cout << "Volume of smallest box: " 
-    << original_find_optimum(common_boxes.begin(), common_boxes.end(),
-          [](const Box& box1, const Box& box2) { return box1.isSmallerThan(box2); })->volume()
-    << std::endl;
+  std::println("Volume of smallest box: {}",
+    original_find_optimum(common_boxes.begin(), common_boxes.end(),
+      [](const Box& box1, const Box& box2) { return box1.isSmallerThan(box2); })->volume()
+  );
   
   // Step 2: Show off our shiny new, modernised version of find_optimum()
   // First off: no need for the common adapter!
-  std::cout << "Volume of largest box: "
-    << find_optimum(first_boxes.begin(), first_boxes.end(),
-          [](const Box& box1, const Box& box2) { return !box1.isSmallerThan(box2); })->volume()
-    << std::endl;
+  std::println("Volume of largest box: {}",
+    find_optimum(first_boxes.begin(), first_boxes.end(),
+      [](const Box& box1, const Box& box2) { return !box1.isSmallerThan(box2); })->volume()
+  );
 
   // Other cool features of our modern find_optimum() version include projection 
   // and the support for member function pointers. So no more lambdas required here!
 
   // Use a member-function pointer for the comparison function
-  std::cout << "Volume of smallest box: " 
-    << find_optimum(first_boxes.begin(), first_boxes.end(), &Box::isSmallerThan)->volume() 
-    << std::endl;
+  std::println("Volume of smallest box: {}",
+    find_optimum(first_boxes.begin(), first_boxes.end(), &Box::isSmallerThan)->volume() 
+  );
 
   // Use a member-function pointer for the new projection functionality
-  std::cout << "Volume of largest box: " 
-    << find_optimum(first_boxes.begin(), first_boxes.end(), std::greater<>{}, &Box::volume)->volume()
-    << std::endl;
+  std::println("Volume of largest box: {}",
+    find_optimum(first_boxes.begin(), first_boxes.end(), std::greater<>{}, &Box::volume)->volume()
+  );
 }

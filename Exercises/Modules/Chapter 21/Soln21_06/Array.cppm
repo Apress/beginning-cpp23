@@ -1,9 +1,6 @@
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <iostream>;
+import std;
 
 /*
 // Original template based on type traits and some mild template meta-programming
@@ -35,21 +32,21 @@ class Array
 {
 public:
   Array();                                  // Default constructor
-  explicit Array(size_t size);              // Constructor
+  explicit Array(std::size_t size);         // Constructor
   ~Array();                                 // Destructor
   Array(const Array& array);                // Copy constructor
   Array(Array&& array) noexcept;            // Move constructor
   Array& operator=(const Array& rhs);       // Copy assignment operator
   Array& operator=(Array&& rhs) noexcept;   // Move assignment operator
   void swap(Array& other) noexcept;         // Swap member function
-  T& operator[](size_t index);              // Subscript operator
-  const T& operator[](size_t index) const;  // Subscript operator-const arrays
-  size_t getSize() const { return m_size; } // Accessor for m_size
-  void push_back(T element);                // Copy or move element to the back of the array
+  T& operator[](std::size_t index);         // Subscript operator
+  const T& operator[](std::size_t index) const; // Subscript operator-const arrays
+  std::size_t getSize() const noexcept { return m_size; }   // Accessor for m_size
+  void push_back(T element);      // Copy or move element to the back of the array
 
 private:
-  T* m_elements;    // Array of type T
-  size_t m_size;    // Number of array elements
+  T* m_elements;       // Array of type T
+  std::size_t m_size;  // Number of array elements
 };
 
 // Forwarding default constructor template
@@ -59,15 +56,15 @@ Array<T>::Array() : Array{0}
 
 // Constructor template
 template <typename T>
-Array<T>::Array(size_t size) : m_elements {new T[size] {}}, m_size {size}
+Array<T>::Array(std::size_t size) : m_elements {new T[size] {}}, m_size {size}
 {}
 
 // Copy constructor template
 template <typename T>
 Array<T>::Array(const Array& array) : Array{array.m_size}
 {
-  std::cout << "Array of " << m_size << " elements copied" << std::endl;
-  for (size_t i {}; i < m_size; ++i)
+  std::println("Array of {} elements copied", m_size);
+  for (std::size_t i {}; i < m_size; ++i)
     m_elements[i] = array.m_elements[i];
 }
 
@@ -76,7 +73,7 @@ template <typename T>
 Array<T>::Array(Array&& moved) noexcept
   : m_size{moved.m_size}, m_elements{moved.m_elements}
 {
-  std::cout << "Array of " << m_size << " elements moved" << std::endl;
+  std::println("Array of {} elements moved", m_size);
   moved.m_elements = nullptr; // Otherwise destructor of moved would delete[] m_elements!
 }
 
@@ -86,7 +83,7 @@ Array<T>::~Array() { delete[] m_elements; }
 
 // const subscript operator template
 template <typename T>
-const T& Array<T>::operator[](size_t index) const
+const T& Array<T>::operator[](std::size_t index) const
 {
   if (index >= m_size)
     throw std::out_of_range {"Index too large: " + std::to_string(index)};
@@ -96,7 +93,7 @@ const T& Array<T>::operator[](size_t index) const
 // Non-const subscript operator template in terms of const one
 // Uses the 'const-and-back-again' idiom
 template <typename T>
-T& Array<T>::operator[](size_t index)
+T& Array<T>::operator[](std::size_t index)
 {
   return const_cast<T&>(std::as_const(*this)[index]);
 }
@@ -115,7 +112,7 @@ Array<T>& Array<T>::operator=(const Array& rhs)
 template <typename T>
 Array<T>& Array<T>::operator=(Array&& rhs) noexcept
 {
-  std::cout << "Array of " << rhs.m_size << " elements moved (assignment)" << std::endl;
+  std::println("Array of {} elements moved (assignment)", rhs.m_size);
 
   if (&rhs != this)            // prevent trouble with self-assignments
   {
@@ -149,7 +146,7 @@ template <typename T>
 void Array<T>::push_back(T element)  // Pass by value (copy of lvalue, or moved rvalue!)
 {
   Array<T> newArray{m_size + 1};     // Allocate a larger Array<>
-  for (size_t i {}; i < m_size; ++i) // Move existing elements (copy if not noexcept)...
+  for (std::size_t i {}; i < m_size; ++i) // Move existing elements (copy if not noexcept)...
     newArray[i] = move_assign_if_noexcept(m_elements[i]);
 
   newArray[m_size] = move_assign_if_noexcept(element);  // Move (or copy) the new one...
