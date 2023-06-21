@@ -23,10 +23,4 @@ int main()
 
   std::array values_even{ 1., 2., 3., 4., 5., 6. };
   std::println("{}", medianOfSorted(std::span{ values_even }));
-
-  std::string strings_odd[] { "1", "2", "3", "4", "5" };
-  std::println("{}", medianOfSorted(std::span{ strings_odd }));
-
-  std::string strings_even[] { "1", "2", "3", "4", "5", "6" };
-  std::println("{}", medianOfSorted(std::span{ strings_even }));
 }

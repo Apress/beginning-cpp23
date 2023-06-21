@@ -1,4 +1,4 @@
-// Exercise 21-4  Generalising medianOfSorted()
+// Exercise 21-5  Generalizing medianOfSorted()
 import std;
 
 /*

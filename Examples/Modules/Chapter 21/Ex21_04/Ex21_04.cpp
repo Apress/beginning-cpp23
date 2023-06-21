@@ -1,4 +1,4 @@
-// Constraint based specialization
+// Constraint-based overloading
 import std;
 
 // Precondition: incrementing first eventually leads to last

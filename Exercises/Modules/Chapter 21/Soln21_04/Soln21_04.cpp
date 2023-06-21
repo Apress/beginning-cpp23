@@ -1,4 +1,4 @@
-// Exercise 21-4  Recreating std::advance() using constraint-based specialisation
+// Exercise 21-4  Recreating std::advance() using constraint-based overloading
 import std;
 
 

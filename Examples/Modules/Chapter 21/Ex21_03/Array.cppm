@@ -6,8 +6,7 @@ export template <typename T> requires std::default_initializable<T> && std::dest
 class Array
 {
 public:
-  Array();                                  
-  explicit Array(std::size_t size);              
+  explicit Array(std::size_t size = 0);              
   ~Array();                                 
   Array(const Array& array) requires std::copyable<T>;
   Array& operator=(const Array& rhs) requires std::copyable<T>;
@@ -24,12 +23,6 @@ private:
   std::size_t m_size; // Number of array elements
 };
 
-// Forwarding default constructor template
-template <typename T> requires std::default_initializable<T> && std::destructible<T>
-Array<T>::Array() 
-  : Array{0}
-{}
-
 // Constructor template
 template <typename T> requires std::default_initializable<T> && std::destructible<T>
 Array<T>::Array(std::size_t size) 
@@ -41,8 +34,7 @@ template <typename T> requires std::default_initializable<T> && std::destructibl
 Array<T>::Array(const Array& array) requires std::copyable<T> 
   : Array{array.m_size}
 {
-  for (std::size_t i {}; i < m_size; ++i)
-    m_elements[i] = array.m_elements[i];
+  std::ranges::copy_n(array.m_elements, m_size, m_elements);
 }
 
 // Move constructor template

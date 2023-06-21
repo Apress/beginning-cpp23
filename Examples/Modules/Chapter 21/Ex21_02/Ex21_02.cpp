@@ -4,7 +4,7 @@ import std;
 template <typename Iter>
 concept BidirectionalIterator = true; // Feel free to further work out all requirements...
 
-template<class Iter>
+template <typename Iter>
 concept RandomAccessIterator = BidirectionalIterator<Iter>
   && requires(const Iter i, const Iter j, Iter k, const int n)
      {
