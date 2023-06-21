@@ -1,14 +1,15 @@
-// Sizing a pond for happy fish
+// Expressions with mixed variables types
+// (The difference with the original example is the type of fish_count and inches_per_foot)
 import std;
 
 int main()
 {
   // 2 square feet pond surface for every 6 inches of fish
-  const double fish_factor { 2.0/0.5 };  // Area per unit length of fish
-  const double inches_per_foot { 12.0 };
+  const double fish_factor { 2.0/0.5 };       // Area per unit length of fish
+  const unsigned int inches_per_foot { 12 };  // <-- Used to be of type double
 
-  double fish_count {};            // Number of fish
-  double fish_length {};           // Average length of fish
+  unsigned int fish_count {};  // Number of fish <-- Used to be of type double
+  double fish_length {};       // Average length of fish
 
   std::print("Enter the number of fish you want to keep: ");
   std::cin >> fish_count;
@@ -28,6 +29,6 @@ int main()
   const double pond_diameter_inch{
       std::round((pond_diameter - pond_diameter_feet) * inches_per_foot) };
 
-  std::println("Pond diameter required for {} fish is {} feet {} inches.", 
+  std::println("Pond diameter required for {} fish is {} feet {} inches.",
                fish_count, pond_diameter_feet, pond_diameter_inch);
 }

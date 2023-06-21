@@ -1,26 +1,12 @@
-// Finding maximum and minimum values for data types
-import <iostream>;
-import <limits>;
-import <format>;
+// The width, alignment, fill, and 0 formatting options of std::println() 
+import std;
 
 int main()
 {
-  std::cout
-    << std::format("The range for type short is from {} to {}\n",
-      std::numeric_limits<short>::min(), std::numeric_limits<short>::max())
-    << std::format("The range for type unsigned int is from {} to {}\n",
-      std::numeric_limits<unsigned int>::min(),
-      std::numeric_limits<unsigned int>::max())
-    << std::format("The range for type long is from {} to {}\n",
-      std::numeric_limits<long>::min(), std::numeric_limits<long>::max())
-    << std::format("The positive range for type float is from {} to {}\n",
-      std::numeric_limits<float>::min(), std::numeric_limits<float>::max())
-    << std::format("The full range for type float is from {} to {}\n",
-      std::numeric_limits<float>::lowest(), std::numeric_limits<float>::max())
-    << std::format("The positive range for type double is from {} to {}\n",
-      std::numeric_limits<double>::min(),
-      std::numeric_limits<double>::max())
-    << std::format("The positive range for type long double is from {} to {}\n",
-      std::numeric_limits<long double>::min(),
-      std::numeric_limits<long double>::max());
+  // Default alignment: right for numbers, left otherwise
+  std::println("{:7}|{:7}|{:7}|{:7}", 1, -.2, "str", 'c');
+  // Left and right alignment + custom fill character
+  std::println("{:*<7}|{:*<7}|{:*>7}|{:*>7}", 1, -.2, "str", 'c');
+  // 0 formatting option for numbers + centered alignment
+  std::println("{:07}|{:07}|{:^7}|{:^7}", 1, -.2, "str", 'c');
 }

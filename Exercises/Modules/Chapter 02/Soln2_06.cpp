@@ -1,19 +1,24 @@
-// Exercise 2-6. Format a table.
+// Output your BMI with one decimal after the decimal point.
 
-import <iostream>;
-import <numbers>;
-import <format>;
+import std;
 
 int main()
 {
-  // Define the format strings for the various rows of the table first
-  const auto format_header     { "{:20} {:35} {}\n" };
-  const auto format_precision5 { "{:20} {:35} {:.5f}...\n" };
-  const auto format_precision3 { "{:20} {:35} {:.3f}...\n" };
+  const double lbs_per_kg{ 2.2 };
+  const double inches_per_foot{ 12.0 };
+  const double meters_per_foot{ 0.3048 };
 
-  std::cout << std::format(format_header,     "Constant",            "Description",                       "Approximation");
-  std::cout << std::format(format_precision5, "std::numbers::e",     "The base of the natural logarithm", std::numbers::e);
-  std::cout << std::format(format_precision5, "std::numbers::pi",    "pi",                                std::numbers::pi);
-  std::cout << std::format(format_precision5, "std::numbers::sqrt2", "Square root of 2",                  std::numbers::sqrt2);
-  std::cout << std::format(format_precision3, "std::numbers::phi",   "The golden ration constant",        std::numbers::phi);
+  double w_lbs{};
+  unsigned int h_feet{};
+  unsigned int h_inches{};
+
+  std::print("Enter your weight in pounds: ");
+  std::cin >> w_lbs;
+  std::print("Enter you height in feet and inches: ");
+  std::cin >> h_feet >> h_inches;
+
+  const double w_kg{ w_lbs / lbs_per_kg };
+  const double h_meters{ meters_per_foot * h_feet + h_inches / inches_per_foot };
+  const double bmi{ w_kg / (h_meters * h_meters) };
+  std::println("Your BMI is {:.1f}", bmi);
 }

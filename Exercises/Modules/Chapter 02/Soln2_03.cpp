@@ -1,38 +1,18 @@
-// Exercise 2-3. Calculating the height of a tree
-import <iostream>; 
-import <numbers>;
+// Compute the area of a circle
+// This solution tunes the precision used when printing the result
+// (we opted for 2 decimals after the decimal points).
 
-#include <cmath>
+import std;
 
 int main()
 {
-  const double inches_per_foot {12.0};
-  const double pi_degrees {180.0};
-  double feet {};
-  double inches {};
+  std::println("This program will compute the area of a circle.");
 
-  std::cout << "Enter the distance from the tree in feet and inches: ";
-  std::cin >> feet >> inches;
-  const double distance {feet + inches / inches_per_foot};
-
-  double angle {};
-  std::cout << "Enter the angle of the top of the tree in degrees: ";
-  std::cin >> angle;
+  double radius {};
+  std::print("Please enter the radius of the circle: ");
+  std::cin >> radius;
   
-  // First convert angle to radians 
-  // (the trigoniometric functions of <cmath> operate with radians)
-  angle *= std::numbers::pi / pi_degrees;     
-                                              
-  double eye_height {};
-  std::cout << "Enter your eye height from the ground in inches: ";
-  std::cin >> eye_height;
-  eye_height /= inches_per_foot;                                  // Convert to feet
-  
-  const double height {eye_height + distance * std::tan(angle)};  // Tree height in feet
-  const unsigned height_feet {static_cast<unsigned>(height)};
-  const unsigned height_inches {static_cast<unsigned>(std::round(inches_per_foot * (height - height_feet)))};
+  const auto area{ std::numbers::pi * radius * radius };
 
-  std::cout << "\nThe height of the tree is "
-            << height_feet << " feet "
-            << height_inches << " inches.\n" << std::endl;
+  std::println("The area of the circle is {:.2f} square units.", area);
 }
