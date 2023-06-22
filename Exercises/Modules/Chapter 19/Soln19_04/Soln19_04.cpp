@@ -1,33 +1,13 @@
-// Exercise 19-4. 
 // Collecting values using higher-order functions, functors, and lambda expressions.
 
 /*
 	There are several ways to check for palindromes. 
 	One of the more elegant solutions probably though is the recursive one shown here.
 	While recursive lambdas are possible, more or less, recursion is far easier with a regular function.
-
-	Note that to collect upper case letters, there's no need for a lambda either.
-	Just use a pointer to the std::isupper() function as the callback!
 */
 
-import <iostream>;
-import <format>;
-import <functional>;
-import <string>;
-import <vector>;
-
+import std;
 import collect;
-
-#include <cctype>;         // For std::isupper()
-
-// Output vector elements
-template<typename T>
-void list(const std::vector<T>& values, size_t width = 5)
-{
-  for (auto value : values)
-    std::cout << std::format("{:{}}", value, width);
-  std::cout << std::endl;
-}
 
 bool is_palindrome(std::string_view s)
 {
@@ -38,29 +18,29 @@ bool is_palindrome(std::string_view s)
 int main()
 {
   const std::vector numbers{ -2, 4, -5, 6, 10, -40, 56, 4, 67, 45 };
-  std::cout << "\nAll numbers:\n";
-  list(numbers);
+  std::println("All numbers: {:n}", numbers);
   
   int threshold {};
-  std::cout << "\nPlease enter a threshold: ";
+  std::print("Please enter a threshold: ");
   std::cin >> threshold;
   
   const auto greater{ collect(numbers, [threshold](int i) { return i > threshold; }) };
-  std::cout << "Numbers greater than " << threshold << ":\n";
-  list(greater);
+  std::println("Numbers greater than {}: {:n}", threshold, greater);
 
   const std::vector letters{ 'C', 'd', 'a', 'z', 't', 'S', 'p', 'm', 'D', 'f' };
-  std::cout << "\nAll characters:\n";
-  list(letters, 2);
-  //const auto capitals{ collect(letters, std::isupper) };	// <-- This should but does not work with all compilers
-  const auto capitals{ collect(letters, isupper) };
-  std::cout << "\nCapital letters:\n";
-  list(capitals, 2);
+  std::println("\nAll characters: {:n}", letters);
+
+  // Note: &std::isupper does not work because there are multiple overloads
+  // (one in <cctype> and one in <locale>), making the address-of operator ambiguous.
+  // You can take the address of an overloaded function if you want by explicitly specifying the type
+  // (in this case using an expression like static_cast<int(*)(int)>(&std::isupper)),
+  // but a lambda expression is simply far easier 
+  // (and, on top of that, also converts to a function pointer if need be, as you know!).
+  const auto capitals{ collect(letters,[](char c) { return std::isupper(c); }) };
+  std::println("Capital letters: {:n}", capitals);
 
   const std::vector<std::string> strings{ "palindrome", "racecar", "rubarb", "noon", "kayak", "ananas", "madam", "backwards" };
-  std::cout << "\nAll strings:\n";
-  list(strings, 12);
+  std::println("\nAll strings: {:n}", strings);
   const auto palindromes{ collect(strings, is_palindrome) };
-  std::cout << "\nPalindromes:\n";
-  list(palindromes, 10);
+  std::println("Palindromes: {:n}", palindromes);
 }

@@ -1,8 +1,7 @@
 // Finder.cppm - A small class to illustrate the use of lambda expression in member functions
 export module finder;
 
-import <vector>;
-import <optional>;
+import std;
 
 export class Finder
 {

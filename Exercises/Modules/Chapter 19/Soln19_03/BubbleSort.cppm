@@ -1,7 +1,6 @@
 export module sort.bubble;
 
-import <utility>;    // for std::swap()
-import <vector>;
+import std;
 
 // The sorting algorithm exported by this module
 export template<typename T, typename Compare>
@@ -9,7 +8,7 @@ void bubbleSort(std::vector<T>& data, Compare compare);
 
 // Utility to swap two vector elements
 template<typename T>
-void swap(std::vector<T>& data, size_t first, size_t second)
+void swap(std::vector<T>& data, std::size_t first, std::size_t second)
 {
   std::swap(data[first], data[second]);
 }
@@ -23,7 +22,7 @@ void bubbleSort(std::vector<T>& data, Compare compare)
   while (true)
   {
     bool swapped{ false };    // Becomes true when not all values are in order
-    for (size_t i {}; i < data.size() - 1; ++i)
+    for (std::size_t i {}; i < data.size() - 1; ++i)
     {
       if (compare(data[i+1], data[i]))  // Out of order so swap them
       {

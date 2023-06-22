@@ -1,12 +1,11 @@
 export module sort;
 
-import <utility>;    // for std::swap()
-import <vector>;
+import std;
 
 // The primary, exported sort() template with two function parameters calls 
 // this internal sort() template with four parameters
 template<typename T, typename Compare>
-void sort(std::vector<T>& data, Compare compare, size_t start, size_t end);
+void sort(std::vector<T>& data, Compare compare, std::size_t start, std::size_t end);
 
 // Sort all vector elements
 export template<typename T, typename Compare>
@@ -18,14 +17,14 @@ void sort(std::vector<T>& data, Compare compare)
 
 // Swap two vector elements
 template<typename T>
-void swap(std::vector<T>& data, size_t first, size_t second)
+void swap(std::vector<T>& data, std::size_t first, std::size_t second)
 {
   std::swap(data[first], data[second]);
 }
 
 // Sort a range of vector elements
 template<typename T, typename Compare>
-void sort(std::vector<T>& data, Compare compare, size_t start, size_t end)
+void sort(std::vector<T>& data, Compare compare, std::size_t start, std::size_t end)
 {
   // Start index must be less than end index for 2 or more elements
   if (!(start < end))
@@ -35,8 +34,8 @@ void sort(std::vector<T>& data, Compare compare, size_t start, size_t end)
   swap(data, start, (start + end) / 2);       // Swap middle value with start
  
   // Check data against chosen value
-  size_t current{ start };                    // The index of the last element less than the chosen element (after partitioning)
-  for (size_t i{ start + 1 }; i <= end; ++i)
+  std::size_t current{ start };               // The index of the last element less than the chosen element (after partitioning)
+  for (std::size_t i{ start + 1 }; i <= end; ++i)
   {
     if (compare(data[i], data[start]))        // Is value less than chosen word?
       swap(data, ++current, i);               // Yes, so swap to the left
