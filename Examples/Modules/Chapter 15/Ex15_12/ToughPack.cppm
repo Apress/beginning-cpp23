@@ -9,5 +9,5 @@ public:
   using Box::Box;
 
   // Function to calculate volume of a ToughPack allowing 13% for packing
-  double volume() const override { return 0.87 * getLength() * getWidth() * getHeight(); }
+  double volume() const override { return 0.87 * Box::volume(); }
 };

@@ -10,7 +10,7 @@ public:
   {
     std::println("ToughPack constructor called for a Box of volume {}", volume());
   }
-  virtual ~ToughPack()
+  ~ToughPack() override
   {
     std::println("ToughPack destructor called for a Box of volume {}", volume());
   }

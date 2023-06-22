@@ -21,7 +21,7 @@ int main()
 
   std::println("Type of carton is {}", typeid(carton).name());
   std::println("Type of boxReference is {}", typeid(boxReference).name());
-  std::println("These are{} equal", typeid(carton) == typeid(boxReference) ? "" : "not");
+  std::println("These are{} equal", typeid(carton) == typeid(boxReference) ? "" : " not");
 
   // Part 3: typeid() on polymorphic pointers
   Box* boxPointer = &carton;
