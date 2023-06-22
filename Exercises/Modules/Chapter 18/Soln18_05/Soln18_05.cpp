@@ -1,8 +1,7 @@
 // Exercise 18-5
 // Only difference is the use of std::exchange() in the RAII classes
 
-import <iostream>;
-import <vector>;
+import std;
 
 #include "DB.h"
 import db.exception;
@@ -11,7 +10,6 @@ import customer;
 
 void verifyCustomerFields(DB_QUERY_RESULT* result);           // Sanity check on the number of fields returned by our query
 std::vector<Customer> readCustomers(DB_QUERY_RESULT* result); // Convert the DB result to a series of C++ objects
-void print(std::ostream& stream, const Customer& customer);   // Print a given customer to a given output stream
 
 int main()
 {
@@ -31,20 +29,20 @@ int main()
 	
     std::vector<Customer> customers{ readCustomers(moved_result) };
   
-  if (customers.empty())
-  {
-    std::cerr << "No customers found?" << std::endl;
-    return 2;
-  }
-    
-  for (auto& customer : customers)
-  {
-     print(std::cout, customer);
-  }
+    if (customers.empty())
+    {
+      std::println("No customers found?");
+      return 2;
+    }
+      
+    for (auto& customer : customers)
+    {
+       std::println("{}", to_string(customer));
+    }
   }
   catch (std::exception& caught)
   {
-    std::cerr << caught.what() << std::endl;
+    std::println("{}", caught.what());
     return 1;
   }
 }
@@ -85,15 +83,5 @@ void verifyCustomerFields(DB_QUERY_RESULT* result)
   if (numFields != 5)
   {
     throw DatabaseException{"Unexpected number of fields: " + std::to_string(numFields)};
-  }
-}
-
-void print(std::ostream& stream, const Customer& customer)
-{
-  stream << customer.toString() << std::endl;
-  if (std::cout.fail())
-  {
-    std::cout.clear();
-    throw std::runtime_error("Failed to output customer");
   }
 }

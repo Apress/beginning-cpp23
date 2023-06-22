@@ -1,16 +1,14 @@
 // A mocked database
 
 #include "DB.h"
-#include <cstring>    // For std::strcmp()
-import <vector>;
-import <memory>;
+import std;
 
 namespace
 {
   struct QueryResult
   {
     std::vector<std::vector<const char*>> data;
-    size_t index {};
+    std::size_t index {};
   };
 
   class Database
@@ -18,7 +16,7 @@ namespace
   public:
     Database() = default;
     
-	  bool hasConnection() const { return m_connected; }
+    bool hasConnection() const { return m_connected; }
     void connect() { m_connected = true; }
     void disconnect() { m_connected = false; }
     
