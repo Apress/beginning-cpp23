@@ -14,8 +14,8 @@ int main()
   std::println("Maximum element: {}", *findOptimum(numbers, greater<int>));
 
   std::vector<std::string> names{ "Moe", "Larry", "Shemp", "Curly", "Joe", "Curly Joe" };
-  std::println("Alphabetically last: {}", *findOptimum(names, greater<std::string>));
-  std::println("Longest name: {}",        *findOptimum(names, longer));
+  std::println("Alphabetically last name: {}", *findOptimum(names, greater<std::string>));
+  std::println("Longest name: {}", *findOptimum(names, longer));
 }
 
 bool less(const int& one, const int& other) { return one < other; }

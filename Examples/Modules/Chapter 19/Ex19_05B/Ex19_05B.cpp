@@ -9,8 +9,8 @@ int main()
   std::println("Maximum element: {}", *findOptimum(numbers, std::greater<>{}));
 
   // Define two generic comparison functions:
-  auto alpha = [](const auto& x, const auto& y) { return x > y; };
-  auto longer = [](const auto& x, const auto& y) { return x.length() > y.length(); };
+  auto alpha{ [](const auto& x, const auto& y) { return x > y; } };
+  auto longer{ [](const auto& x, const auto& y) { return x.length() > y.length(); } };
 
   // Both of course work for strings:
   std::vector<std::string> names{ "Moe", "Larry", "Shemp", "Curly", "Joe", "Curly Joe" };
