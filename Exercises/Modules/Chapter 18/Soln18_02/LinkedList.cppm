@@ -23,7 +23,7 @@ Even here, you could consider simply defining these two pass-by-value members:
 
 And then apply the same simplification to the constructor of the nested Node class.
 The only downside then is that this is not optimal for objects without support for move semantics, 
-bit given that move semantics has been around for almost a decade should be increasingly unlikely.
+but given that move semantics has been around for almost a decade should be increasingly unlikely.
 We invite you to give it a try, and simplify the code along these lines.
 */
 
