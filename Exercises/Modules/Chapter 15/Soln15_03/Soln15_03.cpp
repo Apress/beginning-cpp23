@@ -1,10 +1,6 @@
 // Exercise 15-3 Exercising Zoo and Animal classes
 import zoo;
-import <random>;     // For random number generation
-import <functional>; // For std::bind()
-import <iostream>;
-import <array>;
-import <string_view>;
+import std;
 
 // Creates a preudo-random number generator (PRNG) that generates unsigned integers 
 // in a closed interval [min, max].
@@ -51,7 +47,7 @@ int main()
 
   std::vector<AnimalPtr> animals;   // Stores smart pointers to animals
   size_t numAnimals {};             // Number of animals to be created
-  std::cout << "How many animals in the zoo? ";
+  std::print("How many animals in the zoo? ");
   std::cin >> numAnimals;
   
   Zoo zoo;                  // Create an empty Zoo

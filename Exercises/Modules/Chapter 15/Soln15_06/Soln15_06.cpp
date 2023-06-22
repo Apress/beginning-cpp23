@@ -1,8 +1,7 @@
 // Exercise 15-6 Exercising Shape classes
 import shapes;
 import point;
-import <iostream>;
-import <vector>;
+import std;
 
 double calculateSumAreas(const std::vector<Shape*>& shapes);
 double calculateSumPerimeters(const std::vector<Shape*>& shapes);
@@ -23,7 +22,7 @@ int main()
   
   for (auto* shape : shapes) shape->scale(1.5);
   
-  std::cout << std::endl;
+  std::println("");
   printSums(shapes);
 }
 
@@ -49,6 +48,6 @@ double calculateSumPerimeters(const std::vector<Shape*>& shapes)
 
 void printSums(const std::vector<Shape*>& shapes)
 {
-  std::cout << "Sum of areas: " << calculateSumAreas(shapes) << std::endl;
-  std::cout << "Sum of perimeters: " << calculateSumPerimeters(shapes) << std::endl;
+  std::println("Sum of areas: {:.2f}", calculateSumAreas(shapes));
+  std::println("Sum of perimeters: {:.2f}", calculateSumPerimeters(shapes));
 }

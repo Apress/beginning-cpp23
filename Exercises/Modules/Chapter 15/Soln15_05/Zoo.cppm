@@ -2,8 +2,7 @@
 export module zoo;
 
 import animals;
-import <vector>;
-import <memory>;
+import std;
 
 export using AnimalPtr = std::shared_ptr<Animal>;         // Define a type alias for convenience
 export using SheepPtr = std::shared_ptr<Sheep>;
