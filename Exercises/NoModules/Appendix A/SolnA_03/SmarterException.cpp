@@ -6,12 +6,6 @@ SmarterException::SmarterException(const std::string& message, std::source_locat
 {
 }
 
-void SmarterException::throwFromHere(std::source_location location)
-{
-  m_location = std::move(location);
-  throw *this;
-}
-
 const std::source_location& SmarterException::where() const
 {
   return m_location;
