@@ -19,14 +19,14 @@ int main()
   std::println("Enter a string terminated by *:");
   getline(std::cin, text, '*');
 
-  Words words = extractWords(text);
+  Words words{ extractWords(text) };
   if (words.empty())
   {
     std::println("No words in text.");
     return 0;
   }
 
-  WordCounts wordCounts = countWords(words);
+  WordCounts wordCounts{ countWords(words) };
   showWordCounts(wordCounts);
 }
 

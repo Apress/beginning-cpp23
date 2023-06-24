@@ -3,7 +3,7 @@ import std;
 
 int main()
 {
-  std::vector<char> letters{ 'a', 'b', 'c', 'd', 'e' };
+  std::vector letters{ 'a', 'b', 'c', 'd', 'e' };
   auto my_iter{ letters.begin() };
 
   std::println("{}", *my_iter);       // a

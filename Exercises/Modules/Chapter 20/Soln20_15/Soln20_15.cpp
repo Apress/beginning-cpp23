@@ -6,5 +6,5 @@ import std;
 int main()
 {
   Box box{ 1, 2, 3 };
-  std::cout << std::format("My new box, {:.2}, is fabulous!", box);
+  std::println("My new box, {:.2}, is fabulous!", box);
 }

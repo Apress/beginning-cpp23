@@ -21,7 +21,7 @@ int main()
   print_result(result);
 
   // Find a box with a volume larger than that of box_to_find
-  const auto required_volume = box_to_find.volume();
+  const auto required_volume{ box_to_find.volume() };
   result = std::find_if(begin(boxes), end(boxes),
               [required_volume](const Box& box) { return box > required_volume; });
   print_result(result);

@@ -13,16 +13,16 @@ public:
     if (std::ranges::empty(context))  // May happen for empty {} format specifiers
       return context.begin();
 
-    auto closing_brace = std::ranges::find(context, '}');
+    const auto closing_brace{ std::ranges::find(context, '}') };
 
     if (closing_brace == context.end()) // If no '}' found, fail
       throw std::format_error{ "missing closing braces, }" };
 
     m_no_box = (closing_brace != context.begin() && *(closing_brace - 1) == 'n');
 
-    std::string double_format(context.begin(), closing_brace);
+    std::string double_format{ context.begin(), closing_brace };
     if (m_no_box)
-      double_format.erase(double_format.end() - 1); // Take out the 'n'
+      double_format.pop_back(); // Take out the 'n'
 
     std::format_parse_context double_formatter_context{ double_format };
     m_double_formatter.parse(double_formatter_context);
