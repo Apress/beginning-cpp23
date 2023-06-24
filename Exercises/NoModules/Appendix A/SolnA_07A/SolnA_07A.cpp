@@ -1,5 +1,8 @@
 // Exercise A-7   External variables (based on Exercise A-5)
-#include <iostream>
+
+// import std;  /* This does not work with Visual Studio 17 preview: using #include <print> instead... */
+#include <print>
+
 #include "PrintThis.h"
 #include "PrintThat.h"
 
@@ -11,5 +14,5 @@ int main()
   print_that("far more than our abilities.");
                                           // -- Albus Dumbledore
 
-  std::cout << "\n(print() was called " << count << " times)";
+  std::println("\n(print() was called {} times)", count);
 }

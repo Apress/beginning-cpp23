@@ -1,5 +1,4 @@
 // Exercise A-5   External functions and header files...
-#include <iostream>
 #include "PrintThis.h"
 #include "PrintThat.h"
 

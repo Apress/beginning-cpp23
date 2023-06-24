@@ -1,9 +1,9 @@
 // Inline class member definitions (see Box.h)
-#include <iostream>
+import std;
 #include "Box.h"
 
 int main()
 {
   Box boxy{ 1, 2, 3 };
-  std::cout << boxy.volume() << std::endl;
+  std::println("{}", boxy.volume());
 }

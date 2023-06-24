@@ -1,5 +1,4 @@
 // Exercise A-6   Inline function definitions
-#include <iostream>
 #include "PrintThis.h"
 #include "PrintThat.h"
 

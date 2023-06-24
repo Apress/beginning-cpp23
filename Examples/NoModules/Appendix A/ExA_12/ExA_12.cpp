@@ -1,10 +1,10 @@
 // Using inline definitions to prevent ODR violations when
 // including a header in multiple translation units of the same program.
-#include <iostream>
+import std;
 #include "Hypot.h"
 #include "Pow4.h"
 
 int main()
 {
-  std::cout << math::hypot(3, 4) << '\t' << math::pow4(5) << std::endl;
+  std::println("{}\t{}", math::hypot(3, 4), math::pow4(5));
 }
