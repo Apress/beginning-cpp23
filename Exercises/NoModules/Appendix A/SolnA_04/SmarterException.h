@@ -1,5 +1,5 @@
-#ifndef SMART_EXCEPTION_H
-#define SMART_EXCEPTION_H
+#ifndef SMARTER_EXCEPTION_H
+#define SMARTER_EXCEPTION_H
 
 #include <stdexcept>
 #include <source_location>
@@ -13,28 +13,11 @@ public:
   {
   }
 
-  /* Throws the exception at this location
-   * For cases where the exception is not created at the same line where it is thrown:
-   *   SmartException exception{ "BOOM!", {} };
-   *   ... // more code
-   *   exception.throwFromHere();
-   * Note: in the example above, {} is optional 
-   * (it avoids calling std::source_location::current() during construction)
-   */
-  void throwFromHere(std::source_location location = std::source_location::current());
-
   const std::source_location& where() const;
 
 private:
   std::source_location m_location;
 };
-
-// Note: do not repeat the default argument value!
-inline void SmarterException::throwFromHere(std::source_location location)
-{
-  m_location = std::move(location);
-  throw *this;
-}
 
 inline const std::source_location& SmarterException::where() const
 {

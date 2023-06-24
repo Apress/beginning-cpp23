@@ -1,4 +1,4 @@
-// The power function called from ExA_06.cpp is defined in a different translation unit
+// The power function called from ExA_07.cpp is defined in a different translation unit
 double power(double x, int n)
 {
   if (n < 0) return 1.0 / power(x, -n); // Deal with negative exponents

@@ -9,9 +9,9 @@ public:
   Box(double length, double width, double height);
   
   // In-class member definitions are implicitly inline
-  double getLength() const { return m_length; };
-  double getWidth() const  { return m_width; };
-  double getHeight() const { return m_height; };
+  double getLength() const { return m_length; }
+  double getWidth() const  { return m_width; }
+  double getHeight() const { return m_height; }
   
   double volume() const;
 

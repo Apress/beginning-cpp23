@@ -1,6 +1,4 @@
 // import std;  /* This does not work with Visual Studio 17 preview: using #include <print> instead... */
-
-// import std;  /* This does not work with Visual Studio 17 preview: using #include <print> instead... */
 #include <print>
 
 // Define (before including ASSERT.h) to disable the assertion
