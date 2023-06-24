@@ -67,8 +67,8 @@ T& Array<T, startIndex>::operator[](int index)
 template <typename T, int startIndex>
 Array<T, startIndex>& Array<T, startIndex>::operator=(const Array& rhs)
 {
-  Array<T> copy{ rhs }; // Copy...       (could go wrong and throw an exception)
-  swap(copy);           // ... and swap! (noexcept)
+  auto copy{ rhs };  // Copy...       (could go wrong and throw an exception)
+  swap(copy);        // ... and swap! (noexcept)
   return *this;
 }
 

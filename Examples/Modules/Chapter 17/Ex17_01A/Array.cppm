@@ -1,7 +1,7 @@
 // This solution uses 
 //  1) the const-and-back-again idiom to avoid code duplication
 //     between the non-const and const overloads of the array subscript operators.
-//  2) the copy-and-swap idiom for a thread-safe copy assignment operator 
+//  2) the copy-and-swap idiom for an exception-safe copy assignment operator 
 export module array;
 
 import std;

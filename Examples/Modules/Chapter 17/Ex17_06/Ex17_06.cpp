@@ -18,7 +18,8 @@ class Derived : public Base<T>
 public:
   void derivedFun();
 
-  // Option 3: using declarations (remove to see error messages)
+protected:
+  // Option 3: using declarations
 // using Base<T>::baseFun;
 // using Base<T>::m_base_var;
 };

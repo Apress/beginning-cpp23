@@ -1,4 +1,4 @@
-// Same as Ex17_01B, but with a push_back() member and a default constructor
+// Same as Ex17_01A, but with a push_back() member and a default constructor
 export module array;
 
 import std;
@@ -8,7 +8,7 @@ class Array
 {
 public:
   Array();                             // Default constructor
-  Array(std::size_t size);             // Constructor
+  explicit Array(std::size_t size);    // Constructor
   ~Array();                            // Destructor
   Array(const Array& array);           // Copy constructor
   Array& operator=(const Array& rhs);  // Copy assignment operator

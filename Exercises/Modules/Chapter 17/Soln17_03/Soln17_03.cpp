@@ -40,16 +40,16 @@ int main()
     // Must ensure that indexes after the first are not duplicates
     do
     {
-      index = generate_random_index();    // Get a random index 0 to max_index-1
+      index = generate_random_index();    // Get a random index 0 to max_index
     }
-    while (numbers.element_exists_at(index));
+    while (numbers.elementExistsAt(index));
 
     numbers[index] = generate_random_value();  // Store value at new index position
   }
 
-  for (std::size_t i {}; i <= max_index; ++i)       // Create count entries in numbers array
+  for (std::size_t i {}; i <= max_index; ++i)  // Check which elements exist in the numbers array
   {
-    if (numbers.element_exists_at(i))
+    if (numbers.elementExistsAt(i))
       std::println("Element at index {} equals {}", i, numbers.at(i));
   }
 }

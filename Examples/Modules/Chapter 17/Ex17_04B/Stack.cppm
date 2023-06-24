@@ -35,7 +35,7 @@ private:
     Node(const T& item) : m_item{ item } {} // Create a node from an object
 
     T m_item;             // The object stored in this node
-    std::unique_ptr<Node> m_next{}; // Pointer to next node
+    std::unique_ptr<Node> m_next;   // Pointer to next node
   };
 
   std::unique_ptr<Node> m_head; // Points to the top of the stack
@@ -93,11 +93,9 @@ T Stack<T>::pop()
     throw std::logic_error {"Stack empty"}; 
 
   // See Chapter 18 for std::move()
-  auto next {std::move(m_head->m_next)}; // Save pointer to the next node
-  T item {m_head->m_item};     // Save the T value to return later
-  m_head.reset();              // Delete the current head
-  m_head = std::move(next);    // Make head point to the next node
-  return item;                 // Return the top object
+  T item{ std::move(m_head->m_item) };// Save the T value to return later
+  m_head = std::move(m_head->m_next); // Make head point to the next node (operator=() deletes the old head Node as a last step)
+  return item;                        // Return the top object
 }
 
 template <typename T>

@@ -5,7 +5,7 @@ import std;
 
 int main()
 {
-  auto pair = Pair<int, std::string>(122, "abc");
+  Pair<int, std::string>{ 122, "abc" };
   pair.setFirst(pair.getFirst() + 1);
   std::println("pair equals ({}, {})", pair.getFirst(), pair.getSecond());
 

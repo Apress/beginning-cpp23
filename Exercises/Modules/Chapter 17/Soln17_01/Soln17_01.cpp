@@ -1,5 +1,5 @@
 // Adding a push_back() member function and a default constructor to the Array<> 
-// class template. Using copy-and-swap for a memory-safe push_back().
+// class template. Using copy-and-swap for a exception-safe push_back().
 import array;
 import std;
 

@@ -92,6 +92,8 @@ LinkedList<T>::LinkedList(const LinkedList& list)
 }
 
 // Assignment operator template (uses copy-and-swap idiom)
+// (Note: slightly different, more compact variant as used for Array<> earlier,
+// just to show you the possibility)
 template<typename T>
 LinkedList<T>& LinkedList<T>::operator=(LinkedList copy)
 {

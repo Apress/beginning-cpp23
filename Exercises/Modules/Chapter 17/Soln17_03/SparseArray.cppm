@@ -12,7 +12,7 @@ public:
   T& operator[](std::size_t index);     // Subscript operator (creates default-constructed value if no value exists for the given index)
   T& at(std::size_t index);             // Access function (throws std::out_of_range if no value exists for the given index)
   const T& at(std::size_t index) const; // const overload of at()
-  bool element_exists_at(std::size_t index) const;  // Return true iff an element exists at the given index
+  bool elementExistsAt(std::size_t index) const;  // Return true iff an element exists at the given index
 
 private:
   T* find(std::size_t index);           // Helper function (returns nullptr if no value exists for the given index)
@@ -56,7 +56,7 @@ T& SparseArray<T>::at(std::size_t index)
 }
 
 template<typename T>
-bool SparseArray<T>::element_exists_at(std::size_t index) const
+bool SparseArray<T>::elementExistsAt(std::size_t index) const
 {
   return find(index) != nullptr;
 }

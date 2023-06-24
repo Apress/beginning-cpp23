@@ -1,3 +1,4 @@
+// Using a stack defined by a class template with a nested class
 import stack;
 import std;
 

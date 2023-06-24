@@ -1,4 +1,4 @@
-// Using a stack defined by nested class templates
+// Using a stack defined by a class template with a nested class
 // (with improvement suggested in the "A Better Stack" section: see Stack<> source)
 import stack;
 import std;

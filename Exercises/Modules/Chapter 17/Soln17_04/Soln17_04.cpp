@@ -1,4 +1,4 @@
-// Exercise 17-5 Exercising the LinkedList template class
+// Exercising the LinkedList template class
 // This program reverses the text that is entered
 import linked_list;
 import std;
