@@ -1,25 +1,24 @@
-// Using a stack defined by nested class templates
+// Using a stack defined by a class template with a nested class
 // (using std::unique_ptr<>: see Stack<> source)
 // Note: this is a bonus example that is only hinted at in the text (and not explicitly named). 
 // It requires the use of std::move(), seen only in Chapter 18.
 import stack;
-import <iostream>;
-import <string>;
+import std;
 
 int main()
 {
-  std::string words[]{ "The", "quick", "brown", "fox", "jumps" };
-  Stack<std::string> wordStack;              // A stack of strings
+  std::string words[] {"The", "quick", "brown", "fox", "jumps"};
+  Stack<std::string> wordStack;            // A stack of strings
 
   for (const auto& word : words)
     wordStack.push(word);
 
-  Stack<std::string> newStack{ wordStack };  // Create a copy of the stack
+  Stack<std::string> newStack{wordStack};  // Create a copy of the stack
 
   // Display the words in reverse order
   while (!newStack.isEmpty())
-    std::cout << newStack.pop() << ' ';
-  std::cout << std::endl;
+    std::print("{} ", newStack.pop());
+  std::println("");
 
   // Reverse wordStack onto newStack
   while (!wordStack.isEmpty())
@@ -27,21 +26,20 @@ int main()
 
   // Display the words in original order
   while (!newStack.isEmpty())
-    std::cout << newStack.pop() << ' ';
-  std::cout << std::endl;
+    std::print("{} ", newStack.pop());
+  std::println("");
 
-  std::cout << std::endl << "Enter a line of text:" << std::endl;
+  std::println("\nEnter a line of text:");
   std::string text;
-  std::getline(std::cin, text);    // Read a line into the string object
+  std::getline(std::cin, text); // Read a line into the string object
 
-  Stack<const char> characters;    // A stack for characters
+  Stack<char> characters;       // A stack for characters
 
-  for (size_t i{}; i < text.length(); ++i)
-    characters.push(text[i]);      // Push the string characters onto the stack
+  for (std::size_t i {}; i < text.length(); ++i)
+    characters.push(text[i]);   // Push the string characters onto the stack
 
-  std::cout << std::endl;
   while (!characters.isEmpty())
-    std::cout << characters.pop(); // Pop the characters off the stack
+    std::print("{}", characters.pop()); // Pop the characters off the stack
 
-  std::cout << std::endl;
+  std::println("");
 }

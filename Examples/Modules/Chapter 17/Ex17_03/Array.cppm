@@ -1,32 +1,36 @@
 export module array;
 
-import <stdexcept>;                        // For standard exception types
-import <string>;                           // For std::to_string()
-import <utility>;                          // For std::as_const()
-import <initializer_list>;                 // For the std::initializer_list<> template
+import std;
 
 export template <typename T>
 class Array
 {
 public:
-  explicit Array(size_t size);              // Constructor
+  explicit Array(std::size_t size);         // Constructor
   ~Array();                                 // Destructor
   Array(std::initializer_list<T> elements); // Initializer list constructor
   Array(const Array& array);                // Copy constructor
   Array& operator=(const Array& rhs);       // Copy assignment operator
   void swap(Array& other) noexcept;         // Swap member function
-  T& operator[](size_t index);              // Subscript operator
-  const T& operator[](size_t index) const;  // Subscript operator-const arrays
-  size_t getSize() const { return m_size; } // Accessor for m_size
+  T& operator[](std::size_t index);         // Subscript operator
+  const T& operator[](std::size_t index) const; // Subscript operator-const arrays
+  std::size_t getSize() const noexcept { return m_size; } // Accessor for size
 
 private:
-  T* m_elements;    // Array of type T
-  size_t m_size;    // Number of array elements
+  T* m_elements;       // Array of type T
+  std::size_t m_size;  // Number of array elements
 };
+
+// Swap non-member function template (optional)
+export template <typename T>
+void swap(Array<T>& one, Array<T>& other) noexcept
+{
+  one.swap(other);     // Forward to public member function
+}
 
 // Constructor template
 template <typename T>
-Array<T>::Array(size_t size) : m_elements {new T[size] {}}, m_size {size}
+Array<T>::Array(std::size_t size) : m_elements{ new T[size] {} }, m_size{ size }
 {}
 
 // Initializer list constructor template
@@ -35,9 +39,9 @@ Array<T>::Array(std::initializer_list<T> elements)
   : m_elements{ new T[elements.size()] }, m_size{ elements.size() }
 {
   // std::initializer_list<> has no operator[], but can be used in range-based for loop.
-  // The possibility to add variable initializations such as "size_t i {};" 
+  // The possibility to add variable initializations such as "std::size_t i {};" 
   // to a range-based for loop is new in C++20.
-  for (size_t i{}; const T & element : elements)
+  for (std::size_t i{}; const T & element : elements)
     m_elements[i++] = element;
 }
 
@@ -45,7 +49,7 @@ Array<T>::Array(std::initializer_list<T> elements)
 template <typename T>
 Array<T>::Array(const Array& array) : Array{array.m_size}
 {
-  for (size_t i {}; i < m_size; ++i)
+  for (std::size_t i {}; i < m_size; ++i)
     m_elements[i] = array.m_elements[i];
 }
 
@@ -55,7 +59,7 @@ Array<T>::~Array() { delete[] m_elements; }
 
 // const subscript operator template
 template <typename T>
-const T& Array<T>::operator[](size_t index) const
+const T& Array<T>::operator[](std::size_t index) const
 {
   if (index >= m_size)
     throw std::out_of_range {"Index too large: " + std::to_string(index)};
@@ -65,7 +69,7 @@ const T& Array<T>::operator[](size_t index) const
 // Non-const subscript operator template in terms of const one
 // Uses the 'const-and-back-again' idiom
 template <typename T>
-T& Array<T>::operator[](size_t index)
+T& Array<T>::operator[](std::size_t index)
 {
   return const_cast<T&>(std::as_const(*this)[index]);
 }
@@ -87,11 +91,3 @@ void Array<T>::swap(Array& other) noexcept
   std::swap(m_elements, other.m_elements); // Swap two pointers
   std::swap(m_size, other.m_size);         // Swap the sizes
 }
-
-// Swap non-member function template (optional)
-export template <typename T>
-void swap(Array<T>& one, Array<T>& other) noexcept
-{
-  one.swap(other);     // Forward to public member function
-}
-

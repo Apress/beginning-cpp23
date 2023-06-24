@@ -1,21 +1,21 @@
 // Stack.cppm Templates to define stacks
 export module stack;
-import <stdexcept>;
+import std;
 
 export template <typename T>
 class Stack
 {
 public:
-  Stack() = default;                  // Default constructor
-  ~Stack();                           // Destructor
+  Stack() = default;                   // Default constructor
+  ~Stack();                            // Destructor
 
-  Stack(const Stack & stack);          // Copy constructor
-  Stack& operator=(const Stack & rhs); // Copy assignment operator
-  void swap(Stack & other) noexcept;   // noexcept swap() function
+  Stack(const Stack& stack);          // Copy constructor
+  Stack& operator=(const Stack& rhs); // Copy assignment operator
+  void swap(Stack& other) noexcept;   // noexcept swap() function
 
-  void push(const T & item);           // Push an object onto the stack
+  void push(const T& item);           // Push an object onto the stack
   T pop();                            // Pop an object off the stack
-  bool isEmpty() const;               // Empty test
+  bool isEmpty() const noexcept;      // Empty test
 
 private:
   // Nested class
@@ -24,12 +24,19 @@ private:
   public:
     Node(const T& item) : m_item{ item } {} // Create a node from an object
 
-    T m_item;          // The object stored in this node
+    T m_item;         // The object stored in this node
     Node* m_next{};   // Pointer to next node
   };
 
   Node* m_head{};     // Points to the top of the stack
 };
+
+// Conventional noexcept swap non-member function
+export template <typename T>
+void swap(Stack<T>& one, Stack<T>& other) noexcept
+{
+  one.swap(other);     // Forward to public member function
+}
 
 // Copy constructor
 template <typename T>
@@ -94,18 +101,11 @@ T Stack<T>::pop()
 }
 
 template <typename T>
-bool Stack<T>::isEmpty() const { return m_head == nullptr; }
+bool Stack<T>::isEmpty() const noexcept { return m_head == nullptr; }
 
 // noexcept swap member function
 template <typename T>
 void Stack<T>::swap(Stack& other) noexcept
 {
   std::swap(m_head, other.m_head);
-}
-
-// Conventional noexcept swap non-member function
-export template <typename T>
-void swap(Stack<T>& one, Stack<T>& other) noexcept
-{
-  one.swap(other);     // Forward to public member function
 }

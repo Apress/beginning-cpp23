@@ -9,7 +9,7 @@ The latter has the implication that if you mis-use the container,
 your program will likely crash...
 */
 
-import <utility>;        // for std::swap()
+import std;
 
 export template<typename T>
 class LinkedList
@@ -34,7 +34,7 @@ public:
 
 	bool empty() const;                          // Checks whether the list is empty or not
 	void clear();                                // Function to remove all elements from the list
-	size_t size() const;                         // Get the number of elements from the list
+	std::size_t size() const;                    // Get the number of elements from the list
 
 	class Iterator;                              // Nested Iterator class declaration (definition below)
 	Iterator front_iterator() const;             // Get an Iterator that starts at the head
@@ -57,7 +57,7 @@ private:
 
 	Node* m_head{};    // Pointer to first node
 	Node* m_tail{};    // Pointer to last node
-	size_t m_size{};
+	std::size_t m_size{};
 };
 
 // Non-member swap function.
@@ -92,6 +92,8 @@ LinkedList<T>::LinkedList(const LinkedList& list)
 }
 
 // Assignment operator template (uses copy-and-swap idiom)
+// (Note: slightly different, more compact variant as used for Array<> earlier,
+// just to show you the possibility)
 template<typename T>
 LinkedList<T>& LinkedList<T>::operator=(LinkedList copy)
 {

@@ -1,24 +1,23 @@
 // Exercise 16-2
 // Create a basic Pair template
 import pair;
-import <iostream>;
-import <string>;
+import std;
 
 int main()
 {
-  auto my_pair{ Pair<int, std::string>{122, "abc"} };
-  ++my_pair.first;
-  std::cout << "my_pair equals (" << my_pair.first 
-            << ", " << my_pair.second << ')' << std::endl;
-
-  auto pair1{ Pair<int, std::string>{0, "def"} };
+  Pair<int, std::string>{ 122, "abc" };
+  pair.setFirst(pair.getFirst() + 1);
+  std::println("pair equals ({}, {})", pair.getFirst(), pair.getSecond());
 
   using namespace std::string_literals; // To make s suffix work (see below)
-  
-  // CTAD works as well. The deduced type for both pair2 and pair3 is Pair<int, std::string>:
-  auto pair2{ Pair{123, std::string{"abc"}} }; // Option 1: specify std::string yourself (otherwise the type is const char[])
-  auto pair3{ Pair{123, "def"s} };             // Option 2: use string literals: s suffix creates a std::string object
 
-  std::cout << (pair1 < pair2 && pair2 < pair3? "operator< seems to be working" : "oops") << std::endl;
-  std::cout << (pair1 == pair2? "oops" : "operator== works as well") << std::endl;
+  // Yes, CTAD works: no need to specify the template argument list <>...
+  Pair pair1{ 0, std::string{ "def" } };  // Option 1: specify std::string yourself (otherwise the type is const char[])
+  Pair pair2{ 123, "abc"s };         // Option 2: use string literals: s suffix creates a std::string object
+  Pair pair3{ 123, "def"s };
+
+  std::println("{}", pair1 < pair2 && pair2 < pair3 ? "operator< seems to be working" : "oops");
+  std::println("{}" , pair1 == pair2 ? "oops" : "operator== works as well");
+
+  std::cout << "Stream insertion operator works just fine as well: " << pair << std::endl;
 }
