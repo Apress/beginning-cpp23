@@ -1,18 +1,11 @@
 // Exercise 20-13: more fun with algorithms and ranges
-import <iostream>;
-import <format>;
-import <map>;
-import <string>;
-import <string_view>;
-import <vector>;
-import <algorithm>;
-import <ranges>;
+import std;
 
 using namespace std::ranges::views;
 
 // Type aliases
 using Words = std::vector<std::string_view>;
-using WordCounts = std::map<std::string_view, size_t>;
+using WordCounts = std::map<std::string_view, std::size_t>;
 
 // Function prototypes
 Words extractWords(std::string_view text, std::string_view separators = " ,.!?\"\n");
@@ -42,7 +35,7 @@ size_t maxWordLength_1(const WordCounts& wordCounts)
   auto frequentWordLengths {
     wordCounts
       | filter([](const auto wordCount) { return wordCount.second >= 2; })
-      | transform(&WordCounts::value_type::first)  // Or, without alias: transform(&std::pair<const std::string_view, size_t>::first)
+      | transform(&WordCounts::value_type::first)  // Or, without alias: transform(&std::pair<const std::string_view, std::size_t>::first)
       | transform(&std::string_view::length)
   };
 
@@ -76,7 +69,7 @@ size_t maxWordLength_3(const WordCounts& wordCounts)
     : std::ranges::max_element(
         frequentWordCounts,
         [](auto word1, auto word2) { return word1.length() < word2.length(); },
-        &WordCounts::value_type::first  // Or, without alias: std::pair<const std::string_view, size_t>::first
+        &WordCounts::value_type::first  // Or, without alias: std::pair<const std::string_view, std::size_t>::first
       )->first.size();
 }
 
@@ -102,9 +95,9 @@ int main()
 
 Words extractWords(std::string_view text, std::string_view separators)
 {
-  Words words;
-  size_t start{ text.find_first_not_of(separators) };    // Start 1st word
-  size_t end{};                                          // Index for the end of a word
+  Words words;                                             
+  std::size_t start{ text.find_first_not_of(separators) }; // Start 1st word
+  std::size_t end{};                                       // Index for the end of a word
                                                          
   while (start != std::string_view::npos)                
   {                                                      
@@ -128,10 +121,10 @@ WordCounts countWords(const Words& words)
 
 void showWordCounts(const WordCounts& wordCounts)
 {
-  const size_t field_width{ maxWordLength(wordCounts) + 1};
-  const size_t words_per_line{5};
+  const std::size_t field_width{ maxWordLength(wordCounts) + 1};
+  const std::size_t words_per_line{5};
 
-  size_t words_in_line{};      // Number of words in the current line
+  std::size_t words_in_line{};      // Number of words in the current line
   char previous_initial{};
   for (const auto& [word, count] : wordCounts)
   {
@@ -142,11 +135,11 @@ void showWordCounts(const WordCounts& wordCounts)
           || words_in_line++ == words_per_line)
     {
       words_in_line = 0;
-      std::cout << std::endl;
+      std::println("");
     }
     // Output "word (count)", where word has a dynamic field width
-    std::cout << std::format("{:>{}} ({:2})", word, field_width, count); 
+    std::print("{:>{}} ({:2})", word, field_width, count); 
     previous_initial = word[0];
   }
-  std::cout << std::endl;
+  std::println("");
 }

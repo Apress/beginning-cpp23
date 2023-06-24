@@ -1,8 +1,6 @@
 // Finding boxes, this time using range-based algorithms.
-import <iostream>;
-import <vector>;
-import <algorithm>;
-import box;      // From Ex13_03A
+import std;
+import box;      // From Ex13_03
 
 int main()
 {
@@ -12,11 +10,10 @@ int main()
   auto print_result{ [&boxes](auto result)
   {
     if (result == end(boxes))
-      std::cout << "No box found." << std::endl;
+      std::println("No box found.");
     else
-      std::cout << "Found matching box at position "
-                << (result - begin(boxes)) << std::endl;
-  }};
+      std::println("Found matching box at position {}", result - begin(boxes));
+  } };
 
   // Find an exact box
   Box box_to_find{ 3,2,1 };

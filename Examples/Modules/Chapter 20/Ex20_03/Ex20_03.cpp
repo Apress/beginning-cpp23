@@ -1,8 +1,5 @@
 // Working with sets
-import <iostream>;
-import <set>;         // For the std::set<> container template
-
-void printSet(const std::set<int>& my_set);  // Print the contents of a set to std::cout
+import std;
 
 int main()
 {
@@ -16,21 +13,17 @@ int main()
   my_set.insert(1);
   my_set.insert(2);
 
-  printSet(my_set);
+  std::println("There are {} elements in my_set: {:n}", my_set.size(), my_set);
+  std::println("The element 1 occurs {} time(s)", my_set.count(1));
 
-  std::cout << "The element 1 occurs " << my_set.count(1) << " time(s)" << std::endl;
+  // Like all containers, sets are ranges...
+  int sum {};
+  for (int x : my_set) sum += x; // ... and can thus be used in a range-based loop
+  std::println("The sum of the elements is {}", sum);
 
   my_set.erase(1);   // Remove the element 1 once
-  printSet(my_set);
+  std::println("After erase(1), my_set holds {} elements: {:n}", my_set.size(), my_set);
 
   my_set.clear();    // Remove all elements
-  printSet(my_set);
-}
-
-void printSet(const std::set<int>& my_set)
-{
-  std::cout << "There are " << my_set.size() << " elements in my_set: ";
-  for (int element : my_set)       // A set, like all containers, is a range
-    std::cout << element << ' ';
-  std::cout << std::endl;
+  std::println("After clear(), my_set holds {} elements: {:n}", my_set.size(), my_set);
 }

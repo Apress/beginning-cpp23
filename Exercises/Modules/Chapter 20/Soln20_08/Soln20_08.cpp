@@ -1,9 +1,5 @@
 // Exercise 20-8 Apply remove-erase idiom to remove duplicate elements
-import <iostream>;
-import <random>;     // For random number generation
-import <functional>; // For std::bind() and std::ref()
-import <algorithm>;
-import <vector>;
+import std;
 
 // Creates a preudo-random number generator (PRNG) that generates unsigned integers 
 // in a closed interval [min, max].
@@ -19,7 +15,7 @@ auto createUniformPseudoRandomNumberGenerator(unsigned min, unsigned max)
 
 int main()
 {
-  const size_t num_numbers{ 25'000 };
+  const std::size_t num_numbers{ 25'000 };
   std::vector<int> numbers(num_numbers);
 
   // Why not use an algorithm as well to generate the random numbers!!
@@ -39,5 +35,5 @@ int main()
   //const auto [to_erase_begin, to_erase_end] { std::ranges::unique(numbers) };
   //numbers.erase(to_erase_begin, to_erase_end);
 
-  std::cout << "Number of unique numbers: " << numbers.size() << std::endl;
+  std::println("Number of unique numbers: {}", numbers.size());
 }

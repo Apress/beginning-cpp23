@@ -1,6 +1,5 @@
 // Working with std::deque<>
-import <iostream>;
-import <deque>;
+import std;
 
 int main()
 {
@@ -11,9 +10,9 @@ int main()
 
   my_deque[2] = 3;           // A deque<> is a random-access sequence container
 
-  std::cout << "There are " << my_deque.size() << " elements in my_deque: ";
+  std::print("There are {} elements in my_deque: ", my_deque.size());
 
   for (int element : my_deque) // A deque<>, like all containers, is a range
-    std::cout << element << ' ';
-  std::cout << std::endl;
+    std::print("{} ", element);
+  std::println("");
 }

@@ -1,8 +1,6 @@
 // Exercise 20-2
 // Replace a custom stack container by the standard stack container adapter
-import <stack>;
-import <iostream>;
-import <string>;
+import std;
 
 /*
   Two challenges:
@@ -24,11 +22,11 @@ int main()
   // Display the words in reverse order
   while (!newStack.empty())
   {
-    std::cout << newStack.top() << ' ';
+    std::print("{} ", newStack.top());
     newStack.pop();
   }
     
-  std::cout << std::endl;
+  std::println("");
 
   // Reverse wordStack onto newStack
   while (!wordStack.empty())
@@ -40,27 +38,28 @@ int main()
   // Display the words in original order
   while (!newStack.empty())
   {
-    std::cout << newStack.top() << ' ';
+    std::print("{} ", newStack.top());
     newStack.pop();
   }
     
-  std::cout << std::endl;
+  std::println("");
 
-  std::cout << std::endl << "Enter a line of text:" << std::endl;
+  std::println("\nEnter a line of text:");
   std::string text;
   std::getline(std::cin, text);    // Read a line into the string object
 
   std::stack<char> characters;     // A stack for characters
 
-  for (size_t i{}; i < text.length(); ++i)
+  // Alternative to loop: characters.push_range(text);
+  for (std::size_t i{}; i < text.length(); ++i)
     characters.push(text[i]);      // Push the string characters onto the stack
-
-  std::cout << std::endl;
+    
+  std::println("");
   while (!characters.empty())
   {
-    std::cout << characters.top(); // Pop the characters off the stack
+    std::print("{}", characters.top()); // Pop the characters off the stack
     characters.pop();
   }
 
-  std::cout << std::endl;
+  std::println("");
 }

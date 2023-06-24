@@ -1,7 +1,5 @@
 // Working with stacks and queues
-import <iostream>;
-import <stack>;
-import <queue>;
+import std;
 
 int main()
 {
@@ -9,23 +7,23 @@ int main()
   for (int i {}; i < 10; ++i)
     stack.push(i);
 
-  std::cout << "The elements coming off the top of the stack:    ";
+  std::print("The elements coming off the top of the stack:    ");
   while (!stack.empty())
   {
-    std::cout << stack.top() << ' ';
+    std::print("{} ", stack.top());
     stack.pop();    // pop() is a void function!
   }
-  std::cout << std::endl;
+  std::println("");
 
   std::queue<int> queue;
   for (int i {}; i < 10; ++i)
     queue.push(i);
 
-  std::cout << "The elements coming from the front of the queue: ";
+  std::print("The elements coming from the front of the queue: ");
   while (!queue.empty())
   {
-    std::cout << queue.front() << ' ';
+    std::print("{} ", queue.front());
     queue.pop();    // pop() is a void function!
   }
-  std::cout << std::endl;
+  std::println("");
 }

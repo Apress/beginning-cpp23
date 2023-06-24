@@ -1,81 +1,31 @@
-// Exercise 20-14: the hard nut
-import <iostream>;
-import <algorithm>;
-import <ranges>;
-import <iterator>;
-#include <cmath>
-
-using namespace std::ranges::views;
-
-bool isPrime(unsigned number)
-{
-  return number >= 2 
-      && std::ranges::none_of(
-           iota(2u, static_cast<unsigned>(std::sqrt(number) + 1)),
-           [number](unsigned divisor) { return number % divisor == 0; }
-         );
-}
+// Exercise 20-14: unseen views, structured bindings, and std::ranges::to<>
+import std;
 
 int main()
 {
-  // This first version is one that compiled (with some help) on at least one compiler.
-  // It uses one thing you have not encountered yet: std::ranges::views::common.
-  // This range adaptor transforms a given range into a view where begin() and end()
-  // return values of the same type, something which in general is not true for ranges. 
-  // Legacy algorithms, such as the iterator-pair-based std::copy() algorithm, 
-  // often expect iterator pairs to have the same type, though.
-  auto view { 
-    std::ranges::istream_view<int>(std::cin)
-      | take_while([](int i) { return i >= 0; })
-      | transform([](int i) { return static_cast<unsigned>(i); })
-      | filter(isPrime)
-      | transform([](unsigned i) { return "Yes, that is a prime!"; })
-      | common 
-  };
-
-  std::copy(view.begin(), view.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
-
-/*
-  // Same as the previous one, but then without the legacy iterator-pair-based copy()
-  // (and thus without the common range adaptor).
-  // At the time we tried this, this did not compile yet in any compiler.
-  auto view {
-    std::ranges::istream_view<int>(std::cin)
-      | take_while([](int i) { return i >= 0; })
-      | transform([](int i) { return static_cast<unsigned>(i); })
-      | filter(isPrime)
-      | transform([](unsigned i) { return "Yes, that is a prime!"; })
-  };
-
-  std::ranges::copy(view, std::ostream_iterator<std::string>(std::cout, "\n"));
-*/
-
-/*
-  // A variation that uses std::ranges::for_each(). 
-  // But, like the exercise says, this is cheating though, 
-  // as for_each() is just a poorly disguised range-based for loop,
-  // and loops were not allowed!
-  std::ranges::for_each(
-    std::ranges::istream_view<int>(std::cin)
-      | take_while([](int i) { return i >= 0; })
-      | transform([](int i) { return static_cast<unsigned>(i); })
-      | filter(isPrime)
-      | transform([](unsigned i) { return "Yes, that is a prime!"; })
-    , [](const auto& s) { std::cout << s << std::endl; }
+  using namespace std::views;
+  
+  // Create the containers once using a std::from_range constructor...
+  std::vector v(std::from_range, 
+      iota(0)
+        | transform([](int i) { return i * 3; }) 
+        | drop_while([](int i) { return i < 5; })   // Or: filter([](int i) { return i > 5; })
+        | take_while([](int i) { return i < 50; })
   );
-*/
 
-/*
-  // A "clever" version where we print during a filter step
-  auto view {
-    std::ranges::istream_view<int>(std::cin)
-      | take_while([](int i) { return i >= 0; })
-      | transform([](int i) { return static_cast<unsigned>(i); })
-      | filter(isPrime)
-      | filter([](unsigned i) { std::cout << "Yes, that is a prime!\n"; return false; })
-  };
-  view.begin(); // Try to find the begin of the view
-                // Since the last step filters out all elements, though,
-                // this will never find a begin, and eventually return view.end()...
-*/
+  // ... and once using std::ranges::to<> (or the other way around, of course...)
+  auto map = zip(v, repeat(std::string("zip zip"))) 
+           | std::ranges::to<std::map<int, std::string>>();
+
+  // Once using a structured binding...
+  for (auto& [key, value] : map)
+  {
+    value = "zap zap";
+  }
+
+  // ... and once using the std::views::values() view
+  for (auto& value : values(map))
+  {
+    value = "zop zop";
+  }
 }

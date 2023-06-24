@@ -1,9 +1,5 @@
 // Using range adaptors
-import <iostream>;
-import <vector>;
-import <algorithm>;
-import <iterator>;   // For std::back_inserter()
-import <ranges>;
+import std;
 import box;
 
 using namespace std::ranges::views;
@@ -23,7 +19,7 @@ int main()
   std::copy_if(begin(box_pointers), end(box_pointers), back_inserter(large_boxes),
     [=](const Box* box) { return *box >= required_volume; });
 
-  std::cout << "There are " << large_boxes.size() << " large boxes." << std::endl;
+  std::println("There are {} large boxes.", large_boxes.size());
 
   // With range-based algorithm copy() and a filter-transform pipeline
   std::vector<Box*> large_boxes_ranges_copy;
@@ -53,6 +49,6 @@ int main()
     || large_boxes_ranges_copy_if != large_boxes
     || large_boxes_ranges_transform != large_boxes)
   {
-    std::cerr << "Oh dear... One of the range-based algorithms gave a different result!" << std::endl;
+    std::println("Oh dear... One of the range-based algorithms gave a different result!");
   }
 }

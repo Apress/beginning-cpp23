@@ -1,10 +1,6 @@
 // Removing all elements that satisfy a certain condition 
 // while iterating over a container
-import <vector>;
-import <string_view>;
-import <iostream>;
-import <algorithm>;   // for std::remove_if()
-import <numeric>;     // for std::iota()
+import std;
 
 /*
   Note: std::ranges::iota() does not exist. No doubt because 
@@ -14,38 +10,29 @@ import <numeric>;     // for std::iota()
    but operate directly with views...)
 */
 
-std::vector<int> fillVector_1toN(size_t N);       // Fill a vector with 1, 2, ..., N
-void printVector(std::string_view message, const std::vector<int>& numbers);
+std::vector<int> fillVector_1toN(int N);  // Fill a vector with 1, 2, ..., N
 
-template <typename Auto>
-void removeEvenNumbers(Auto& numbers)    /* Using more elegant std::erase_if() */
+void removeEvenNumbers(auto& numbers)    /* Using more elegant std::erase_if() */
 {
   std::erase_if(numbers, [](auto number) { return number % 2 == 0; });
 }
 
 int main()
 {
-  const size_t num_numbers{ 20 };
+  const int num_numbers{15};
 
   auto numbers{ fillVector_1toN(num_numbers) };
 
-  printVector("The original set of numbers", numbers);
+  std::println("The original set of numbers: {:n}", numbers);
 
   removeEvenNumbers(numbers);
 
-  printVector("The numbers that were kept", numbers);
+  std::println("The numbers that were kept: {:n}", numbers);
 }
 
-std::vector<int> fillVector_1toN(size_t N)
+std::vector<int> fillVector_1toN(int N)
 {
-  std::vector<int> numbers(N);
+  std::vector<int> numbers(static_cast<std::size_t>(N));
   std::iota(begin(numbers), end(numbers), 1);
   return numbers;
-}
-
-void printVector(std::string_view message, const std::vector<int>& numbers)
-{
-  std::cout << message << ": ";
-  for (int number : numbers) std::cout << number << ' ';
-  std::cout << std::endl;
 }

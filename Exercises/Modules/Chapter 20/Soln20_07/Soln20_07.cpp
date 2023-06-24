@@ -1,30 +1,18 @@
 // Removing all elements that satisfy a certain condition 
 // while iterating over a container
-import <vector>;
-import <string_view>;
-import <iostream>;
-import <ranges>;
+import std;
 
 using namespace std::ranges::views;
 
-template <typename Auto>
-void printVector(std::string_view message, Auto& numbers)
-{
-  std::cout << message << ": ";
-  for (int number : numbers) std::cout << number << ' ';
-  std::cout << std::endl;
-}
-
 int main()
 {
-  const size_t num_numbers{ 20 };
+  const int num_numbers{ 15 };
 
-  auto numbers{ iota(1, 20) };
+  auto numbers{ iota(1, num_numbers + 1) };
 
-  printVector("The original set of numbers", numbers);
+  std::println("The original set of numbers: {:n}", numbers);
 
   auto odd_numbers{ numbers | filter([](int i) { return i % 2 != 0; }) };
 
-  printVector("The numbers that were kept", odd_numbers);
+  std::println("The numbers that were kept: {:n}", odd_numbers);
 }
-

@@ -1,39 +1,27 @@
 // Removing all elements that satisfy a certain condition 
-// usign the remove-erase idiom and the range-based version of std::remove_if.
-// Unlike the iterator-based version, std::ranges::erase_if() returns a subrange, 
+// using the remove-erase idiom and the range-based version of std::remove_if.
+// Unlike the iterator-based version, std::ranges::remove_if() returns a subrange, 
 // and not an iterator. 
 // Note also that in this case std::erase_if() is even more compact (see Ex20_14A).
-import <vector>;
-import <string_view>;
-import <iostream>;
-import <algorithm>;
+import std;
 
-std::vector<int> fillVector_1toN(size_t N);  // Fill a vector with 1, 2, ..., N
-void printVector(std::string_view message, const std::vector<int>& numbers);
-
-void removeEvenNumbers(std::vector<int>& numbers)
-{
-  // Use the remove_if() algorithm to remove all even numbers
-  auto [first_to_erase, last_to_erase] 
-    { std::ranges::remove_if(numbers, [](int number) { return number % 2 == 0; }) };
-  // Erase all elements including and beyond first_to_erase  
-  numbers.erase(first_to_erase, last_to_erase);
-}
+std::vector<int> fillVector_1toN(int N);  // Fill a vector with 1, 2, ..., N
+void removeEvenNumbers(std::vector<int>& numbers);
 
 int main()
 {
-  const size_t num_numbers{ 20 };
+  const int num_numbers{ 20 };
 
   auto numbers{ fillVector_1toN(num_numbers) };
 
-  printVector("The original set of numbers", numbers);
+  std::println("The original set of numbers: {:n}", numbers);
 
   removeEvenNumbers(numbers);
 
-  printVector("The numbers that were kept", numbers);
+  std::println("The numbers that were kept: {:n}", numbers);
 }
 
-std::vector<int> fillVector_1toN(size_t N)
+std::vector<int> fillVector_1toN(int N)
 {
   std::vector<int> numbers;
   for (int i{ 1 }; i <= N; ++i)
@@ -41,9 +29,19 @@ std::vector<int> fillVector_1toN(size_t N)
   return numbers;
 }
 
-void printVector(std::string_view message, const std::vector<int>& numbers)
+void removeEvenNumbers(std::vector<int>& numbers)
 {
-  std::cout << message << ": ";
-  for (int number : numbers) std::cout << number << ' ';
-  std::cout << std::endl;
+  // Use the remove_if() algorithm to remove all even numbers
+  const auto range_to_erase
+    { std::ranges::remove_if(numbers, [](int number) { return number % 2 == 0; }) };
+  // Erase all elements of the returned subrange
+  numbers.erase(range_to_erase.begin(), range_to_erase.end());
+
+  /*
+    // Alternative: use the subrange's conversion operator to treat it as a pair
+    const auto [first_to_erase, last_to_erase]
+      { std::ranges::remove_if(numbers, [](int number) { return number % 2 == 0; }) };
+    // Erase all elements of the returned subrange
+    numbers.erase(first_to_erase, last_to_erase);
+  */
 }
