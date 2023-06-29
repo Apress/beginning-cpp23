@@ -41,7 +41,7 @@ int main()
   The sqrt() in the for loop below is not required. 
   The following loop would be equally correct, just a bit slower:
   
-  for (unsigned i = 2; i < number; ++i)
+  for (unsigned i{ 2 }; i < number; ++i)
   {
     ...
   }

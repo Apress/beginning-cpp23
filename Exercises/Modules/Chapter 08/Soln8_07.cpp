@@ -1,4 +1,4 @@
-// Exercise 8-7 Computing Fibinacci numbers recursively. 
+// Exercise 8-7 Computing Fibonacci numbers recursively. 
 // Main thing to realise is that the recursion needs two base cases.
 // Key is also to use unsigned values (function would fail for negative numbers)
 // and not to forget about zero either (using n == 1 and n == 2 as base cases 

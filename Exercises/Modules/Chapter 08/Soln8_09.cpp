@@ -9,7 +9,7 @@ int main()
   std::println("{}", power(1.5, 1000));
 }
 
-inline auto mult(long double l, long double r)
+auto mult(long double l, long double r)
 {
   static unsigned count{};
   std::println("{} multiplications", ++count);

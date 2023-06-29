@@ -1,6 +1,6 @@
 // Exercise 8_6 Computing grade statistics
 /*
-  This is a bigger excercise, and thus many variations will be valid and correct.
+  This is a bigger exercise, and thus many variations will be valid and correct.
   The focus here isn't on performance, it's on writing and calling functions.
   Main thing is that you:
     (1) got the parameter types right---mostly pass-by-reference-to-const 
@@ -38,7 +38,7 @@ double computeVariance(const std::vector<unsigned>& numbers);
 void printNumber(const std::string& label, double number);
 void printNumbers(const std::string& label, const unsigned(&numbers)[5]);
 
-const unsigned NOT_AVAILABLE = std::numeric_limits<unsigned>::max();
+const unsigned NOT_AVAILABLE{ std::numeric_limits<unsigned>::max() };
 
 int main()
 {
@@ -52,18 +52,16 @@ int main()
     if (number < 0)
       break;
     else if (number > 100)
-      std::println("Only numbers < 100, please...");
+      std::println("Only numbers <= 100, please...");
     else
       grades.push_back(number);
   }
 
   sort(grades);
 
-  // Note: thruth be told, this is based on an old solution.
   // It would be better and/or easier 
   //    a) to use std::array<> instead of C-style arrays; and
   //    b) to return the values requested rather than using output parameters
-  // Perhaps you can improve our solution accordingly?
   unsigned highest[5]{};
   unsigned lowest[5]{};
 
@@ -87,7 +85,7 @@ void swap(std::vector<unsigned>& numbers, std::size_t first, std::size_t second)
 }
 
 // Recursive helper function to sort numbers in ascending sequence
-// Numbers to be sorted are from words[start] to words[end]
+// Numbers to be sorted are from numbers[start] to numbers[end]
 void sort(std::vector<unsigned>& numbers, std::size_t start, std::size_t end)
 {
   // start index must be less than end index for 2 or more elements
@@ -97,11 +95,11 @@ void sort(std::vector<unsigned>& numbers, std::size_t start, std::size_t end)
   // Choose middle of the [start, end] range to partition
   swap(numbers, start, (start + end) / 2); // Swap middle number with start
 
-  // Check values against chosen word
+  // Check values against chosen number
   std::size_t current{ start };
   for (std::size_t i{ start + 1 }; i <= end; i++)
   {
-    if (numbers[i] < numbers[start])   // Is word less than chosen value?
+    if (numbers[i] < numbers[start])   // Is number less than chosen value?
       swap(numbers, ++current, i);     // Yes, so swap to the left
   }
 

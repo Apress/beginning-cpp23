@@ -30,7 +30,7 @@ std::string reverse(std::string str)
   const std::size_t length {str.length()};
   for (std::size_t i {}; i < length / 2; ++i)
   {
-    char temp = str[i];
+    char temp{ str[i] };
     str[i] = str[length - i - 1];
     str[length - i - 1] = temp;
   }

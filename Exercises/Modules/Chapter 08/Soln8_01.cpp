@@ -5,7 +5,7 @@ import std;
 int validate_input(int lower, int upper, const std::string& description);
 int year();
 int month();
-int date(int month_value, int year_value);
+int day(int month_value, int year_value);
 std::string ending(int date_day);
 
 int main()
@@ -13,7 +13,7 @@ int main()
   std::println("Enter your date of birth.");
   int date_year {year()};
   int date_month {month()};
-  int date_day {date(date_month, date_year)};
+  int date_day {day(date_month, date_year)};
 
   std::string months[]  {"January", "February", "March", "April", "May", "June", "July",
                          "August", "September", "October", "November", "December"  };
@@ -56,7 +56,7 @@ int month()
 }
 
 // Reads in the date in the given month and year
-int date(int month_number, int year)
+int day(int month_number, int year)
 {
   const int date_min {1};
   const int feb {2};
@@ -64,12 +64,12 @@ int date(int month_number, int year)
   // Days in month:     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
   const int date_max[]  {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-  // Feb has 29 days in a leap year. A leap year is a year that is divible by 4
+  // Feb has 29 days in a leap year. A leap year is a year that is divisible by 4
   // except years that are divisible by 100 but not divisible by 400
   if (month_number == feb && year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0))
-    return validate_input(date_min, 29, "a date");
+    return validate_input(date_min, 29, "a day of the month");
   else
-    return validate_input(date_min, date_max[month_number - 1], "a date");
+    return validate_input(date_min, date_max[month_number - 1], "a day of the month");
 }
 
 // Select the ending of the ordinal day number

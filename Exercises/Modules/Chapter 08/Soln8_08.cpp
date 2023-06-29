@@ -1,5 +1,5 @@
 // Exercise 8_8 More efficient recursive version of function for x to the power n, n positive or negative
-// Based on Ex8_17.cpp
+// Based on Ex8_16.cpp
 import std;
 
 long double power(double x, int n);

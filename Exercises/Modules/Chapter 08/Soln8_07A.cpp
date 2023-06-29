@@ -1,4 +1,4 @@
-// Exercise 8-7 Computing Fibinacci numbers iteratively. 
+// Exercise 8-7 Computing Fibonacci numbers iteratively. 
 // On most systems (it depends on sizeof(unsigned long long)),
 // you can correctly compute up to 93 Fibonacci numbers with this program.
 import std;

@@ -6,21 +6,20 @@ using Words = std::vector<std::shared_ptr<std::string>>;
 void swap(Words& words, std::size_t first, std::size_t second);
 void sort(Words& words);
 void sort(Words& words, std::size_t start, std::size_t end);
-void extract_words(Words& words, const std::string& text, const std::string& separators);
+Words extract_words(const std::string& text, const std::string& separators);
 void print_words(const Words& words);
 std::size_t max_word_length(const Words& words);
 
 int main()
 {
-  Words words;
-  std::string text;                    // The string to be sorted
+  std::string text;            // The string to be sorted
   const auto separators{" ,.!?\"\n"};  // Word delimiters
 
   // Read the string to be processed
   std::println("Enter a string terminated by *:");
   getline(std::cin, text, '*');
 
-  extract_words(words, text, separators);
+  Words words{ extract_words(text, separators) };
   if (words.empty())
   {
     std::println("No words in text.");
@@ -31,18 +30,21 @@ int main()
   print_words(words);  // Output the words
 }
 
-void extract_words(Words& words, const std::string& text, const std::string& separators)
+Words extract_words(const std::string& text, const std::string& separators)
 {
+  Words words;
+  
   std::size_t start {text.find_first_not_of(separators)}; // Start index of first word
-
   while (start != std::string::npos)
   {
-    std::size_t end = text.find_first_of(separators, start + 1); // Find end of a word
-    if (end == std::string::npos)                    // Found a separator?
-      end = text.length();                           // Yes, so set to end of text
+    std::size_t end{ text.find_first_of(separators, start + 1) }; // Find end of a word
+    if (end == std::string::npos)                   // Found a separator?
+      end = text.length();                          // No, so set to end of text
     words.push_back(std::make_shared<std::string>(text.substr(start, end - start)));
     start = text.find_first_not_of(separators, end + 1); // Find start next word
   }
+
+  return words;
 }
 
 void swap(Words& words, std::size_t first, std::size_t second)
