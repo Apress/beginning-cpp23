@@ -1,8 +1,8 @@
 // Implicit conversions of reference parameters
-import <iostream>;
+import std;
 
 void double_it(double& it)      { it *= 2; }
-void print_it(const double& it) { std::cout << it << std::endl; }
+void print_it(const double& it) { std::println("{}", it); }
 
 int main()
 {
@@ -14,3 +14,4 @@ int main()
   // double_it(i);        /* error, does not compile! */
   print_it(i);
 }
+

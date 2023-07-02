@@ -1,15 +1,14 @@
 // Recursive version of function for x to the power n, n positive or negative
-import <iostream>;
-import <format>;
+import std;
 
 double power(double x, int n);
 
 int main()
 {
   for (int i{ -3 }; i <= 3; ++i)      // Calculate powers of 8 from -3 to +3
-    std::cout << std::format("{:10g}", power(8.0, i));
+    std::print("{:10g}", power(8.0, i));
 
-  std::cout << std::endl;
+  std::println("");
 }
 
 // Recursive function to calculate x to the power n

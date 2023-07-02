@@ -1,16 +1,15 @@
 // Exercise 8_8 More efficient recursive version of function for x to the power n, n positive or negative
-// Based on Ex8_17.cpp
-import <iostream>;
-import <iomanip>;
+// Based on Ex8_16.cpp
+import std;
 
 long double power(double x, int n);
 
 int main()
 {
   for (int i {-3}; i <= 3; ++i)     // Calculate powers of 8 from -3 to +3
-    std::cout << std::setw(10) << power(8.0, i);
+    std::print("{:10g}", power(8.0, i));
 
-  std::cout << std::endl;
+  std::println("");
 }
 
 // Recursive function to calculate x to the power n

@@ -1,16 +1,15 @@
 // Calculating powers - rearranged
-import <iostream>;
-import <format>;
+import std;
 
 //double power(double x, int n);               // Function prototype - uncomment for successful compilation
 
 int main()
 {
   // Calculate powers of 8 from -3 to +3
-  for (int i{ -3 }; i <= 3; ++i)
-    std::cout << std::format("{:10}", power(8.0, i));
+  for (int i {-3}; i <= 3; ++i)
+    std::print("{:10g}", power(8.0, i));
 
-  std::cout << std::endl;
+  std::println("");
 }
 
 // Function to calculate x to the power n

@@ -1,8 +1,5 @@
 // Using a reference parameter
-import <iostream>;
-import <format>;
-import <string>;
-import <vector>;
+import std;
 
 using std::string;
 using std::vector;
@@ -13,7 +10,7 @@ void list_words(const vector<string>& words);
 int main()
 {
   std::string text;         // The string to be searched
-  std::cout << "Enter some text terminated by *:\n";
+  std::println("Enter some text terminated by *:");
   std::getline(std::cin, text, '*');
 
   const std::string separators {" ,;:.\"!?'\n"};  // Word delimiters
@@ -25,11 +22,11 @@ int main()
 
 void find_words(vector<string>& words, const string& text, const string& separators)
 {
-  size_t start {text.find_first_not_of(separators)};     // First word start index
+  std::size_t start {text.find_first_not_of(separators)};// First word start index
 
-  while (start != string::npos)                          // Find the words
+  while (start != std::string::npos)                     // Find the words
   {
-    size_t end{ text.find_first_of(separators, start + 1) }; // Find end of word
+    std::size_t end {text.find_first_of(separators, start + 1)}; // Find end of word
     if (end == string::npos)                             // Found a separator?
       end = text.length();                               // No, so set to end of text
 
@@ -40,13 +37,13 @@ void find_words(vector<string>& words, const string& text, const string& separat
 
 void list_words(const vector<string>& words)
 {
-  std::cout << "Your string contains the following " << words.size() << " words:\n";
-  size_t count {};                 // Number of outputted words
+  std::println("Your string contains the following {} words:", words.size());
+  unsigned count {};                 // Number of outputted words
   for (const auto& word : words)
   {
-    std::cout << std::format("{:>15}", word);
+    std::print("{:>15}", word);
     if (!(++count % 5))
-      std::cout << std::endl;
+      std::println("");
   }
-  std::cout << std::endl;
+  std::println("");
 }

@@ -3,25 +3,23 @@
 The reverse() function works with an argument of type string, or a
 C-style string terminated with '\0'.
 *******************************************************************/
-import <iostream>;
-import <string>;
+import std;
 
 std::string reverse(std::string str);
 
 int main()
 {
   std::string sentence;
-  std::cout << "Enter a sequence of characters, then press 'Enter': " << std::endl;
+  std::println("Enter a sequence of characters, then press 'Enter':");
   getline(std::cin, sentence);
 
-  std::cout << "\nYour sequence in reverse order is:\n";
-  std::cout << reverse(sentence) << std::endl;
+  std::println("\nYour sequence in reverse order is:\n{}", reverse(sentence));
 
-  std::cout << "\nHere is a demonstration of reverse() working with a C-style string:\n";
+  std::println("\nHere is a demonstration of reverse() working with a C-style string:");
 
   char stuff[] {"abcdefg"};                      // C-style string
-  std::cout << "\nThe original string is: \"" << stuff << "\""
-            << "\nReversed it becomes: \"" << reverse(stuff) << "\"" << std::endl;
+  std::println(R"(The original string is: "{}")", stuff);
+  std::println(R"(Reversed it becomes: "{}")", reverse(stuff));
 }
 
 // Reverse a string in place
@@ -29,10 +27,10 @@ int main()
 // so the original is not affected.
 std::string reverse(std::string str)
 {
-  const size_t length {str.length()};
-  for (size_t i {}; i < length / 2; ++i)
+  const std::size_t length {str.length()};
+  for (std::size_t i {}; i < length / 2; ++i)
   {
-    char temp = str[i];
+    char temp{ str[i] };
     str[i] = str[length - i - 1];
     str[length - i - 1] = temp;
   }
