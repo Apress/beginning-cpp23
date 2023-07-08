@@ -15,6 +15,6 @@ int main()
   catch (const TracingException& ex)
   {
     std::println("Exception of type {} caught: {}; trace:\n{}", 
-        typeid(ex).name(), ex.what(), std::to_string(ex.where()));
+        typeid(ex).name(), ex.what(), ex.where());
   }
 }
