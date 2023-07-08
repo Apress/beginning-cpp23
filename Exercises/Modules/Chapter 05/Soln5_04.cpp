@@ -17,9 +17,10 @@ int main()
   Take care: never write the following:
     for (std::size_t i{ count - 1 }; i >= 0; --i)
       ...
-  Because size_t is unsigned, the loop continuation condition i >= 0 shall always and forever be true. 
-  That is: every size_t value is always greater or equal to zero, by definition. 
-  Subtracting one from zero wraps around to std::numeric_limits<size_t>::max(), a huge number.
+  Because std::size_t is unsigned, 
+  the loop continuation condition i >= 0 shall always and forever be true. 
+  That is: every std::size_t value is always greater or equal to zero, by definition. 
+  Subtracting one from zero wraps around to std::numeric_limits<std::size_t>::max(), a huge number.
   
   Other solutions besides the one we use below include:
     // Preferred solution: cast to a signed integer (works even for count == 0!)

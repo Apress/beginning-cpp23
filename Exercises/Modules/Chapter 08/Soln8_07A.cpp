@@ -3,25 +3,25 @@
 // you can correctly compute up to 93 Fibonacci numbers with this program.
 import std;
 
-unsigned long long fib(size_t n);
+unsigned long long fib(unsigned int n);
 
 int main()
 {
-  size_t num{};
+  unsigned int num{};
   std::print("Good day, master. How many Fibonacci numbers shall I compute today? ");
   std::cin >> num;
   
-  for (size_t i{1}; i <= num; ++i)
+  for (unsigned int i{1}; i <= num; ++i)
      std::println("fib({}) = {}", i, fib(i));
 }
 
-unsigned long long fib(size_t n)
+unsigned long long fib(unsigned int n)
 {
 	// Initialise fib(i) and fib(i+1) for the first iteration of the loop where i == 0
 	unsigned long long fib_i{0};         // fib(i)   = fib(0) = 0
 	unsigned long long fib_i_1{1};       // fib(i+1) = fib(1) = 1
 	
-	for (size_t i{}; i < n; ++i)
+	for (unsigned int i{}; i < n; ++i)
 	{
 		auto fib_i_2{ fib_i + fib_i_1 }; // fib(i+2) = fib(i) + fib(i+1)
 		

@@ -2,7 +2,7 @@
 import zoo;
 import std;
 
-// Creates a preudo-random number generator (PRNG) that generates unsigned integers 
+// Creates a pseudo-random number generator (PRNG) that generates unsigned integers 
 // in a closed interval [min, max].
 // Caution: unlike std::uniform_real_distribution (see Chapter 12), 
 // uniform_int_distribution generates values in a *closed* interval.
@@ -16,7 +16,7 @@ auto createUniformPseudoRandomNumberGenerator(unsigned min, unsigned max)
 
 int main() 
 {
-  const size_t num_name_options{ 10 };
+  const std::size_t num_name_options{ 10 };
   using NameOptions = std::array<std::string_view, num_name_options>;
 
   const NameOptions dogNames {
@@ -46,14 +46,14 @@ int main()
   auto randomCowWeight  { createUniformPseudoRandomNumberGenerator(minCowWt, maxCowWt) } ;
 
   std::vector<AnimalPtr> animals;   // Stores smart pointers to animals
-  size_t numAnimals {};             // Number of animals to be created
+  std::size_t numAnimals {};        // Number of animals to be created
   std::print("How many animals in the zoo? ");
   std::cin >> numAnimals;
   
   Zoo zoo;                  // Create an empty Zoo
   
   // Create random animals and add them to the Zoo
-  for (size_t i {}; i < numAnimals; ++i)
+  for (std::size_t i {}; i < numAnimals; ++i)
   {
     switch (randomAnimalType())
     {

@@ -2,7 +2,7 @@
 // We added an extra "how many" members to illustrate derived 
 // exceptions can carry extra information regarding their cause.
 // Notice how the constructor is explicit (implicit conversions
-// from size_t to TooManyExceptions are not desired).
+// from std::size_t to TooManyExceptions are not desired).
 
 export module too_many;
 import std;

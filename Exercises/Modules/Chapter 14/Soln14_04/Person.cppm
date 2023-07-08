@@ -27,7 +27,7 @@ export class Person
 {
 public:
   Person() = default;   // Default constructor - necessary to define arrays
-  Person(size_t age, std::string_view name, Gender gender);
+  Person(unsigned age, std::string_view name, Gender gender);
   
   void who() const;     // Display details
   
@@ -35,7 +35,7 @@ public:
 
 protected:  
   // Functions to allow derived classes to access to a Person's details
-  size_t getAge() const    { return m_age; } 
+  unsigned getAge() const    { return m_age; } 
   const std::string& getName() const { return m_name; }
   Gender getGender() const { return m_gender; }
   
@@ -43,7 +43,7 @@ protected:
   std::string_view getGenderString() const;
 
 private:
-  size_t m_age{};      // Age in years
+  unsigned m_age{};      // Age in years
   std::string m_name;
   Gender m_gender{ Gender::female };
 };
@@ -52,7 +52,7 @@ export class Employee : public Person
 {
 public:
   Employee() = default;   // Default constructor - necessary to define arrays
-  Employee(size_t age, std::string_view name, Gender gender, long num)
+  Employee(unsigned age, std::string_view name, Gender gender, long num)
     : Person{age, name, gender}, m_personnelNumber {num} {}
   
   void who() const;       // Display details
