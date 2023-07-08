@@ -9,12 +9,12 @@ int main()
 
   const std::string separators {" ,;:.\"!?'\n"};             // Word delimiters
   std::vector<std::string> words;                            // Words found
-  std::vector<size_t> counts;                                // Words counts (same order as words)
+  std::vector<std::size_t> counts;                           // Words counts (same order as words)
 
-  size_t start {text.find_first_not_of(separators)};         // First word start index
+  std::size_t start {text.find_first_not_of(separators)};    // First word start index
   while (start != std::string::npos)                         // Find the words
   {
-    size_t end {text.find_first_of(separators, start + 1)};  // Find end of word
+    std::size_t end {text.find_first_of(separators, start + 1)};  // Find end of word
     if (end == std::string::npos)                            // Found a separator?
       end = text.length();                                   // No, so set to last + 1
     std::string word{ text.substr(start, end - start) };     // Record the word
@@ -39,14 +39,14 @@ int main()
   }
 
   // Find maximum word length
-  size_t max_length {};
+  std::size_t max_length {};
   for (auto& word : words)
     if (max_length < word.length()) max_length = word.length();
 
   std::println("Your string contains the following {} words and counts:", words.size());
-  size_t count {};                       // Numbers of words output
-  const size_t perline {3};              // Number per line
-  for (size_t i {}; i < words.size(); ++i)
+  std::size_t count {};                       // Numbers of words output
+  const std::size_t perline {3};              // Number per line
+  for (std::size_t i {}; i < words.size(); ++i)
   {
     std::print("{:<{}}{:>4}  ", words[i], max_length, counts[i]);
     if (!(++count % perline))

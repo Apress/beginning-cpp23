@@ -62,14 +62,14 @@ int main()
 
   const auto most_common_start_letter{ static_cast<char>('A' + most_common_index) };
 
-  if (counts[most_common_index] == words.size())
+  if (counts[most_common_index] == long_word_count)
   {
-    std::println("The text that you entered is a true tautogram.");
+    std::println("The text that you entered is a tautogram.");
     std::println("All words start with the letter {}.", most_common_start_letter);
   }
   else if (static_cast<double>(counts[most_common_index]) / long_word_count >= near_tautology_ratio_bound)
   {
-    std::println("It is a \"near tautogram\", though, as most longer words do start with the letter {}.", most_common_start_letter);
+    std::println("It is nearly tautogram, as most longer words do start with the letter {}.", most_common_start_letter);
   }
   else
   {

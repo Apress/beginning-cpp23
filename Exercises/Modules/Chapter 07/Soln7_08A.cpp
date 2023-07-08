@@ -1,7 +1,7 @@
 // Exercise 7-8. Testing whether something is a tautogram.
 //
 // The loop based on find_first_of/find_first_not_of we use here is only one of many possible solutions.
-// See Soln7_08A for an alternate solution that first splits the text into a vector of words.
+// See Soln7_08B for an alternate solution that first splits the text into a vector of words.
 //
 // Our solution in this file more or less assumes you enter only characters 
 // that are either a letter or whitespace, 
