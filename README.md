@@ -4,7 +4,7 @@ This repository will accompany *Beginning C++23* by Ivor Horton and Peter Van We
 the upcoming new edition of [*Beginning C++20*](https://www.apress.com/9781484258835).
 
 [comment]: #cover
-![Cover image](9781484258835.jpg)
+![Cover image](BeginningCpp23.jpg)
 
 Download the files as a zip using the green button, or clone the repository to your machine using Git. 
 To make sure you also clone the 3rd party submodules in the [Workarounds](Workarounds) directory, 
