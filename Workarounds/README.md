@@ -1,3 +1,8 @@
+> **Warning**
+> The Workarounds section has not been updated for the C++23 version of the book yet.
+> We will do so soon!
+
+
 # Workarounds
 
 At the time the book was completed, 
