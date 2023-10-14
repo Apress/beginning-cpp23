@@ -6,6 +6,8 @@ This repository accompanies [*Beginning C++23*](https://link.springer.com/book/1
 
 Download the files as a zip using the green button, or clone the repository to your machine using [Git](https://docs.github.com/en/get-started/quickstart). 
 
+## Compiling
+
 Except where errors are made on purpose (see book), all source code is valid C++23.
 See https://en.cppreference.com/w/cpp/compiler_support/23 for an overview the compiler support for C++23.
 Our [Workarounds](workarounds) section may assist you in working around any missing features.
