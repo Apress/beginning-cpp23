@@ -30,7 +30,7 @@ public:
     return closing_brace;
   }
 
-  auto format(const Box& box, auto& context)
+  auto format(const Box& box, auto& context) const  // const was missing in the book...
   {
     auto iter{ context.out() };
     if (!m_no_box)

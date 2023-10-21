@@ -34,7 +34,7 @@ public:
     return closing_brace;
   }
 
-  auto format(const Box& box, std::format_context& context)
+  auto format(const Box& box, std::format_context& context) const   // const was missing in the book...
   {
     // Not the most efficient approach, but it'll do...
     const auto replacement_field{ std::string{ "{:" } + m_format + '}' };

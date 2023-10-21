@@ -7,7 +7,7 @@ export template <>
 class std::formatter<Box> : public std::formatter<double>
 {
 public:
-  auto format(const Box& box, auto& context)
+  auto format(const Box& box, auto& context) const  // const was missing in the book...
   {
     auto iter{ std::format_to(context.out(), "Box(") };
     context.advance_to(iter);
