@@ -15,3 +15,5 @@ Our [workarounds](./Workarounds) section may assist you in working around any mi
 ## Contributions
 
 See the file [Contributing.md](Contributing.md) for more information on how you can contribute to this repository.
+Any errata may be submitted either through the [Apress arrata submission form](https://www.apress.com/gp/services/errata).
+
