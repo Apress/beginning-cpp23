@@ -1,5 +1,5 @@
 // Removing all elements that satisfy a certain condition 
-// usign the remove-erase idiom
+// using the remove-erase idiom
 import std;
 
 std::vector<int> fillVector_1toN(int N);  // Fill a vector with 1, 2, ..., N
