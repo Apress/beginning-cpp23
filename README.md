@@ -15,5 +15,11 @@ Our [workarounds](./Workarounds) section may assist you in working around any mi
 ## Contributions
 
 See the file [Contributing.md](Contributing.md) for more information on how you can contribute to this repository.
-Any errata may be submitted either through the [Apress arrata submission form](https://www.apress.com/gp/services/errata).
+
+
+## Errata
+
+See [Errata.md](Errata.md) for a list of known mistakes in the book.
+Any additional errata may be submitted either through the [Apress arrata submission form](https://www.apress.com/gp/services/errata),
+or as an Issues or Pull request on this Github repository.
 
