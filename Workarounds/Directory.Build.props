@@ -1,0 +1,7 @@
+<Project>
+<ItemDefinitionGroup>
+<ClCompile>
+<ScanSourceforModuleDependencies>true</ScanSourceforModuleDependencies>
+</ClCompile>
+</ItemDefinitionGroup>
+</Project>
