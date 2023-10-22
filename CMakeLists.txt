@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.28) # Untested with earlier versions...
+cmake_minimum_required (VERSION 3.28)
 project (BeginningCpp LANGUAGES CXX)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -6,10 +6,12 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
+# Add source code of the workarounds to the solution (see also forced includes below)
 file( GLOB workarounds "Workarounds/*.h" )
 add_library(Workarounds STATIC ${workarounds})
 set_target_properties(Workarounds PROPERTIES LINKER_LANGUAGE CXX)
 
+# Enable Scan Sources for Module Dependencies property of Visual Studio
 if(MSVC)
 configure_file("Workarounds/Directory.Build.props" "Directory.Build.props" COPYONLY)
 endif()
@@ -30,6 +32,7 @@ foreach( chapter_dir ${chapter_dirs} )
 					add_executable( ${project_name} ${child} )
 				endif()
 				
+				# Inject workarounds in each file through forced #includes...
 				target_include_directories(${project_name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Workarounds/)
 				if(MSVC)
 					target_compile_options(${project_name} PRIVATE /W4 /w34062 /FIworkarounds.h)
