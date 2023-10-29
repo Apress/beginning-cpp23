@@ -3,7 +3,7 @@
 
 #import std                        // The # character is not allowed for import directives,
                                    // and a missing semicolon at the end of the line.
-Int main                           // Should be int, not Int. main() needs parantheses.
+Int main                           // Should be int, not Int. main() needs parentheses.
 {                                  // There's no closing curly brace, but a parenthesis instead.
   std:printn("Holla Mundo!")       // A semicolon is missing from the end of this line as well,
 )                                  // the correct function name is println() ("print line"),
