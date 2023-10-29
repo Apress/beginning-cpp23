@@ -6,7 +6,7 @@ Unfortunately, though, at the time of writing, no compiler supports all latest f
 See https://en.cppreference.com/w/cpp/compiler_support for an overview of C++ compiler support.
 
 Visual Studio is the only mainstream compiler to officially support modules,
-it is by far the easiest option to get started with C++23.
+making it is by far the easiest option to get started with C++23.
 It is also the compiler we used when preparing the book.
 
 > [!WARNING] 
@@ -56,8 +56,8 @@ You should find projects for all examples and exercises of the book, grouped per
 
 <img src="Images/VisualStudio.png" alt="Visual Studio solution"/>
 
-For each exercise, there is one stub project in which you can try your solution,
-and one projecting containing our reference solution.
+For each exercise, there is one stub project from which you can start when solving the exercise,
+and one project containing our reference solution.
    
 For your convenience, 
 we highly recommend you to let Visual Studio use the currently selected project as "Startup project".
@@ -76,7 +76,7 @@ Either way, under Common Properties &blacktriangleright; Startup Project, select
 Once that's done, you simply select any of the projects or opened files, 
 and press the green arrow in the toolbar at the top to compile and run the active project.
 
-### Creating Projects Yourself
+### Configuring Your Own Visual Studio Projects
 
 When creating your own Visual Studio project:
 - Under General &blacktriangleright; C++ Standard Language select "Preview - Features from the Latest C++ Working Draft (/std:c++latest)"
