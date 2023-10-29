@@ -81,3 +81,4 @@ and press the green arrow in the toolbar at the top to compile and run the activ
 When creating your own Visual Studio project:
 - Under General &blacktriangleright; C++ Standard Language select "Preview - Features from the Latest C++ Working Draft (/std:c++latest)"
 - Easiest it to set C/C++ &blacktriangleright; General &blacktriangleright; Scan Sources for Module Dependencies to "Yes"
+- Force include the [`workarounds.h`](Workarounds/workarounds.h) header by specifying it in C/C++ &blacktriangleright; Advanced &blacktriangleright; Forced Include File. You'll need to add the`Workarounds` folder to C/C++ &blacktriangleright; General &blacktriangleright; Additional Include Directories first.
