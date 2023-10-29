@@ -8,9 +8,8 @@ Download the files as a zip using the green button, or clone the repository to y
 
 ## Compiling
 
-Except where errors are made on purpose (see book), all source code is valid C++23.
-See https://en.cppreference.com/w/cpp/compiler_support/23 for an overview the compiler support for C++23.
-Our [workarounds](./Workarounds) section may assist you in working around any missing features.
+[Compiling.md](Compiling.md) contains a guide on how to compile source code for the book.
+Our [workarounds](./Workarounds) section may assist you in working around any features your compiler is lacking.
 
 ## Contributions
 
